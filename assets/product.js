@@ -62,6 +62,17 @@ $(".size-select-item").click(function() {
   $("#size-select").hide("fast", function() {});
 });
 
+// Show and hide the size drop down menu when you activate via keyboard it or select a size
+$(".currrent-size-wrap").onkeydown(function() {
+  $("#size-select").toggle("fast", function() {});
+  $("#color-select").hide("fast", function() {});
+  $("#quality-select").hide("fast", function() {});
+
+});
+$(".size-select-item").onkeydown(function() {
+  $("#size-select").hide("fast", function() {});
+});
+
 
 
 

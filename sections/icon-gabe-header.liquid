@@ -21,7 +21,7 @@
 		</div>
 		<div class="general-overlay"></div>
 		<div class="mobile-image hide-for-large" style="background: url({{ section.settings.bgImage | img_url: 'master' }}) no-repeat center center/cover"></div>
-		<video class="slide-video slide-media show-for-large" autoplay loop muted preload="metadata" poster="{{ section.settings.bgImage | img_url: 'master' }}">
+		<video class="slide-video slide-media show-for-large" controls autoplay loop muted preload="metadata" poster="{{ section.settings.bgImage | img_url: 'master' }}">
 			<source src="{{ section.settings.videoURLBG }}" type="video/mp4" />
 		</video>
 	</div>

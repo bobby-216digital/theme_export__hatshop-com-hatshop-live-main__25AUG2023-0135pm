@@ -2,14 +2,14 @@
 <div class="grid-container">
 	<div class="grid-x grid-padding-x align-middle section-space80">
 		<div class="large-7 cell">
-			<a href="{{ section.settings.harefeltfeltBannerLink }}" class="zoom" data-hover-id="hfb"><img src="{{ section.settings.harefeltBannerImgage | img_url: 'master' }}"></a>
+			<a href="{{ section.settings.harefeltfeltBannerLink }}" class="zoom" data-hover-id="hfb"><img src="{{ section.settings.harefeltBannerImgage | img_url: 'master' }}" alt="{{ section.settings.harefeltBannertitle }}"></a>
 		</div>
 		<div class="medium-5 cell">
 			<div class="support-text">
 				<h5>{{ section.settings.harefeltBannerSmalltitle }}</h5>
 				<h3>{{ section.settings.harefeltBannertitle }}</h3>
 				<div class="banner-text">{{ section.settings.harefeltBannerDescription }}</div>
-				{% if section.settings.harefeltfeltBannerLink %}<a href="{{ section.settings.harefeltfeltBannerLink }}" class="cta dark link-activate" data-hover-id="hfb">{{ section.settings.harefeltBannerLinkText }}</a>{%endif %}
+				{% if section.settings.harefeltfeltBannerLink %}<a href="{{ section.settings.harefeltfeltBannerLink }}" class="cta dark link-activate" data-hover-id="hfb" aria-label="{{ section.settings.harefeltBannerLinkText }}">{{ section.settings.harefeltBannerLinkText }}</a>{%endif %}
 			</div>
 		</div>
 	</div>

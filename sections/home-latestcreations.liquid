@@ -23,10 +23,10 @@
 		<!-- Latest Creation -->
 		<div class="grid-x align-middle section-space latest-creations odd">
 			<div class="medium-6 small-5 cell text-center">
-				<a href="{{ lcp.url }}"><img src="{{lcp.metafields.accentuate.productImg}}" class="prod-image" /></a>
+				<a href="{{ lcp.url }}"><img src="{{lcp.metafields.accentuate.productImg}}" class="prod-image" alt="{{ lcp.title }}" /></a>
 			</div>
 			<div class="medium-6 small-7 cell">
-				<a href="{{ lcp.url }}" class="zoom"><img src="{{ block.settings.largeImage | img_url: 'master' }}" class="latest-creation-image" /></a>
+				<a href="{{ lcp.url }}" class="zoom"><img src="{{ block.settings.largeImage | img_url: 'master' }}" class="latest-creation-image" alt="{{ lcp.title }}" /></a>
 			</div>
 			<div class="medium-12 small-12 cell text-center latest-creations-text">
 				<h2><a href="{{ lcp.url }}">{{ lcp.title }}</a></h2>
@@ -39,10 +39,10 @@
 		<div class="grid-x align-middle section-space latest-creations even">
 
 			<div class="medium-6 small-7 cell">
-				<a href="{{ lcp.url }}" class="zoom"><img src="{{ block.settings.largeImage | img_url: 'master' }}" class="latest-creation-image" /></a>
+				<a href="{{ lcp.url }}" class="zoom"><img src="{{ block.settings.largeImage | img_url: 'master' }}" class="latest-creation-image" alt="{{ lcp.title }}" /></a>
 			</div>
 			<div class="medium-6 small-5 cell text-center">
-				<a href="{{ lcp.url }}"><img src="{{lcp.metafields.accentuate.productImg}}" class="prod-image" /></a>
+				<a href="{{ lcp.url }}"><img src="{{lcp.metafields.accentuate.productImg}}" class="prod-image" alt="{{ lcp.title }}" /></a>
 			</div>
 			<div class="medium-12 small-12 cell text-center latest-creations-text">
 				<h2><a href="{{ lcp.url }}">{{ lcp.title }}</a></h2>
@@ -77,12 +77,12 @@
 	<div class="grid-container show-for-large">
 		<div class="grid-x grid-padding-x align-middle section-space latest-creations">
 			<div class="medium-6 small-6 cell text-center latest-creations-text">
-				<a href="{{ lcp2.url }}" class="zoom" data-hover-id="{{ lcp2.handle }}"><img src="{{lcp2.metafields.accentuate.productImg}}" class="prod-image" /></a>
+				<a href="{{ lcp2.url }}" class="zoom" data-hover-id="{{ lcp2.handle }}"><img src="{{lcp2.metafields.accentuate.productImg}}" class="prod-image" alt="{{ lcp2.title }}" /></a>
 				<h2><a href="{{ lcp2.url }}" class="link-activate" data-hover-id="{{ lcp2.handle }}">{{ lcp2.title }}</a></h2>
 				<span class="price">{{ lcp2.price | money  }}</span>
 			</div>
 			<div class="medium-6 small-6 cell">
-				<a href="{{ lcp2.url }}" class="zoom"><img src="{{ block.settings.largeImage | img_url: 'master' }}" class="latest-creation-image" /></a>
+				<a href="{{ lcp2.url }}" class="zoom"><img src="{{ block.settings.largeImage | img_url: 'master' }}" class="latest-creation-image" alt="{{ lcp2.title }}" /></a>
 			</div>
 		</div>
 	</div>
@@ -93,10 +93,10 @@
 	<div class="grid-container show-for-large">
 		<div class="grid-x grid-padding-x align-middle section-space latest-creations">
 			<div class="medium-6 small-6 cell">
-				<a href="{{ lcp2.url }}" class="zoom"><img src="{{ block.settings.largeImage | img_url: 'master' }}" class="latest-creation-image" /></a>
+				<a href="{{ lcp2.url }}" class="zoom"><img src="{{ block.settings.largeImage | img_url: 'master' }}" class="latest-creation-image" alt="{{ lcp2.title }}" /></a>
 			</div>
 			<div class="medium-6 small-6 cell text-center latest-creations-text">
-				<a href="{{ lcp2.url }}" class="zoom" data-hover-id="{{ lcp2.handle }}"><img src="{{lcp2.metafields.accentuate.productImg}}" class="prod-image" /></a>
+				<a href="{{ lcp2.url }}" class="zoom" data-hover-id="{{ lcp2.handle }}"><img src="{{lcp2.metafields.accentuate.productImg}}" class="prod-image" alt="{{ lcp2.title }}" /></a>
 				<h2><a href="{{ lcp.url }}" class="link-activate" data-hover-id="{{ lcp2.handle }}">{{ lcp2.title }}</a></h2>
 				<span class="price">{{ lcp2.price | money }}</span>
 			</div>

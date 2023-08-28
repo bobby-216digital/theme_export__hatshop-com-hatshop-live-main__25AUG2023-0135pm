@@ -42,7 +42,7 @@
               {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
               {% for selected_handle in selected_handles %}
                 <a href="{{ all_products[selected_handle].url }}"  class="color-swatch-wrap" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}">
-                  <img src="{{ all_products[selected_handle].metafields.accentuate.swatchImage }}"  width="16" height="16" class="product-list-swatch color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+                  <img src="{{ all_products[selected_handle].metafields.accentuate.swatchImage }}"  width="16" height="16" class="product-list-swatch color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" alt="{{ all_products[selected_handle].title | remove: '-' }}" />
                 </a>
               {% endfor %}
             </div>

@@ -32,7 +32,7 @@
 			        <div class="lifestyle-product">
 						{% for value in product.metafields.image.image %}
 						<!-- Row type one image -->
-						<img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}">
+						<img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" alt="{{ product.title | escape }}">
 						{% endfor %}
 			        </div>
 			    </div>
@@ -50,10 +50,10 @@
 				<p class="price prod-detail-price" id="price"></p>
 				<form data-cart-submit="data-cart-submit" class="prod-form relative" name="productForm">
 					<!-- Color selection -->
-					<div id="color-select-wrap" class="relative">
+					<div id="color-select-wrap" class="relative" tabindex="0">
 						<div id="current-color">
 							<div class="current-color-img-wrap">
-								<img src="{{ product.metafields.accentuate.swatchImage }}" />
+								<img src="{{ product.metafields.accentuate.swatchImage }}" alt="" />
 							</div>
 							<p>Color  <span>Please Select</span></p>
 							<br clear="all" />
@@ -63,14 +63,13 @@
 			                {% for selected_colors in selected_colors %}
 							<!-- Single color ouput -->
 							<a href="{{ all_products[selected_colors].url }}">
-								<label for="productColor" class="color-select-item" onClick="{{ all_products[selected_colors].url }}">
-									<input type="radio" name="color" class="color-select">
+								<div class="color-select-item">
 									<div class="color-img-wrap">
-										<img src="{{ all_products[selected_colors].metafields.accentuate.swatchImage }}" />
+										<img src="{{ all_products[selected_colors].metafields.accentuate.swatchImage }}" alt="" />
 									</div>
 									<span>{{ all_products[selected_colors].title }}</span>
 									<br clear="all" />
-								</label>
+                                </div>
 							</a>
 							{% endfor %}
 						</div>
@@ -154,7 +153,7 @@
               <div class="large-3 small-3 cell">
                 <div id="quantity-select">
                   <div class="quantity-select-item">
-                    <input type="number" id="q1" name="quantity" value="1">
+                    <input title="Quantity" type="number" id="q1" name="quantity" value="1">
                   </div>
                 </div>
               </div>
@@ -242,7 +241,7 @@
         </div>
       </div>
       <div class="large-7 cell">
-        <img src="{{ product.metafields.moreImage.moreImage[forloop.index0] }}" />
+        <img src="{{ product.metafields.moreImage.moreImage[forloop.index0] }}" alt="" />
       </div>
     </div>
 
@@ -250,7 +249,7 @@
     <!-- Non-product related image left -->
     <div class="grid-x grid-padding-x align-middle section-space80">
       <div class="large-7 cell">
-        <img src="{{ product.metafields.moreImage.moreImage[forloop.index0] }}" />
+        <img src="{{ product.metafields.moreImage.moreImage[forloop.index0] }}" alt="" />
       </div>
       <div class="large-5 cell">
         <div class="support-text">
@@ -287,7 +286,7 @@
     <span aria-hidden="true">&times;</span>
   </button>
   {% for image in product.images %}
-  <img src="{{ image.src | img_url: '2048x2048' }}" data-close>
+  <img src="{{ image.src | img_url: '2048x2048' }}" alt="" data-close>
   {% endfor %}
 </div>
 

@@ -132,6 +132,7 @@ $('#nav-underneath-my-hat, #subnav-umh').on("mouseenter", function()  {
     $('header').removeClass("transparent2");
 });
 
+
 //subnav product image hover
 $('#subnav-shop .nav-item').hover(function() {
     var myEm = $(this).attr('data-image-id');

@@ -28,14 +28,14 @@
       <div class="medium-4 cell small-order-2 medium-order-1">
         {% if collection.handle == "men" or collection.handle == "women" %}
         {% else %}
-        <h2 class="small-body-title">{{ collection.metafields.accentuate.parentcollection}}</h2>
+        {% if collection.metafields.accentuate.parentcollection == "" %}<div></div>{% else %}<h2 class="small-body-title">{{ collection.metafields.accentuate.parentcollection}}</h2>{% endif %}
         {% endif %}
         <h1>{{ collection.metafields.accentuate.short_name}}</h1>
         {{ 'lines.png' | asset_url | img_tag: 'A line' }}<br />
         {{ collection.description }}
       </div>
       <div class="medium-7 medium-offset-1 cell small-order-1 medium-order-2">
-	  	<a href="#" class="zoom"><img src="{{ collection.metafields.accentuate.collection_header_image }}" class="collection-header-image" /></a>
+	  	<a href="#" class="zoom" aria-label="{{ collection.metafields.accentuate.short_name }}"><img src="{{ collection.metafields.accentuate.collection_header_image }}" class="collection-header-image" alt="" /></a>
       </div>
     </div>
   </div>
@@ -115,10 +115,10 @@ $(function() {
   <div class="grid-container">
     <div class="grid-x grid-padding-x product-list-top show-for-large">
       <div class="medium-6 cell">
-        <span class="small-body-title">Filters</span>
+        <strong class="small-body-title">Filters</strong>
       </div>
       <div class="medium-6 cell text-right">
-        <select id="sort-by" dir="rtl">
+        <select title="Sort By:" id="sort-by" dir="rtl">
 		      <option value="" selected>Sort</option>
           <option value="manual">Featured</option>
 		      <option value="best-selling">Best Selling</option>
@@ -422,12 +422,12 @@ $(function() {
 			                    {% endif %}
 			                    {% endfor %}
 			                  {% else %}
-			                    <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" />
+			                    <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" alt="" />
 			                  {% endif %}
 			
 			                  {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
 			                  {% for selected_handle in selected_handles %}
-			                    <img src="{{ all_products[selected_handle].metafields.accentuate.productImg }}" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" class="prod-hat-color {{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+			                    <img src="{{ all_products[selected_handle].metafields.accentuate.productImg }}" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" class="prod-hat-color {{ all_products[selected_handle].title | downcase | remove: ' ' }}" alt="{{ all_products[selected_handle].title | remove: '-' }}" />
 			                  {% endfor %}
 			
 			                </div>
@@ -449,7 +449,7 @@ $(function() {
 			                  {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
 			                  {% for selected_handle in selected_handles %}
 			                    <a href="{{ all_products[selected_handle].url }}"  class="color-swatch-wrap" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}">
-			                      <img src="{{ all_products[selected_handle].metafields.accentuate.swatchImage }}"  width="16" height="16" class="product-list-swatch color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+			                      <img src="{{ all_products[selected_handle].metafields.accentuate.swatchImage }}"  width="16" height="16" class="product-list-swatch color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" alt="{{ all_products[selected_handle].title | remove: '-' }}" />
 			                    </a>
 			                  {% endfor %}
 			                </div>
@@ -491,12 +491,12 @@ $(function() {
 			                    {% endif %}
 			                    {% endfor %}
 			                  {% else %}
-			                    <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" />
+			                    <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" alt="" />
 			                  {% endif %}
 			
 			                  {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
 			                  {% for selected_handle in selected_handles %}
-			                    <img src="{{ all_products[selected_handle].metafields.accentuate.productImg }}" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" class="prod-hat-color {{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+			                    <img src="{{ all_products[selected_handle].metafields.accentuate.productImg }}" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" class="prod-hat-color {{ all_products[selected_handle].title | downcase | remove: ' ' }}" alt="{{ all_products[selected_handle].title | remove: '-' }}" />
 			                  {% endfor %}
 			
 			                </div>
@@ -518,7 +518,7 @@ $(function() {
 			                  {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
 			                  {% for selected_handle in selected_handles %}
 			                    <a href="{{ all_products[selected_handle].url }}"  class="color-swatch-wrap" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}">
-			                      <img src="{{ all_products[selected_handle].metafields.accentuate.swatchImage }}"  width="16" height="16" class="product-list-swatch color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+			                      <img src="{{ all_products[selected_handle].metafields.accentuate.swatchImage }}"  width="16" height="16" class="product-list-swatch color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" alt="{{ all_products[selected_handle].title | remove: '-' }}" />
 			                    </a>
 			                  {% endfor %}
 			                </div>
@@ -560,12 +560,12 @@ $(function() {
                     {% endif %}
                     {% endfor %}
                   {% else %}
-                    <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" />
+                    <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" alt=""/>
                   {% endif %}
 
                   {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
                   {% for selected_handle in selected_handles %}
-                    <img src="{{ all_products[selected_handle].metafields.accentuate.productImg }}" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" class="prod-hat-color {{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+                    <img src="{{ all_products[selected_handle].metafields.accentuate.productImg }}" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" class="prod-hat-color {{ all_products[selected_handle].title | downcase | remove: ' ' }}" alt="{{ all_products[selected_handle].title | remove: '-' }}" />
                   {% endfor %}
 
                 </div>
@@ -587,7 +587,7 @@ $(function() {
                   {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
                   {% for selected_handle in selected_handles %}
                     <a href="{{ all_products[selected_handle].url }}"  class="color-swatch-wrap" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}">
-                      <img src="{{ all_products[selected_handle].metafields.accentuate.swatchImage }}"  width="16" height="16" class="product-list-swatch color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+                      <img src="{{ all_products[selected_handle].metafields.accentuate.swatchImage }}"  width="16" height="16" class="product-list-swatch color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" alt="{{ all_products[selected_handle].title | remove: '-' }}" />
                     </a>
                   {% endfor %}
                 </div>

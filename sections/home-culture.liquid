@@ -13,12 +13,12 @@
 		<div class="grid-x grid-padding-x">
 			<h3 class="medium-12 cell">{{ section.settings.cultureTitle }}</h3>
 			<div class="medium-6 cell">
-				<a href="{{ section.settings.photoLeftURL }}" class="zoom" data-hover-id="cultureLeft"><img src="{{ section.settings.photoLeft | img_url: '900x900' }}" /></a>
+				<a href="{{ section.settings.photoLeftURL }}" class="zoom" data-hover-id="cultureLeft"><img src="{{ section.settings.photoLeft | img_url: '900x900' }}" alt="{{ section.settings.photoLeftTitle }}" /></a>
 				<h4><a href="{{ section.settings.photoLeftURL }}" class="link-activate" data-hover-id="cultureLeft">{{ section.settings.photoLeftTitle }}</a></h4>
 				<p class="home-orlando-type"><a href="{{ section.settings.photoLeftTypeLink }}">{{ section.settings.photoLeftType }}</a></p>
 			</div>
 			<div class="medium-6 cell">
-				<a href="{{ section.settings.photoRightURL }}" class="zoom" data-hover-id="cultureRight"><img src="{{ section.settings.photoRight | img_url: '900x900' }}" /></a>
+				<a href="{{ section.settings.photoRightURL }}" class="zoom" data-hover-id="cultureRight"><img src="{{ section.settings.photoRight | img_url: '900x900' }}" alt="{{ section.settings.photoRightTitle }}" /></a>
 				<h4><a href="{{ section.settings.photoRightURL }}" class="link-activate" data-hover-id="cultureRight">{{ section.settings.photoRightTitle }}</a></h4>
 				<p  class="home-orlando-type"><a href="{{ section.settings.photoRightTypeLink }}">{{ section.settings.photoRightType }}</a></p>
 			</div>

@@ -11,23 +11,23 @@
 		<div class="grid-x grid-padding-x">
 			<!-- Latest hat -->
 			<div class="medium-5 cell">
-				<a href="{{ section.settings.photoLeftURL }}" class="zoom" data-hover-id="photoLU"><img src="{{ section.settings.photoLeft | img_url: 'master' }}" class="home-orlando-latest" /></a>
+				<a href="{{ section.settings.photoLeftURL }}" class="zoom" data-hover-id="photoLU"><img src="{{ section.settings.photoLeft | img_url: 'master' }}" class="home-orlando-latest" alt="{{ section.settings.photoLeftTitle }}" /></a>
 				<h4><a href="{{ section.settings.photoLeftURL }}" class="link-activate" data-hover-id="photoLU">{{ section.settings.photoLeftTitle }}</a></h4>
 			</div>
 			<!-- Explore -->
 			<div class="medium-7 cell">
-				<a href="{{ section.settings.photoRightURL }}" class="zoom" data-hover-id="photoRU"><img src="{{ section.settings.photoRight | img_url: 'master' }}" class="home-orlando-explore" /></a>
+				<a href="{{ section.settings.photoRightURL }}" class="zoom" data-hover-id="photoRU"><img src="{{ section.settings.photoRight | img_url: 'master' }}" class="home-orlando-explore" alt="{{ section.settings.hatsTitle }}" /></a>
 				<h4 class="home-explore-title photoRightlink"><a href="{{ section.settings.photoRightURL }}" class="link-activate" data-hover-id="photoRU">{{ section.settings.hatsTitle }}</a></h4>
 				<div class="grid-x grid-padding-x align-center">
 					{% assign featured1 = all_products[section.settings.featured1] %}
 					<div class="medium-5 small-6 cell text-center">
-						<a href="{{ featured1.url }}" class="zoom" data-hover-id="featured1"><img src="{{featured1.metafields.accentuate.productImg}}" /></a>
+						<a href="{{ featured1.url }}" class="zoom" data-hover-id="featured1"><img src="{{featured1.metafields.accentuate.productImg}}" alt="{{ featured1.title }}" /></a>
 						<p class="home-orlando-hat"><a href="{{ featured1.url }}" class="link-activate" data-hover-id="featured1">{{ featured1.title }}</a></p>
 						<p class="home-orlando-type"><a href="{{ section.settings.hatLink1 }}">{{ section.settings.hatType1 }}</a></p>
 					</div>
 					{% assign featured2 = all_products[section.settings.featured2] %}
 					<div class="medium-5 small-6 cell text-center">
-						<a href="{{ featured2.url }}" class="zoom" data-hover-id="featured2"><img src="{{featured2.metafields.accentuate.productImg}}" /></a>
+						<a href="{{ featured2.url }}" class="zoom" data-hover-id="featured2"><img src="{{featured2.metafields.accentuate.productImg}}" alt="{{ featured2.title }}" /></a>
 						<p class="home-orlando-hat"><a href="{{ featured2.url }}" class="link-activate" data-hover-id="featured2">{{ featured2.title }}</a></p>
 						<p class="home-orlando-type"><a href="{{ section.settings.hatLink2 }}">{{ section.settings.hatType2 }}</a></p>
 					</div>

@@ -18,7 +18,7 @@
 
 							{% for image in product.images %}
 							{% capture count %}{% increment _count %}{% endcapture %}
-							<a href="#go{{ count }}" style="background-image: url('{{ image.src | img_url: 'master' }}')">
+							<a href="#go{{ count }}" style="background-image: url('{{ image.src | img_url: 'master' }}')" aria-label="{{ product.title | escape }}">
 							</a>
 							{% endfor %}
 
@@ -36,7 +36,7 @@
 						<div class="lifestyle-product">
 							{% for value in product.metafields.image.image %}
 							<!-- Row type one image -->
-							<a href="#" class="zoom"><img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-open="productImages"></a>
+							<a href="#" class="zoom"><img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-open="productImages" alt="{{ product.title | escape }}" ></a>
 							{% endfor %}
 						</div>
 					</div>
@@ -76,7 +76,7 @@
 						<div id="color-select-wrap" class="relative">
 							<div id="current-color">
 								<div class="current-color-img-wrap">
-									<img src="{{ product.metafields.accentuate.swatchImage }}" />
+									<img src="{{ product.metafields.accentuate.swatchImage }}" alt="{{ product.metafields.accentuate.color_short_name }}" />
 								</div>
 								<p>Color  <span>{{ product.metafields.accentuate.color_short_name }}</span></p>
 								<br clear="all" />
@@ -87,9 +87,9 @@
 								<!-- Single color ouput -->
 								<a href="{{ all_products[selected_colors].url }}">
 									<label for="productColor" class="color-select-item" onClick="{{ all_products[selected_colors].url }}">
-										<input type="radio" name="color" class="color-select">
+										<input title="Color Selection" type="radio" name="color" class="color-select">
 										<div class="color-img-wrap">
-											<img src="{{ all_products[selected_colors].metafields.accentuate.swatchImage }}" />
+											<img src="{{ all_products[selected_colors].metafields.accentuate.swatchImage }}" alt="{{ all_products[selected_colors].metafields.accentuate.color_short_name }}" />
 										</div>
 										<span>{{ all_products[selected_colors].metafields.accentuate.color_short_name }}</span>
 										<br clear="all" />
@@ -178,7 +178,7 @@
 							<div class="large-3 small-3 cell">
 								<div id="quantity-select">
 									<div class="quantity-select-item">
-										<input type="number" id="q1" name="quantity" value="1" min="1">
+										<input title="Quantity" type="number" id="q1" name="quantity" value="1" min="1">
 									</div>
 								</div>
 							</div>
@@ -215,7 +215,7 @@
 						<div class="cycle-slideshow" data-open="productImages" data-cycle-prev="#prev" data-cycle-next="#next" data-cycle-timeout="0" data-cycle-slides="> a">
 							{% for image in product.images %}
 							{% capture count %}{% increment _count %}{% endcapture %}
-							<a href="#go{{ count }}" style="background-image: url('{{ image.src | img_url: 'master' }}')"></a>
+							<a href="#go{{ count }}" style="background-image: url('{{ image.src | img_url: 'master' }}')" aria-label="{{ product.title | escape }}"></a>
 							{% endfor %}
 						</div>
 						<span class="fs-trigger" style="display:none;"></span>
@@ -264,7 +264,7 @@
 								<!-- Single color ouput -->
 								<a href="{{ all_products[selected_colors].url }}">
 									<label for="productColor" class="color-select-item" onClick="{{ all_products[selected_colors].url }}">
-										<input type="radio" name="color" class="color-select">
+										<input title="Color Selection" type="radio" name="color" class="color-select">
 										<div class="color-img-wrap">
 											<img src="{{ all_products[selected_colors].metafields.accentuate.swatchImage }}" />
 										</div>
@@ -357,7 +357,7 @@
 	              <div class="large-3 small-3 cell">
 	                <div id="quantity-select">
 	                  <div class="quantity-select-item">
-	                    <input type="number" id="q1" name="quantity" value="1">
+	                    <input title="Quantity" type="number" id="q1" name="quantity" value="1">
 	                  </div>
 	                </div>
 	              </div>
@@ -387,7 +387,7 @@
 		  		<div class="lifestyle-product">
 	  				{% for value in product.metafields.image.image %}
 	  				<!-- Row type one image -->
-	  				<a href="#" class="zoom"><img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-open="productImages"></a>
+	  				<a href="#" class="zoom"><img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-open="productImages" alt="{{ product.title | escape }}" ></a>
 	  				{% endfor %}
 		      </div>
 		      </div>
@@ -567,7 +567,7 @@
 							{% endif %}
 							{% endfor %}
 							{% else %}
-							<img src="{{all_products[selected_handle].metafields.accentuate.productImg}}" class="prod-hat base-img" />
+							<img src="{{all_products[selected_handle].metafields.accentuate.productImg}}" class="prod-hat base-img" alt="" />
 							{% endif %}
 						</div>
 					</a>
@@ -598,7 +598,7 @@
 
   <!-- Pull product additional lifestyle images -->
  <!-- {% for value in product.metafields.image.image %}
-  <img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-close>
+  <img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-close alt="{{ product.title | escape }}">
   {% endfor %}-->
 
 </div>

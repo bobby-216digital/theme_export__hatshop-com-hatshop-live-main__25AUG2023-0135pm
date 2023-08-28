@@ -553,7 +553,7 @@
 
 
 
-<button class="button open1" style="position: absolute;opacity:0;bottom:0;" data-open="popupTrigger"></button>
+<button title="Open Popup" class="button open1" style="position: absolute;opacity:0;bottom:0;" data-open="popupTrigger"></button>
 
 
 
@@ -663,15 +663,15 @@
   <div class="grid-container grid-x">
     <div class="medium-6 cell">
       <div class="imgCrop">
-        <img class="popupDesktopImg" src="{{ block.settings.image2 | img_url: '660x850' }}" />
-        <img class="popupMobileImg" src="{{ block.settings.imageMob2 | img_url: '660x500' }}" />
+        <img class="popupDesktopImg" src="{{ block.settings.image2 | img_url: '660x850' }}" alt="" />
+        <img class="popupMobileImg" src="{{ block.settings.imageMob2 | img_url: '660x500' }}" alt="" />
 
       </div>
     </div>
     <div class="medium-6 cell">
       <div class="popupWrap">
         <h1>{{ block.settings.title2 }}</h1>
-        <img class="popupLine" src="{{ "popupLine.png" | asset_url }}" />
+        <img class="popupLine" src="{{ "popupLine.png" | asset_url }}" alt="" />
         <h2>{{ block.settings.content2 }}</h2>
         <div class="grid-x grid-padding-x align-center">
           <div class="medium-12 cell mobile-signup">
@@ -746,8 +746,8 @@
   <div class="grid-container grid-x">
     <div class="large-6 medium-12 cell">
       <div class="imgCrop">
-        <img class="popupDesktopImg" src="{{ block.settings.image3 | img_url: '789x1056' }}" />
-        <img class="popupMobileImg" src="{{ block.settings.imageMob3 | img_url: '589x433' }}" />
+        <img class="popupDesktopImg" src="{{ block.settings.image3 | img_url: '789x1056' }}" alt="" />
+        <img class="popupMobileImg" src="{{ block.settings.imageMob3 | img_url: '589x433' }}" alt="" />
       </div>
     </div>
     <div class="large-6 medium-12 cell">
@@ -755,7 +755,7 @@
         <span class="popupIntro">{{ block.settings.pretitle3 }}</span>
         <h1>{{ block.settings.title3 }}</h1>
         <h2>{{ block.settings.subtitle3 }}</h2>
-        <img class="popupLine" src="{{ "popupLine.png" | asset_url }}" />
+        <img class="popupLine" src="{{ "popupLine.png" | asset_url }}" alt="" />
         <p>{{ block.settings.content3 }}</p>
         <a class="button brownButton" onClick="ga('send', 'event', 'popup', 'Visit-Sale', 'Yellow-Button', 10);" href="{{ block.settings.url3 }}">{{ block.settings.linktitle3 }}</a>
       </div>
@@ -779,7 +779,7 @@
       <p class="popupIntro">{{ block.settings.pretitle4 }}</p>
       <h2>{{ block.settings.title4 }}</h2>
       <h1>{{ block.settings.subtitle4 }}</h1>
-      <img class="popupLine" src="{{ "popupLine.png" | asset_url }}" />
+      <img class="popupLine" src="{{ "popupLine.png" | asset_url }}" alt="" />
       <p style="margin-top:10px;">{{ block.settings.content4 }}</p>
       <a class="button brownButton" href="{{ block.settings.url4 }}">{{ block.settings.linktitle4 }}</a>
     </div>

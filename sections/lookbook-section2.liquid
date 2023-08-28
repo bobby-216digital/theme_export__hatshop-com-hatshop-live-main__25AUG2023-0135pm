@@ -39,7 +39,7 @@
             SHOP</a>
         </div>
         <div class="medium-6 medium-offset-1 cell small-order-1 medium-order-2">
-			<a href="javascript:;" class="zoom"><img src="{{ block.settings.productLifestyle | img_url: 'master' }}" /></a>
+			<a href="javascript:;" class="zoom"><img src="{{ block.settings.productLifestyle | img_url: 'master' }}" alt="{{ featured.title }}" /></a>
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@
     <div class="grid-container">
       <div class="grid-x grid-padding-x align-center align-middle">
         <div class="medium-6 cell">
-			<a href="javascript:;" class="zoom"><img src="{{ block.settings.productLifestyle2 | img_url: 'master' }}" /></a>
+			<a href="javascript:;" class="zoom"><img src="{{ block.settings.productLifestyle2 | img_url: 'master' }}" alt="{{ featured2.title }}" /></a>
         </div>
         <div class="medium-4 medium-offset-1 cell look-hat">
 		  {% assign featured2 = all_products[block.settings.featured2] %}

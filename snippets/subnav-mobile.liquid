@@ -4,19 +4,19 @@
     <ul class="vertical menu drilldown" data-drilldown data-animation-easing="swing" data-animation-duration="1000">
 		 <!-- Search bar -->
 		<form class="search" action="/search">
-		  <input type="text" name="q" placeholder="What are you looking for?" class="search-input mobile-search">
+		  <input title="Search Input" type="text" name="q" placeholder="What are you looking for?" class="search-input mobile-search">
 		  <input type="hidden" name="type" value="product">
 		</form>
 		<!-- Navigation Item -->
 		<li>
-			<a href="#">Shop</a>
+			<a href="#" role="button">Shop</a>
 			<ul class="menu vertical nested">
 				<li>
 					<!-- Shop content -->
 					<div class="nav-drop-mobile">
 						<div class="grid-container grid-x grid-padding-x">
 							<div class="medium-12 cell">
-								<img src="{{ 'm-subnav-shop.png' | asset_url }}" />
+								<img src="{{ 'm-subnav-shop.png' | asset_url }}" alt="" />
 								<div class="nav-drop-section">
 									<h4 class="small-body-title">Women's Hats</h4>
 									{% for link in linklists.shop-dropdown-womens.links %}
@@ -108,14 +108,14 @@
 		</li>
 		<!-- Navigation Item -->
 		<li>
-			<a href="#">Custom</a>
+			<a role="button" href="#">Custom</a>
 			<ul class="menu vertical nested">
 				<li>
 					<!-- Custom content -->
 					<div class="nav-drop-mobile" id="subnav-custom-mobile">
 						<div class="grid-container grid-x grid-padding-x align-middle">
 							<div class="medium-12 medium-offset-1 cell relative">
-								<img src="{{ 'Custom-dropdown-navigation.jpg' | asset_url }}" />
+								<img src="{{ 'Custom-dropdown-navigation.jpg' | asset_url }}" alt="" />
 							</div>
 							<div class="medium-12 medium-offset-1 cell text-center ">
 								<h4>Craft the Perfect Hat to Call Your Very Own</h4>
@@ -129,7 +129,7 @@
 		</li>
 		<!-- Navigation Item -->
 		<li>
-			<a href="#">W&W Culture</a>
+			<a role="button" href="#">W&W Culture</a>
 			<ul class="menu vertical nested">
 				<li>
 					<!-- Culture content -->
@@ -154,14 +154,14 @@
 		</li>
 		<!-- Navigation Item -->
 		<li>
-			<a href="#">Underneath my hat</a>
+			<a href="#" role="button">Underneath my hat</a>
 			<ul class="menu vertical nested">
 				<li>
 					<!-- UMH content -->
 					<div class="nav-drop-mobile" id="subnav-umh-mobile">
 						<div class="grid-container grid-x grid-padding-x align-middle">
 							<div class="medium-12 cell">
-								<img src="{{ 'Worth-and-Worth-umh-about-Orlando-MOBILE.jpg' | asset_url }}" />
+								<img src="{{ 'Worth-and-Worth-umh-about-Orlando-MOBILE.jpg' | asset_url }}" alt="" />
 								<h4>Underneath My Hat</h4>
 								{% for link in linklists.umh-dropdown.links %}
 								<a href="{{ link.url }}" class="nav-item" id="nav-{{ link.title | handle }}" data-hover-id="nav-{{ link.title | handle }}">{{ link.title }}</a>
@@ -177,7 +177,7 @@
 			
 		</li>
 		<li class="customer-care-mobile">
-	        <a href="#">My Account</a>
+	        <a href="#" role="button">My Account</a>
 	        <ul class="menu vertical nested">
 	            <li>
 					<!-- UMH content -->

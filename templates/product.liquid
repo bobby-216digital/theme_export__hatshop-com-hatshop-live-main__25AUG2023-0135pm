@@ -258,7 +258,7 @@ color: #2E2E2E;
 
 							{% for image in product.images %}
 							{% capture count %}{% increment _count %}{% endcapture %}
-							<a href="#go{{ count }}" style="background-image: url('{{ image.src | img_url: 'master' }}')">
+							<a href="#go{{ count }}" style="background-image: url('{{ image.src | img_url: 'master' }}')" aria-label="{{ product.title | escape }}">
 							</a>
 							{% endfor %}
 
@@ -275,16 +275,16 @@ color: #2E2E2E;
 					<div class="large-12 cell ">
 						<div class="lifestyle-product">
 							
-							{% for value in product.metafields.accentuate.lifestyle_video_on_top_of_life %} <video  controlsList="nodownload" class="slide-video slide-media" loop autoplay muted preload="metadata" playslinline webkit-playsinline>
+							{% for value in product.metafields.accentuate.lifestyle_video_on_top_of_life %} <video  controlsList="nodownload" class="slide-video slide-media" loop autoplay muted preload="metadata" controls playslinline webkit-playsinline>
       <source src="{{ product.metafields.accentuate.lifestyle_video_on_top_of_life }}" type="video/mp4" />
     </video>	
                  {% endfor %}  
 							{% for value in product.metafields.image.image %}
 							<!-- Row type one image -->
-							<a href="#" class="zoom"><img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-open="productImages"  alt="" role="presentation"></a>
+							<a href="#" class="zoom" aria-label="{{ product.title }}"><img alt="" class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-open="productImages"   role="presentation"></a>
 						 {% endfor %}
                           
-                          {% for value in product.metafields.accentuate.lifestyle_video %} <video  controlsList="nodownload" class="slide-video slide-media" loop autoplay muted preload="metadata" playslinline webkit-playsinline>
+                          {% for value in product.metafields.accentuate.lifestyle_video %} <video  controlsList="nodownload" class="slide-video slide-media" loop autoplay muted preload="metadata" controls playslinline webkit-playsinline>
       <source src="{{ product.metafields.accentuate.lifestyle_video }}" type="video/mp4" />
     </video>	
                  {% endfor %}        
@@ -353,7 +353,7 @@ color: #2E2E2E;
 
 						{% if product.metafields.accentuate.productColors %}
 						<!-- Color selection -->
-						<div id="color-select-wrap" class="relative">
+						<div id="color-select-wrap" class="relative" tabindex="0">
 							<div id="current-color">
 								<div class="current-color-img-wrap">
 									<img src="{{ product.metafields.accentuate.swatchImage }}" alt="{{ product.metafields.accentuate.color_short_name }}" />
@@ -366,14 +366,13 @@ color: #2E2E2E;
 								{% for selected_colors in selected_colors %}
 								<!-- Single color ouput -->
 								<a href="{{ all_products[selected_colors].url }}">
-									<label for="productColor" class="color-select-item" onClick="{{ all_products[selected_colors].url }}">
-										<input type="radio" name="color" class="color-select">
+									<div class="color-select-item">
 										<div class="color-img-wrap">
-											<img src="{{ all_products[selected_colors].metafields.accentuate.swatchImage }}" />
+											<img src="{{ all_products[selected_colors].metafields.accentuate.swatchImage }}" alt="{{ all_products[selected_colors].metafields.accentuate.color_short_name }}" />
 										</div>
 										<span>{{ all_products[selected_colors].metafields.accentuate.color_short_name }}</span>
 										<br clear="all" />
-									</label>
+									</div>
 								</a>
 								{% endfor %}
 							</div>
@@ -393,7 +392,7 @@ color: #2E2E2E;
 							<div class="large-3 small-3 cell text-center size-icon">
 								<div class="hat-size">
 								<a class="selector-link selector-icon" data-toggle="showSize">{{ 'Hatsize_1_2x.png' | asset_url | img_tag: 'Select Size' }}</a><br />
-								<a class="selector-link" data-toggle="showSize">Size Guide</a>
+								<a class="selector-link" data-toggle="showSize" tabindex="0" role="button">Size Guide</a>
 								</div>
 								<div class="shoe-size">
 								<a class="selector-link selector-icon" data-toggle="showSize-shoes">{{ 'Hatsize_1_2x.png' | asset_url | img_tag: 'Select Size' }}</a><br />
@@ -401,7 +400,7 @@ color: #2E2E2E;
 								</div>
 							</div>
 							<div class="large-9 small-9 cell relative">
-								<div class="currrent-size-wrap">
+								<div role="button" tabindex="0" class="currrent-size-wrap">
 									<h2 id="current-size-title">Size</h2>
 									<p id="current-size">Select Size</p>
 								</div>
@@ -410,8 +409,8 @@ color: #2E2E2E;
 										{% capture count %}{% increment _count %}{% endcapture %}
 
 										<!-- Single size output -->
-										<label for="productSize{{ count }}" class="size-select-item update-product-size option{{ product.variants.inventory_quantity }}">
-											<input type="radio" id="productSize{{ count }}" name="size" class="size-select" value="{{ option }}" onchange="letsDoThis()" {% if forloop.first == true %}checked{% else %}{% endif %}>
+										<label tabindex="0" for="productSize{{ count }}" class="size-select-item update-product-size option{{ product.variants.inventory_quantity }}">
+											<input  type="radio" id="productSize{{ count }}" name="size" class="size-select" value="{{ option }}" onchange="letsDoThis()" {% if forloop.first == true %}checked{% else %}{% endif %}>
 											<span>{{ option }} {{ v.inventory_quantity }}</span>
 										</label>
 
@@ -465,7 +464,7 @@ color: #2E2E2E;
 							<div class="large-3 small-3 cell">
 								<div id="quantity-select">
 									<div class="quantity-select-item">
-										<input type="number" id="q1" name="quantity" value="1" min="1">
+										<input title="Quantity" type="number" id="q1" name="quantity" value="1" min="1">
 									</div>
 								</div>
 							</div>
@@ -510,8 +509,8 @@ color: #2E2E2E;
 												</a>
 												
 												<div class="add-on-text-wrap">
-													<h3><a id="prod-acc" data-toggle="showAcc-{{all_products[selected_accessory].handle}}">{{ all_products[selected_accessory].title }}</a></h3>
-													<p class="price"><a id="prod-acc" data-toggle="showAcc-{{all_products[selected_accessory].handle}}">{{ all_products[selected_accessory].price | money Currency.currentCurrency }}</a></p>
+													<h3><a tabindex="0" role="button" id="prod-acc" data-toggle="showAcc-{{all_products[selected_accessory].handle}}">{{ all_products[selected_accessory].title }}</a></h3>
+													<p class="price"><a tabindex="0" role="button" id="prod-acc" data-toggle="showAcc-{{all_products[selected_accessory].handle}}">{{ all_products[selected_accessory].price | money Currency.currentCurrency }}</a></p>
 													<span class="add-on-add unique-{{all_products[selected_accessory].handle}}" data-toggle="showCart">add to cart</span>
 												</div>
 											</div>
@@ -577,7 +576,7 @@ color: #2E2E2E;
 						<div class="cycle-slideshow" data-open="productImages" data-cycle-prev="#prev" data-cycle-next="#next" data-cycle-timeout="0" data-cycle-slides="> a">
 							{% for image in product.images %}
 							{% capture count %}{% increment _count %}{% endcapture %}
-							<a href="#go{{ count }}" style="background-image: url('{{ image.src | img_url: 'master' }}')"></a>
+							<a href="#go{{ count }}" style="background-image: url('{{ image.src | img_url: 'master' }}')" aria-label="{{ product.title | escape }}"></a>
 							{% endfor %}
 						</div>
 						<span class="fs-trigger" style="display:none;"></span>
@@ -653,14 +652,13 @@ color: #2E2E2E;
 
 								<!-- Single color ouput -->
 								<a href="{{ all_products[selected_colors].url }}">
-									<label for="productColor" class="color-select-item" onClick="{{ all_products[selected_colors].url }}">
-										<input type="radio" name="color" class="color-select">
+									<div class="color-select-item" >
 										<div class="color-img-wrap">
-											<img src="{{ all_products[selected_colors].metafields.accentuate.swatchImage }}" />
+											<img src="{{ all_products[selected_colors].metafields.accentuate.swatchImage }}" alt="{{ product.metafields.accentuate.color_short_name }}" />
 										</div>
 										<span>{{ all_products[selected_colors].metafields.accentuate.color_short_name }}</span>
 										<br clear="all" />
-									</label>
+									</div>
 								</a>
 								{% endfor %}
 							</div>
@@ -754,7 +752,7 @@ color: #2E2E2E;
 	              <div class="large-3 small-3 cell">
 	                <div id="quantity-select">
 	                  <div class="quantity-select-item">
-	                    <input type="number" id="q1" name="quantity" value="1">
+	                    <input title="Quantity" type="number" id="q1" name="quantity" value="1">
 	                  </div>
 	                </div>
 	              </div>
@@ -800,8 +798,8 @@ color: #2E2E2E;
 												</a>
 												
 												<div class="add-on-text-wrap">
-													<h3><a id="prod-acc" data-toggle="showAcc-{{all_products[selected_accessory].handle}}">{{ all_products[selected_accessory].title }}</a></h3>
-													<p class="price"><a id="prod-acc" data-toggle="showAcc-{{all_products[selected_accessory].handle}}">{{ all_products[selected_accessory].price | money Currency.currentCurrency }}</a></p>
+													<h3><a tabindex="0" role="button" id="prod-acc" data-toggle="showAcc-{{all_products[selected_accessory].handle}}">{{ all_products[selected_accessory].title }}</a></h3>
+													<p class="price"><a tabindex="0" role="button" id="prod-acc" data-toggle="showAcc-{{all_products[selected_accessory].handle}}">{{ all_products[selected_accessory].price | money Currency.currentCurrency }}</a></p>
 													<span class="add-on-add unique-{{all_products[selected_accessory].handle}}" data-toggle="showCart">add to cart</span>
 												</div>
 											</div>
@@ -855,15 +853,15 @@ color: #2E2E2E;
 		  		<div class="lifestyle-product">
 		  			
 		  			
-		  			 {% for value in product.metafields.accentuate.lifestyle_video_on_top_of_life %} <video id="lifestylevidmobile" playsinline loop muted autoplay src="{{ product.metafields.accentuate.lifestyle_video_on_top_of_life }}" ></video>	
+		  			 {% for value in product.metafields.accentuate.lifestyle_video_on_top_of_life %} <video id="lifestylevidmobile" controls playsinline loop muted autoplay src="{{ product.metafields.accentuate.lifestyle_video_on_top_of_life }}" ></video>	
                  {% endfor %}  
 		  			
 	  				{% for value in product.metafields.image.image %}
 	  				<!-- Row type one image -->
-	  				<a href="#" class="zoom"><img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-open="productImages" alt="" role="presentation"></a>
+	  				<a href="#" class="zoom" aria-label="{{ product.title }}"><img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-open="productImages" alt="" role="presentation"></a>
 	  				{% endfor %}
 		  			 
-                          {% for value in product.metafields.accentuate.lifestyle_video %} <video id="lifestylevidmobile" playsinline loop muted autoplay src="{{ product.metafields.accentuate.lifestyle_video }}" ></video>	
+                          {% for value in product.metafields.accentuate.lifestyle_video %} <video id="lifestylevidmobile" controls playsinline loop muted autoplay src="{{ product.metafields.accentuate.lifestyle_video }}" ></video>	
                  {% endfor %}  
 		      </div>
 		      </div>
@@ -1162,7 +1160,7 @@ color: #2E2E2E;
         </div>
       </div>
       <div class="large-7 cell small-order-1 medium-order-2">
-	  	<a href="{{ product.metafields.linkURL.linkURL[forloop.index0] }}" class="zoom"  data-hover-id="bannerL"><img src="{{ product.metafields.moreImage.moreImage[forloop.index0] }}"  alt="" /></a>
+	  	<a href="{{ product.metafields.linkURL.linkURL[forloop.index0] }}" class="zoom"  data-hover-id="bannerL"><img src="{{ product.metafields.moreImage.moreImage[forloop.index0] }}"  alt="{{ product.metafields.title2.title2[forloop.index0] }}" /></a>
       </div>
     </div>
 	</div>
@@ -1236,7 +1234,7 @@ color: #2E2E2E;
 			<!-- Single related product -->
 			<div class="medium-3 small-6 cell text-center prod-list-item">
 				<div class="prod-wrap">
-					<a href="{{ all_products[selected_handle].url }}" class="product-card " data-hover-id="{{ all_products[selected_handle].handle }}">
+					<a href="{{ all_products[selected_handle].url }}" class="product-card " data-hover-id="{{ all_products[selected_handle].handle }}" aria-label="{{ all_products[selected_handle].title | escape }}">
 						<div class="product-image-wrap" {% if all_products[selected_handle].metafields.accentuate.lifestyle %} style="background-image:url('{{ all_products[selected_handle].metafields.accentuate.lifestyle }}')"{% endif %}>
 							{% if all_products[selected_handle].metafields.accentuate.lifestyle == blank %}
 							{% for image in product.images %}
@@ -1246,11 +1244,11 @@ color: #2E2E2E;
 							{% endif %}
 							{% endfor %}
 							{% else %}
-							<img src="{{all_products[selected_handle].metafields.accentuate.productImg}}" class="prod-hat base-img"  />
+							<img src="{{all_products[selected_handle].metafields.accentuate.productImg}}" class="prod-hat base-img" alt="" />
 							{% endif %}
 						</div>
 					</a>
-					<h3><a href="{{ all_products[selected_handle].url }}" class="link-activate" data-hover-id="{{ all_products[selected_handle].handle }}">{{ all_products[selected_handle].title }}</a></h3>
+					<h3><a href="{{ all_products[selected_handle].url }}" class="link-activate" data-hover-id="{{ all_products[selected_handle].handle }}" {% if all_products[selected_handle].title == "" %}aria-label="{{ product.title | escape }}"{% else %}aria-label="{{ all_products[selected_handle].title | escape }}" {% endif %}>{{ all_products[selected_handle].title }}</a></h3>
 					<p class="price">{{ all_products[selected_handle].price | money Currency.currentCurrency }}</p>
 				</div>
 			</div>
@@ -1289,7 +1287,7 @@ color: #2E2E2E;
 
   <!-- Pull product additional lifestyle images -->
  <!-- {% for value in product.metafields.image.image %}
-  <img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-close alt="{{ product.description | strip_html | remove: '"' }}" > 
+  <img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-close alt="{{ product.description | strip_html | remove: '"' }}" alt="{{ product.title }}" > 
   {% endfor %}-->
 
 </div>

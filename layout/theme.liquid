@@ -96,7 +96,7 @@
     <link rel="stylesheet" href="{{ 'ddexitpop.css' | asset_url }}" />
 </head>
   <body data-hijacking="on" data-animation="parallax" class="{% if template == 'index' or page.handle == 'contact' or page.handle == 'montecristi' or page.handle == 'under-my-hat-about' or page.handle == 'custom' or page.handle == 'virtual-consultation' or blog.handle == 'creations' or blog.handle == 'collaborations' or page.handle == 'icon-the-chef-antony' or page.handle == 'icon-many-i-am-sophie' or page.handle == 'icon-dean' or page.handle == 'icon-when-the-wind-blows-sophie' or page.handle == 'icon-molly' or page.handle == 'icon-the-jam' or page.handle == 'icon-daniel' or page.handle == 'icon-maya' or page.handle == 'icon-gabe'%}transparent-drop light-drop{% else %}dark-drop{% endif %} {% for collection in product.collections %}handle-{{ collection.handle }} {%  endfor %} %}">
-
+    <a href="#main-content" class="is-sr0nly skip-link">Skip to Content</a>
     <!-- Header - Use class "absolute" to make the header overlap the content at top of page -->
     <header class="{% if template == 'index' or page.handle == 'contact' or page.handle == 'montecristi' or page.handle == 'custom' or page.handle == 'virtual-consultation' or blog.handle == 'creations' or blog.handle == 'collaborations' or page.handle == 'icon-the-chef-antony' or page.handle == 'icon-many-i-am-sophie' or page.handle == 'icon-dean' or page.handle == 'icon-when-the-wind-blows-sophie' or page.handle == 'icon-molly' or page.handle == 'icon-the-jam' or page.handle == 'icon-daniel' or page.handle == 'icon-maya' or page.handle == 'icon-gabe' or page.handle == 'under-my-hat-about' or collection.metafields.accentuate.background_image %}transparent light{% else %}dark{% endif %} desktop scrollhide-nav" id="navbar">
 
@@ -109,13 +109,13 @@
             <div class="large-12 cell text-center">
               <form class="search" action="/search">
   			        <input type="hidden" name="type" value="product">
-                <input type="text" name="q" placeholder="What are you looking for?" class="search-input" value="{{ search.terms | escape }}">
+                <input title="Search Input" type="text" name="q" placeholder="What are you looking for?" class="search-input" value="{{ search.terms | escape }}">
 				<input type="hidden" name="type" value="product">
               </form>
             </div>
           </div>
         </div>
-        <span class="search-close"><img src="{{ "x-close.png" | asset_url }}" /></span>
+        <span class="search-close"><img src="{{ "x-close.png" | asset_url }}" alt="Close Search" /></span>
       </div>
 
       <!-- Announcement Bars -->
@@ -133,7 +133,7 @@
 
     <!-- Begin the drop down menus -->
     {% include 'subnav' %}
-	<main>
+	<main id="main-content">
 
     <!-- Page content to begin here -->
     {{ content_for_layout }}
@@ -410,5 +410,39 @@ $('.pop-me').click(function () {
 </script>
 
       {% endif %}
+<script>
+  // 216 a11y
+  //Allows Keyboard users to interact with the sub-navigation
+  
+  document.addEventListener("DOMContentLoaded", function() {
+    const a11ynavdrop = document.querySelector('#a11yButton');
+
+    a11ynavdrop.addEventListener('keydown', function(event) {
+        // Check for 'Enter' or 'Space' key
+        if (event.key === 'Enter' || event.key === ' ') {
+            toggleSubNav();
+          console.log("test");
+        }
+    });
+
+    function toggleSubNav() {
+        const subNav = document.querySelector('.nav-drop-desktop'); 
+        const stickyNav = document.querySelector(".scrollhide-nav");
+      
+
+        if (subNav.style.display === 'none' || subNav.style.display === '') {
+            subNav.style.display = 'block';
+            subNav.classList.add("opened");
+            stickyNav.classList.add("header-opened");
+        } else {
+            subNav.style.display = 'none';
+            subNav.classList.remove("opened");
+            stickyNav.classList.remove("header-opened");
+        }
+    }
+
+});
+</script>
+      
   </body>
 </html>

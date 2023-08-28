@@ -27,7 +27,7 @@
 						</div>
 						<div class="medium-6 small-12 cell">
 							<div class="cart-item-description">
-								<h3 rv-text="item.product_title"></h3>
+								<div class="headingFix" rv-text="item.product_title"></div>
 													
 								<!--<span rv-html="item.quantity"></span>-->
 								
@@ -58,7 +58,7 @@
 				<div rv-show="cart.item_count | gt 0" class="cart-checkout text-center drawer-checkout">
 				    <form action="/cart" method="post" novalidate>
 						<span class="showNote">add order instructions +</span>
-						<textarea class="cartNote" name="note" id="cart-note" rows="2" placeholder="How can we help you?" data-scrollable=""></textarea>
+						<textarea title="How can we help you?" class="cartNote" name="note" id="cart-note" rows="2" placeholder="How can we help you?" data-scrollable=""></textarea>
 							<button type="submit" name="checkout">
 							<span class="checkout-text">Checkout</span>
 							<span>•</span>

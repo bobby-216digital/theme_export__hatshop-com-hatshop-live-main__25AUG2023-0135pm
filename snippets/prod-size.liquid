@@ -6,7 +6,7 @@
 				<div class="small-12 cell">
 					<!-- Tabs -->
 					<ul class="tabs size-me" data-tabs id="example-tabs">
-						<li class="tabs-title is-active how-tab"><a href="#sizeHow" aria-selected="true">{{ 'Hatsize_1@2x.png' | asset_url | img_tag: 'How to size' }} How to Measure</a></li>
+						<li class="tabs-title is-active how-tab"><a href="#sizeHow" role="button" tabindex="0" >{{ 'Hatsize_1@2x.png' | asset_url | img_tag: 'How to size' }} How to Measure</a></li>
 						<li class="tabs-title size-tab"><a data-tabs-target="sizeChart" href="#sizeChart">{{ 'size.png' | asset_url | img_tag: 'Call' }} Size Chart</a></li>
 					</ul>
 					<!-- Content -->
@@ -20,7 +20,7 @@
 										<div class="halo-wrap">
 											<label class="style-click" for="halo" id="halo-wrap">
 												<input name="measure" id="halo" type="radio" class="hat-measure" value="halo" >
-												<img src="{{ 'hat-size-halo.jpg' | asset_url }}" />
+												<img src="{{ 'hat-size-halo.jpg' | asset_url }}" alt="" />
 												<h5>Halo Style</h5>
 											</label>
 										</div>
@@ -29,7 +29,7 @@
 										<div class="trad-wrap">
           						<label class="style-click" for="traditional" id="traditional-wrap">
           								<input name="measure" type="radio" class="hat-measure" id="traditional" value="traditional" >
-          								<img src="{{ 'traditional.jpg' | asset_url }}" />
+          								<img src="{{ 'traditional.jpg' | asset_url }}" alt="" />
           								<h5>CLASSIC STYLE</h5>
           							</label>
         						</div>
@@ -261,7 +261,7 @@
 									</div>
 								</div>
 								<div class="small-12 cell text-center" data-tabs>
-									<a class="button filled see-full-chart" data-tabs-target="sizeChart">See Full Size Chart</a>
+									<a class="button filled see-full-chart" tabindex="0" role="button" data-tabs-target="sizeChart">See Full Size Chart</a>
 									<p class="go-to-step-1 remove"><a href="javascript:;">START OVER</a></p>
 								</div>
 							</div>

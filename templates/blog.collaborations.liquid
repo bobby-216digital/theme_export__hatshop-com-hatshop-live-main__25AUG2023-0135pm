@@ -19,11 +19,11 @@
 			  	{% for article in blog.articles %}
 			  	{% unless article.tags contains "hide" %}
 			  	{% if article.metafields.accentuate.landing_image %}
-			  	<a href="#" style="background-color: transparent;" class="zoom collab-main" data-hover-id="c{{ article.id }}"><img src="{{ article.metafields.accentuate.landing_image }}" alt="" /></a>
+			  	<a href="#" style="background-color: transparent;" class="zoom collab-main" data-hover-id="c{{ article.id }}"><img src="{{ article.metafields.accentuate.landing_image }}" alt="{{ article.title }}" /></a>
 			  	{% else %}
 
 			  	{% for value in  article.metafields.accentuate.collab_image1  limit: 1 %}
-			  	<a href="#" style="background-color: transparent;" class="zoom collab-main" data-hover-id="c{{ article.id }}"><img src="{{ article.metafields.accentuate.collab_image1[forloop.index0] }}" alt="" /></a>
+			  	<a href="#" style="background-color: transparent;" class="zoom collab-main" data-hover-id="c{{ article.id }}"><img src="{{ article.metafields.accentuate.collab_image1[forloop.index0] }}" alt="{{ article.title }}" /></a>
 			  	{% endfor %}
 			  	{% endif %}
 			  	{% endunless %}

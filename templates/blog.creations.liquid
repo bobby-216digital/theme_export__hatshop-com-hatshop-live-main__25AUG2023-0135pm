@@ -11,9 +11,9 @@
   		<div class="large-3 cell bottom50 press-item">
   			<a href="{{ article.url }}" class="zoom" data-hover-id="{{ article.id}}">
   				<div class="press-double relative">
-  					<img src="{{ article.metafields.accentuate.creationslandingmain }}" class="press-main-landing " />
+  					<img src="{{ article.metafields.accentuate.creationslandingmain }}" class="press-main-landing " alt="{{ article.title }}" />
   					{% if article.metafields.accentuate.creationslandingvertical %}
-  					<img src="{{ article.metafields.accentuate.creationslandingvertical }}" class="press-second-vertical" />
+  					<img src="{{ article.metafields.accentuate.creationslandingvertical }}" class="press-second-vertical" alt="{{ article.title }}" />
   					{% endif %}
   					{% if article.metafields.accentuate.creationslandinghorizontal
   					 %}

@@ -26,7 +26,7 @@
 				<input type="text" placeholder="Preferred Time and Date" id="timeDate" name="contact[TimeDate]" />
             </div>
             <div class="large-12 cell">
-				<textarea placeholder="Add a note" id="{{ formId }}-message" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+				<textarea title="Add a Message" placeholder="Add a note" id="{{ formId }}-message" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
             </div>
             <div class="large-12 cell text-center">
 				<button type="submit">Submit</button>

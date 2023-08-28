@@ -8,11 +8,11 @@
 				<div class="banner-text">
 					{{ section.settings.beaverfeltBannerDescriptionR }}
 				</div>
-				{% if section.settings.beaverfeltBannersLinkR %}<a href="{{ section.settings.beaverfeltBannersLinkR }}" class="cta dark link-activate" data-hover-id="bfbR">{{ section.settings.beaverfeltBannerLinkTextR }}</a>{%endif %}
+				{% if section.settings.beaverfeltBannersLinkR %}<a href="{{ section.settings.beaverfeltBannersLinkR }}" class="cta dark link-activate" data-hover-id="bfbR" aria-label="{{ section.settings.beaverfeltBannertitleR }}&nbsp;Link">{{ section.settings.beaverfeltBannerLinkTextR }}</a>{%endif %}
 			</div>
 		</div>
 		<div class="large-7 cell small-order-1 medium-order-2">
-			<a href="{{ beaverfeltBannersLinkR }}" class="zoom" data-hover-id="bfbR"><img src="{{ section.settings.beaverfeltBannerImgageR | img_url: 'master' }}"></a>
+			<a href="{{ beaverfeltBannersLinkR }}" class="zoom" data-hover-id="bfbR"><img src="{{ section.settings.beaverfeltBannerImgageR | img_url: 'master' }}" alt="{{ section.settings.beaverfeltBannertitleR }}"></a>
 		</div>
     </div>
 </div>

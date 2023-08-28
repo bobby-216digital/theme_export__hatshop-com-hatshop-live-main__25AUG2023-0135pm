@@ -40,13 +40,13 @@
 </div>
 
 <!-- Begin Main Navigation in all it's glory Desktop -->
-<div class="grid-container desktop-nav show-for-large">
+<div role="navigation" class="grid-container desktop-nav show-for-large">
   <div class="grid-x grid-padding-x nav-menu">
     <div class="large-12 cell text-center">
       {% for link in linklists.main-menu.links %}
 	  <a href="{{ link.url }}" class="nav-item" id="nav-{{ link.title | handle }}"><span>{{ link.title }}</span></a>
       {% endfor %}
-      <a href="/" class="logo"></a>
+      <a href="/" class="logo" aria-label="Worth and Worth Logo, Link to Homepage"></a>
       {% for link in linklists.main-menu-right.links %}
 	  <a href="{{ link.url }}" class="nav-item" id="nav-{{ link.title | handle }}"><span>{{ link.title }}</span></a>
       {% endfor %}
@@ -55,13 +55,13 @@
 </div>
 
 <!-- And now let's do one for mobile and tablet -->
-<div class="grid-container mobile-nav hide-for-large">
+<div role="navigation" class="grid-container mobile-nav hide-for-large">
   <div class="grid-x grid-padding-x nav-menu">
     <div class="small-3 cell">
       <span class="hamburger" data-toggle="showNav">&#9776;</span>
     </div>
     <div class="small-6 cell text-center">
-      <a href="/" class="logo"></a>
+      <a href="/" class="logo" aria-label="Worth and Worth Logo, Link to Homepage"></a>
     </div>
     <div class="small-3 cell text-right">
       <span class="hatbox-mobile" data-toggle="showCart">{{ 'hatbox-mobile-2x.png' | asset_url | img_tag: 'Cart' }}<span data-cart-render="item_count"></span></span>

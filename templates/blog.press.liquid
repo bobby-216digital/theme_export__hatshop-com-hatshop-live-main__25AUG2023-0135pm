@@ -11,19 +11,19 @@
 				<a href="{{ article.url }}" class="zoom" data-hover-id="{{ article.id}}">
 					<div class="press-double relative">
 						{% if article.metafields.accentuate.press_landing_main %}
-						<img src="{{ article.metafields.accentuate.press_landing_main | img_url: '452x632', crop: 'center' }}" class="press-main-landing " />
+						<img src="{{ article.metafields.accentuate.press_landing_main | img_url: '452x632', crop: 'center' }}" class="press-main-landing " alt="{{ article.title }}" />
 						{% else%}
-						<img src="{{ article.image.src | img_url: '452x632', crop: 'center' }}" class="press-main-landing " />
+						<img src="{{ article.image.src | img_url: '452x632', crop: 'center' }}" class="press-main-landing " alt="{{ article.title }}" />
 						{% endif %}
 						{% if article.metafields.accentuate.presslandingextraimage %}
-						<img src="{{ article.metafields.accentuate.presslandingextraimage }}" class="press-second-vertical" />
+						<img src="{{ article.metafields.accentuate.presslandingextraimage }}" class="press-second-vertical" alt="{{ article.title }}" />
 						{% endif %}
 						{% if article.metafields.accentuate.pressLandingExtraImageHor %}
-						<img src="{{ article.metafields.accentuate.pressLandingExtraImageHor }}" class="press-second-horizontal" />
+						<img src="{{ article.metafields.accentuate.pressLandingExtraImageHor }}" class="press-second-horizontal" alt="{{ article.title }}" />
 						{% endif %}
 					</div>
 				</a>
-				<h3 class="h4 titleCase"><a href="{{ article.url }}" class="link-activate press-offset-title" data-hover-id="{{ article.id}}">{{ article.excerpt }}</a></h3>
+				<h3 class="h4 titleCase"><a href="{{ article.url }}" class="link-activate press-offset-title" data-hover-id="{{ article.id}}">{{ article.excerpt | escape }}<span class="visually-hidden">{{ article.title | escape }}</span></a></h3>
 				<h2><a href="{{ article.url }}" class="link-activate" data-hover-id="{{ article.id}}">{{ article.title }}</a></h2>
 			</div>
 			{% endfor %}

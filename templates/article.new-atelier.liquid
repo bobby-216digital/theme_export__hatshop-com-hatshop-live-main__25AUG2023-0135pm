@@ -49,7 +49,7 @@
 		   			{% for selected_handle in selected_handles %}
 					<div class="medium-3 cell text-center">
 						<div class="related-product">
-							<a href="{{ all_products[selected_handle].url }}" class="zoom" data-hover-id="{{ all_products[selected_handle].handle }}"><img src="{{all_products[selected_handle].metafields.accentuate.productImg}}" /></a>
+							<a href="{{ all_products[selected_handle].url }}" class="zoom" data-hover-id="{{ all_products[selected_handle].handle }}"><img src="{{all_products[selected_handle].metafields.accentuate.productImg}}" alt="{{ all_products[selected_handle].title }}"/></a>
 							<h4><a href="{{ all_products[selected_handle].url }}" class="link-activate" data-hover-id="{{ all_products[selected_handle].handle }}">{{ all_products[selected_handle].title }}</a></h4>
 							<p class="price"><a href="{{ all_products[selected_handle].url }}" class="link-activate" data-hover-id="{{ all_products[selected_handle].handle }}">{{ all_products[selected_handle].price | money Currency.currentCurrency }}</a></p>
 						</div>
@@ -75,7 +75,7 @@
 					{% for selected_collection in selected_collections %}
 					<div class="medium-6 cell">
 						<div class="related-product">
-							<a href="{{ collections[selected_collection].url }}" class="zoom" data-hover-id="{{ collections[selected_collection].handle }}"><img src="{{ collections[selected_collection].metafields.accentuate.collection_header_image}}" /></a>
+							<a href="{{ collections[selected_collection].url }}" class="zoom" data-hover-id="{{ collections[selected_collection].handle }}"><img src="{{ collections[selected_collection].metafields.accentuate.collection_header_image}}" alt="{{ article.metafields.accentuate.related_collection_title }} {{ collections[selected_collection].title }}" /></a>
 							<a href="{{ collections[selected_collection].url }}" class="cta dark link-activate" data-hover-id="{{ collections[selected_collection].handle }}">{{ article.metafields.accentuate.related_collection_title }} {{ collections[selected_collection].title }}</a>
 						</div>
 					</div>

@@ -6,7 +6,7 @@
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="medium-12 cell text-center">
-	  	<a href="{{ article.url }}" class="zoom" data-hover-id="{{ article.id }}"><img src="{{ article.metafields.accentuate.atelier_introimage }}" /></a>
+	  	<a href="{{ article.url }}" class="zoom" data-hover-id="{{ article.id }}"><img src="{{ article.metafields.accentuate.atelier_introimage }}" alt="{{ article.title }}" /></a>
         <h1 class="h3"><a href="{{ article.url }}" class="link-activate" data-hover-id="{{ article.id }}">{{ article.title }}</a></h1>
 		  <h3><a href="/blogs/atelier">Stories</a></h3>
       </div>
@@ -21,7 +21,7 @@
 		<div class="grid-x grid-padding-x">
 			<div class="medium-5 cell text-center">
 				<div class="atelier-icon1">
-					<a href="/pages/icon-molly" class="zoom" data-hover-id="molly"><img src="{{ 'Bitmap.jpg' | asset_url }}" /></a>
+					<a href="/pages/icon-molly" class="zoom" data-hover-id="molly"><img src="{{ 'Bitmap.jpg' | asset_url }}" alt="Meet the Icon: Molly" /></a>
 					<h2 class="h4"><a href="/pages/icon-molly" class="link-activate" data-hover-id="molly">Meet the Icon: Molly</a></h2>
 					<h3 class="h2"><a href="/pages/icons">Icons</a></h3>
 				</div>
@@ -30,7 +30,7 @@
 				<div class="atelier-icon-spacer">
 					<a href="/pages/icons" class="text-right see-all show-for-large">See all icons</a>
 					<div class="atelier-icon2">
-						<a href="/pages/icon-daniel" class="zoom" data-hover-id="daniel"><img src="{{ 'daniel-video.jpg' | asset_url }}" /></a>
+						<a href="/pages/icon-daniel" class="zoom" data-hover-id="daniel"><img src="{{ 'daniel-video.jpg' | asset_url }}" alt="Meet the Icon: Daniel" /></a>
 						<h2 class="h4"><a href="/pages/icon-daniel" class="link-activate" data-hover-id="daniel">Meet the Icon: Daniel</a></h2>
 						<h3 class="h2"><a href="/pages/icons">Icons</a></h3>
 					</div>
@@ -58,9 +58,9 @@
     				<a href="{{ article.url }}" class="zoom" data-hover-id="{{ article.id}}">
     					<div class="press-double relative">
     						{% if article.metafields.accentuate.press_landing_main %}
-    						<img src="{{ article.metafields.accentuate.press_landing_main | img_url: '452x632', crop: 'center' }}" class="press-main-landing " />
+    						<img src="{{ article.metafields.accentuate.press_landing_main | img_url: '452x632', crop: 'center' }}" class="press-main-landing " alt="{{ article.image.alt }}" />
     						{% else%}
-    						<img src="{{ article.image.src | img_url: '452x632', crop: 'center' }}" class="press-main-landing " />
+    						<img src="{{ article.image.src | img_url: '452x632', crop: 'center' }}" class="press-main-landing " alt="{{ article.image.alt }}" />
     						{% endif %}
     					</div>
     				</a>
@@ -87,7 +87,7 @@
 						{% for article in blogs.atelier.articles offset:1 %}
 						<div class="medium-6 cell">
 							<div class="story-wrap">
-								<a href="{{ article.url }}" class="zoom" data-hover-id="{{ article.id }}"><img src="{{ article.image.src | img_url: '776x1072', crop: 'center' }}" /></a>
+								<a href="{{ article.url }}" class="zoom" data-hover-id="{{ article.id }}"><img src="{{ article.image.src | img_url: '776x1072', crop: 'center' }}" alt="{{ article.title }}" /></a>
 								<h4><a href="{{ article.url }}" class="link-activate" data-hover-id="{{ article.id }}">{{ article.title }}</a></h4>
 							</div>
 						</div>

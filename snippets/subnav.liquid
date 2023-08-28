@@ -10,7 +10,8 @@
 	        <h4 class="small-body-title">Women's Hats</h4>
 	      	{% for link in linklists.shop-dropdown-womens.links %}
             <a href="{{ link.url }}" class="nav-item link-activate{% if link.title == 'Ready to Ship' %} rts-nav{% endif %}" id="subnav-link-{{ link.title | handle }}" data-hover-id="zoom-{{ link.title | handle }}" data-image-id="collect-img-{{ link.title | handle }}">{{ link.title }}{% if link.title == 'Ready to Ship' %} <span></span>{% endif %}</a>
-	      	{% endfor %}
+	      	
+            {% endfor %}
         <!--<h4 class="small-body-title" style="
     font-weight: bold;
     margin-top: 30px;
@@ -99,7 +100,7 @@
         {%- endif -%}
 
           <a href="#" class="zoom" data-hover-id="zoom-{{ link.title | handle }}"><img class="collect-img" data-image="{{ image }}"
-            data-image-alt="{{ image.alt }}"  src="{{ image }}" data-image-id="collect-img-{{ link.title | handle }}"></a>
+            data-image-alt="{{ image.alt }}"  src="{{ image }}" data-image-id="collect-img-{{ link.title | handle }}" alt="{{ link.title }}"></a>
       {% endfor %}
 	  {% for link in linklists.shop-dropdown-mens.links %}
 	        {%- if link.type == 'collection_link' -%}
@@ -121,6 +122,7 @@
 	          <a href="#" class="zoom" data-hover-id="zoom-{{ link.title | handle }}"><img class="collect-img"
 	            data-image="{{ image }}"
 	            data-image-alt="{{ image.alt }}"
+                alt="{{ link.title }}"            
 
 	          src="{{ image }}" data-image-id="collect-img-mens-{{ link.title | handle }}"></a>
       {% endfor %}
@@ -141,7 +143,7 @@
 	          {%- endif -%}
 	        {%- endif -%}
 
-	           <a href="#" class="zoom" data-hover-id="zoom-{{ link.title | handle }}"><img class="collect-img"  data-image="{{ image }}"  data-image-alt="{{ image.alt }}"  src="{{ image }}" data-image-id="collect-img-{{ link.title | handle }}"></a>
+	           <a href="#" class="zoom" data-hover-id="zoom-{{ link.title | handle }}"><img alt="{{ link.title }}" class="collect-img"  data-image="{{ image }}"  data-image-alt="{{ image.alt }}"  src="{{ image }}" data-image-id="collect-img-{{ link.title | handle }}"></a>
 	  {% endfor %}
 	 <!-- {% for link in linklists.shop-dropdown-w-w-little.links %}
 	        {%- if link.type == 'collection_link' -%}
@@ -184,7 +186,7 @@
 	          {%- endif -%}
 	        {%- endif -%}
 
-	           <a href="#" class="zoom" data-hover-id="zoom-{{ link.title | handle }}"><img class="collect-img" data-image="{{ image }}" data-image-alt="{{ image.alt }}"  src="{{ image }}" data-image-id="collect-img-{{ link.title | handle }}"></a>
+	           <a href="#" class="zoom" data-hover-id="zoom-{{ link.title | handle }}"><img alt="{{ link.title }}" class="collect-img" data-image="{{ image }}" data-image-alt="{{ image.alt }}"  src="{{ image }}" data-image-id="collect-img-{{ link.title | handle }}"></a>
 	  {% endfor %}
    {% for link in linklists.shop-dropdown-shoes.links %}
 	        {%- if link.type == 'collection_link' -%}
@@ -203,15 +205,15 @@
 	          {%- endif -%}
 	        {%- endif -%}
 
-	           <a href="#" class="zoom" data-hover-id="zoom-{{ link.title | handle }}"><img class="collect-img" data-image="{{ image }}" data-image-alt="{{ image.alt }}"  src="{{ image }}" data-image-id="collect-img-{{ link.title | handle }}"></a>
+	           <a href="#" class="zoom" data-hover-id="zoom-{{ link.title | handle }}"><img alt="{{ link.title }}" class="collect-img" data-image="{{ image }}" data-image-alt="{{ image.alt }}"  src="{{ image }}" data-image-id="collect-img-{{ link.title | handle }}"></a>
 	  {% endfor %}
-	   <a href="#" class="zoom" data-hover-id="zoom-custom"><img class="collect-img" data-image="{{ 'Custom-dropdown-navigation-shop.jpeg' | asset_url }}" data-image-alt="Custom Hat"  src="{{ 'Custom-dropdown-navigation-shop.jpeg' | asset_url }}" data-image-id="collect-img-custom"></a>
+	   <a href="#" class="zoom" data-hover-id="zoom-custom"><img alt="custom hat" class="collect-img" data-image="{{ 'Custom-dropdown-navigation-shop.jpeg' | asset_url }}" data-image-alt="Custom Hat"  src="{{ 'Custom-dropdown-navigation-shop.jpeg' | asset_url }}" data-image-id="collect-img-custom"></a>
 	   
 	  <!-- <a href="#" class="zoom" data-hover-id="zoom-fathers-day-gift-guide"><img class="collect-img" data-image="https://cdn.accentuate.io/272136306770/7853937590372/Gabe_fathers-day_HATS--v1686176330123.jpg?3468x2054" data-image-alt="Father's Day Gift Guide"  src="https://cdn.accentuate.io/272136306770/7853937590372/Gabe_fathers-day_HATS--v1686176330123.jpg?3468x2054" data-image-id="collect-img-fathers-day-gift-guide"></a>-->
 
-	    <a href="#" class="zoom" data-hover-id="zoom-your-hat-size"><img class="collect-img" data-image="{{ 'worth-and-worth-nav-shop-hatsize.jpeg' | asset_url }}" data-image-alt="Custom Hat"  src="{{ 'worth-and-worth-nav-shop-hatsize.jpeg' | asset_url }}" data-image-id="collect-img-your-hat-size"></a>
+	    <a href="#" class="zoom" data-hover-id="zoom-your-hat-size"><img alt="Hat Size" class="collect-img" data-image="{{ 'worth-and-worth-nav-shop-hatsize.jpeg' | asset_url }}" data-image-alt="Custom Hat"  src="{{ 'worth-and-worth-nav-shop-hatsize.jpeg' | asset_url }}" data-image-id="collect-img-your-hat-size"></a>
 		
-		 <a href="#" class="zoom" data-hover-id="zoom-fitting"><img class="collect-img" data-image="{{ 'book_online_fitting.jpeg' | asset_url }}" data-image-alt="Book Online Fitting"  src="{{ 'book_online_fitting.jpeg' | asset_url }}" data-image-id="collect-img-fitting"></a>
+		 <a href="#" class="zoom" data-hover-id="zoom-fitting"><img alt="Book Online fitting" class="collect-img" data-image="{{ 'book_online_fitting.jpeg' | asset_url }}" data-image-alt="Book Online Fitting"  src="{{ 'book_online_fitting.jpeg' | asset_url }}" data-image-id="collect-img-fitting"></a>
     	</div>
 	</div>
 </div>
@@ -228,25 +230,25 @@
     <div class="large-10 cell relative repair-nav-image-wrap">
       <div class="repair-nav-image relative">
         <a href="/pages/hat-size" class="zoom" data-hover-id="nav-your-hat-size">
-	        <img src="{{ 'worth-and-worth-nav-hat-repair-hatsize-web.jpg' | asset_url }}" />
+	        <img src="{{ 'worth-and-worth-nav-hat-repair-hatsize-web.jpg' | asset_url }}" alt="" />
 	        <h5>Your Hat Size</h5>
         </a>
       </div>
      <!-- <div class="repair-nav-image relative">
 		 <a href="/pages/hat-repair" class="zoom" data-hover-id="nav-hat-services">
-	        <img src="{{ 'hr2.jpg' | asset_url }}" />
+	        <img src="{{ 'hr2.jpg' | asset_url }}" alt="" />
 	        <h5>Hat Services</h5>
 		 </a>
       </div>-->
       <div class="repair-nav-image relative">
 		<a href="/pages/hat-care" class="zoom" data-hover-id="nav-hat-care">
-	        <img src="{{ 'hr3.jpg' | asset_url }}" />
+	        <img src="{{ 'hr3.jpg' | asset_url }}" alt="" />
 	        <h5>Hat Care</h5>
         </a>
       </div>
       <div class="repair-nav-image relative">
 		<a href="/pages/custom" class="zoom" data-hover-id="nav-w-w-custom">
-	        <img src="{{ 'hr4.jpg' | asset_url }}" />
+	        <img src="{{ 'hr4.jpg' | asset_url }}" alt="" />
 	        <h5>W&W Custom</h5>
         </a>
       </div>
@@ -265,7 +267,7 @@
 	  		</div>
 		</div>
 		<div class="large-6 large-offset-1 cell relative">
-			<a href="/pages/custom" class="zoom"><img src="{{ 'Custom-dropdown-navigation.jpg' | asset_url }}" /></a>
+			<a href="/pages/custom" class="zoom"><img src="{{ 'Custom-dropdown-navigation.jpg' | asset_url }}" alt="Custom" /></a>
     	</div>
 	</div>
 </div>
@@ -303,19 +305,19 @@
 		<div class="large-8 cell relative repair-nav-image-wrap">
 			<div class="umh-nav-image relative">
 				<a href="/pages/under-my-hat-about" class="zoom" data-hover-id="nav-about-orlando">
-					<img src="{{ 'Worth-and-Worth-umh-about-Orlando-V2.jpg' | asset_url }}" />
+					<img src="{{ 'Worth-and-Worth-umh-about-Orlando-V2.jpg' | asset_url }}" alt="" />
 					<h3>About Orlando</h3>
 				</a>
 			</div>
 			<div class="umh-nav-image relative">
 				<a href="/blogs/collaborations" class="zoom" data-hover-id="nav-collaborations">
-					<img src="{{ 'Worth-and-Worth-umh-CollaborationsV2.jpg' | asset_url }}" />
+					<img src="{{ 'Worth-and-Worth-umh-CollaborationsV2.jpg' | asset_url }}" alt="" />
 					<h3>Collaborations</h3>
 				</a>
 			</div>
 			<div class="umh-nav-image relative">
 				<a href="/blogs/creations" class="zoom" data-hover-id="nav-creations">
-					<img src="{{ 'Worth-and-Worth-umh-Creations-V2.jpg' | asset_url }}" />
+					<img src="{{ 'Worth-and-Worth-umh-Creations-V2.jpg' | asset_url }}" alt="" />
 					<h3>Creations</h3>
 				</a>
 			</div>
