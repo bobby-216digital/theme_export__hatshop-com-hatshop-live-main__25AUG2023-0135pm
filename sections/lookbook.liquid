@@ -1,0 +1,418 @@
+<div id="fullpage">
+
+  <!-- Lookbook intro -->
+  <div class="section fp-auto-height-responsive lookbook-intro-section" id="section0" >
+    <div class="grid-container lookbook-intro">
+      <div class="grid-x grid-padding-x align-center align-middle">
+        <div class="medium-4 medium-offset-1 cell ">
+          <h5>[{{ section.settings.date }}] Lookbook</h5>
+          <h1>{{ section.settings.description }}</h1>
+		  <img src="//cdn2.shopify.com/s/files/1/0031/1699/0564/t/4/assets/sketch-border.png?15094" alt="Border" class="sketch-border" style="max-width: 123px;width: 123px;margin-bottom: 10px;">
+		  <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox"></div>
+<!--          <a href="" class="text-link">Downbload PDF</a>-->
+        </div>
+        <div class="medium-6 medium-offset-1 cell ">
+          <img src="{{ section.settings.imagetop | img_url: 'master' }}" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lookbook fullscreen slideshow -->
+  <div class="section fp-auto-height-responsive lookbook-ss" id="section1">
+  	 {% assign slide1count = 0 %}
+     {% for block in section.blocks %}
+
+     {% assign slide1count = slide1count | plus: 1 %}
+     {% case block.type %}
+      {% when 'slider1' %}
+
+    <!-- Slide 1 -->
+   <div class="slide" id="slide{{ slide1count }}" style="background-image:url(' {{ block.settings.slider1image | img_url: 'master' }}')">
+
+   	{% unless block.settings.wanthat == blank %}
+   	{% assign want = all_products[block.settings.wanthat] %}
+   	<div class="over-image-want text-center"><a href="{{ want.url }}"><p><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" />SHOP THE LOOK</p></a></div>
+   	{% endunless %}
+   </div>
+   {% endcase %}
+   {% endfor %}
+  </div>
+
+ {% for block in section.blocks %}
+ {% case block.type %}
+
+  {% when 'looks1' %}
+  <!-- Lookbook Text Left -->
+  <div class="section fp-auto-height-responsive" id="section0">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x align-center align-middle">
+		{% assign featured = all_products[block.settings.featured] %}
+        <div class="medium-4 medium-offset-1 cell small-order-2 medium-order-1 look-hat">
+          <img src="{% if block.settings.productimage  %}{{ block.settings.productimage | img_url: '400x400' }}{% else %}{{ featured.featured_image | img_url: '400x400' }}{% endif %}" />
+          <h2 class="h4"><a href="{{ featured.url }}">{{ featured.title }}</a></h2>
+		  <p> {{ featured.metafields.accentuate.short_description }}</p>
+          <div class="smartwishlist" data-product="{{ featured.id }}" data-variant="{{ featured.variants.first.id }}"></div><a href="{{ featured.url }}" class="text-link cta">
+            SHOP</a>
+        </div>
+        <div class="medium-6 medium-offset-1 cell small-order-1 medium-order-2">
+			<a href="javascript:;" class="zoom"><img src="{{ block.settings.productLifestyle | img_url: 'master' }}" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {% when 'looks2' %}
+  <!-- Lookbook Text Right -->
+  <div class="section fp-auto-height-responsive" id="section0">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x align-center align-middle">
+        <div class="medium-6 cell">
+			<a href="javascript:;" class="zoom"><img src="{{ block.settings.productLifestyle2 | img_url: 'master' }}" /></a>
+        </div>
+        <div class="medium-4 medium-offset-1 cell look-hat">
+		  {% assign featured2 = all_products[block.settings.featured2] %}
+          <img src="{% if block.settings.productimage2  %}{{ block.settings.productimage2 | img_url: '400x400' }}{% else %}{{ featured2.featured_image | img_url: '400x400' }}{% endif %}" />
+          <h2 class="h4"><a href="{{ featured2.url }}">{{ featured2.title }}</a></h2>
+		  <p> {{ featured2.metafields.accentuate.short_description }}</p>
+          <div class="smartwishlist" data-product="{{ featured2.id }}" data-variant="{{ featured2.variants.first.id }}"></div><a href="{{ featured2.url }}" class="text-link cta">
+            SHOP</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% when 'slider2' %}
+  {% if block.settings.first %}<div class="section lookbook-ss  fp-auto-height-responsive" id="section2">{% endif %}
+  {% assign slide2count = 0 %}
+  {% assign slide1count = slide2count | plus: 1 %}
+
+    <!-- Slide 1-->
+   <div class="slide" id="slide{{ slide2count }}" style="background-image:url(' {{ block.settings.slider2image | img_url: 'master' }}')">
+   	{% unless block.settings.wanthat2 == blank %}
+   		{% assign want2 = all_products[block.settings.wanthat2] %}
+   		<div class="over-image-want text-center"><a href="{{ want2.url }}"><p><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" />SHOP THE LOOK</p></a></div>
+   		{% endunless %}
+   </div>
+
+  {% if block.settings.last %}</div>{% endif %}
+  {% endcase %}
+{% endfor %}
+<section class="section fp-auto-height">
+
+
+  <a href="#fullpage" class="button scrollme" style="margin: 60px auto;display: block;width: 156px;">Back to top</a>
+
+
+	<!-- Newsletter sign up -->
+  	<div class="footer-newsletter">
+     	<div class="grid-container">
+  	 		<div class="grid-x grid-padding-x align-center">
+  	 			<div class="large-12 cell text-center">
+  	 				<h3 class="h5 section-space30">subscribe to our newsletter</h3>
+  	 			</div>
+  	 			<div class="large-5 cell">
+  	 				<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+  	 				<style type="text/css">
+  	 					#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+  	 					/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+  	 					   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+  	 				</style>
+  	 				<div id="mc_embed_signup">
+  	 				<form action="https://hatshop.us6.list-manage.com/subscribe/post?u=f66f879415553ab47f37c59b5&amp;id=6884191e8a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+  	 				    <div id="mc_embed_signup_scroll">
+
+  	 				<div class="mc-field-group">
+  	 					<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address" />
+  	 				</div>
+  	 					<div id="mce-responses" class="clear">
+  	 						<div class="response" id="mce-error-response" style="display:none"></div>
+  	 						<div class="response" id="mce-success-response" style="display:none"></div>
+  	 					</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+  	 				    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f66f879415553ab47f37c59b5_6884191e8a" tabindex="-1" value=""></div>
+  	 				    <button type="submit" name="subscribe" id="mc-embedded-subscribe">{{ 'newsletter-arrow.png' | asset_url | img_tag: 'submit' }}</button>
+  	 				    </div>
+  	 				</form>
+  	 				</div>
+  	 				<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='text';fnames[4]='MMERGE4';ftypes[4]='text';fnames[5]='MMERGE5';ftypes[5]='text';fnames[6]='MMERGE6';ftypes[6]='text';fnames[7]='MMERGE7';ftypes[7]='text';fnames[8]='MMERGE8';ftypes[8]='text';fnames[9]='MMERGE9';ftypes[9]='text';fnames[10]='MMERGE10';ftypes[10]='text';fnames[11]='MMERGE11';ftypes[11]='text';fnames[12]='MMERGE12';ftypes[12]='text';fnames[13]='MMERGE13';ftypes[13]='text';fnames[14]='MMERGE14';ftypes[14]='text';fnames[15]='MMERGE15';ftypes[15]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+  	 				<!--End mc_embed_signup-->
+
+  	 				</div>
+  	 			</div>
+
+  	 		</div>
+	 	   </div>
+
+
+  <!-- Actual footer content and links -->
+  <footer class="show-for-large">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x footer-content">
+        <div class="medium-2 cell">
+          <h5>Shop Online</h5>
+    			{% for link in linklists.shop-online.links %}
+    			<a href="{{ link.url }}">{{ link.title }}</a>
+    			{% endfor %}
+        </div>
+        <div class="medium-2 cell">
+          <h5>About</h5>
+    			{% for link in linklists.about.links %}
+    			<a href="{{ link.url }}">{{ link.title }}</a>
+    			{% endfor %}
+        </div>
+        <div class="medium-5 cell">
+          <h5>Customer Care</h5>
+    			{% for link in linklists.customer-care.links %}
+    			<a href="{{ link.url }}">{{ link.title }}</a>
+    			{% endfor %}
+        </div>
+        <div class="medium-3 cell text-center footer-contact">
+  		<a href="https://www.instagram.com/worthandworth/" target="_blank"><i class="fab fa-instagram"></i></a>
+  		<a href="https://www.facebook.com/worthandworth/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  		<a href="mailto:info@hatshop.com" target="_blank"><i class="fal fa-envelope-open"></i></a>
+          <address>
+            <p>50 E 57th Street, 6th Floor <br />
+            New York, NY 10022</p>
+          </address>
+          <p>1-212-265-2887 <br />
+            Mon-Tue: 10-6pm <br />
+            Wed-Fri: 10-7pm <br />
+            Sat: 10-6</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- Thought we were done, but we actually need one last thing. The copyright. -->
+  <section class="copy text-center show-for-large">
+    <span>© Copyright 2019 Worth & Worth</span>
+    <span><a href="/pages/terms">Terms & Conditions</a></span>
+    <span><a href="/pages/privacy">Privacy Policy</a></span>
+    <span><a href="">Site Credit</a></span>
+  </section>
+</section>
+</div>
+
+  <footer class="hide-for-large">
+  	<ul class="vertical menu accordion-menu " data-accordion-menu>
+  		<li>
+  			<a href="javascript:void(0)" class="footer-mobile-trigger">Shop Online</a>
+  			<ul class="menu vertical nested">
+  				{% for link in linklists.shop-online.links %}
+  				<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+  				{% endfor %}
+  			</ul>
+  		</li>
+  		<li>
+  			<a href="javascript:void(0)" class="footer-mobile-trigger">About</a>
+  			<ul class="menu vertical nested">
+  				{% for link in linklists.about.links %}
+  				<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+  				{% endfor %}
+  			</ul>
+  		</li>
+  		<li>
+  			<a href="javascript:void(0)" class="footer-mobile-trigger">Customer Care</a>
+  			<ul class="menu vertical nested">
+  				{% for link in linklists.customer-care.links %}
+  				<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+  				{% endfor %}
+  				<li><a href="/pages/terms">Terms & Conditions</a></li>
+  				<li><a href="/pages/privacy">Privacy Policy</a></li>
+  			</ul>
+  		</li>
+  	</ul>
+  	<div class="medium-12 cell text-center footer-contact">
+  		<a href="https://www.instagram.com/worthandworth/" target="_blank"><i class="fab fa-instagram"></i></a>
+  		<a href="https://www.facebook.com/worthandworth/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  		<a href="mailto:info@hatshop.com" target="_blank"><i class="fal fa-envelope-open"></i></a>
+  	  <address>
+  	    <p>50 E 57th Street, 6th Floor <br />
+  	    New York, NY 10022</p>
+  	  </address>
+  	  <p>1-212-265-2887 <br />
+  	    Mon-Tue: 10-6pm <br />
+  	    Wed-Fri: 10-7pm <br />
+  	    Sat: 10-6</p>
+  	</div>
+  </footer>
+  <!-- Thought we were done, but we actually need one last thing. The copyright. -->
+  <section class="copy text-center hide-for-large">
+    <span>© Copyright 2019 Worth & Worth</span>
+    <span><a href="">Site Credit</a></span>
+  </section>
+
+{{ 'fullpage.min.js' | asset_url | script_tag }}
+<script>
+// Lookbook
+var myFullpage = new fullpage('#fullpage', {
+  scrollBar: true,
+  navigation: true,
+  navigationPosition: 'left',
+  normalScrollElements: 'footer, .footer-newsletter',
+   responsiveWidth: 610,
+
+
+});
+</script>
+
+
+
+
+
+    {% include 'cart-ajax' %}
+    {% if template.directory == 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+    {% endif %}
+    <!-- Javascript  vendor plugins and applications -->
+    {{ 'jquery.cookie.js' | asset_url | script_tag }}
+    {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+    {{ 'what-input.js' | asset_url | script_tag }}
+    {{ 'foundation.js' | asset_url | script_tag }}
+    {{ 'jquery.cycle2.min.js' | asset_url | script_tag }}
+	  {{ 'jquery.cycle2.carousel.min.js' | asset_url | script_tag }}
+	  {{ 'tail.datetime.js' | asset_url | script_tag }}
+    {{ 'app.js' | asset_url | script_tag }}
+    {{ 'rivets-cart.min.js' | asset_url | script_tag }}
+    {% if template == 'product' or template == 'product.poc'  or template == 'product.giftcard' %}{{ 'product.js' | asset_url | script_tag }}{% endif %}
+    {{ 'ajaxinate.js' | asset_url | script_tag }}
+    {% if template == 'index' %}  {% include 'instafeed' %} {% endif %}
+
+    <!-- Some JS that needs the help of liquid -->
+    <script type="text/javascript">
+        // Initiate some pretty awesome ajax cart action
+        $(function() {
+                CartJS.init({{ cart | json }}, {
+                    "moneyFormat": "{{ shop.money_format }}",
+                    "moneyWithCurrencyFormat": "{{ shop.money_with_currency_format }}"
+                });
+            });
+    </script>
+	<script>
+	rivets.formatters.myFormatter = function(value, arg1, arg2) {
+	  return '';
+	}
+	</script>
+	<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d35ee69589d3e66"></script>
+
+  </body>
+</html>
+
+
+<!-- Timeline -->
+
+
+{% schema %}
+  {
+    "name": "Lookbook",
+    "settings": [
+      {
+        "id": "date",
+        "type": "text",
+        "label": "Date"
+      },
+      {
+        "id": "description",
+        "type": "richtext",
+        "label": "Text"
+      },
+      {
+        "id": "imagetop",
+        "type": "image_picker",
+        "label": "Image (1130 x 1396)"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "slider1",
+        "name": "First Slider",
+        "settings": [
+          {
+            "id": "slider1image",
+            "type": "image_picker",
+            "label": "Image"
+          },{
+           "type": "product",
+           "id": "wanthat",
+           "label": "I want this hat"
+          }
+        ]
+      },
+      {
+        "type": "looks1",
+        "name": "Look Prod Left Img Right",
+        "settings": [
+          {
+           "type": "product",
+           "id": "featured",
+           "label": "Feature product"
+          },
+          {
+            "id": "productimage",
+            "type": "image_picker",
+            "label": "Product Image"
+          },
+          {
+            "id": "productLifestyle",
+            "type": "image_picker",
+            "label": "Product Lifestyle Photo"
+          }
+        ]
+      },
+      {
+        "type": "slider2",
+        "name": "Second Slider",
+        "settings": [
+          {
+            "id": "slider2image",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+           "type": "product",
+           "id": "wanthat2",
+           "label": "I want this hat"
+         },
+          {
+             "type": "checkbox",
+             "id": "first",
+             "default": false,
+             "label": "First Slide"
+          },
+          {
+             "type": "checkbox",
+             "id": "last",
+             "default": false,
+             "label": "Last Slide"
+          }
+        ]
+      },
+      {
+        "type": "looks2",
+        "name": "Look Img Left Prod Right",
+        "settings": [
+          {
+           "type": "product",
+           "id": "featured2",
+           "label": "Feature product"
+          },
+          {
+            "id": "productimage2",
+            "type": "image_picker",
+            "label": "Product Image"
+          },
+          {
+            "id": "productLifestyle2",
+            "type": "image_picker",
+            "label": "Product Lifestyle Photo"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

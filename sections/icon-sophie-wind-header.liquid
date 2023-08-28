@@ -1,0 +1,73 @@
+<!-- Icon header video and/or image -->
+<div class="full reveal" id="icon-video" data-reveal data-animation-in="fade-in" data-animation-out="fade-out" data-reset-on-close="true">
+    <div class="icon-fullscreen-video">
+		<video class="videofile" poster="{{ section.settings.bgImage | img_url: 'master' }}" controls="">
+            <source src="{{ section.settings.videoURL }}" type="video/mp4">
+        </video>
+    </div>
+    <span class="close" data-close>x</span>
+</div>
+<section class="icon-header relative bottom10">
+	<div class="video-landing-wrap">
+		<div class="icon-header-info">
+			<div class="grid-container">
+				<div class="grid-x">
+					<div class="large-12 cell text-center">
+						<h1>{{ section.settings.title }}</h1>
+						<a href="#" class="button  fullscreen-watch" data-toggle="icon-video" ><span class="episode-text">Watch Episode</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="general-overlay"></div>
+		<div class="mobile-image hide-for-large" style="background: url({{ section.settings.bgImage | img_url: 'master' }}) no-repeat center center/cover"></div>
+		<video class="slide-video slide-media show-for-large" autoplay loop muted preload="metadata" poster="{{ section.settings.bgImage | img_url: 'master' }}">
+			<source src="{{ section.settings.videoURLBG }}" type="video/mp4" />
+		</video>
+	</div>
+</section>
+<script>
+$(document).ready(function($) {
+    $('.fullscreen-watch').click(function() {
+        $('video').trigger('play');
+    });
+	$(function(){
+	   var hash = window.location.hash;
+	   if(hash == '#watch'){
+		 $('#icon-video').foundation('reveal', 'open');
+	     $('video').trigger('play');
+	   }
+	});
+	$('.videofile').on('ended',function(){
+       $('#icon-video').foundation('close');
+    });
+  });
+
+</script>
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "id": "bgImage",
+        "type": "image_picker",
+        "label": "Background Image (2000px x 1347px)"
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title"
+      },
+      {
+        "id": "videoURL",
+        "type": "text",
+        "label": "Sound Video URL"
+      },
+      {
+        "id": "videoURLBG",
+        "type": "text",
+        "label": "Background Video URL"
+      }
+    ]
+  }
+{% endschema %}

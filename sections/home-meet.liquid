@@ -1,0 +1,73 @@
+<!-- Meet the designer. The one and only Orlando Palacios -->
+<section class="home-meet section-space">
+	<!-- Meet the designer headline -->
+  	<div class="grid-container">
+  		<div class="grid-x grid-padding-x">
+  			<div class="medium-12 cell text-center">
+  				<blockquote>{{ section.settings.meetQuote }}</blockquote>
+  			</div>
+  		</div>
+  	</div>
+  	<!-- Meet the designer content -->
+  	<div class="home-meet-bg">
+  		<div class="grid-container">
+  			<div class="grid-x grid-padding-x align-justify align-middle">
+  				<div class="medium-9 cell relative">
+  					<a href="{{ section.settings.buttonURL }}" class="zoom" data-hover-id="orlandoLink"><img src="{{ section.settings.largePhoto | img_url: 'master' }}" class="home-orlando-1"/></a>
+  					<img src="{{ section.settings.smallPhoto | img_url: 'master' }}" class="home-orlando-2" />
+  				</div>
+  				<div class="medium-3 cell text-center home-orlando-bio">
+  					<div class="orlando-bio-inner">
+  						{{ 'logo-orlando.png' | asset_url | img_tag: 'Orlando' }}
+  						<h4>{{ section.settings.heading }}</h4>
+  						<p>{{ section.settings.meetMore }}</p>
+  						<a href="{{ section.settings.buttonURL }}" class="cta light link-activate" data-hover-id="orlandoLink">{{ section.settings.buttonText }}</a>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+</section>
+
+{% schema %}
+  {
+    "name": "Meet the designer",
+    "settings": [
+      {
+        "id": "meetQuote",
+        "type": "textarea",
+        "label": "Quote"
+      },
+      {
+        "id": "largePhoto",
+        "type": "image_picker",
+        "label": "Large Photo (1718x1078)"
+      },
+      {
+        "id": "smallPhoto",
+        "type": "image_picker",
+        "label": "Small Photo (514x784)"
+      },
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading"
+      },
+      {
+        "id": "meetMore",
+        "type": "textarea",
+        "label": "More"
+      },
+      {
+        "id": "buttonText",
+        "type": "text",
+        "label": "Button Text"
+      },
+      {
+        "id": "buttonURL",
+        "type": "text",
+        "label": "Button URL"
+      }
+    ]
+  }
+{% endschema %}

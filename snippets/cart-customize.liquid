@@ -1,0 +1,159 @@
+<!-- Customize request form --> 
+<div class="off-canvas position-right product-customize" id="showCustom" data-off-canvas data-transition="overlap">
+	{%- assign formId = 'customizeProductForm' -%}
+  	{% form 'contact', id: formId %}
+  	{% include 'form-status-canvas', form_id: formId %}
+
+    <div class="grid-x grid-padding-x customize-form">
+		<div class="large-12 cell">
+			<h2 class="text-center">Customize</h2>
+			<p>Craft the perfect Hat to call your very own. This handcrafted hat can be customize in 100% Western or Dressed  Beaver Fur Felt. We stand firmly behind our product and craftsmanship while looking to meet the expectations of every single one of our clients. And because our product is handmade, your satisfaction is guaranteed.  With an admirable amount of strength and durability, your W&W Hat will last you a lifetime. </p>
+
+		<!-- Color selection -->
+		<div id="color-select-wrap" class="relative">
+
+			<div id="current-color-custom">
+				<div class="current-color-img-wrap-custom">
+					<img src="{{ "c-Black.jpeg" | asset_url }}" />
+				</div>
+				<p>Color Preference <span>Select Color</span></p>
+				<br clear="all" />
+			</div>
+			<div id="color-select-custom">
+
+				<!-- Single color ouput -->
+				<a href="#">
+					<label for="colorBlack" class="color-select-item-custom">
+						<input type="radio" name="contact[Color Selection]" class="color-select" id="colorBlack" value="Black">
+						<div class="color-img-wrap-custom">
+							<img src="{{ "c-Black.jpeg" | asset_url }}" />
+						</div>
+						<span>Black</span>
+						<br clear="all" />
+					</label>
+				</a>
+
+        <!-- Single color ouput -->
+				<a href="#">
+					<label for="colorAsphalto" class="color-select-item-custom">
+						<input type="radio" name="contact[Color Selection]" class="color-select" id="colorAsphalto"  value="Asphalto">
+						<div class="color-img-wrap-custom">
+							<img src="{{ "c-Asphalto.jpeg" | asset_url }}" />
+						</div>
+						<span>Asphalto</span>
+						<br clear="all" />
+					</label>
+				</a>
+
+        <!-- Single color ouput -->
+				<a href="#">
+					<label for="colorChampagne" class="color-select-item-custom">
+						<input type="radio" name="contact[Color Selection]" class="color-select" id="colorChampagne" value="Champagne">
+						<div class="color-img-wrap-custom">
+							<img src="{{ "c-Champagne.jpg" | asset_url }}" />
+						</div>
+						<span>Champagne</span>
+						<br clear="all" />
+					</label>
+				</a>
+
+        <!-- Single color ouput -->
+				<a href="#">
+					<label for="colorSilverbelly" class="color-select-item-custom">
+						<input type="radio" name="contact[Color Selection]" class="color-select" id="colorSilverbelly" value="Silverbelly">
+						<div class="color-img-wrap-custom">
+							<img src="{{ "c-Silverbelly.jpg" | asset_url }}" />
+						</div>
+						<span>Silverbelly</span>
+						<br clear="all" />
+					</label>
+				</a>
+
+        <!-- Single color ouput -->
+				<a href="#">
+					<label for="colorGranite" class="color-select-item-custom">
+						<input type="radio" name="contact[Color Selection]" class="color-select" id="colorGranite" value="Granite">
+						<div class="color-img-wrap-custom">
+							<img src="{{ "c-Granite.jpeg" | asset_url }}" />
+						</div>
+						<span>Granite</span>
+						<br clear="all" />
+					</label>
+				</a>
+
+        <!-- Single color ouput -->
+				<a href="#">
+					<label for="colorDarkBrown" class="color-select-item-custom">
+						<input type="radio" name="contact[Color Selection]" class="color-select" id="colorDarkBrown" value="Dark Brown">
+						<div class="color-img-wrap-custom">
+							<img src="{{ "c-DarkBrown.jpeg" | asset_url }}" />
+						</div>
+						<span>Dark Brown</span>
+						<br clear="all" />
+					</label>
+				</a>
+
+        <!-- Single color ouput -->
+				<a href="#">
+					<label for="colorDomo" class="color-select-item-custom">
+						<input type="radio" name="contact[Color Selection]" class="color-select" id="colorDomo" value="Triple Dye Domo">
+						<div class="color-img-wrap-custom">
+							<img src="{{ "c-Tripple-Dye-Domo.jpeg" | asset_url }}" />
+						</div>
+						<span>Triple Dye Domo</span>
+						<br clear="all" />
+					</label>
+				</a>
+
+        <!-- Single color ouput -->
+				<a href="#">
+					<label for="colorRust" class="color-select-item-custom">
+						<input type="radio" name="contact[Color Selection]" class="color-select" id="colorRust" value="Rust">
+						<div class="color-img-wrap-custom">
+							<img src="{{ "c-Rust.jpg" | asset_url }}" />
+						</div>
+						<span>Rust</span>
+						<br clear="all" />
+					</label>
+				</a>
+
+        <!-- Single color ouput -->
+				<a href="#">
+					<label for="colorWhiskey" class="color-select-item-custom">
+						<input type="radio" name="contact[Color Selection]" class="color-select" id="colorWhiskey" value="Whiskey">
+						<div class="color-img-wrap-custom">
+							<img src="{{ "c-Whiskey.jpeg" | asset_url }}" />
+						</div>
+						<span>Whiskey</span>
+						<br clear="all" />
+					</label>
+				</a>
+
+
+			</div>
+		</div>
+      </div>
+      <div class="large-12 cell">
+        <input type="hidden" id="{{ formId }}-submission" name="contact[submission]" value="Contact Form" />
+        <input type="text" placeholder="Full Name" id="{{ formId }}-name" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}" />
+
+      </div>
+      <div class="large-12 cell">
+        <input type="email" placeholder="Email Address" id="{{ formId }}-email"  name="contact[email]" autocorrect="off"  autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" aria-required="true" {%- if form.errors contains 'email' -%} class="input--error"  aria-invalid="true" aria-describedby="{{ formId }}-email-error" {%- endif -%} />
+      </div>
+      <div class="large-12 cell">
+        <input type="text" placeholder="Phone Number" id="{{ formId }}-phone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}" />
+      </div>
+      <div class="large-12 cell custom-message">
+        <h3>Message</h3>
+		<textarea placeholder="Add a note" id="{{ formId }}-message" name="contact[body]">I am interested in customizing the {% if product.metafields.accentuate.product_short_name %}{{ product.metafields.accentuate.product_short_name }}{% else %}{{ product.title }}{% endif %}</textarea>
+      </div>
+      <div class="large-12 cell text-center">
+        <button type="submit">Contact to order</button>
+      </div>
+    </div>
+ {% endform %}
+  <button class="close-button" aria-label="Close menu" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

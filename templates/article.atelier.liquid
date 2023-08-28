@@ -1,0 +1,108 @@
+<div class="header-spacer"></div>
+
+<!-- Atelier Single Intro -->
+<section class="full-page atelier-intro" style="background-image:url('{{ article.metafields.accentuate.atelier_introimage }}')">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="medium-12 cell text-center">
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Atelier Single Content -->
+<section class="atelier-content">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+	  <div class="medium-12 cell">
+	  <p class="small-body-title breadcrumb"><a href="/blogs/atelier"><i class="fal fa-chevron-left"></i> the atelier</a></p></div>
+	  </div>
+      <div class="medium-12 cell">
+        <h1>{{ article.title }}</h1>
+      </div>
+    </div>
+	 <div class="grid-container">
+    <div class="grid-x grid-padding-x" id="post">
+      <div class="medium-3 cell data-sticky-container">
+        <div class="sticky" data-sticky data-anchor="post">
+          <img src="http://gooseworksdev.com/hs/sample/atelier-line.png" />
+          <p class="post-date">{{ article.published_at | date: "%B %-d, %Y" }}</p>
+		  <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox"></div>
+          </div>
+      </div>
+      <div class="medium-9 cell atelier-post">
+	  	{{ article.content }}
+		{% for value in article.metafields.rowType.rowType %}
+		{% if article.metafields.rowType.rowType[forloop.index0] == 'Text' %}
+
+		    {{ article.metafields.atelierText.atelierText[forloop.index0] }}
+		{% endif %}
+		{% if article.metafields.rowType.rowType[forloop.index0] == 'Small Image' %}
+			<img src="{{ article.metafields.atelierImage.atelierImage[forloop.index0] }}" alt=""  class="half-post" />
+		{% endif %}
+		{% if article.metafields.rowType.rowType[forloop.index0] == 'Medium Image' %}
+
+		    <img src="{{ article.metafields.atelierImage.atelierImage[forloop.index0] }}" alt="" class="full-post" />
+		{% endif %}
+		{% if article.metafields.rowType.rowType[forloop.index0] == 'Large Image' %}
+	  </div>
+	</div>
+	</div>
+  <img src="{{ article.metafields.atelierImage.atelierImage[forloop.index0] }}" alt="" class="full-wide-image" />
+  <div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="medium-9 cell medium-offset-3 atelier-post">
+		{% endif %}
+		{% if article.metafields.rowType.rowType[forloop.index0] == 'Quote' %}
+			</div>
+		   </div>
+		   	</div>
+		   <blockquote class="atelier-post">{{ article.metafields.atelierQuote.atelierQuote }}</blockquote>
+		   <div class="grid-container">
+		   		<div class="grid-x grid-padding-x">
+		   			<div class="medium-9 cell medium-offset-3  atelier-post">
+		{% endif %}
+		{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+	// Find all YouTube videos
+	var $allVideos = $("iframe"),
+
+	    // The element that is fluid width
+	    $fluidEl = $(".atelier-post");
+
+	// Figure out and save aspect ratio for each video
+	$allVideos.each(function() {
+
+	  $(this)
+	    .data('aspectRatio', this.height / this.width)
+
+	    // and remove the hard coded width/height
+	    .removeAttr('height')
+	    .removeAttr('width');
+
+	});
+
+	// When the window is resized
+	$(window).resize(function() {
+
+	  var newWidth = $fluidEl.width();
+
+	  // Resize all videos according to their own aspect ratio
+	  $allVideos.each(function() {
+
+	    var $el = $(this);
+	    $el
+	      .width(newWidth)
+	      .height(newWidth * $el.data('aspectRatio'));
+
+	  });
+
+	// Kick off one resize to fix all videos on page load
+	}).resize();
+
+</script>

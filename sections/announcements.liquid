@@ -1,0 +1,219 @@
+{% for block in section.blocks %} 
+{% case block.type %}
+
+
+{% when 'announcementnone' %}
+<div id="no-announcement"></div>
+
+{% when 'announcement1' %}
+<!-- Annoumcement Bar 1 -->
+<div class="grid-x grid-padding-x announcement-bar announcement-bar-1 align-middle">
+  <div class="large-12 cell text-center">
+    <p class="line1"><a href="{{ block.settings.link1 }}">{{ block.settings.line11 }}</a></p>
+    <p class="line2"><a href="{{ block.settings.link1 }}">{{ block.settings.line21 }}</a></p>
+    <p class="line3"><a href="{{ block.settings.link1 }}">{{ block.settings.line31 }}</a></p>
+  </div>
+  <span class="announcement-close"><img src="{{ "x-close.png" | asset_url }}" /></span>
+</div>
+<div class="announcement-stripe"></div>
+<style>
+  .header-spacer {
+    height: 255px;
+  }
+  @media screen and (max-width: 63.9375em) {
+    .header-spacer {
+      height: 177px;
+    }
+  }
+</style>
+
+{% when 'announcement2' %}
+<!-- Annoumcement Bar 2 -->
+<div class="grid-x grid-padding-x announcement-bar announcement-bar-2 align-middle">
+  <div class="large-6 cell">
+    <p class="line2">{{ block.settings.line12 }}</p>
+    <p class="line1">{{ block.settings.line22 }}</p>
+  </div>
+  <div class="large-6 cell text-right">
+    <a class="announcement-shop" href="{{ block.settings.link21 }}">{{ block.settings.linktitle21 }}</a>
+	{% if block.settings.link22 != blank %}<span class="announcement-link-divider">|</span>
+    <a class="announcement-shop" href="{{ block.settings.link22 }}">{{ block.settings.linktitle22 }}</a>{% endif %}
+  </div>
+  <span class="announcement-close"><img src="{{ "x-close.png" | asset_url }}" /></span>
+</div>
+<div class="announcement-stripe"></div>
+<style>
+  .header-spacer {
+    height: 213px;
+  }
+  @media screen and (max-width: 63.9375em) {
+    .header-spacer {
+      height: 135px;
+    }
+  }
+</style>
+
+{% when 'announcement3' %}
+<!-- Annoumcement Bar 3 -->
+<div class="announcement-slideshow cycle-slideshow" data-cycle-fx="fadeout" data-cycle-timeout="7000" data-cycle-slides="> div" data-cycle-prev="#preva"  data-cycle-next="#nexta">
+  <div class="first">
+    <div class="grid-x grid-padding-x announcement-bar announcement-bar-3 align-middle">
+      <div class="large-12 cell text-center">
+        <p class="line2"><a href="{{ block.settings.linkslide1 }}">{{ block.settings.slideitem1 }}</a></p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="grid-x grid-padding-x announcement-bar announcement-bar-3 align-middle">
+      <div class="large-12 cell text-center">
+        <p class="line2"><a href="{{ block.settings.linkslide2 }}">{{ block.settings.slideitem2 }}</a></p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="grid-x grid-padding-x announcement-bar announcement-bar-3 align-middle">
+      <div class="large-12 cell text-center">
+        <p class="line2"><a href="{{ block.settings.linkslide3 }}">{{ block.settings.slideitem3 }}</a></p>
+      </div>
+    </div>
+  </div>
+  <span class="announcement-close">Close</span>
+</div>
+        <span id=preva><i class="fal fa-chevron-left"></i></span>
+        <span id=nexta><i class="fal fa-chevron-right"></i></span>
+<div class="announcement-stripe"></div>
+<style>
+  .header-spacer {
+    height: 213px;
+  }
+  .search-open .header-spacer {
+      height: 283px;
+	  transition: all .05s ease;
+  }
+  @media screen and (max-width: 63.9375em) {
+    .header-spacer {
+      height: 135px;
+    }
+  }
+</style>
+
+{% endcase %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Announcement",
+    "blocks": [
+      {
+        "type": "announcement1",
+        "name": "Announcement Center",
+        "settings": [
+          {
+            "id": "line11",
+            "type": "text",
+            "label": "Line 1"
+          },
+          {
+            "id": "line21",
+            "type": "text",
+            "label": "Line 1"
+          },
+          {
+            "id": "line31",
+            "type": "text",
+            "label": "Line 1"
+          },
+          {
+            "id": "link1",
+            "type": "url",
+            "label": "Link"
+          }
+        ]
+      },
+      {
+        "type": "announcement2",
+        "name": "Announcement Left",
+        "settings": [
+          {
+            "id": "line12",
+            "type": "text",
+            "label": "Line 1"
+          },
+          {
+            "id": "line22",
+            "type": "text",
+            "label": "Line 2"
+          },
+          {
+            "id": "link21",
+            "type": "url",
+            "label": "Link 1"
+          },
+          {
+            "id": "linktitle21",
+            "type": "text",
+            "label": "Link Title 1"
+          },
+          {
+            "id": "link22",
+            "type": "url",
+            "label": "Link 2"
+          },
+          {
+            "id": "linktitle22",
+            "type": "text",
+            "label": "Link Title 2"
+          }
+
+        ]
+      },
+      {
+        "type": "announcement3",
+        "name": "Announcement Slideshow",
+        "settings": [
+          {
+            "id": "slideitem1",
+            "type": "text",
+            "label": "Slide 1"
+          },
+          {
+            "id": "linkslide1",
+            "type": "url",
+            "label": "Link"
+          },
+          {
+            "id": "slideitem2",
+            "type": "text",
+            "label": "Slide 2"
+          },
+          {
+            "id": "linkslide2",
+            "type": "url",
+            "label": "Link"
+          },
+          {
+            "id": "slideitem3",
+            "type": "text",
+            "label": "Slide 3"
+          },
+          {
+            "id": "linkslide3",
+            "type": "url",
+            "label": "Link"
+          }
+        ]
+      },
+      {
+        "type": "announcementnone",
+        "name": "No Announcement",
+        "settings": [
+          {
+            "id": "noannouncement",
+            "type": "text",
+            "label": "Nothing to do! Just save/publish"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

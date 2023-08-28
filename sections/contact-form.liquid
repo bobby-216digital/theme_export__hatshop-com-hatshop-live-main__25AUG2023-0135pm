@@ -1,0 +1,47 @@
+{{ 'tail.datetime-harx-light.css' | asset_url | stylesheet_tag }} 
+<section class="custom-contact">
+	<!-- Contact Form -->
+	{%- assign formId = 'ContactForm' -%}
+	{% form 'contact', id: formId %}
+	{% include 'form-status', form_id: formId %}
+	<div class="grid-x grid-margin-x contact-form">
+		<div class="large-12 cell">
+			<h2 class="small-body-title">{{ section.settings.formTitle }}</h2>
+			<p>{{ section.settings.formDesc }}</p>
+			<input type="hidden" id="{{ formId }}-submission" name="contact[submission]" value="Contact Form" />
+			<input type="text" placeholder="Full Name" id="{{ formId }}-name" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}" />
+			<input type="email" placeholder="Email Address" id="{{ formId }}-email"  name="contact[email]" autocorrect="off"  autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" aria-required="true" {%- if form.errors contains 'email' -%} class="input--error"  aria-invalid="true" aria-describedby="{{ formId }}-email-error" {%- endif -%} />
+		</div>
+		<div class="large-6 cell">
+			<input type="text" placeholder="Phone Number" id="{{ formId }}-phone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}" />
+		</div>
+		<div class="large-6 cell">
+			<input type="text" placeholder="Preferred Time and Date" id="timeDate" name="contact[TimeDate]" />
+		</div>
+		<div class="large-12 cell">
+			<textarea placeholder="Add a note" id="{{ formId }}-message" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+		</div>
+		<div class="large-12 cell text-center">
+			<button type="submit">Submit</button>
+		</div>
+	</div>
+</section>
+ {% endform %}
+
+{% schema %}
+  {
+    "name": "Form",
+    "settings": [
+      {
+        "id": "formTitle",
+        "type": "text",
+        "label": "Contact Form Title"
+      },
+      {
+        "id": "formDesc",
+        "type": "textarea",
+        "label": "Contact Form Description"
+      }
+    ]
+  }
+{% endschema %}

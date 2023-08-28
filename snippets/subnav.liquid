@@ -1,0 +1,324 @@
+<!-- Begin the drop down menus -->
+
+<!-- First up is the "Shop" drop down menu -->
+<div class="nav-drop nav-drop-desktop" id="subnav-shop" style="">
+  <div class="grid-container grid-x grid-padding-x">
+	<div class="large-6 cell">
+		<div class="grid-container grid-x grid-padding-x">
+	    <div class="large-4 cell">
+	      <div class="nav-drop-section">
+	        <h4 class="small-body-title">Women's Hats</h4>
+	      	{% for link in linklists.shop-dropdown-womens.links %}
+            <a href="{{ link.url }}" class="nav-item link-activate{% if link.title == 'Ready to Ship' %} rts-nav{% endif %}" id="subnav-link-{{ link.title | handle }}" data-hover-id="zoom-{{ link.title | handle }}" data-image-id="collect-img-{{ link.title | handle }}">{{ link.title }}{% if link.title == 'Ready to Ship' %} <span></span>{% endif %}</a>
+	      	{% endfor %}
+        <!--<h4 class="small-body-title" style="
+    font-weight: bold;
+    margin-top: 30px;
+"><a href="https://hatshop.com/collections/fathers-day-gift-guide" style="
+    font-weight: bold;
+    font-size: 13px;
+    color: #2e2e2e;
+    letter-spacing: 2px;
+    line-height: 19px;
+    text-transform: uppercase;
+" class="nav-item link-activate" id="subnav-link-fathers-day-gift-guide" data-hover-id="zoom-fathers-day-gift-guide" data-image-id="collect-img-fathers-day-gift-guide">Father's Day <br><span style="text-transform:none;font-weight:normal;letter-spacing:0;font-family: miller-display,serif;font-weight: 300;/* font-size: 36px; */color: #2e2e2e;font-size: 16px;font-style: italic;">Gift Guide</span></a></h4>-->
+	      </div>
+	    </div>
+	    <div class="large-4 cell">
+	      
+	      <!--<div class="nav-drop-section">
+	        <h4 class="small-body-title">W&W Little</h4>
+	        {% for link in linklists.shop-dropdown-w-w-little.links %}
+	          <a href="{{ link.url }}" class="nav-item" id="subnav-link-{{ link.title | handle }}" data-image-id="collect-img-{{ link.title | handle }}">{{ link.title }}</a>
+	        {% endfor %}
+	      </div>-->
+		  <div class="nav-drop-section">
+	        <h4 class="small-body-title">Men's Hats</h4>
+	        {% for link in linklists.shop-dropdown-mens.links %}
+	          <a href="{{ link.url }}" class="nav-item link-activate{% if link.title == 'Ready to Ship' %} rts-nav{% endif %}" id="subnav-link-{{ link.title | handle }}" data-hover-id="zoom-{{ link.title | handle }}" data-image-id="collect-img-mens-{{ link.title | handle }}">{{ link.title }}{% if link.title == 'Ready to Ship' %} <span></span>{% endif %}</a>
+	        {% endfor %}
+	      </div>
+	      
+		   <!--<div class="nav-drop-section nav-covid">
+		  	  <a href="/pages/virtual-consultation"><h4 class="small-body-title">Virtual Consultation</h4></a>
+	        
+	      </div>-->
+	    </div>
+	    <div class="large-4 cell">
+     <div class="nav-drop-section">
+	        <h4 class="small-body-title">Shoes</h4>
+	        {% for link in linklists.shop-dropdown-shoes.links %}
+	          <a href="{{ link.url }}" class="nav-item link-activate" id="subnav-link-{{ link.title | handle }}" data-hover-id="zoom-{{ link.title | handle }}" data-image-id="collect-img-{{ link.title | handle }}">{{ link.title }}</a>
+	        {% endfor %}
+	      </div>
+          <div class="nav-drop-section">
+	        <h4 class="small-body-title">Accessories</h4>
+	        {% for link in linklists.shop-dropdown-accessories.links %}
+	          <a href="{{ link.url }}" class="nav-item link-activate" id="subnav-link-{{ link.title | handle }}" data-hover-id="zoom-{{ link.title | handle }}" data-image-id="collect-img-{{ link.title | handle }}">{{ link.title }}</a>
+	        {% endfor %}
+	      </div>
+		  <div class="nav-drop-section">
+	        <h4 class="small-body-title">Gift Cards</h4>
+	        {% for link in linklists.shop-dropdown-gift-cards.links %}
+	          <a href="{{ link.url }}" class="nav-item link-activate" id="subnav-link-{{ link.title | handle }}" data-hover-id="zoom-{{ link.title | handle }}" data-image-id="collect-img-{{ link.title | handle }}">{{ link.title }}</a>
+	        {% endfor %}
+	      </div>
+		  
+	      <!--<div class="nav-drop-section nav-sale">
+		  	  <a href="/collections/on-sale"><h4 class="small-body-title" style="color:#936124;">Sale</h4></a>
+	        <a href="/collections/on-sale" style="color:#936124;" class="nav-item link-activate" id="subnav-link-sale" data-hover-id="zoom-sale" data-image-id="collect-img-sale">Up to 60% off</a>
+	      </div>-->
+		  
+	    </div>
+		</div>
+		<a href="/pages/virtual-consultation" class="nav-item link-activate" id="subnav-link-fitting" data-hover-id="zoom-fitting" data-image-id="collect-img-fitting"><span>Book Online Fitting</span></a> 
+	  	
+      {% for link in linklists.shop-dropdown-support.links %}
+	  <a href="{{ link.url }}" class="nav-item link-activate" id="subnav-link-{{ link.title | handle }}" data-hover-id="zoom-{{ link.title | handle }}" data-image-id="collect-img-{{ link.title | handle }}"><span>{{ link.title }}</span></a>
+      {% endfor %}
+	  
+	  
+	</div>
+    <div class="large-6 cell relative shop-drop-img">
+		<a href="#" class="zoom"><img src="{{ 'Worth-and-Worth-Nav-first-banner2-web.jpeg' | asset_url }}" alt="Worth & Worth Shop"  class="collect-img active" /></a>
+   {% for link in linklists.shop-dropdown-womens.links %}
+        {%- if link.type == 'collection_link' -%}
+          {%- assign collection = link.object -%}
+
+          {%- if collection.image -%}
+            {%- assign image = collection.image | img_url: 'master' -%}
+          {%- elsif collection.products.first.featured_image -%}
+            {%- assign image = collection.products.first.featured_image | img_url: 'master' -%}
+          {%- endif -%}
+        {%- elsif link.type == 'product_link' -%}
+          {%- assign product = link.object -%}
+
+          {%- if product.featured_image -%}
+            {%- assign image = product.featured_image | img_url: 'master' -%}
+          {%- endif -%}
+        {%- endif -%}
+
+          <a href="#" class="zoom" data-hover-id="zoom-{{ link.title | handle }}"><img class="collect-img" data-image="{{ image }}"
+            data-image-alt="{{ image.alt }}"  src="{{ image }}" data-image-id="collect-img-{{ link.title | handle }}"></a>
+      {% endfor %}
+	  {% for link in linklists.shop-dropdown-mens.links %}
+	        {%- if link.type == 'collection_link' -%}
+	          {%- assign collection = link.object -%}
+
+	          {%- if collection.image -%}
+	            {%- assign image = collection.image | img_url: 'master' -%}
+	          {%- elsif collection.products.first.featured_image -%}
+	            {%- assign image = collection.products.first.featured_image | img_url: 'master' -%}
+	          {%- endif -%}
+	        {%- elsif link.type == 'product_link' -%}
+	          {%- assign product = link.object -%}
+
+	          {%- if product.featured_image -%}
+	            {%- assign image = product.featured_image | img_url: 'master' -%}
+	          {%- endif -%}
+	        {%- endif -%}
+
+	          <a href="#" class="zoom" data-hover-id="zoom-{{ link.title | handle }}"><img class="collect-img"
+	            data-image="{{ image }}"
+	            data-image-alt="{{ image.alt }}"
+
+	          src="{{ image }}" data-image-id="collect-img-mens-{{ link.title | handle }}"></a>
+      {% endfor %}
+	  {% for link in linklists.shop-dropdown-accessories.links %}
+	        {%- if link.type == 'collection_link' -%}
+	          {%- assign collection = link.object -%}
+
+	          {%- if collection.image -%}
+	            {%- assign image = collection.image | img_url: 'master' -%}
+	          {%- elsif collection.products.first.featured_image -%}
+	            {%- assign image = collection.products.first.featured_image | img_url: 'master' -%}
+	          {%- endif -%}
+	        {%- elsif link.type == 'product_link' -%}
+	          {%- assign product = link.object -%}
+
+	          {%- if product.featured_image -%}
+	            {%- assign image = product.featured_image | img_url: 'master' -%}
+	          {%- endif -%}
+	        {%- endif -%}
+
+	           <a href="#" class="zoom" data-hover-id="zoom-{{ link.title | handle }}"><img class="collect-img"  data-image="{{ image }}"  data-image-alt="{{ image.alt }}"  src="{{ image }}" data-image-id="collect-img-{{ link.title | handle }}"></a>
+	  {% endfor %}
+	 <!-- {% for link in linklists.shop-dropdown-w-w-little.links %}
+	        {%- if link.type == 'collection_link' -%}
+	          {%- assign collection = link.object -%}
+
+	          {%- if collection.image -%}
+	            {%- assign image = collection.image | img_url: 'master' -%}
+	          {%- elsif collection.products.first.featured_image -%}
+	            {%- assign image = collection.products.first.featured_image | img_url: 'master' -%}
+	          {%- endif -%}
+	        {%- elsif link.type == 'product_link' -%}
+	          {%- assign product = link.object -%}
+
+	          {%- if product.featured_image -%}
+	            {%- assign image = product.featured_image | img_url: 'master' -%}
+	          {%- endif -%}
+	        {%- endif -%}
+
+	          <span class="collect-img"
+	            data-image="{{ image }}"
+	            data-image-alt="{{ image.alt }}"
+
+	          style="background: url({{ image }}) no-repeat top center/cover;" data-image-id="collect-img-{{ link.title | handle }}">
+	          </span>
+	  {% endfor %}-->
+	  {% for link in linklists.shop-dropdown-gift-cards.links %}
+	        {%- if link.type == 'collection_link' -%}
+	          {%- assign collection = link.object -%}
+
+	          {%- if collection.image -%}
+	            {%- assign image = collection.image | img_url: 'master' -%}
+	          {%- elsif collection.products.first.featured_image -%}
+	            {%- assign image = collection.products.first.featured_image | img_url: 'master' -%}
+	          {%- endif -%}
+	        {%- elsif link.type == 'product_link' -%}
+	          {%- assign product = link.object -%}
+
+	          {%- if product.featured_image -%}
+	            {%- assign image = product.featured_image | img_url: 'master' -%}
+	          {%- endif -%}
+	        {%- endif -%}
+
+	           <a href="#" class="zoom" data-hover-id="zoom-{{ link.title | handle }}"><img class="collect-img" data-image="{{ image }}" data-image-alt="{{ image.alt }}"  src="{{ image }}" data-image-id="collect-img-{{ link.title | handle }}"></a>
+	  {% endfor %}
+   {% for link in linklists.shop-dropdown-shoes.links %}
+	        {%- if link.type == 'collection_link' -%}
+	          {%- assign collection = link.object -%}
+
+	          {%- if collection.image -%}
+	            {%- assign image = collection.image | img_url: 'master' -%}
+	          {%- elsif collection.products.first.featured_image -%}
+	            {%- assign image = collection.products.first.featured_image | img_url: 'master' -%}
+	          {%- endif -%}
+	        {%- elsif link.type == 'product_link' -%}
+	          {%- assign product = link.object -%}
+
+	          {%- if product.featured_image -%}
+	            {%- assign image = product.featured_image | img_url: 'master' -%}
+	          {%- endif -%}
+	        {%- endif -%}
+
+	           <a href="#" class="zoom" data-hover-id="zoom-{{ link.title | handle }}"><img class="collect-img" data-image="{{ image }}" data-image-alt="{{ image.alt }}"  src="{{ image }}" data-image-id="collect-img-{{ link.title | handle }}"></a>
+	  {% endfor %}
+	   <a href="#" class="zoom" data-hover-id="zoom-custom"><img class="collect-img" data-image="{{ 'Custom-dropdown-navigation-shop.jpeg' | asset_url }}" data-image-alt="Custom Hat"  src="{{ 'Custom-dropdown-navigation-shop.jpeg' | asset_url }}" data-image-id="collect-img-custom"></a>
+	   
+	  <!-- <a href="#" class="zoom" data-hover-id="zoom-fathers-day-gift-guide"><img class="collect-img" data-image="https://cdn.accentuate.io/272136306770/7853937590372/Gabe_fathers-day_HATS--v1686176330123.jpg?3468x2054" data-image-alt="Father's Day Gift Guide"  src="https://cdn.accentuate.io/272136306770/7853937590372/Gabe_fathers-day_HATS--v1686176330123.jpg?3468x2054" data-image-id="collect-img-fathers-day-gift-guide"></a>-->
+
+	    <a href="#" class="zoom" data-hover-id="zoom-your-hat-size"><img class="collect-img" data-image="{{ 'worth-and-worth-nav-shop-hatsize.jpeg' | asset_url }}" data-image-alt="Custom Hat"  src="{{ 'worth-and-worth-nav-shop-hatsize.jpeg' | asset_url }}" data-image-id="collect-img-your-hat-size"></a>
+		
+		 <a href="#" class="zoom" data-hover-id="zoom-fitting"><img class="collect-img" data-image="{{ 'book_online_fitting.jpeg' | asset_url }}" data-image-alt="Book Online Fitting"  src="{{ 'book_online_fitting.jpeg' | asset_url }}" data-image-id="collect-img-fitting"></a>
+    	</div>
+	</div>
+</div>
+
+<!-- Second up is the "Hat Repair" drop down menu -->
+<div class="nav-drop nav-drop-desktop" id="subnav-hat-care-disabled">
+  <div class="grid-container grid-x grid-padding-x align-middle">
+    <div class="large-2 cell">
+      <h4 class="small-body-title">HAT CARE</h4>
+     {% for link in linklists.hat-care-dropdown.links %}
+       <a href="{{ link.url }}" class="nav-item" id="nav-{{ link.title | handle }}" data-hover-id="nav-{{ link.title | handle }}">{{ link.title }}</a>
+     {% endfor %}
+    </div>
+    <div class="large-10 cell relative repair-nav-image-wrap">
+      <div class="repair-nav-image relative">
+        <a href="/pages/hat-size" class="zoom" data-hover-id="nav-your-hat-size">
+	        <img src="{{ 'worth-and-worth-nav-hat-repair-hatsize-web.jpg' | asset_url }}" />
+	        <h5>Your Hat Size</h5>
+        </a>
+      </div>
+     <!-- <div class="repair-nav-image relative">
+		 <a href="/pages/hat-repair" class="zoom" data-hover-id="nav-hat-services">
+	        <img src="{{ 'hr2.jpg' | asset_url }}" />
+	        <h5>Hat Services</h5>
+		 </a>
+      </div>-->
+      <div class="repair-nav-image relative">
+		<a href="/pages/hat-care" class="zoom" data-hover-id="nav-hat-care">
+	        <img src="{{ 'hr3.jpg' | asset_url }}" />
+	        <h5>Hat Care</h5>
+        </a>
+      </div>
+      <div class="repair-nav-image relative">
+		<a href="/pages/custom" class="zoom" data-hover-id="nav-w-w-custom">
+	        <img src="{{ 'hr4.jpg' | asset_url }}" />
+	        <h5>W&W Custom</h5>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Third up is the "Custom" drop down menu -->
+<div class="nav-drop nav-drop-desktop" id="subnav-custom">
+	<div class="grid-container grid-x grid-padding-x align-middle">
+		<div class="large-4 large-offset-1 cell text-center">
+	  		<div class="custom-text-wrap">
+	  			<h4>Craft the Perfect Hat to Call Your Very Own</h4>
+	  			<p>A hat is one of the most personal pieces of clothing/accessories that one can wear, so why not invest in something that will fit no other head but yours?</p>
+	  			<a class="button filled" href="/pages/custom">Custom Consultation</a>
+	  		</div>
+		</div>
+		<div class="large-6 large-offset-1 cell relative">
+			<a href="/pages/custom" class="zoom"><img src="{{ 'Custom-dropdown-navigation.jpg' | asset_url }}" /></a>
+    	</div>
+	</div>
+</div>
+
+<!-- Fourth up is the "W&W Culture" drop down menu -->
+<div class="nav-drop nav-drop-desktop" id="subnav-culture">
+  <div class="grid-container grid-x grid-padding-x align-middle">
+    <div class="medium-2 cell">
+      <h4 class="small-body-title">W&W Culture</h4>
+      {% for link in linklists.w-w-culture-dropdown.links %}
+        <a href="{{ link.url }}" class="nav-item" id="subnav-link-{{ link.title | handle }}" data-image-id="collect-img-{{ link.title | handle }}">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+    <div class="medium-9 cell relative">
+      <h3>From the Atelier</h3>
+      <p class="subnav-culture-seeall"><a href="/blogs/atelier">See all</a></p>
+
+
+        <!-- Subnav slideshow item -->
+        {% section 'cultureslider' %}
+
+    </div>
+  </div>
+</div>
+
+<!-- Fifth up is the "Under my hat" drop down menu -->
+<div class="nav-drop nav-drop-desktop" id="subnav-umh">
+	<div class="grid-container grid-x grid-padding-x align-middle">
+		<div class="large-3 cell">
+			<h4>Underneath My Hat</h4>
+			{% for link in linklists.umh-dropdown.links %}
+			<a href="{{ link.url }}" class="nav-item" id="nav-{{ link.title | handle }}" data-hover-id="nav-{{ link.title | handle }}">{{ link.title }}</a>
+			{% endfor %}
+		</div>
+		<div class="large-8 cell relative repair-nav-image-wrap">
+			<div class="umh-nav-image relative">
+				<a href="/pages/under-my-hat-about" class="zoom" data-hover-id="nav-about-orlando">
+					<img src="{{ 'Worth-and-Worth-umh-about-Orlando-V2.jpg' | asset_url }}" />
+					<h3>About Orlando</h3>
+				</a>
+			</div>
+			<div class="umh-nav-image relative">
+				<a href="/blogs/collaborations" class="zoom" data-hover-id="nav-collaborations">
+					<img src="{{ 'Worth-and-Worth-umh-CollaborationsV2.jpg' | asset_url }}" />
+					<h3>Collaborations</h3>
+				</a>
+			</div>
+			<div class="umh-nav-image relative">
+				<a href="/blogs/creations" class="zoom" data-hover-id="nav-creations">
+					<img src="{{ 'Worth-and-Worth-umh-Creations-V2.jpg' | asset_url }}" />
+					<h3>Creations</h3>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,62 @@
+<!-- Image left and text right -->
+<section class="icon-imageleft-textright bottom50">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x align-center bottom50">
+      <div class="medium-6 cell">
+        <img src="{{ section.settings.image1 | img_url: '900x900' }}" />
+        <blockquote class="show-for-large">
+          {{ 'hat-icon.png' | asset_url | img_tag: 'Hat Icon' }}
+          {{ section.settings.quote }}
+        </blockquote>
+      </div>
+      <div class="medium-6 cell">
+        <div class="grid-x image-wrap">
+          <div class="medium-9 cell">
+            <img src="{{ section.settings.image2 | img_url: '900x900' }}" />
+          </div>
+          <div class="medium-12 cell">
+            <img src="{{ section.settings.image3 | img_url: '900x900' }}" class="image2" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-container hide-for-large">
+    <div class="grid-x grid-padding-x align-center">
+      <div class="medium-6 cell">
+        <blockquote>
+          {{ 'hat-icon.png' | asset_url | img_tag: 'Hat Icon' }}
+          {{ section.settings.quote }}
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Lifestyle",
+    "settings": [
+     {
+       "id": "image1",
+       "type": "image_picker",
+       "label": "Image 1 (1126px x 1092px)"
+     },
+     {
+       "id": "image2",
+       "type": "image_picker",
+       "label": "Image 2 (782px x 1018px)"
+     },
+     {
+       "id": "image3",
+       "type": "image_picker",
+       "label": "Image 3 (1101px x 703px)"
+     },
+      {
+        "id": "quote",
+        "type": "richtext",
+        "label": "Quote"
+      }
+    ]
+  }
+{% endschema %}

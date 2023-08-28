@@ -1,0 +1,171 @@
+<div class="header-spacer"></div>
+<!-- Press Single Content -->
+<section class="press-content">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="medium-12 cell">
+			<p class="small-body-title breadcrumb"><a href="/blogs/press"><i class="fal fa-chevron-left"></i> Press</a></p></div>
+			</div>
+			<div class="medium-12 cell">
+				<div class="inner-press">
+					<h1>{{ article.excerpt }}</h1>
+					<img src="{{ 'atelier-line.png' | asset_url }}" alt="" role="presentation" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x" id="post">
+			<div class="medium-3 cell data-sticky-container">
+				<div class="sticky" data-sticky data-anchor="post">
+					<div class="inner-press">
+						<h2>{{ article.title }}</h2>
+						<div>{{ article.content }}</div>
+						{% if article.metafields.accentuate.fullarticle %}
+						<a href="{{ article.metafields.accentuate.fullarticle }}" class="cta" target=""><span>Read full article</span> <i class="fal fa-external-link"></i></a>
+						{% endif %}
+						{% if article.metafields.accentuate.downloadArticle %}
+						<a href="{{ article.metafields.accentuate.downloadArticle }}" class="cta" target=""><span>Download PDF</span>  <i class="fal fa-arrow-to-bottom"></i></a>
+						{% endif %}
+						<!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox"></div>
+					</div>
+				</div>
+			</div>
+			<div class="medium-9 cell atelier-post">
+				<div class="press-img-inner">
+					{% for value in article.metafields.accentuate.rowTypePressArticle %}
+					{% if article.metafields.accentuate.rowTypePressArticle[forloop.index0] == 'Two Images Side by Side' %}
+					<!-- Row type two images -->
+					<div class="grid-x grid-padding-x section-space30">
+						<div class="medium-6 cell">
+							<div style="width: 100%;overflow: hidden; height: 0;position: relative;padding-top:143.14%;background: url({{ article.metafields.accentuate.pressImageOne[forloop.index0] }}) no-repeat center center/cover;">
+								
+								{% if article.metafields.accentuate.wantHat[forloop.index0] == 'Below Image' %}
+								<div class="under-image-want text-center"><a href="javascript:;"  data-toggle="showCustom"  ><p class="text-center"><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" /><br >I want to order this look</p></a>
+								<a href="javascript:;" data-toggle="showCustom" class="filled button">Custom Order</a>
+								</div>
+								{% elsif article.metafields.accentuate.wantHat[forloop.index0] == 'On the bottom of the image' %}
+								<div class="over-image-want text-center"><a href="javascript:;"  data-toggle="showCustom"  ><p><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" />I WANT THIS HAT</p></a></div>
+								{% endif %}
+							</div>
+						</div>
+						<div class="medium-6 cell">
+							<div style="width: 100%;overflow: hidden; height: 0;position: relative;padding-top: 143.14%;background: url({{ article.metafields.accentuate.PressImage2[forloop.index0] }}) no-repeat center center/cover;">
+								
+								{% if article.metafields.accentuate.wantHat[forloop.index0] == 'Below Image' %}
+								<div class="under-image-want text-center"><a href="javascript:;"  data-toggle="showCustom"  ><p class="text-center"><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" /><br >I want to order this look</p></a>
+								<a href="javascript:;" data-toggle="showCustom" class="filled button">Custom Order</a>
+								</div>
+								{% elsif article.metafields.accentuate.wantHat[forloop.index0] == 'On the bottom of the image' %}
+								<div class="over-image-want text-center"><a href="javascript:;"  data-toggle="showCustom"  ><p><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" />I WANT THIS HAT</p></a></div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+					{% elsif article.metafields.accentuate.rowTypePressArticle[forloop.index0] == 'Image Left - Product Right' %}
+					<!-- Row type one image and product -->
+					<div class="grid-x grid-padding-x section-space30 align-middle press-img-left">
+						<div class="medium-8 cell">
+							<div class="sidesidewrap relative">
+								<a href="{{ all_products[selected_handle].url }}" class="zoom"><img src="{{ article.metafields.accentuate.pressImageOne[forloop.index0] }}" /></a>
+								{%- if article.metafields.accentuate.wantHat[forloop.index0] == 'On the bottom of the image' -%}
+								<div class="over-image-want text-center"><a href="javascript:;"  data-toggle="showCustom"  ><p><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" />I WANT THIS HAT</p></a></div>
+								{%- endif -%}
+							</div>
+						</div>
+						<div class="medium-4 cell relative text-center">
+							<div class="inner-shop">
+								{% assign selected_handles = article.metafields.accentuate.pressProduct[forloop.index0] | split: '|'  %}
+								{% for selected_handle in selected_handles %}
+								<h3>Shop the look</h3>
+								<a href="{{ all_products[selected_handle].url }}" class="zoom" data-hover-id="{{ all_products[selected_handle].handle }}"><img src="{{all_products[selected_handle].metafields.accentuate.productImg}}" /></a>
+								<h4><a href="{{ all_products[selected_handle].url }}" class="link-activate" data-hover-id="{{ all_products[selected_handle].handle }}">{{ all_products[selected_handle].title }}</a></h4><div class="smartwishlist" style="margin-top: 30px;" data-product="{{ all_products[selected_handle].id }}" data-variant="{{ all_products[selected_handle].variants.first.id }}"></div>
+								<p class="price"><a href="{{ all_products[selected_handle].url }}" class="link-activate" data-hover-id="{{ all_products[selected_handle].handle }}">{{ all_products[selected_handle].price | money Currency.currentCurrency }}</a></p>
+								<a href="{{ all_products[selected_handle].url }}" class="filled button link-activate" data-hover-id="{{ all_products[selected_handle].handle }}">Shop Now</a>
+
+								{% endfor %}
+
+							</div>
+						</div>
+						{% if article.metafields.accentuate.wantHat[forloop.index0] == 'Below Image' %}
+						<div class="medium-12 cell">
+							<div class="under-image-want text-center"><a href="javascript:;"  data-toggle="showCustom"  ><p class="text-center"><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" /><br >I want to order this look</p></a>
+							<a href="javascript:;" data-toggle="showCustom" class="filled button">Custom Order</a>
+							</div>
+						</div>
+						{% endif %}
+					</div>
+					{% elsif article.metafields.accentuate.rowTypePressArticle[forloop.index0] == 'Product Left - Image Right' %}
+					<!-- Row type one image and product -->
+					<div class="grid-x grid-padding-x section-space30 align-middle press-img-right">
+						<div class="medium-4 cell relative text-center">
+							<div class="inner-shop">
+								{% assign selected_handles = article.metafields.accentuate.pressProduct[forloop.index0] | split: '|'  %}
+								{% for selected_handle in selected_handles %}
+								<h3>Shop the look</h3>
+								<a href="{{ all_products[selected_handle].url }}" class="zoom" data-hover-id="{{ all_products[selected_handle].handle }}"><img src="{{all_products[selected_handle].metafields.accentuate.productImg}}" /></a>
+								<h4><a href="{{ all_products[selected_handle].url }}" class="link-activate" data-hover-id="{{ all_products[selected_handle].handle }}">{{ all_products[selected_handle].title }}</a></h4><div class="smartwishlist" style="margin-top: 30px;" data-product="{{ all_products[selected_handle].id }}" data-variant="{{ all_products[selected_handle].variants.first.id }}"></div>
+								<p class="price"><a href="{{ all_products[selected_handle].url }}" class="link-activate" data-hover-id="{{ all_products[selected_handle].handle }}">{{ all_products[selected_handle].price | money Currency.currentCurrency }}</a></p>
+								<a href="{{ all_products[selected_handle].url }}" class="filled button link-activate" data-hover-id="{{ all_products[selected_handle].handle }}">Shop Now</a>
+
+								{% endfor %}
+							</div>
+						</div>
+						<div class="medium-8 cell">
+							<div class="sidesidewrap relative">
+								<a href="{{ all_products[selected_handle].url }}" class="zoom"><img src="{{ article.metafields.accentuate.pressImageOne[forloop.index0] }}" /></a>
+								{% if article.metafields.accentuate.wantHat[forloop.index0] == 'On the bottom of the image' %}
+								<div class="over-image-want text-center"><a href="javascript:;"  data-toggle="showCustom"  ><p><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" />I WANT THIS HAT</p></a></div>
+								{% endif %}
+
+							</div>
+						</div>
+						{% if article.metafields.accentuate.wantHat[forloop.index0] == 'Below Image' %}
+						<div class="medium-12 cell">
+							<div class="under-image-want text-center"><a href="javascript:;"  data-toggle="showCustom"  ><p class="text-center"><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" /><br >I want to order this look</p></a>
+							<a href="javascript:;" data-toggle="showCustom" class="filled button">Custom Order</a>
+							</div>
+						</div>
+						{% endif %}
+					</div>
+					{% elsif article.metafields.accentuate.rowTypePressArticle[forloop.index0] == 'Full Wide Image' %}
+			        <!-- Row type single landscape image -->
+			        <div class="grid-x grid-padding-x section-space30">
+						<div class="medium-12 cell">
+							<div class="widewrap relative">
+							<a href="#" class="zoom"><img src="{{ article.metafields.accentuate.pressImageOne[forloop.index0] }}" /></a>
+							{% if article.metafields.accentuate.wantHat[forloop.index0] == 'Below Image' %}
+							<div class="under-image-want text-center"><a href="javascript:;"  data-toggle="showCustom"  ><p class="text-center"><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" /><br >I want to order this look</p></a>
+							<a href="javascript:;" data-toggle="showCustom" class="filled button">Custom Order</a>
+							</div>
+							{% elsif article.metafields.accentuate.wantHat[forloop.index0] == 'On the bottom of the image' %}
+							<div class="over-image-want text-center"><a href="javascript:;"  data-toggle="showCustom"  ><p><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" />I WANT THIS HAT</p></a></div>
+							{% endif %}
+							</div>
+						</div>
+			        </div>
+					{% elsif article.metafields.accentuate.rowTypePressArticle[forloop.index0] == 'Single Vertical Image' %}
+					<!-- Row type single landscape image -->
+					<div class="grid-x grid-padding-x section-space30">
+						<div class="medium-12 cell">
+							<div class="widewrap relative">
+							<a href="#" class="zoom"><img src="{{ article.metafields.accentuate.pressImageOne[forloop.index0] }}" /></a>
+							{% if article.metafields.accentuate.wantHat[forloop.index0] == 'Below Image' %}
+							<div class="under-image-want text-center"><a href="javascript:;"  data-toggle="showCustom"  ><p class="text-center"><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" /><br >I want to order this look</p></a>
+							<a href="javascript:;" data-toggle="showCustom" class="filled button">Custom Order</a>
+							</div>
+							{% elsif article.metafields.accentuate.wantHat[forloop.index0] == 'On the bottom of the image' %}
+							<div class="over-image-want text-center"><a href="javascript:;"  data-toggle="showCustom"  ><p><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" />I WANT THIS HAT</p></a></div>
+							{% endif %}
+							</div>
+						</div>
+					</div>
+					{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% include 'article-customize' %}

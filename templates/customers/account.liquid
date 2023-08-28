@@ -1,0 +1,108 @@
+{{ 'tail.datetime-harx-light.css' | asset_url | stylesheet_tag }}
+<!-- /templates/customers/account.liquid -->
+<div class="header-spacer"></div>
+<!-- Shipping -->
+<section class="account-content">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x" id="post">
+			<div class="large-2 cell data-sticky-container">
+				<div class="sticky" data-sticky data-anchor="post">
+					<!-- Side Navigatioon -->
+					<ul class="nav-side bottom50" data-smooth-scroll>
+						<li><a href="/account" style="border-bottom: 1px solid #333;">Your Orders</a></li>
+						<li><a href="/account/addresses">Your Addresses ({{ customer.addresses_count }})</a></li>
+					</ul>
+					<div class="customer-info">
+						<h4 class="small-body-title underline">{{ 'customer.account.details' | t }}</h4>
+						{{ customer.default_address | format_address }}
+						<p>{{ customer.email }}</p>
+						<p>{{ customer.phone }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="large-7 large-offset-half cell">
+				<div id="returnresponse"></div>
+				<h1 class="account-title">Your Orders</h1>
+					{% paginate customer.orders by 20 %}
+					{% if customer.orders.size != 0 %}
+					{% for order in customer.orders %}
+				    <table class="show-for-large responsive-table order-list" cellpadding="0" cellspacing="0">
+						<thead>
+							<tr>
+								<th width="161" class="op">Order Placed</th>
+								<th class="status" width="190">Status</th>
+								<th class="on">{{ 'customer.orders.order_number' | t }} {{ order.name }}</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'basic' }}</td>
+								<td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+								<td style="text-align: right;" data-label="{{ 'customer.orders.total' | t }}"><a href="{{ order.order_status_url }}" title="Track Your Order" class="tracklink" target="_blank">Track Package</a></td>
+							</tr>
+
+						</tbody>
+				    </table>
+					<table class="hide-for-large responsive-table order-list" cellpadding="0" cellspacing="0" >
+						<thead>
+							<tr>
+								<th class="op">Order Placed<span class="secondary"> {{ order.created_at | date: format: 'basic' }}</span><br />Status<span class="secondary"> {{ order.fulfillment_status_label }}</span></th>
+								<th class="on">{{ 'customer.orders.order_number' | t }} {{ order.name }}<br /><span class="secondary"><a href="{{ order.order_status_url }}" title="Track Your Order" class="tracklink" target="_blank">Track Package</a></span></th>
+							</tr>
+						</thead>
+
+					</table>
+
+
+					<table class="show-for-large responsive-table order-items" cellpadding="0" cellspacing="0">
+
+						  {% for line_item in order.line_items %}
+						  <tr>
+						  	<td width="240">{{ line_item.image | img_url: '210x' | img_tag }}</td>
+							<td><span class="order-product-title">{{ line_item.product.title | link_to: line_item.product.url }}</span>
+						    {% unless line_item.product.has_only_default_variant %}
+						        {% for option in line_item.options_with_values %}
+								<span class="order-variants"><span class="order-variant-title">{{ option.name }}:</span> <span class="order-variant">{{ option.value }}</span>{% if forloop.last == true %}{% else %}<span class="order-sep"> | </span>{% endif %}</span>
+						        {% endfor %}
+						    {% endunless %}
+							<span class="order-variant-price"> {{ line_item.line_price | money }}</span></td>
+						  </tr>
+						   {% endfor %}
+					</table>
+					<table class="hide-for-large responsive-table order-items" cellpadding="0" cellspacing="0">
+
+						  {% for line_item in order.line_items %}
+						  <tr>
+						  	<td width="97">{{ line_item.image | img_url: '210x' | img_tag }}</td>
+							<td><span class="order-product-title">{{ line_item.product.title | link_to: line_item.product.url }}</span>
+						    {% unless line_item.product.has_only_default_variant %}
+						        {% for option in line_item.options_with_values %}
+								<span class="order-variants"><span class="order-variant-title">{{ option.name }}:</span> <span class="order-variant">{{ option.value }}</span>{% if forloop.last == true %}{% else %}<span class="order-sep"> | </span>{% endif %}</span>
+						        {% endfor %}
+						    {% endunless %}
+							<span class="order-variant-price"> {{ line_item.line_price | money }}</span></td>
+						  </tr>
+						   {% endfor %}
+					</table>
+
+					<div class="returntotal">
+						<div class="text-right">
+							<a href="javascript:;" title="Request a Return" class="requestreturn" target="_blank" data-open="ReturnRequest{{ order.id }}">Request Return</a>
+						</div>
+					</div>
+					{% include 'return-form' %}
+				{% endfor %}
+				  	{% else %}
+				    <p>{{ 'customer.orders.none' | t }}</p>
+					{% endif %}
+				  {% if paginate.pages > 1 %}
+				    <div class="pagination">
+				      {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
+				    </div>
+				  {% endif %}
+				{% endpaginate %}
+			</div>
+		</div>
+	</div>
+</section>

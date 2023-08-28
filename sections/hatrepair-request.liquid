@@ -1,0 +1,130 @@
+<!-- Hat Repair large image -->
+<section class="repair-services bottom50">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="medium-12 cell text-center">
+        <img src="{{ section.settings.banner | img_url: '1900x1900' }}" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hat Repair service steps -->
+<section class="repair-services service-request">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x align-center">
+      <div class="medium-7 cell">
+        <h2 class="h5">{{ section.settings.title }}</h2>
+        <h3>{{ section.settings.subtitle }}</h3>
+        <div class="grid-x grid-padding-x">
+          <div class="medium-4 cell">
+            <p>{{ section.settings.stepTitle1 }} -</p>
+            <img src="{{ section.settings.stepImage1 | img_url: '900x900' }}" />
+            <h4 class="small-body-title">{{ section.settings.stepAction1 }}</h4>
+            <a class="button" href="{{ section.settings.stepButtonURL1 }}">{{ section.settings.stepButtonText1 }}</a>
+          </div>
+          <div class="medium-4 cell">
+            <p>{{ section.settings.stepTitle2 }} -</p>
+            <img src="{{ section.settings.stepImage2 | img_url: '900x900' }}" />
+            <h4 class="small-body-title">{{ section.settings.stepAction2 }}</h4>
+            <p class="small">{{ section.settings.stepDesc2 }}</p>
+          </div>
+          <div class="medium-4 cell">
+            <p>{{ section.settings.stepTitle3 }} -</p>
+            <img src="{{ section.settings.stepImage3 | img_url: '900x900' }}" />
+            <h4 class="small-body-title">{{ section.settings.stepAction3 }}</h4>
+            <p class="small">{{ section.settings.stepDesc3 }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Service Request",
+    "settings": [
+      {
+        "id": "banner",
+        "type": "image_picker",
+        "label": "Header Photo"
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title"
+      },
+      {
+        "id": "subtitle",
+        "type": "text",
+        "label": "Subtitle"
+      },
+      {
+        "id": "stepTitle1",
+        "type": "text",
+        "label": "Step 1 title"
+      },
+      {
+        "id": "stepImage1",
+        "type": "image_picker",
+        "label": "Step 1 Image"
+      },
+      {
+        "id": "stepAction1",
+        "type": "text",
+        "label": "Step 1 action"
+      },
+      {
+        "id": "stepButtonText1",
+        "type": "text",
+        "label": "Download form title"
+      },
+      {
+        "id": "stepButtonURL1",
+        "type": "text",
+        "label": "Download form File"
+      },
+      {
+        "id": "stepTitle2",
+        "type": "text",
+        "label": "Step 2 title"
+      },
+      {
+        "id": "stepImage2",
+        "type": "image_picker",
+        "label": "Step 2 Image"
+      },
+      {
+        "id": "stepAction2",
+        "type": "text",
+        "label": "Step 2 action"
+      },
+      {
+        "id": "stepDesc2",
+        "type": "text",
+        "label": "Step 2 description"
+      },
+      {
+        "id": "stepTitle3",
+        "type": "text",
+        "label": "Step 3 title"
+      },
+      {
+        "id": "stepImage3",
+        "type": "image_picker",
+        "label": "Step 3 Image"
+      },
+      {
+        "id": "stepAction3",
+        "type": "text",
+        "label": "Step 3 action"
+      },
+      {
+        "id": "stepDesc3",
+        "type": "text",
+        "label": "Step 3 description"
+      }
+    ]
+  }
+{% endschema %}

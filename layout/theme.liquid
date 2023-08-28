@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<!-- Added by AVADA SEO Suite -->
+	{% include 'avada-seo' %}
+	<!-- /Added by AVADA SEO Suite -->{% render 'spdn' %}
+
+{% comment %}(KWbv5rJss7HsD7Fs6XDaJ3wOJ)
+
+    You can delete ROI Hunter Easy code below "{% include 'rh_easy' %}" and this comment after uninstalling the app.
+    For more info check https://easy.roihunter.com/how-to-remove-code-shopify
+
+(KWbv5rJss7HsD7Fs6XDaJ3wOJ){% endcomment %}
+{% include 'rh_easy' %}
+    <title>{{ page_title }}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="{{ page_description | escape }}">
+	<meta name="google-site-verification" content="iRuoQAsfuXNFL9Hu4leQ7CppZGD2TENc-E3NrgDb4bU" />
+    <link rel="canonical" href="{{ canonical_url }}">
+	{% include 'social-meta' %}
+	  <link rel="stylesheet" href="https://use.typekit.net/dfa8hcc.css">
+	  <link href="https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-vlOMx0hKjUCl4WzuhIhSNZSm2yQCaf0mOU1hEDK/iztH3gU4v5NMmJln9273A6Jz" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    {% if template == 'page.sale' %}
+    <meta http-equiv="refresh" content="0; url=https://hatshop.com/collections/on-sale" />
+    {% endif %}
+
+
+    <!-- Header hook for plugins -->
+    {{ content_for_header }}
+
+    <!-- CSS and Jquery assets -->
+    {{ 'foundation.css' | asset_url | stylesheet_tag }}
+    {{ 'app.css' | asset_url | stylesheet_tag }}
+    {% if template == 'product' or template == 'product.poc' or template == 'product.giftcard' %}{{ 'product.css' | asset_url | stylesheet_tag }}{% endif %}
+    {{ 'fullpage.min.css' | asset_url | stylesheet_tag }}
+    {{ 'filter.css' | asset_url | stylesheet_tag }}
+	  {{ 'nicole.css' | asset_url | stylesheet_tag }}
+    {{ 'jquery.js' | asset_url | script_tag }}
+
+
+	<style>
+		.search-bar {
+			height: 70px;
+			width: 100%;
+			z-index: 1029;
+			text-align: center;
+			background: #F8F8F8;
+			display: none;
+			overflow: hidden
+		}
+		#search-wrapper .search--wrapper-overlay {
+			display: none
+		}
+		body.search-opened {
+			padding-top: 70px
+		}
+
+
+	</style>
+	<!-- Global site tag (gtag.js) - Google Ads: 873144594 -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-873144594"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'AW-873144594');
+	</script>
+	{% if template == 'product' or template == 'product.poc' or template == 'product.giftcard' %}
+	<script>
+	  gtag('event', 'page_view', {
+	    'send_to': 'AW-873144594',
+	    'value': 'replace with value',
+	    'items': [{
+	      'id': 'replace with value',
+	      'google_business_vertical': 'retail'
+	    }]
+	  });
+	</script>
+	
+	{% endif %}
+
+  
+  {% render 'easy-gdpr-settings' %}
+    <script
+    src="https://js.afterpay.com/afterpay-1.x.js"
+    data-min="35.00"
+    data-max="2000.00"
+    async 
+></script>
+    <link rel="stylesheet" href="{{ 'ddexitpop.css' | asset_url }}" />
+</head>
+  <body data-hijacking="on" data-animation="parallax" class="{% if template == 'index' or page.handle == 'contact' or page.handle == 'montecristi' or page.handle == 'under-my-hat-about' or page.handle == 'custom' or page.handle == 'virtual-consultation' or blog.handle == 'creations' or blog.handle == 'collaborations' or page.handle == 'icon-the-chef-antony' or page.handle == 'icon-many-i-am-sophie' or page.handle == 'icon-dean' or page.handle == 'icon-when-the-wind-blows-sophie' or page.handle == 'icon-molly' or page.handle == 'icon-the-jam' or page.handle == 'icon-daniel' or page.handle == 'icon-maya' or page.handle == 'icon-gabe'%}transparent-drop light-drop{% else %}dark-drop{% endif %} {% for collection in product.collections %}handle-{{ collection.handle }} {%  endfor %} %}">
+
+    <!-- Header - Use class "absolute" to make the header overlap the content at top of page -->
+    <header class="{% if template == 'index' or page.handle == 'contact' or page.handle == 'montecristi' or page.handle == 'custom' or page.handle == 'virtual-consultation' or blog.handle == 'creations' or blog.handle == 'collaborations' or page.handle == 'icon-the-chef-antony' or page.handle == 'icon-many-i-am-sophie' or page.handle == 'icon-dean' or page.handle == 'icon-when-the-wind-blows-sophie' or page.handle == 'icon-molly' or page.handle == 'icon-the-jam' or page.handle == 'icon-daniel' or page.handle == 'icon-maya' or page.handle == 'icon-gabe' or page.handle == 'under-my-hat-about' or collection.metafields.accentuate.background_image %}transparent light{% else %}dark{% endif %} desktop scrollhide-nav" id="navbar">
+
+      <!-- This is the searh bar which is initialy off screen
+           but activated when the search icon is clicked or tapped
+      -->
+      <div class="search-bar" id="searchBbar">
+        <div class="grid-container full">
+          <div class="grid-x grid-padding-x align-center">
+            <div class="large-12 cell text-center">
+              <form class="search" action="/search">
+  			        <input type="hidden" name="type" value="product">
+                <input type="text" name="q" placeholder="What are you looking for?" class="search-input" value="{{ search.terms | escape }}">
+				<input type="hidden" name="type" value="product">
+              </form>
+            </div>
+          </div>
+        </div>
+        <span class="search-close"><img src="{{ "x-close.png" | asset_url }}" /></span>
+      </div>
+
+      <!-- Announcement Bars -->
+      {% if template == 'index' or  template == 'product' or template == 'collection' %}
+      {% section 'announcements-home' %}
+      {% else %}
+      <div id="no-announcement"></div>
+      {% endif %}
+
+      <!-- Navigations -->
+      {% include 'nav' %}
+
+
+    </header>
+
+    <!-- Begin the drop down menus -->
+    {% include 'subnav' %}
+	<main>
+
+    <!-- Page content to begin here -->
+    {{ content_for_layout }}
+ 
+   	<!-- Newsletter sign up -->
+  	<div class="footer-newsletter section fp-auto-height">
+     	<div class="grid-container">
+  	 		<div class="grid-x grid-padding-x align-center">
+  	 			<div class="large-12 cell text-center">
+  	 				<h3 class="h5 section-space30">SIGN UP AND RECEIVE 10% OFF YOUR FIRST ORDER</h3>
+  	 			</div>
+  	 			<div class="large-5 cell">
+                  
+                  <div class="klaviyo-form-VRAeG2"></div>
+  	 				
+
+  	 				</div>
+  	 			</div>
+
+  	 		</div>
+	 	   </div>
+	 	 
+   	</div>
+	</main>
+
+   {% include 'footer' %}
+
+
+
+{% include 'subnav-mobile' %}
+
+
+    {% include 'cart-ajax' %}
+    {% if template.directory == 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+    {% endif %}
+    <!-- Javascript  vendor plugins and applications -->
+    {{ 'jquery.cookie.js' | asset_url | script_tag }}
+    {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+    {{ 'what-input.js' | asset_url | script_tag }}
+    {{ 'foundation.js' | asset_url | script_tag }}
+    {{ 'jquery-ui.min.js'  | asset_url | script_tag }}
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+    {{ 'jquery.cycle2.min.js' | asset_url | script_tag }}
+	  {{ 'jquery.cycle2.carousel.min.js' | asset_url | script_tag }}
+	  {{ 'tail.datetime.js' | asset_url | script_tag }}
+    {{ 'app.js' | asset_url | script_tag }}
+    {{ 'rivets-cart.min.js' | asset_url | script_tag }}
+    {% if template == 'product' or template == 'page.hatsize' or template == 'product.poc'  or template == 'product.giftcard' %}{{ 'product.js' | asset_url | script_tag }}{% endif %}
+    {{ 'ajaxinate.js' | asset_url | script_tag }}
+	{% if template == 'collection'  %}		
+
+
+
+
+					<script type="text/javascript" language="javascript">
+	$(document).ready(function() {
+    if (window.location.href.indexOf("franky") > -1) {
+      alert("your url contains the name franky");
+    }
+  });					
+						
+  var vars = [], hash;
+    var q = document.URL.split('?')[1];
+    if(q != undefined){
+        q = q.split('&');
+        for(var i = 0; i < q.length; i++){
+            hash = q[i].split('=');
+            vars.push(hash[1]);
+            vars[hash[0]] = hash[1];
+        }
+		
+}
+  
+  if (window.location.href.indexOf('?filter.v.price.gte=') > 0) {
+  $( function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 5000,
+      values: [ vars['filter.v.price.gte'], vars['filter.v.price.lte'] ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+		 $( "#amount-selected" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+    $( "#minValue" ).val( ui.values[ 0 ] );
+    $( "#maxValue" ).val( ui.values[ 1 ] );
+      },
+	  stop: function( event, ui ) {
+    $("#form").submit();
+    }  
+	});
+     $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+	  $( "#amount-selected" ).text( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+  } );
+} else {
+   $( function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 5000,
+      values: [ 0, 5000 ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+		 $( "#amount-selected" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+    $( "#minValue" ).val( ui.values[ 0 ] );
+    $( "#maxValue" ).val( ui.values[ 1 ] );
+      },
+	  stop: function( event, ui ) {
+    $("#form").submit();
+    }  
+	});
+     $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+	    $( "#amount-selected" ).text( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+  } );
+  }
+  
+$("#querystring").click(function(){
+    window.location.href = window.location.href.split('?')[0];
+});
+   
+   $(document).ready(function () {
+    if(window.location.href.indexOf("?") > -1) {
+       $("#querystring").addClass("show-me");
+    } else {
+		$("#querystring").removeClass("show-me");
+		}
+});
+  
+</script>{% endif %}
+    {% if template == 'index' %}  {% include 'instafeed' %} {% endif %}
+
+    {% if template == 'page.sale' %}
+    <script>
+      $.cookie('sale10', 'yes', { expires: 7, path: '/' });
+    </script>
+    {% endif %}
+
+    <script>
+    if (!!$.cookie('sale10')) {
+      $(".nav-sale").css( "display", "block" );
+    } else {
+    }
+    </script>
+<script>
+
+
+
+  if ($.cookie('popupholiday2020')) {
+  } else {
+    setTimeout(
+    function()
+    {
+      $(".open1").trigger( "click" );
+    }, 7000);
+    
+  
+    
+    $('.close-button').click(function(){
+       var in2hours = 1/12;
+   $.cookie('popupholiday2020', 'no', { expires: in2hours, path: '/' });
+});
+
+$('.reveal-overlay').click(function(){
+   var in2hours2 = 1/12;
+   $.cookie('popupholiday2020', 'no', { expires: in2hours2, path: '/' });
+});
+   
+  }
+</script>
+
+    <!-- Some JS that needs the help of liquid -->
+    <script type="text/javascript">
+        // Initiate some pretty awesome ajax cart action
+        $(function() {
+                CartJS.init({{ cart | json }}, {
+                    "moneyFormat": "{{ shop.money_format }}",
+                    "moneyWithCurrencyFormat": "{{ shop.money_with_currency_format }}"
+                });
+            });
+    </script>
+	<script>
+	rivets.formatters.myFormatter = function(value, arg1, arg2) {
+	  return '';
+	}
+	</script>
+	<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d35ee69589d3e66"></script>
+<script async type="text/javascript" data-api-key="" id="stamped-script-widget" src="https://cdn-stamped-io.azureedge.net/files/widget.min.js"></script>
+
+
+<script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
+<script>
+    var klaviyo = klaviyo || [];
+    klaviyo.init({
+        account: "Sz6KGP",
+      platform: "shopify"
+    });
+    klaviyo.enable("backinstock",{ 
+    trigger: {
+      product_page_text: "Notify Me When Available",
+      product_page_class: "btn",
+      product_page_text_align: "center",
+      product_page_margin: "0px",
+      replace_anchor: false
+    },
+    modal: {
+     headline: "{product_name}",
+     body_content: "Register to receive a notification when this item comes back in stock.",
+     email_field_label: "Email",
+     button_label: "Notify me when available",
+     subscription_success_label: "You're in! We'll let you know when it's back.",
+     footer_content: '',
+      additional_styles: "@import url({{ 'oos.css' | asset_url }});",
+     drop_background_color: "#000",
+     background_color: "#fff",
+     text_color: "#222",
+     button_text_color: "#fff",
+     button_background_color: "#222222",
+     close_button_color: "#ccc",
+     error_background_color: "#fcd6d7",
+     error_text_color: "#C72E2F",
+     success_background_color: "#d3efcd",
+     success_text_color: "#1B9500"
+    }
+  });
+</script>
+
+
+<!-- Stamped - Begin script -->
+<script>function myInit(){ StampedFn.init({ apiKey: 'pubkey-QR62XeJ1s83v5Df41WG1adg2o72Y52', sId: '159144' }); }</script>
+<script async onload="myInit()" type="text/javascript" src="https://cdn1.stamped.io/files/widget.min.js"></script>
+
+
+<!-- Stamped - End script -->
+  {% if template == 'product' %}
+<script src="{{ 'ddexitpop.js' | asset_url }}">
+
+/***********************************************
+* Exit Intent Pop Up Script (with mobile fallback)- By Dynamic Drive (www.dynamicdrive.com)
+* Please keep this notice intact
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script>
+
+//*** Initialize DD Exit Pop Up Script:
+
+jQuery(function(){
+	ddexitpop.init({
+		contentsource: ['id', 'help-consult'],
+		fxclass: 'animate__slideInUp',
+		displayfreq: '0.03hour',
+      mobileshowafter:'120000',
+		onddexitpop: function($popup){
+			console.log('Exit Pop Animation Class Name: ' + ddexitpop.settings.fxclass)
+		}
+
+	})
+})
+$('.close-slide').click(function () {
+	$('#ddexitpopwrapper').toggleClass('open');
+	$('.slide-up').removeClass('popped');
+});
+$('.pop-me').click(function () {
+	$('.slide-up').toggleClass('popped');
+});
+
+</script>
+
+      {% endif %}
+  </body>
+</html>

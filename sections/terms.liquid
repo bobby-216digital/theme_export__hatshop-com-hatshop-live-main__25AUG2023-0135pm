@@ -1,0 +1,49 @@
+<h1 class="h2">{{ section.settings.title }}</h1>
+{{ 'sketch-border.png' | asset_url | img_tag: 'Border', 'sketch-border' }}
+<ol>
+
+  {% for block in section.blocks %}
+  {% case block.type %}
+
+  {% when 'termsItems' %}
+  <!-- Repeatable list of Terms & Conditions -->
+  <li>
+    <span id="first" class="small-body-title">{{ block.settings.termsTitle }}</span>
+    {{ block.settings.termsExplanation }}
+  </li>
+
+  {% endcase %}
+  {% endfor %}
+
+</ol>
+
+{% schema %}
+  {
+    "name": "Terms & Conditions",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Terms & Conditions Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "termsItems",
+        "name": "Terms Item",
+        "settings": [
+          {
+            "id": "termsTitle",
+            "type": "text",
+            "label": "Terms Title"
+          },
+          {
+            "id": "termsExplanation",
+            "type": "richtext",
+            "label": "Terms Explanation"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,111 @@
+{% for block in section.blocks %}
+{% case block.type %}
+
+{% when 'imageFull' %}
+<!-- Row type full width image -->
+<div class="grid-x grid-padding-x bottom50">
+  <div class="large-12 cell">
+    <img src="{{ block.settings.fullWidthImage | img_url: '1900x1900' }}" />
+  </div>
+</div>
+
+{% when 'twoImages' %}
+<!-- Row type portriat image left, landscape image right  -->
+<div class="grid-x grid-padding-x bottom50">
+  <div class="large-5 cell">
+    <img src="{{ block.settings.imageLeft | img_url: '900x900' }}" />
+  </div>
+  <div class="large-5 large-offset-1 cell relative">
+    <div class="valign">
+      <img src="{{ block.settings.imageRight | img_url: '900x900' }}" />
+    </div>
+  </div>
+</div>
+
+{% when 'textOnly' %}
+<!-- Row type single column text -->
+<div class="grid-x grid-padding-x align-center bottom50">
+  <div class="large-7 cell">
+    <h2>{{ block.settings.textOnlyHeader }}</h2>
+    {{ block.settings.textOnlyContent }}
+  </div>
+</div>
+
+{% when 'contentSmallTitle' %}
+<!-- Row type single column text -->
+<div class="grid-x grid-padding-x align-center bottom50">
+  <div class="large-7 cell">
+    <h5>{{ block.settings.textOnlyHeader2 }}</h5>
+    {{ block.settings.textOnlyContent2 }}
+  </div>
+</div>
+
+{% endcase %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "About",
+    "blocks": [
+      {
+        "type": "imageFull",
+        "name": "Full Width Image",
+        "settings": [
+          {
+            "id": "fullWidthImage",
+            "type": "image_picker",
+            "label": "Image"
+          }
+        ]
+      },
+      {
+        "type": "twoImages",
+        "name": "Two Images",
+        "settings": [
+          {
+            "id": "imageLeft",
+            "type": "image_picker",
+            "label": "Image left"
+          },
+          {
+            "id": "imageRight",
+            "type": "image_picker",
+            "label": "Image Right"
+          }
+        ]
+      },
+      {
+        "type": "textOnly",
+        "name": "Text Only/large title",
+        "settings": [
+          {
+            "id": "textOnlyHeader",
+            "type": "text",
+            "label": "Header Title"
+          },
+          {
+            "id": "textOnlyContent",
+            "type": "richtext",
+            "label": "Content"
+          }
+        ]
+      },
+      {
+        "type": "contentSmallTitle",
+        "name": "Text only/small title",
+        "settings": [
+          {
+            "id": "textOnlyHeader2",
+            "type": "text",
+            "label": "Header Title"
+          },
+          {
+            "id": "textOnlyContent2",
+            "type": "richtext",
+            "label": "Content"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

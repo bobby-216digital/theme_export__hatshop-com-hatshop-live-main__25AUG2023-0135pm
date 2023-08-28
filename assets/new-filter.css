@@ -1,0 +1,307 @@
+.filters .rts img {
+    width: 15px;
+    display: inline-block;
+}
+.tooltip {
+    background-color: #0a0a0aa6;
+    color: #fefefe;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    letter-spacing: 0.8px;
+    border-radius: 5px;
+}
+.has-tip {
+    position: relative;
+    display: inline-block;
+    border-bottom: none;
+    font-weight: 700;
+    cursor: pointer;
+	
+}
+.filter-color-circle {
+    border-radius: 50%;
+    max-width: 98%;
+    padding: 6%;
+    border: 2px solid #fff;
+}
+.filter-container label {
+    font-family: proxima-nova,sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #777;
+    letter-spacing: 0;
+    padding-left: 28px;
+    margin-bottom: 11px;
+    line-height: 17px;
+    text-transform: capitalize;
+}
+.filter-color-circle.selected {
+	  border: 2px solid #000000;
+}
+
+.color-input:checked  + .filter-color-circle {
+	 border: 2px solid #000000;
+}
+
+.prod-list-item {
+  margin-bottom: 10px;
+}
+.prod-life {
+  display: none;
+}
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.style-click {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.style-click input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    border: 1px solid #979797;
+}
+.xmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 9px;
+    width: 10px;
+    border: none;
+    background: url(https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/X_copy.png?2830) no-repeat top left/cover;
+}
+/* Hide the checkbox if it is an image filter */
+.filter-color .checkmark {
+  display: none;
+}
+.filter-color label {
+  padding-left: 0 !important;
+}
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a background */
+.container input:checked ~ .checkmark {
+     background: #313131;
+	 border-color: #313131;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+.filter-color img:hover {
+	border: 1px solid;
+	cursor: pointer;
+}
+.filter-color input:checked + span img{
+	border: 1px solid;
+} 
+.filter-color .disabled:hover img{
+	cursor: not-allowed;
+}
+.tooltip:before {
+	display: none !important;
+}
+#form {
+	width: 100%;
+}
+.selected-filters p {
+	text-transform: uppercase;
+}
+.active-filters {
+    list-style: none;
+    display: flex;
+    margin-left: 0;
+  flex-wrap:wrap;
+}
+.active-filters li {
+	list-style: none;
+	border-bottom: 0;
+    margin-right: 5px;
+    width: calc(50% - 5px);
+}
+#querystring {
+	display: none;
+}
+#querystring.show-me {
+	display: block;
+}
+#amount-selected {
+	    border: none !important;
+    color: #28b1ff;
+    font-weight: normal;
+    /* font-size: 17px !important; */
+    /* color: #6c6c6c!important; */
+    letter-spacing: 0!important;
+    font-family: proxima-nova,sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    color: #777;
+    letter-spacing: 0;
+    appearance: none;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+    margin: 0;
+    display: inline-block;
+    /* width: auto; */
+    min-width: 1px;
+    max-width: unset;
+    text-align: left;
+    line-height: 1;
+    margin-top: 3px;
+    /* width: 69px; */
+    width: fit-content;
+  padding:10px 0
+}
+.active-filters li a {
+    font-family: proxima-nova,sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    color: #777;
+    letter-spacing: 0;
+    margin-right: 0;
+    padding: 10px 0 !important;
+    display: inline-block;
+}
+.active-filters span {
+	color: #777;
+    font-size: 15px;
+    text-transform: lowercase;
+}
+.selected-filters {
+	display: flex;
+}
+.ui-widget.ui-widget-content {
+    background: #e0e0e0;
+    border: none;
+    height: 3px;
+    margin-bottom: 18px;
+}
+.ui-slider-horizontal .ui-slider-range {
+    top: 50%;
+    height: 3px;
+    transform: translate(0, -50%);
+    background: #2e2e2e;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+    border: 1px solid #c5c5c5;
+    background: #2e2e2e;
+    font-weight: normal;
+    color: #454545;
+    border: none;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: none;
+    background: #936124;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 8px;
+    top: 0px;
+    width: 6px;
+    height: 12px;
+    border: 2px solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(46deg);
+}
+.filter-container li {
+	border-bottom: 1px solid #DFDFDF;
+    margin-right: 25px;
+    width: calc(100% - 25px);
+}
+.filter-container .active-filters li {
+    border-bottom: none;
+       margin-right: 5px;
+    width: calc(33.333333% - 5px);
+}
+.filter-container li ul li {
+    border-bottom: none;
+    margin-right: 0;
+    width: 100%;
+    margin-bottom: 19px;
+}
+.filter-container a {
+	font-family: proxima-nova, sans-serif; font-weight: 400;
+	font-size: 13px;
+	color: #2E2E2E;
+	letter-spacing: 2px;
+	line-height: 17px;
+	text-transform: uppercase;
+	padding-left: 0;
+	padding: 15px 0;
+	margin-right: 12px;
+}
+.filters #form {
+    width: 100%;
+    margin-top: 10px;
+}
+.filters input:disabled, input[readonly], .filters textarea:disabled, textarea[readonly] {
+    background-color: #ffffff;
+    cursor: not-allowed;
+    text-align: center;
+}
+.ui-slider-horizontal .ui-slider-handle {
+    margin-left: 0;
+}
+@media screen and (max-width: 63.9375em) {
+#amount-selected {
+  font-size:13px
+}
+}

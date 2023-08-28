@@ -1,0 +1,49 @@
+<h1 class="h2">{{ section.settings.title }}</h1>
+{{ 'sketch-border.png' | asset_url | img_tag: 'Border', 'sketch-border' }}
+<ol>
+
+  {% for block in section.blocks %}
+  {% case block.type %}
+
+  {% when 'returnItems' %}
+  <!-- Repeatable list of return options -->
+  <li>
+    <span id="first" class="small-body-title">{{ block.settings.returnTitle }}</span>
+    <p>{{ block.settings.returnExplanation }}</p>
+  </li>
+
+  {% endcase %}
+  {% endfor %}
+
+ </ol>
+
+{% schema %}
+  {
+    "name": "Returns",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Returns Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "returnItems",
+        "name": "Return Item",
+        "settings": [
+          {
+            "id": "returnTitle",
+            "type": "text",
+            "label": "Return Title"
+          },
+          {
+            "id": "returnExplanation",
+            "type": "richtext",
+            "label": "Return Explanation"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

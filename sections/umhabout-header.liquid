@@ -1,0 +1,434 @@
+
+<!-- Homepage Slideshow -->
+<section class="main-slider home-slideshow section-space">
+
+  {% for block in section.blocks %}
+  {% case block.type %}
+
+  {% when 'collabss' %}
+  <div class="item {% if block.settings.textCenterVideo == blank %}image{% else %}video{% endif %} home-ss-3" >
+
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x align-center">
+        <div class="large-10 cell text-center">
+          <img class="collabssimg" src="{{ block.settings.collabssimage | img_url: 'master' }}" />
+        </div>
+      </div>
+    </div>
+    <div class="home-ss-overlay"></div>
+
+  </div>
+
+  {% endcase %}
+  {% endfor %}
+
+</section>
+
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<style>
+.slick-list {
+  overflow: visible !important;
+}
+.collabssimg {
+  position: relative;
+  top: 166px;
+}
+.umh-about-textintro {
+    position: relative;
+    top: 90px;
+    padding-bottom: 90px;
+}
+@media screen and (max-width: 63.9375em) {
+  .collabssimg {
+    top: auto !important;
+  }
+  .umh-about-textintro {
+    top: auto !important;
+  }
+}
+.slick-slide, .slick-slide::before, .caption {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.slick-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.main-slider {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow-x: visible;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1.2s ease;
+}
+.main-slider.slick-initialized {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slick-slide {
+  position: relative;
+  height: 600px;
+  overflow-x: visible;
+  background-size: cover;
+}
+.slick-slide::before {
+  background-color: #000;
+  opacity: .3;
+  z-index: 1;
+}
+.slick-slide video {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.slick-slide iframe {
+  position: relative;
+  pointer-events: none;
+}
+.slick-slide figure {
+  position: relative;
+  height: 100%;
+}
+.slick-slide .slide-image {
+  opacity: 0;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: all .8s ease;
+}
+.slick-slide .slide-image.show {
+  opacity: 1;
+}
+.slick-slide .image-entity {
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+}
+.slick-slide .loading {
+  position: absolute;
+  top: 44%;
+  left: 0;
+  width: 100%;
+}
+.slick-slide .slide-media {
+  -webkit-animation: slideOut 0.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+          animation: slideOut 0.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+}
+.slick-slide.slick-active {
+  z-index: 1;
+}
+.slick-slide.slick-active .slide-media {
+  -webkit-animation: slideIn 2.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+          animation: slideIn 2.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+}
+.slick-slide.slick-active .caption {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  transition: all 0.7s cubic-bezier(0.32, 0.34, 0, 1.62) 0.6s;
+}
+
+.caption {
+  position: absolute;
+  top: 44%;
+  left: 5%;
+  text-align: center;
+  padding: 20px;
+  border: 3px solid;
+  color: #fff;
+  margin: 0;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: .02em;
+  opacity: 0;
+  z-index: 1;
+  transition: all .3s ease;
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+}
+
+.slick-dots {
+    text-align: center;
+    padding-top: 15px;
+    position: absolute;
+    bottom: 0;
+    z-index: 999999;
+    width: 100%;
+    margin-left: 0;
+}
+.slick-dots li {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 8px;
+}
+.slick-dots li button {
+    width: 6px;
+    height: 6px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50% !important;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 0 transparent;
+    vertical-align: middle;
+    color: #fff;
+    background-color: #fff;
+    transition: all .3s ease;
+    opacity: .4;
+    text-indent: -99999em;
+}
+.slick-dots li button:focus {
+  outline: none;
+}
+.slick-dots li button:hover {
+  opacity: 1;
+}
+.slick-dots li.slick-active button {
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+}
+@-webkit-keyframes slideIn {
+  from {
+    -webkit-filter: blur(15px);
+            filter: blur(15px);
+  }
+  to {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    -webkit-filter: blur(15px);
+            filter: blur(15px);
+  }
+  to {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}
+@-webkit-keyframes slideOut {
+  from {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  to {
+    -webkit-filter: blur(15px);
+            filter: blur(15px);
+  }
+}
+@keyframes slideOut {
+  from {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  to {
+    -webkit-filter: blur(15px);
+            filter: blur(15px);
+  }
+}
+
+	@media screen and (max-width: 63.9375em) {
+.main-slider {
+    width: 100%;
+    height: 244px;
+    max-height: none;
+}
+.slick-slide {
+  position: relative;
+  height: 244px;
+  max-height: none;
+  background-size: cover;
+}
+.main-slider {
+        margin-bottom: 26px;
+}
+}
+</style>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+var slideWrapper = $(".main-slider"),
+    iframes = slideWrapper.find('.embed-player'),
+    lazyImages = slideWrapper.find('.slide-image'),
+    lazyCounter = 0;
+
+// POST commands to YouTube or Vimeo API
+function postMessageToPlayer(player, command){
+  if (player == null || command == null) return;
+  player.contentWindow.postMessage(JSON.stringify(command), "*");
+}
+
+// When the slide is changing
+function playPauseVideo(slick, control){
+  var currentSlide, slideType, startTime, player, video;
+
+  currentSlide = slick.find(".slick-current");
+  slideType = currentSlide.attr("class").split(" ")[1];
+  player = currentSlide.find("iframe").get(0);
+  startTime = currentSlide.data("video-start");
+
+  if (slideType === "vimeo") {
+    switch (control) {
+      case "play":
+        if ((startTime != null && startTime > 0 ) && !currentSlide.hasClass('started')) {
+          currentSlide.addClass('started');
+          postMessageToPlayer(player, {
+            "method": "setCurrentTime",
+            "value" : startTime
+          });
+        }
+        postMessageToPlayer(player, {
+          "method": "play",
+          "value" : 1
+        });
+        break;
+      case "pause":
+        postMessageToPlayer(player, {
+          "method": "pause",
+          "value": 1
+        });
+        break;
+    }
+  } else if (slideType === "youtube") {
+    switch (control) {
+      case "play":
+        postMessageToPlayer(player, {
+          "event": "command",
+          "func": "mute"
+        });
+        postMessageToPlayer(player, {
+          "event": "command",
+          "func": "playVideo"
+        });
+        break;
+      case "pause":
+        postMessageToPlayer(player, {
+          "event": "command",
+          "func": "pauseVideo"
+        });
+        break;
+    }
+  } else if (slideType === "video") {
+    video = currentSlide.children("video").get(0);
+    if (video != null) {
+      if (control === "play"){
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
+  }
+}
+
+// Resize player
+function resizePlayer(iframes, ratio) {
+  if (!iframes[0]) return;
+  var win = $(".main-slider"),
+      width = win.width(),
+      playerWidth,
+      height = win.height(),
+      playerHeight,
+      ratio = ratio || 16/9;
+
+  iframes.each(function(){
+    var current = $(this);
+    if (width / ratio < height) {
+      playerWidth = Math.ceil(height * ratio);
+      current.width(playerWidth).height(height).css({
+        left: (width - playerWidth) / 2,
+         top: 0
+        });
+    } else {
+      playerHeight = Math.ceil(width / ratio);
+      current.width(width).height(playerHeight).css({
+        left: 0,
+        top: (height - playerHeight) / 2
+      });
+    }
+  });
+}
+
+// DOM Ready
+$(function() {
+  // Initialize
+  slideWrapper.on("init", function(slick){
+    slick = $(slick.currentTarget);
+    setTimeout(function(){
+      playPauseVideo(slick,"play");
+    }, 1000);
+    resizePlayer(iframes, 16/9);
+  });
+  slideWrapper.on("beforeChange", function(event, slick) {
+    slick = $(slick.$slider);
+    playPauseVideo(slick,"pause");
+  });
+  slideWrapper.on("afterChange", function(event, slick) {
+    slick = $(slick.$slider);
+    playPauseVideo(slick,"play");
+  });
+  slideWrapper.on("lazyLoaded", function(event, slick, image, imageSource) {
+    lazyCounter++;
+    if (lazyCounter === lazyImages.length){
+      lazyImages.addClass('show');
+      // slideWrapper.slick("slickPlay");
+    }
+  });
+
+  //start the slider
+  slideWrapper.slick({
+    //fade:true,
+    lazyLoad:"progressive",
+    arrows:true,
+    dots:false,
+	autoplaySpeed:6000,
+    speed:1000,
+    autoplay: true,
+    arrows: false,
+	pauseOnFocus: false,
+	pauseOnHover: false,
+	cssEase:"cubic-bezier(0.87, 0.03, 0.41, 0.9)"
+  });
+});
+
+// Resize event
+$(window).on("resize.slickVideoPlayer", function(){
+  resizePlayer(iframes, 16/9);
+});
+</script>
+
+{% schema %}
+  {
+    "name": "Slideshow",
+    "blocks": [
+      {
+        "type": "collabss",
+        "name": "Slide",
+        "settings": [
+          {
+            "id": "collabssimage",
+            "type": "image_picker",
+            "label": "Background Image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

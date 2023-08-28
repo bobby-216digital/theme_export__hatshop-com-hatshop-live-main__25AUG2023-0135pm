@@ -1,0 +1,1327 @@
+<div class="header-spacer"></div>
+{% section 'pop' %}
+<style>
+.accessory-wrap {
+	display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.accessory-left {
+	display: flex;
+    text-align: left;
+    align-items: center;
+}
+.accessory-right {
+	    margin-left: 10px;
+}
+.product-add-on-image {
+    width: 69px;
+    height: 69px;
+    display: block;
+}
+.product-add-on h3 {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 19px;
+}
+.add-on-add {
+    padding: 5px;
+    font-size: 10px;
+    margin: 0;
+    line-height: 1.2;
+    font-family: proxima-nova, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #2E2E2E;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    padding: 0;
+    padding-top: 11px;
+    display: block;
+}
+.custom-acc {
+    width: 595px;
+}
+.custom-acc .add-on-add {
+    /* background: none; */
+    border-bottom: 1px solid;
+    /* padding: 0; */
+    /* padding-top: 11px; */
+    /* display: block; */
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    display: inline-block;
+    padding-top: 0;
+    margin-left: 12px;
+	padding: 6px;
+}
+.add-on-text-wrap .price {
+	    text-align: left;
+    margin: 0;
+}
+.add-on-text-wrap {
+	margin-left: 10px;
+}
+.product-add-on h4 {
+	    font-family: proxima-nova,sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #2E2E2E;
+    margin-bottom: 20px;
+}
+.custom-acc h3 {
+	font-family: proxima-nova,sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #2E2E2E;
+}
+.custom-acc h2 {
+
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 34px;
+
+
+}
+.custom-acc .price {
+    text-align: left;
+    display: inline-block;
+}
+.acc-description {
+font-family: proxima-nova,sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+
+color: #2E2E2E;
+
+
+}
+#ddexitpopwrapper.open .veil, #ddexitpopwrapper.open div.closeexitpop {
+    display: none !important;
+}
+  #ddexitpopwrapper {
+    height: 57px;
+    pointer-events: none;
+    bottom:0;
+    top: auto;
+  }
+.slide-up {
+	    bottom: -57px;
+    position: fixed;
+    background: #000000;
+    text-align: center;
+    width: 100%;
+	transition: 0.5s all ease;
+	z-index: 9;
+	
+}
+.close-slide {
+	position: absolute;
+    top: 3px;
+    right: 10px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.open .slide-up{
+	bottom: 0;
+}
+
+
+.slide-up p {
+    color: #ffffff;
+    margin: 5px 0;
+    text-transform: uppercase;
+    margin: 5px 0 0;
+    padding: 0;
+    font-family: proxima-nova,sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1.6px;
+    line-height: 18px;
+    border: none;
+    margin: 10px 0;
+}
+.slide-up p a {	
+    color: #ffffff;
+    border-bottom: 1px solid;
+}
+.slide-up .book-font {
+		font-size: 14.5px;
+		letter-spacing: 0;
+		line-height: 21px;
+		font-weight: 400;
+		text-transform: none;
+		margin-top: -12px;
+	}
+	.pop-me {
+      
+    display: none;
+    position: absolute;
+    top: -34px;
+    left: 20px;
+    background: #000000;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 5px 20px;
+	cursor: pointer;
+}
+	#ddexitpopwrapper .pop-me {
+		display: none;
+	}
+@media screen and (max-width: 63.9375em) {
+	.slide-up {
+		bottom: -58px;
+		background: #ffffff;
+		border-top: 1px solid rgb(180, 187, 195);
+		padding: 0 10px;
+	}
+	.slide-up p {
+    color: #2e2e2e;
+    padding: 0 10px;
+}
+	.slide-up p a {	
+		color: #2e2e2e;
+		border-bottom: 1px solid;
+	}
+	.slide-up .book-font {
+		font-family: proxima-nova, sans-serif;
+		font-size: 13.5px;
+		color: #2e2e2e;
+		letter-spacing: 0;
+		line-height: 21px;
+		font-weight: 400;
+		text-transform: none;
+		margin-top: -12px;
+	}
+	.pop-me {
+    display: block;
+    position: absolute;
+    top: -35px;
+    left: 20px;
+   background: #ffffff;
+    color: #2e2e2e;
+    font-size: 14px;
+    padding: 5px 20px;
+    cursor: pointer;
+    border-top: 1px solid rgb(180, 187, 195);
+      border-left: 1px solid rgb(180, 187, 195);
+      border-right: 1px solid rgb(180, 187, 195);
+}
+
+
+  .close-slide {
+    top: 3px;
+    right: 10px;
+    color: #2e2e2e;
+}
+
+}
+.slide-up.popped{
+	bottom: 0;
+}
+  
+  #ddexitpopwrapper.open .slide-up.popped{
+	bottom: 0;
+}
+</style>
+<!-- Product rows for zoom and information with add to cart -->
+<section class="prod-info{% if product.compare_at_price > product.price %} sale{% endif %}">
+	<div itemtype="http://schema.org/Product" itemscope>
+	<meta itemprop="itemCondition" content="http://schema.org/NewCondition" />
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x show-for-large" id="product-images">
+			<!-- Left column with images -->
+			<div class="large-prod-images medium-8 cell">
+		        <div class="grid-x grid-padding-x align-middle">
+					<div class="next-arrow medium-1 cell">
+						<span class="left-arrow" id="prev-desktop"></span>
+					</div>
+				   <div class="product-slider medium-10 small-11 cell">
+						<!-- Product images with paging and zoom -->
+						<div class="cycle-slideshow" data-open="productImages" data-cycle-prev="#prev-desktop" data-cycle-next="#next-desktop" data-cycle-pager=".product-pager-desktop" data-cycle-timeout="0" data-cycle-slides="> a">
+
+							{% for image in product.images %}
+							{% capture count %}{% increment _count %}{% endcapture %}
+							<a href="#go{{ count }}" style="background-image: url('{{ image.src | img_url: 'master' }}')">
+							</a>
+							{% endfor %}
+
+						</div>
+						<div class="product-pager-desktop text-center bottom50"></div>
+						<span class="fs-trigger" style="display:none;"></span>
+					</div>
+					<div class="next-arrow text-right medium-1 cell">
+						<span class="right-arrow" id="next-desktop"></span>
+					</div>
+				</div>
+				<!-- List of static images -->
+				<div class="grid-x grid-padding-x bottom50">
+					<div class="large-12 cell ">
+						<div class="lifestyle-product">
+							
+							{% for value in product.metafields.accentuate.lifestyle_video_on_top_of_life %} <video  controlsList="nodownload" class="slide-video slide-media" loop autoplay muted preload="metadata" playslinline webkit-playsinline>
+      <source src="{{ product.metafields.accentuate.lifestyle_video_on_top_of_life }}" type="video/mp4" />
+    </video>	
+                 {% endfor %}  
+							{% for value in product.metafields.image.image %}
+							<!-- Row type one image -->
+							<a href="#" class="zoom"><img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-open="productImages"  alt="" role="presentation"></a>
+						 {% endfor %}
+                          
+                          {% for value in product.metafields.accentuate.lifestyle_video %} <video  controlsList="nodownload" class="slide-video slide-media" loop autoplay muted preload="metadata" playslinline webkit-playsinline>
+      <source src="{{ product.metafields.accentuate.lifestyle_video }}" type="video/mp4" />
+    </video>	
+                 {% endfor %}        
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Right column product form and description -->
+			<div class="medium-4 large-prod-purchase cell prod-options data-sticky-container">
+				<div class="sticky" data-sticky data-sticky-on="large" data-anchor="product-images">
+					<h1 itemprop="name">
+					{% if product.metafields.accentuate.product_short_name %}
+						{{ product.metafields.accentuate.product_short_name }}
+					{% else %}
+						{{ product.title }}
+					{% endif %}
+					
+						<span>
+							<!-- Wishlist and buy options -->
+							<div class="smartwishlist" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"></div>
+						</span>
+					</h1>
+					<div class="rts-wrap">
+					{% for c in product.collections %}
+{% if c.handle contains "ready"  or c.handle contains "weather-refined-secret-sale"%}
+
+<p class="rts">Ready to Ship <img src="{{'icon-ship.png' | asset_url}}" alt="Ready to Ship" /></p>
+{% endif %}
+{% endfor %}
+					</div>
+<!--<span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>-->
+					<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+					<meta itemprop="price" content="{{  product.variants[0].price | money_without_currency  }}">
+					{% if product.compare_at_price > product.price %}
+
+					            <del id="comp-price">{{ product.variants[0].compare_at_price | money }}</del>
+					           {% endif %}
+					<p class="price prod-detail-price" id="price">{{ product.variants[0].price | money }}</p>
+
+            <afterpay-placement
+                data-amount-selector="#price-m.price.prod-detail-price"
+                data-locale="en_US"
+                data-currency="USD"
+                data-logo-type="lockup"
+				data-lockup-theme=""
+                data-show-interest-free=false
+                data-size="xs">
+            </afterpay-placement>
+
+                <style>
+                    .prod-detail-price {
+                     margin-bottom: 6px; 
+                    }
+                  afterpay-placement {
+                    --logo-badge-width: 80px;
+                  }
+                  </style>
+
+					<meta itemprop="priceCurrency" content="USD">
+					<meta itemprop="availability" href="http://schema.org/InStock" />
+					</div>
+                  
+
+
+					<form data-cart-submit="data-cart-submit" class="prod-form relative" name="productForm">
+
+						{% if product.metafields.accentuate.productColors %}
+						<!-- Color selection -->
+						<div id="color-select-wrap" class="relative">
+							<div id="current-color">
+								<div class="current-color-img-wrap">
+									<img src="{{ product.metafields.accentuate.swatchImage }}" alt="{{ product.metafields.accentuate.color_short_name }}" />
+								</div>
+								<p>Color  <span>{{ product.metafields.accentuate.color_short_name }}</span></p>
+								<br clear="all" />
+							</div>
+							<div id="color-select">
+								{% assign selected_colors = product.metafields.accentuate.productColors | split: '|' %}
+								{% for selected_colors in selected_colors %}
+								<!-- Single color ouput -->
+								<a href="{{ all_products[selected_colors].url }}">
+									<label for="productColor" class="color-select-item" onClick="{{ all_products[selected_colors].url }}">
+										<input type="radio" name="color" class="color-select">
+										<div class="color-img-wrap">
+											<img src="{{ all_products[selected_colors].metafields.accentuate.swatchImage }}" />
+										</div>
+										<span>{{ all_products[selected_colors].metafields.accentuate.color_short_name }}</span>
+										<br clear="all" />
+									</label>
+								</a>
+								{% endfor %}
+							</div>
+						</div>
+						{% else %}
+						{% endif %}
+
+
+					<!-- Size and Quality DESKTOP only -->
+
+					{% if product.variants.size > 1 %}
+        	{% if product.options[0] %}
+          {% assign option_title = product.options[0] %}
+          {% assign options = product.variants | map:'option1' | uniq %}
+      			<!-- Size selection -->
+						<div class="grid-x size-select-wrap">
+							<div class="large-3 small-3 cell text-center size-icon">
+								<div class="hat-size">
+								<a class="selector-link selector-icon" data-toggle="showSize">{{ 'Hatsize_1_2x.png' | asset_url | img_tag: 'Select Size' }}</a><br />
+								<a class="selector-link" data-toggle="showSize">Size Guide</a>
+								</div>
+								<div class="shoe-size">
+								<a class="selector-link selector-icon" data-toggle="showSize-shoes">{{ 'Hatsize_1_2x.png' | asset_url | img_tag: 'Select Size' }}</a><br />
+								<a class="selector-link" data-toggle="showSize-shoes">Size Guide</a>
+								</div>
+							</div>
+							<div class="large-9 small-9 cell relative">
+								<div class="currrent-size-wrap">
+									<h2 id="current-size-title">Size</h2>
+									<p id="current-size">Select Size</p>
+								</div>
+								<div id="size-select">
+									{% for option in options %}
+										{% capture count %}{% increment _count %}{% endcapture %}
+
+										<!-- Single size output -->
+										<label for="productSize{{ count }}" class="size-select-item update-product-size option{{ product.variants.inventory_quantity }}">
+											<input type="radio" id="productSize{{ count }}" name="size" class="size-select" value="{{ option }}" onchange="letsDoThis()" {% if forloop.first == true %}checked{% else %}{% endif %}>
+											<span>{{ option }} {{ v.inventory_quantity }}</span>
+										</label>
+
+										{% endfor %}
+								</div>
+							</div>
+						</div>
+						{% endif %}
+
+
+						{% if product.options[1] %}
+          	{% assign option_title = product.options[1] %}
+          	{% assign options = product.variants | map:'option2' | uniq %}
+						<!-- Quality selection -->
+						<div class="grid-x quality-select-wrap">
+							<div class="large-3 small-3 cell text-center size-icon">
+								<a class="selector-link selector-icon" data-toggle="showQuality">{{ 'shoppageicon.png' | asset_url | img_tag: 'Select Quality' }}</a><br />
+								<a class="selector-link" data-toggle="showQuality">Quality</a>
+							</div>
+							<div class="large-9 small-9 cell relative">
+								<div class="currrent-quality-wrap">
+									<h2 id="current-quality-title">Quality</h2>
+									<p id="current-quality">Select Quality</p>
+								</div>
+								<div id="quality-select">
+									{% for option in options %}
+									{% capture count %}{% increment _count %}{% endcapture %}
+									<!-- Single quality output -->
+									
+									<label for="productQuality{{ count }}" class="quality-select-item{% if  option == 'Artisan' %} disabled{% endif %}">
+										<input type="radio" id="productQuality{{ count }}" name="quality" class="quality-select" value="{{ option }}" onchange="letsDoThis()" {% if forloop.first == true %}checked{% else %}{% endif %} {% if  option == 'Artisan' %}disabled{% endif %}>
+										<span>{{ option }}{% if  option == 'Artisan' %} - Sold Out{% endif %}</span>
+									</label>
+									
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+						{% endif %}
+						{% endif %}
+
+
+						<input type="hidden" name="id" id="product-select" class="product-feild" value="{{ product.variants.first.id }}" />
+						<!-- Product Description and tabs -->
+
+						<div id="prod-description" itemprop="description">
+							{% include 'tabbed-description' %}
+						</div>
+						<!-- Quantity and Add to cart -->
+						<div class="grid-x">
+							<div class="large-3 small-3 cell">
+								<div id="quantity-select">
+									<div class="quantity-select-item">
+										<input type="number" id="q1" name="quantity" value="1" min="1">
+									</div>
+								</div>
+							</div>
+							<div class="large-9 small-9 cell">
+								{% if product.available %}
+								<button type="submit" data-toggle="showCart">{% if product.type == 'Custom Made' %}Place Order{% else %}Add to cart{% endif %}</button>
+								{% else %}
+								<button type="submit" disabled="disabled" data-toggle="showCart">Sold out</button>
+								{% endif %}
+							</div>
+                          <div class="large-12 small-12 cell">
+								<div id="product-add-on" class="product-add-on row mx-0 d-none">
+									<div class="d-inline-block py-2 mr-auto col-auto px-0">
+										
+										{% assign selected_accessory = product.metafields.accentuate.accessory_product_add_on | split: '|' %}
+										{% for selected_accessory in selected_accessory %}
+                                          {% if all_products[selected_accessory].metafields.accentuate.accessory_title %}
+                                            <h4>{{  all_products[selected_accessory].metafields.accentuate.accessory_title }}</h4>
+                                            {% else %}
+                                          <h4>Add an Accessory</h4>
+                                            {% endif %}
+                                          {% if all_products[selected_accessory].metafields.accentuate.link_to_product %}
+										<div class="accessory-wrap">
+											<div class="accessory-left">
+												<a href="{{ all_products[selected_accessory].url }}" target="_blank">
+												<div class="product-add-on-image" style="background: url({% if all_products[selected_accessory].metafields.accentuate.accessory_thumbnail %}{% for image in all_products[selected_accessory].metafields.accentuate.accessory_thumbnail %}{{ image.src }}{% endfor %}{% else %}{{ all_products[selected_accessory].featured_image | product_img_url: 'grande' }}{%  endif %}) no-repeat center center/100%;"></div>
+												</a>
+												
+												<div class="add-on-text-wrap">
+													<h3><a href="{{ all_products[selected_accessory].url }}" target="_blank">{{ all_products[selected_accessory].title }}</a></h3>
+													<p class="price"><a href="{{ all_products[selected_accessory].url }}" target="_blank">{{ all_products[selected_accessory].price | money Currency.currentCurrency }}</a></p>
+													<a class="add-on-add" href="{{ all_products[selected_accessory].url }}" target="_blank">Shop Now</a>
+												</div>
+											</div>
+											
+									</div>
+                                            {% else %}
+                                            <div class="accessory-wrap">
+											<div class="accessory-left">
+												<a id="prod-acc" data-toggle="showAcc-{{all_products[selected_accessory].handle}}">
+												<div class="product-add-on-image" style="background: url({% if all_products[selected_accessory].metafields.accentuate.accessory_thumbnail %}{% for image in all_products[selected_accessory].metafields.accentuate.accessory_thumbnail %}{{ image.src }}{% endfor %}{% else %}{{ all_products[selected_accessory].featured_image | product_img_url: 'grande' }}{%  endif %}) no-repeat center center/100%;"></div>
+												</a>
+												
+												<div class="add-on-text-wrap">
+													<h3><a id="prod-acc" data-toggle="showAcc-{{all_products[selected_accessory].handle}}">{{ all_products[selected_accessory].title }}</a></h3>
+													<p class="price"><a id="prod-acc" data-toggle="showAcc-{{all_products[selected_accessory].handle}}">{{ all_products[selected_accessory].price | money Currency.currentCurrency }}</a></p>
+													<span class="add-on-add unique-{{all_products[selected_accessory].handle}}" data-toggle="showCart">add to cart</span>
+												</div>
+											</div>
+											
+									</div>
+                                            {% endif %}
+									 
+									{% endfor %}
+									<div class="product-options-bottom border-0 mt-0 d-inline-block col-auto px-0">
+										<div class="add-to-cart-box">
+											<div class="input-box">
+												<input type="hidden" id="product-add-on-qty" name="product-add-on-quantity" value="1" min="1" class="quantity-selector" style="display: none;">
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+						</form>
+
+
+						{% if product.metafields.accentuate.includebutton == 'Yes' and product.available %}
+						<!-- Customize -->
+						<a class="button" id="prod-customize" data-toggle="showCustom">Customize</a>
+						{% endif %}
+              {% if product.available %}{% else %}
+<a class="klaviyo-bis-trigger cta-button" href="#">Notify Me When Available</a>
+{% endif %}
+						
+						<!-- Go to www.addthis.com/dashboard to customize your tools <div class="addthis_inline_share_toolbox"></div>-->
+					<div class="sh-wrap">
+						{% for collection in product.collections %}
+							{% if collection.handle contains "ready"  or  c.handle contains "weather-refined-secret-sale" %}
+							<div class="{% cycle 'sh-one', 'sh-two', 'sh-three' %}">
+								<p style="margin-top: 4px; letter-spacing: 1px;  margin-bottom: 0;"><strong><small>SHIPPING + RETURNS</small></strong></p>
+								<p style="line-height: 1.2;"><small>This product is ready for immediate delivery. Please allow 1-2 business days to ship this hand-crafted order<span class="sh-click">...</span><a class="sh-click" href="javascript
+								:;">Read More</a> <span class="sh-more"> Eligible for exchanges and returns for store credit within 14 days.</span></small></p>
+							</div>
+							{% elsif collection.handle contains "custom" %}
+							<div class="{% cycle 'sh-one', 'sh-two', 'sh-three' %}">
+								<p style="margin-top: 4px; letter-spacing: 1px;  margin-bottom: 0;"><strong><small>SHIPPING + RETURNS</small></strong></p>
+								<p style="line-height: 1.2;"><small>Please allow 4-6 weeks to hand-craft this special piece at our NYC atelier. <span class="sh-click">...</span><a class="sh-click" href="javascript
+								:;">Read More</a> <span class="sh-more">We are unable to offer store credits on products that have been made to order  or customized. However, we will work with you on the piece and try to meet your requirements should an order not meet your expectations.</span></small></p>
+							</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+	       
+				</div>
+			</div>
+		</div>
+		<div class="grid-x grid-padding-x hide-for-large" id="product-images">
+			<!-- Left column with images -->
+			<div class="large-prod-images medium-8 cell">
+				<div class="grid-x grid-padding-x align-middle">
+					<div class="next-arrow medium-1 small-1 cell">
+						<span class="left-arrow" id="prev"></span>
+					</div>
+					<div class="product-slider medium-10 small-10 cell">
+						<!-- Product images with paging and zoom -->
+						<div class="cycle-slideshow" data-open="productImages" data-cycle-prev="#prev" data-cycle-next="#next" data-cycle-timeout="0" data-cycle-slides="> a">
+							{% for image in product.images %}
+							{% capture count %}{% increment _count %}{% endcapture %}
+							<a href="#go{{ count }}" style="background-image: url('{{ image.src | img_url: 'master' }}')"></a>
+							{% endfor %}
+						</div>
+						<span class="fs-trigger" style="display:none;"></span>
+					</div>
+					<div class="next-arrow text-right medium-1 small-1 cell">
+						<span class="right-arrow" id="next"></span>
+					</div>
+			    </div>
+			</div>
+			<!-- Right column product form and description -->
+			<div class="medium-4 large-prod-purchase cell prod-options">
+				<div>
+					<h1>
+						{% if product.metafields.accentuate.product_short_name %}
+							{{ product.metafields.accentuate.product_short_name }}
+						{% else %}
+							{{ product.title }}
+						{% endif %}
+						<span>
+				            <!-- Wishlist and buy options -->
+							<div class="smartwishlist" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"></div>
+						</span>
+					</h1>
+                  <div class="rts-wrap">
+					{% for c in product.collections %}
+{% if c.handle contains "ready"   or  c.handle contains "weather-refined-secret-sale" %}
+
+<p class="rts">Ready to Ship <img src="{{'icon-ship.png' | asset_url}}" alt="Ready to Ship" /></p>
+{% endif %}
+{% endfor %}
+					</div>
+<!--<span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>-->
+					{% if product.compare_at_price > product.price %}
+
+					            <del id="comp-price-m">{{ product.variants[0].compare_at_price | money }}</del>
+					           {% endif %}
+					<p class="price prod-detail-price" id="price-m">{{ product.variants[0].price | money }} </p>
+					
+                  <afterpay-placement
+                data-amount-selector="#price-m.price.prod-detail-price"
+                data-locale="en_US"
+                data-currency="USD"
+                data-logo-type="lockup"
+				data-lockup-theme=""
+                data-show-interest-free=false
+                data-size="xs">
+            </afterpay-placement>
+                  
+                  <style>
+                     .prod-detail-price {
+                     margin-bottom: 6px; 
+                    }
+                     afterpay-placement {
+                    --logo-badge-width: 80px;
+                  }
+                  </style>
+                  <form data-cart-submit="data-cart-submit" class="prod-form relative" name="productForm">
+
+						{% if product.metafields.accentuate.productColors %}
+						<!-- Color selection -->
+						<div id="color-select-wrap-m" class="relative">
+							<div id="current-color-m">
+								<div class="current-color-img-wrap">
+									<img src="{{ product.metafields.accentuate.swatchImage }}"  alt="{{ product.metafields.accentuate.color_short_name }}" />
+								</div>
+								<p>Color  <span>{{ product.metafields.accentuate.color_short_name }}</span></p>
+								<br clear="all" />
+							</div>
+							<div id="color-select-m">
+
+	              {% assign selected_colors = product.metafields.accentuate.productColors | split: '|' %}
+	              {% for selected_colors in selected_colors %}
+
+								<!-- Single color ouput -->
+								<a href="{{ all_products[selected_colors].url }}">
+									<label for="productColor" class="color-select-item" onClick="{{ all_products[selected_colors].url }}">
+										<input type="radio" name="color" class="color-select">
+										<div class="color-img-wrap">
+											<img src="{{ all_products[selected_colors].metafields.accentuate.swatchImage }}" />
+										</div>
+										<span>{{ all_products[selected_colors].metafields.accentuate.color_short_name }}</span>
+										<br clear="all" />
+									</label>
+								</a>
+								{% endfor %}
+							</div>
+						</div>
+						{% else %}
+						{% endif %}
+
+
+						<!-- Size and Quality MOBILE only -->
+
+						{% if product.variants.size > 1 %}
+						{% if product.options[0] %}
+						{% assign option_title = product.options[0] %}
+						{% assign options = product.variants | map:'option1' | uniq %}
+
+	            <!-- Size selection -->
+	            <div class="grid-x size-select-wrap">
+	              <div class="large-3 small-3 cell text-center size-icon">
+				  				<div class="hat-size">
+								<a class="selector-link selector-icon" data-toggle="showSize">{{ 'Hatsize_1_2x.png' | asset_url | img_tag: 'Select Size' }}</a><br />
+								<a class="selector-link" data-toggle="showSize">Size Guide</a>
+								</div>
+								<div class="shoe-size">
+								<a class="selector-link selector-icon" data-toggle="showSize-shoes">{{ 'Hatsize_1_2x.png' | asset_url | img_tag: 'Select Size' }}</a><br />
+								<a class="selector-link" data-toggle="showSize-shoes">Size Guide</a>
+								</div>
+	              </div>
+	              <div class="large-9 small-9 cell relative">
+	                <div class="currrent-size-wrap">
+	                  <h2 id="current-size-title-m">Size</h2>
+	                  <p id="current-size-m">Select Size</p>
+	                </div>
+	                <div id="size-select-m">
+
+	            			{% for option in options %}
+										{% capture count %}{% increment _count %}{% endcapture %}
+	                  <!-- Single size output -->
+	                  <label for="productSize{{ count }}" class="size-select-item update-product-size">
+	                    <input type="radio" id="productSize{{ count }}" name="sizem" class="size-select" value="{{ option }}" onchange="letsDoThisM()" {% if forloop.first == true %}checked{% else %}{% endif %}>
+	                    <span>{{ option }} {{ v.inventory_quantity }}</span>
+	                  </label>
+	                  {% endfor %}
+
+	                </div>
+	              </div>
+	            </div>
+	            {% endif %}
+
+							{% if product.options[1] %}
+          		{% assign option_title = product.options[1] %}
+          		{% assign options = product.variants | map:'option2' | uniq %}
+	            <!-- Quality selection -->
+	            <div class="grid-x quality-select-wrap">
+	              <div class="large-3 small-3 cell text-center size-icon">
+				  				<a class="selector-link selector-icon" data-toggle="showQuality">{{ 'shoppageicon.png' | asset_url | img_tag: 'Select Quality' }}</a><br />
+	                <a class="selector-link" data-toggle="showQuality">Quality</a>
+	              </div>
+	              <div class="large-9 small-9 cell relative">
+	                <div class="currrent-quality-wrap">
+	                  <h2 id="current-quality-title-m">Quality</h2>
+	                  <p id="current-quality-m">Select Quality</p>
+	                </div>
+	                <div id="quality-select-m">
+
+	                  {% for option in options %}
+ 	                  {% capture count %}{% increment _count %}{% endcapture %}
+ 	                  <!-- Single quality output -->
+ 					
+ 	                  <label for="productQuality{{ count }}" class="quality-select-item update-product-qualitym{% if  option == 'Artisan' %} disabled{% endif %}">
+ 	                    <input type="radio" id="productQuality{{ count }}" name="qualitym" class="quality-select" value="{{ option }}" onchange="letsDoThisM()" {% if forloop.first == true %}checked{% else %}{% endif %}{% if  option == 'Artisan' %}disabled{% endif %}>
+ 	                    <span>{{ option }}{% if  option == 'Artisan' %} - Sold Out{% endif %}</span>
+ 	                  </label>
+ 	                  {% endfor %}
+
+	                </div>
+	              </div>
+	            </div>
+	            {% endif %}
+
+	            {% endif %}
+
+	            <input type="hidden" name="id" id="product-select-m" class="product-field" value="{{ product.variants.first.id }}" />
+
+	            <!-- Product Description and tabs -->
+	            <div id="prod-description">
+	              {% include 'tabbed-description-mobile' %}
+	            </div>
+
+	            <!-- Quantity and Add to cart -->
+	            <div class="grid-x">
+	              <div class="large-3 small-3 cell">
+	                <div id="quantity-select">
+	                  <div class="quantity-select-item">
+	                    <input type="number" id="q1" name="quantity" value="1">
+	                  </div>
+	                </div>
+	              </div>
+	              <div class="large-9 small-9 cell">
+	        				{% if product.available %}
+	        				 <button type="submit" data-toggle="showCart">{% if product.type == 'Custom Made' %}Place Order{% else %}Add to cart{% endif %}</button>
+								{% else %}
+								<button type="submit" disabled="disabled" data-toggle="showCart">Sold out</button>
+	        				{% endif %}
+
+	              </div>
+                  <div class="large-12 small-12 cell">
+								<div id="product-add-on" class="product-add-on row mx-0 d-none">
+									<div class="d-inline-block py-2 mr-auto col-auto px-0">
+										
+										{% assign selected_accessory = product.metafields.accentuate.accessory_product_add_on | split: '|' %}
+										{% for selected_accessory in selected_accessory %}
+                                          {% if all_products[selected_accessory].metafields.accentuate.accessory_title %}
+                                            <h4>{{  all_products[selected_accessory].metafields.accentuate.accessory_title }}</h4>
+                                            {% else %}
+                                          <h4>Add an Accessory</h4>
+                                            {% endif %}
+										  {% if all_products[selected_accessory].metafields.accentuate.link_to_product %}
+										<div class="accessory-wrap">
+											<div class="accessory-left">
+												<a href="{{ all_products[selected_accessory].url }}" target="_blank">
+												<div class="product-add-on-image" style="background: url({% if all_products[selected_accessory].metafields.accentuate.accessory_thumbnail %}{% for image in all_products[selected_accessory].metafields.accentuate.accessory_thumbnail %}{{ image.src }}{% endfor %}{% else %}{{ all_products[selected_accessory].featured_image | product_img_url: 'grande' }}{%  endif %}) no-repeat center center/100%;"></div>
+												</a>
+												
+												<div class="add-on-text-wrap">
+													<h3><a href="{{ all_products[selected_accessory].url }}" target="_blank">{{ all_products[selected_accessory].title }}</a></h3>
+													<p class="price"><a href="{{ all_products[selected_accessory].url }}" target="_blank">{{ all_products[selected_accessory].price | money Currency.currentCurrency }}</a></p>
+													<a class="add-on-add" href="{{ all_products[selected_accessory].url }}" target="_blank">Shop Now</a>
+												</div>
+											</div>
+											
+									</div>
+                                            {% else %}
+                                            <div class="accessory-wrap">
+											<div class="accessory-left">
+												<a id="prod-acc" data-toggle="showAcc-{{all_products[selected_accessory].handle}}">
+												<div class="product-add-on-image" style="background: url({% if all_products[selected_accessory].metafields.accentuate.accessory_thumbnail %}{% for image in all_products[selected_accessory].metafields.accentuate.accessory_thumbnail %}{{ image.src }}{% endfor %}{% else %}{{ all_products[selected_accessory].featured_image | product_img_url: 'grande' }}{%  endif %}) no-repeat center center/100%;"></div>
+												</a>
+												
+												<div class="add-on-text-wrap">
+													<h3><a id="prod-acc" data-toggle="showAcc-{{all_products[selected_accessory].handle}}">{{ all_products[selected_accessory].title }}</a></h3>
+													<p class="price"><a id="prod-acc" data-toggle="showAcc-{{all_products[selected_accessory].handle}}">{{ all_products[selected_accessory].price | money Currency.currentCurrency }}</a></p>
+													<span class="add-on-add unique-{{all_products[selected_accessory].handle}}" data-toggle="showCart">add to cart</span>
+												</div>
+											</div>
+											
+									</div>
+                                            {% endif %}
+									 
+									{% endfor %}
+									<div class="product-options-bottom border-0 mt-0 d-inline-block col-auto px-0">
+										<div class="add-to-cart-box">
+											<div class="input-box">
+												<input type="hidden" id="product-add-on-qty" name="product-add-on-quantity" value="1" min="1" class="quantity-selector" style="display: none;">
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							</div>
+	            </div>
+
+	          </form>
+			  {% if product.metafields.accentuate.includebutton %}
+			  <!-- Customize -->
+			  <a class="button" id="prod-customize" data-toggle="showCustom">Customize</a>
+			  {% endif %}
+				
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox"></div>
+
+<div class="sh-wrap">
+{% for collection in product.collections %}
+{% if collection.handle contains "ready"   or  c.handle contains "weather-refined-secret-sale" %}
+<div class="{% cycle 'sh-one', 'sh-two', 'sh-three' %}">
+<p style="margin-top: 4px; letter-spacing: 1px;  margin-bottom: 0;"><strong><small>SHIPPING + RETURNS</small></strong></p>
+<p style="line-height: 1.2;"><small>This product is ready for immediate delivery. <br />Please allow 1-2 business days to ship this hand-crafted order. Eligible for exchanges and returns for store credit within 14 days.</small></p>
+</div>
+{% elsif collection.handle contains "custom" %}
+<div class="{% cycle 'sh-one', 'sh-two', 'sh-three' %}">
+								<p style="margin-top: 4px; letter-spacing: 1px;  margin-bottom: 0;"><strong><small>SHIPPING + RETURNS</small></strong></p>
+								<p style="line-height: 1.2;"><small>Please allow 4-6 weeks to hand-craft this special piece at our NYC atelier. We are unable to offer store credits on products that have <span class="sh-click">...</span><a class="sh-click" href="javascript
+								:;">Read More</a> <span class="sh-more">been made to order  or customized. However, we will work with you on the piece and try to meet your requirements should an order not meet your expectations.</span></small></p>
+							</div>
+{% endif %}
+{% endfor %}
+</div>
+                  
+	        </div>
+	      </div>
+		  <!-- List of static images -->
+		  	<div class="large-12 cell bottom50">
+		  		<div class="lifestyle-product">
+		  			
+		  			
+		  			 {% for value in product.metafields.accentuate.lifestyle_video_on_top_of_life %} <video id="lifestylevidmobile" playsinline loop muted autoplay src="{{ product.metafields.accentuate.lifestyle_video_on_top_of_life }}" ></video>	
+                 {% endfor %}  
+		  			
+	  				{% for value in product.metafields.image.image %}
+	  				<!-- Row type one image -->
+	  				<a href="#" class="zoom"><img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-open="productImages" alt="" role="presentation"></a>
+	  				{% endfor %}
+		  			 
+                          {% for value in product.metafields.accentuate.lifestyle_video %} <video id="lifestylevidmobile" playsinline loop muted autoplay src="{{ product.metafields.accentuate.lifestyle_video }}" ></video>	
+                 {% endfor %}  
+		      </div>
+		      </div>
+	</div>
+	<script type="text/javascript">
+		$( ".sh-click" ).click(function() {
+  $( ".sh-more" ).toggle();
+   $( ".sh-click" ).hide();
+});
+	</script>
+
+
+{% if product.type == 'Custom Made' %}
+	<script>
+
+		          	function letsDoThis() {
+
+		              {% if product.options[0] %}
+		              var opt1 = document.querySelector('input[name="size"]:checked').value;
+		              console.log(opt1);
+					  {% endif %}
+
+		          		{% if product.options[1] %}
+		              var opt2 = document.querySelector('input[name="quality"]:checked').value;
+		              console.log(opt2);
+
+		              {% endif %}
+
+		          		{% if product.options[2] %}
+		              var opt3 = document.querySelector('input[name="color"]:checked').value;
+		              console.log(opt3);
+		              {% endif %}
+
+		          		var id = '';
+		          		{% for v in product.variants %}
+		          		if(opt1=="{{ v.option1 }}"{% if product.options[1] %} && opt2=="{{ v.option2 }}"{% endif %}{% if product.options[2] %} && opt3=="{{ v.option3 }}"{% endif %}) {
+		          				var id = {{ v.id }};
+		          				var price = "{{ v.price | money }}";
+                          var compprice = "{{ v.compare_at_price | money }}";
+				  				var inventory = "{{ v.inventory_quantity }}";
+		          			}
+		          		{% endfor %}
+
+
+		          		if(id!='') {
+		          			document.getElementById('product-select').value = id;
+		          			document.getElementById('price').innerHTML = price;
+                          document.getElementById('comp-price').innerHTML = compprice;
+		          		} else {
+		          			document.getElementById('product-select').value = '';
+		          			document.getElementById('price').innerHTML = 'Unavailable';
+		          		}
+						  		if (inventory <= 0) {
+						  			$(".prod-form button").text("Size out of Stock");
+										$(".prod-form button").css("background-color", "#242424");
+										$(".prod-form button").css("cursor", "not-allowed");
+										$(".prod-form button").css("pointer-events", "none");
+										$(this).addClass('outofstockv');
+
+						  		}
+									if (inventory > 0) {
+						  			$(".prod-form button").text("Place Order");
+										$(".prod-form button").css("background-color", "#000");
+										$(".prod-form button").css("cursor", "pointer");
+										$(".prod-form button").css("pointer-events", "auto");
+										$(this).removeClass('outofstockv');
+						  		}
+
+
+
+
+		          	}
+
+				  	function letsDoThisM() {
+
+	  		              {% if product.options[0] %}
+	  		           var opt1a = document.querySelector('input[name="sizem"]:checked').value;
+	  					  console.log(opt1a);
+	  		              {% endif %}
+
+	  		          		{% if product.options[1] %}
+	  					  var opt2a = document.querySelector('input[name="qualitym"]:checked').value;
+	  					  console.log(opt2a);
+	  		              {% endif %}
+
+	  		          		{% if product.options[2] %}
+	  		              var opt3 = document.querySelector('input[name="color"]:checked').value;
+	  		              console.log(opt3);
+	  		              {% endif %}
+
+	  				  		var ida = '';
+	  				  			{% for v in product.variants %}
+	  				  			if(opt1a=="{{ v.option1 }}"{% if product.options[1] %} && opt2a=="{{ v.option2 }}"{% endif %}{% if product.options[2] %} && opt3=="{{ v.option3 }}"{% endif %}) {
+	  				  					var ida = {{ v.id }};
+	  				  					var pricem = "{{ v.price | money }}";
+                                        var comppricem = "{{ v.compare_at_price | money }}";
+	  				  					var inventorym = "{{ v.inventory_quantity }}";
+	  				  				}
+	  				  			{% endfor %}
+
+
+	  				  		if(ida!='') {
+	  				  				document.getElementById('product-select-m').value = ida;
+	  				  				document.getElementById('price-m').innerHTML = pricem;
+                                    document.getElementById('comp-price-m').innerHTML = comppricem;
+	  				  			} else {
+
+	  				  				document.getElementById('product-select-m').value = '';
+	  				  				document.getElementById('price-m').innerHTML = 'Unavailable';
+	  				  			}
+	  				  			if (inventorym <= 0) {
+						  			$(".prod-form button").text("Size out of stock");
+										$(".prod-form button").css("background-color", "#242424");
+										$(".prod-form button").css("cursor", "not-allowed");
+										$(".prod-form button").css("pointer-events", "none");
+
+						  		}
+									if (inventorym > 0) {
+						  			$(".prod-form button").text("Place Order");
+										$(".prod-form button").css("background-color", "#000");
+										$(".prod-form button").css("cursor", "pointer");
+										$(".prod-form button").css("pointer-events", "auto");
+						  		}
+
+	  		          	}
+
+
+		          </script>
+				  
+				  {% else %}
+				  
+				  <script>
+
+		          	function letsDoThis() {
+
+		              {% if product.options[0] %}
+		              var opt1 = document.querySelector('input[name="size"]:checked').value;
+		              console.log(opt1);
+					  {% endif %}
+
+		          		{% if product.options[1] %}
+		              var opt2 = document.querySelector('input[name="quality"]:checked').value;
+		              console.log(opt2);
+
+		              {% endif %}
+
+		          		{% if product.options[2] %}
+		              var opt3 = document.querySelector('input[name="color"]:checked').value;
+		              console.log(opt3);
+		              {% endif %}
+
+		          		var id = '';
+		          		{% for v in product.variants %}
+		          		if(opt1=="{{ v.option1 }}"{% if product.options[1] %} && opt2=="{{ v.option2 }}"{% endif %}{% if product.options[2] %} && opt3=="{{ v.option3 }}"{% endif %}) {
+		          				var id = {{ v.id }};
+		          				var price = "{{ v.price | money }}";
+                          var compprice = "{{ v.compare_at_price | money }}";
+				  				var inventory = "{{ v.inventory_quantity }}";
+		          			}
+		          		{% endfor %}
+
+
+		          		if(id!='') {
+		          			document.getElementById('product-select').value = id;
+		          			document.getElementById('price').innerHTML = price;
+                          document.getElementById('comp-price').innerHTML = compprice;
+		          		} else {
+		          			document.getElementById('product-select').value = '';
+		          			document.getElementById('price').innerHTML = 'Unavailable';
+		          		}
+						  		if (inventory <= 0) {
+						  			$(".prod-form button").text("Size out of Stock");
+										$(".prod-form button").css("background-color", "#242424");
+										$(".prod-form button").css("cursor", "not-allowed");
+										$(".prod-form button").css("pointer-events", "none");
+										$(this).addClass('outofstockv');
+
+						  		}
+									if (inventory > 0) {
+						  			$(".prod-form button").text("Add to Cart");
+										$(".prod-form button").css("background-color", "#000");
+										$(".prod-form button").css("cursor", "pointer");
+										$(".prod-form button").css("pointer-events", "auto");
+										$(this).removeClass('outofstockv');
+						  		}
+
+
+
+
+		          	}
+
+				  	function letsDoThisM() {
+
+	  		              {% if product.options[0] %}
+	  		           var opt1a = document.querySelector('input[name="sizem"]:checked').value;
+	  					  console.log(opt1a);
+	  		              {% endif %}
+
+	  		          		{% if product.options[1] %}
+	  					  var opt2a = document.querySelector('input[name="qualitym"]:checked').value;
+	  					  console.log(opt2a);
+	  		              {% endif %}
+
+	  		          		{% if product.options[2] %}
+	  		              var opt3 = document.querySelector('input[name="color"]:checked').value;
+	  		              console.log(opt3);
+	  		              {% endif %}
+
+	  				  		var ida = '';
+	  				  			{% for v in product.variants %}
+	  				  			if(opt1a=="{{ v.option1 }}"{% if product.options[1] %} && opt2a=="{{ v.option2 }}"{% endif %}{% if product.options[2] %} && opt3=="{{ v.option3 }}"{% endif %}) {
+	  				  					var ida = {{ v.id }};
+	  				  					var pricem = "{{ v.price | money }}";
+                                  var comppricem = "{{ v.compare_at_price | money }}";
+	  				  					var inventorym = "{{ v.inventory_quantity }}";
+	  				  				}
+	  				  			{% endfor %}
+
+
+	  				  		if(ida!='') {
+	  				  				document.getElementById('product-select-m').value = ida;
+	  				  				document.getElementById('price-m').innerHTML = pricem;
+                              document.getElementById('comp-price-m').innerHTML = comppricem;
+                              
+	  				  			} else {
+
+	  				  				document.getElementById('product-select-m').value = '';
+	  				  				document.getElementById('price-m').innerHTML = 'Unavailable';
+	  				  			}
+	  				  			if (inventorym <= 0) {
+						  			$(".prod-form button").text("Size out of stock");
+										$(".prod-form button").css("background-color", "#242424");
+										$(".prod-form button").css("cursor", "not-allowed");
+										$(".prod-form button").css("pointer-events", "none");
+
+						  		}
+									if (inventorym > 0) {
+						  			$(".prod-form button").text("Add to Cart");
+										$(".prod-form button").css("background-color", "#000");
+										$(".prod-form button").css("cursor", "pointer");
+										$(".prod-form button").css("pointer-events", "auto");
+						  		}
+
+	  		          	}
+
+
+		          </script>
+				  {% endif %}
+
+
+
+		          <script type="application/json" id="productJson">
+		            {{ product | json }}
+		          </script>
+      	
+									 {% assign selected_accessory = product.metafields.accentuate.accessory_product_add_on | split: '|' %}
+										{% for selected_accessory in selected_accessory %}
+									 <script>
+				  	$(document).ready(function () {
+     
+      $('.add-on-add.unique-{{all_products[selected_accessory].handle}}').click(function () {
+        CartJS.addItem({{ all_products[selected_accessory].variants.first.id }}, 1);
+      });
+	  
+	   
+	   
+
+    });
+				  </script>
+									{% endfor %}
+
+	    </div>
+	</div>
+    {% if product.metafields.quote.quote %}
+    <!-- 12 column quote -->
+    <div class="grid-x grid-padding-x bottom50">
+      <div class="large-12 cell text-center">
+        <blockquote>{{ product.metafields.quote.quote }}</blockquote>
+      </div>
+    </div>
+	{% else %}
+	<div class="product-quote-spacer"></div>
+    {% endif %}
+
+    {% for value in product.metafields.title2.title2 %}
+    {% if product.metafields.textLeftRight.textLeftRight[forloop.index0] == 'left' %}
+    <!-- Non-product related image right -->
+	<div class="grid-container">
+    <div class="grid-x grid-padding-x align-middle section-space80">
+      <div class="medium-5 cell small-order-2 medium-order-1">
+        <div class="support-text">
+          <h5>{{ product.metafields.title1.title1[forloop.index0] }}</h5>
+          <h3>{{ product.metafields.title2.title2[forloop.index0] }}</h3>
+		   {% if product.metafields.accentuate.text_description[forloop.index0] %} <div class="banner-text">{{ product.metafields.accentuate.text_description[forloop.index0] }}</div>{% endif %}
+          <a href="{{ product.metafields.linkURL.linkURL[forloop.index0] }}" class="cta dark link-activate"  data-hover-id="bannerL">{{ product.metafields.linkText.linkText[forloop.index0] }}</a>
+        </div>
+      </div>
+      <div class="large-7 cell small-order-1 medium-order-2">
+	  	<a href="{{ product.metafields.linkURL.linkURL[forloop.index0] }}" class="zoom"  data-hover-id="bannerL"><img src="{{ product.metafields.moreImage.moreImage[forloop.index0] }}"  alt="" /></a>
+      </div>
+    </div>
+	</div>
+    {% elsif product.metafields.textLeftRight.textLeftRight[forloop.index0] == 'right' %}
+    <!-- Non-product related image left -->
+	<div class="grid-container">
+    <div class="grid-x grid-padding-x align-middle section-space80">
+      <div class="medium-7 cell">
+	  	<a href="{{ product.metafields.linkURL.linkURL[forloop.index0] }}" class="zoom"  data-hover-id="bannerR"><img src="{{ product.metafields.moreImage.moreImage[forloop.index0] }}"  alt="" /></a>
+      </div>
+      <div class="large-5 cell">
+        <div class="support-text">
+          <h5>{{ product.metafields.title1.title1[forloop.index0] }}</h5>
+          <h3>{{ product.metafields.title2.title2[forloop.index0] }}</h3>
+		 {% if product.metafields.accentuate.text_description[forloop.index0] %} <div class="banner-text">{{ product.metafields.accentuate.text_description[forloop.index0] }}</div>{% endif %}
+          <a href="{{ product.metafields.linkURL.linkURL[forloop.index0] }}" class="cta link-activate dark" data-hover-id="bannerR">{{ product.metafields.linkText.linkText[forloop.index0] }}</a>
+        </div>
+      </div>
+    </div>
+	</div>
+    {% endif %}
+    {% endfor %}
+  
+  
+  
+  <div class="grid-container">
+	<div class="grid-x grid-padding-x align-middle section-space80">
+		<div class="medium-5 cell small-order-2 medium-order-1">
+			<div class="support-text">
+				<h5>Online Fittings</h5>
+				<h3>Find your best fit <br/>from home</h3>
+				<!--<div class="banner-text">
+					
+				</div>-->
+				<a href="https://hatshop.com/pages/virtual-consultation" class="cta dark link-activate" data-hover-id="bfbR">Book Now</a>
+			</div>
+		</div>
+		<div class="large-7 cell small-order-1 medium-order-2">
+			<a href="https://hatshop.com/pages/virtual-consultation" class="zoom" data-hover-id="bfbR"><img src="{{ 'Online_fitting.jpg' | asset_url }}"  alt="Online Fittings"></a>
+		</div>
+    </div>
+</div>
+	{% if product.metafields.accentuate.generic_banner == 'Straw Banner Image Left' %}
+	{% section 'generic-banner-straw' %}
+	{% elsif product.metafields.accentuate.generic_banner == 'Straw Banner Image Right' %}
+	{% section 'generic-banner-straw-right' %}
+	{% elsif product.metafields.accentuate.generic_banner == 'Beaver Felt Banner Image Left' %}
+	{% section 'generic-banner-beaver-felt' %}
+	{% elsif product.metafields.accentuate.generic_banner == 'Beaver Felt Banner Image Right' %}
+	{% section 'generic-banner-beaver-felt-right' %}
+	{% elsif product.metafields.accentuate.generic_banner == 'Hare Felt Banner Image Left' %}
+	{% section 'generic-banner-hare-felt' %}
+	{% elsif product.metafields.accentuate.generic_banner == 'Hare Felt Banner Image Right' %}
+	{% section 'generic-banner-hare-felt-right' %}
+	{% elsif product.metafields.accentuate.generic_banner == 'Hand Dye Banner Image Left' %}
+	{% section 'generic-banner-hand-dye' %}
+	{% elsif product.metafields.accentuate.generic_banner == 'Hand Dye Banner Image Right' %}
+	{% section 'generic-banner-hand-dye-right' %}
+	{% elsif product.metafields.accentuate.generic_banner == 'Montecristi Banner Image Left' %}
+	{% section 'generic-banner-montecristi' %}
+	{% elsif product.metafields.accentuate.generic_banner == 'Montecristi Banner Image Right' %}
+	{% section 'generic-banner-montecristi-right' %}
+	 {% endif %}
+{% if product.metafields.accentuate.like %}
+		<!-- You might also like -->
+		<div class="grid-container">
+		<div class="grid-x grid-padding-x also-like" id="product-list">
+			<h5 class="medium-12 cell text-center">You might also like</h5>
+			{% assign selected_handle = product.metafields.accentuate.like | split: '|' %}
+			{% for selected_handle in selected_handle %}
+			<!-- Single related product -->
+			<div class="medium-3 small-6 cell text-center prod-list-item">
+				<div class="prod-wrap">
+					<a href="{{ all_products[selected_handle].url }}" class="product-card " data-hover-id="{{ all_products[selected_handle].handle }}">
+						<div class="product-image-wrap" {% if all_products[selected_handle].metafields.accentuate.lifestyle %} style="background-image:url('{{ all_products[selected_handle].metafields.accentuate.lifestyle }}')"{% endif %}>
+							{% if all_products[selected_handle].metafields.accentuate.lifestyle == blank %}
+							{% for image in product.images %}
+							{% if forloop.first %}
+							<img src="{{all_products[selected_handle].metafields.accentuate.productImg}}" class="prod-hat base-img" alt="">
+							<img src="{{ product.images[1] | product_img_url: 'master' }}" class="prod-hat2" alt="{{ product.description | strip_html | remove: '"' }}">
+							{% endif %}
+							{% endfor %}
+							{% else %}
+							<img src="{{all_products[selected_handle].metafields.accentuate.productImg}}" class="prod-hat base-img"  />
+							{% endif %}
+						</div>
+					</a>
+					<h3><a href="{{ all_products[selected_handle].url }}" class="link-activate" data-hover-id="{{ all_products[selected_handle].handle }}">{{ all_products[selected_handle].title }}</a></h3>
+					<p class="price">{{ all_products[selected_handle].price | money Currency.currentCurrency }}</p>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	{% endif %}
+</div>
+
+</section>
+
+<div class="slide-up animate__slideInUp" id="help-consult">
+	<div class="close-slide">X</div>
+	<div class="pop-me">Need some help?</div>
+	<div class="slide-up-inner">
+		<p>Not sure if {% if product.metafields.accentuate.product_short_name %}
+							{{ product.metafields.accentuate.product_short_name }}
+						{% else %}
+							{{ product.title }}
+		{% endif %} is right for you?</p><p class="book-font"><a href="https://hatshop.com/pages/virtual-consultation">Book a consultation</a> with the Worth & Worth team.</p>
+	</div>
+</div>
+<!-- Full screen slideshow when you click on the smaller slideshow -->
+<div class="full reveal" id="productImages" data-reveal>
+
+  <!-- Button to close full screen slideshow. We don't need it but people like to see it anyways -->
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <!-- Pull product slideshow images -->
+  {% for image in product.images %}
+	{% capture count %}{% increment _count %}{% endcapture %}
+  <img itemprop="image"  name="go{{ count }}" id="go{{ count }}" src="{{ image.src | img_url: 'master' }}" data-close alt="" role="presentation">
+  {% endfor %}
+
+  <!-- Pull product additional lifestyle images -->
+ <!-- {% for value in product.metafields.image.image %}
+  <img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}" data-close alt="{{ product.description | strip_html | remove: '"' }}" > 
+  {% endfor %}-->
+
+</div>
+
+{% include 'cart-customize' %}
+{% include 'cart-quality' %}
+{% include 'prod-size' %}
+{% include 'prod-size-shoes' %}
+
+                    {% assign selected_accessory = product.metafields.accentuate.accessory_product_add_on | split: '|' %}
+										{% for selected_accessory in selected_accessory %}
+										<!-- Customize request form --> 
+<div class="off-canvas position-right product-customize custom-acc" id="showAcc-{{ all_products[selected_accessory].handle }}" data-off-canvas data-transition="overlap">
+    <div class="grid-x grid-padding-x">
+		<div class="large-12 cell">
+			<h3>Accessory:</h3>
+			<h2 class="text-left">{{ all_products[selected_accessory].title }}</h2>
+			<p class="price">{{ all_products[selected_accessory].price | money Currency.currentCurrency }}</p> <span class="add-on-add button unique-{{all_products[selected_accessory].handle}}" data-toggle="showCart">add to cart</span>
+			{% if all_products[selected_accessory].metafields.accentuate.accessory_description %}
+              <div class="acc-description">{{ all_products[selected_accessory].metafields.accentuate.accessory_description }}</div>
+          {% else %}<div class="acc-description">{{ all_products[selected_accessory].description }}</div>
+          {% endif %}
+			
+			<img src="{{ all_products[selected_accessory].featured_image | product_img_url: 'grande' }} " alt=">{{ all_products[selected_accessory].title }}" />
+		</div>
+    </div>
+  <button class="close-button" aria-label="Close menu" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+
+
+
+<!--Start Stamped.io Auto Installation--><div id="stamped-main-widget" class="stamped-main-widget" data-widget-style="standard" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}" data-product-sku="{{product.handle}}" data-product-type="{{product.type}}"></div><!--End Stamped.io Auto Installation-->

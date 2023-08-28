@@ -1,0 +1,99 @@
+<!-- /templates/customers/login.liquid -->
+<div class="header-spacer"></div>
+
+<!-- Shipping -->
+<section class="account-content">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x align-center" id="post">
+			<!--<div class="large-2 cell data-sticky-container">
+				<div class="sticky" data-sticky data-anchor="post">
+					<!-- Side Navigatioon --*>
+					<h4 class="small-body-title underline">Assistance</h4>
+					<p class="support">For support or answers to additional questions, please <a href="/pages/contact">contact us</a>.</p>
+				</div>
+			</div>-->
+			<div class="medium-7 cell">
+				<div class="form--success hide" id="ResetSuccess">
+					{{ 'customer.recover_password.success' | t }}
+				</div>
+			    <div id="CustomerLoginForm" class="form-vertical">
+			      {% form 'customer_login' %}
+				  <div class="text-center form-spacer">
+			        <h1>{{ 'customer.login.title' | t }}</h1>
+					{{ 'sketch-border.png' | asset_url | img_tag: 'Border', 'sketch-border' }}
+					<p style="text-align: center;font-size: 14px;margin-top: 40px;font-style: normal;">Welcome to our fresh new website! We have moved our e-shop to Shopify in order to provide you with the best shopping experience. <br /><br />
+
+						<strong>For New Customers </strong><br />
+						Please select ‘Create an Account’ below, and follow the prompts.<br /><br />
+
+						<strong>For Return Customers</strong><br />
+						Even if you have purchased online with us in the past, please create a new account below. <br />
+						Once connected, your address should be already saved, but not your purchase history. <br />
+						We apologize for any inconvenience. Please do not hesitate to <a href="/pages/contact">contact us</a> with any questions about your previous orders. <br /><br />
+
+						With love, <br />
+					The Worth & Worth Team</p>
+
+
+				  </div>
+			        {{ form.errors | default_errors }}
+
+			        <label for="CustomerEmail" class="label--hidden">{{ 'customer.login.email' | t }}</label>
+			        <input type="email" name="customer[email]" id="CustomerEmail" class="{% if form.errors contains 'email' %} input--error{% endif %}" placeholder="{{ 'customer.login.email' | t }}" autocorrect="off" autocapitalize="off" autofocus>
+
+			        {% if form.password_needed %}
+			          <label for="CustomerPassword" class="label--hidden">{{ 'customer.login.password' | t }}</label>
+			          <input type="password" value="" name="customer[password]" id="CustomerPassword" class="{% if form.errors contains 'password' %} input--error{% endif %}" placeholder="{{ 'customer.login.password' | t }}">
+			        {% endif %}
+			{% if form.password_needed %}
+			  <p class="text-right account-links"><a href="#recover" data-open="RecoverPasswordForm" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></p>
+			{% endif %}
+					<button type="submit" class="button filled">{{ 'customer.login.sign_in' | t }}</button>
+
+
+			      {% endform %}
+			    </div>
+
+			    <div id="RecoverPasswordForm" class="reveal" data-reveal>
+
+			      <h2 class="small--text-center">{{ 'customer.recover_password.title' | t }}</h2>
+			      <p>{{ 'customer.recover_password.subtext' | t }}</p>
+
+			      <div class="form-vertical">
+			        {% form 'recover_customer_password' %}
+
+			          {{ form.errors | default_errors }}
+
+			          {% comment %}
+			            Add a hidden span to indicate the form was submitted succesfully.
+			          {% endcomment %}
+			          {% if form.posted_successfully? %}
+			            <span class="hide reset-password-success"></span>
+			          {% endif %}
+
+			          <label for="RecoverEmail" class="label--hidden">{{ 'customer.recover_password.email' | t }}</label>
+			          <input type="email" value="" name="email" id="RecoverEmail" placeholder="{{ 'customer.recover_password.email' | t }}" autocorrect="off" autocapitalize="off" required>
+
+			<button type="submit" class="button filled"> {{ 'customer.recover_password.submit' | t }}</button>
+
+			          <a href="#" id="HideRecoverPasswordLink" class="cta" data-close style="padding-top: 18px; margin-top: 0;  vertical-align: middle;  margin-left: 10px; border-bottom: 1px solid #2e2e2e;font-size: 13px;letter-spacing: 1px;">{{ 'customer.recover_password.cancel' | t }}</a>
+			        {% endform %}
+			      </div>
+			    </div>
+
+		    {% comment %}
+		      If accounts are set as optional, the following will be shown as an option
+		      during checkout, not on the default /login page.
+		    {% endcomment %}
+		    {% if shop.checkout.guest_login %}
+		      <h2>{{ 'customer.login.guest_title' | t }}</h2>
+
+		      {% form 'guest_login' %}
+		        <input type="submit" class="btn" value="{{ 'customer.login.guest_continue' | t }}">
+		      {% endform %}
+		    {% endif %}
+			<p class="text-center account-nav-links"><a href="/account/register">CREATE AN ACCOUNT</a></div>
+		  </div>
+		</div>
+	</div>
+</section>

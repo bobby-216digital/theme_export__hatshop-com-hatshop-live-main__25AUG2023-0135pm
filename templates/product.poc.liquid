@@ -1,0 +1,295 @@
+<div class="header-spacer"></div>
+
+<!-- Product rows for zoom and information with add to cart -->
+<section class="prod-info">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x" id="product-images">
+			<!-- Left column with images -->
+			<div class="large-prod-images medium-8 cell">
+		        <div class="grid-x grid-padding-x align-middle">
+					<div class="next-arrow medium-1 cell">
+						<span class="left-arrow" id="prev"></span>
+					</div>
+				   <div class="product-slider medium-10 small-11 cell">
+						<!-- Product images with paging and zoom -->
+						<div class="cycle-slideshow" data-open="productImages" data-cycle-prev="#prev" data-cycle-next="#next" data-cycle-pager=".product-pager" data-cycle-timeout="0">
+
+							{% for image in product.images %}
+							<img src="{{ image.src | img_url: '721x477', crop: 'center' }}" data-cycle-hash="{% for variant in image.variants %}{% if forloop.first == true %}{{ variant.title | downcase | remove: " " | remove: "/" | remove: "1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" | remove: "7" | remove: "8" | remove: "9" | remove: "0" | }}{% else %}{% endif %}{% endfor %}">
+							{% endfor %}
+
+						</div>
+            <div class="product-pager text-center bottom50"></div>
+            <span class="fs-trigger" style="display:none;"></span>
+					</div>
+		      <div class="next-arrow text-right medium-1 cell">
+						<span class="right-arrow" id="next"></span>
+		      </div>
+		    </div>
+			<!-- List of static images -->
+			<div class="grid-x grid-padding-x bottom50">
+				<div class="large-12 cell ">
+			        <div class="lifestyle-product">
+						{% for value in product.metafields.image.image %}
+						<!-- Row type one image -->
+						<img class="section-space10" src="{{ product.metafields.image.image[forloop.index0] }}">
+						{% endfor %}
+			        </div>
+			    </div>
+			</div>
+		</div>
+		<!-- Right column product form and description -->
+		<div class="medium-4 large-prod-purchase cell prod-options data-sticky-container">
+			<div class="sticky" data-sticky data-anchor="product-images">
+				<h1>{{ product.title }}
+					<span>
+			            <!-- Wishlist and buy options -->
+						<div id="smartwishlist" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"></div>
+					</span>
+				</h1>
+				<p class="price prod-detail-price" id="price"></p>
+				<form data-cart-submit="data-cart-submit" class="prod-form relative" name="productForm">
+					<!-- Color selection -->
+					<div id="color-select-wrap" class="relative">
+						<div id="current-color">
+							<div class="current-color-img-wrap">
+								<img src="{{ product.metafields.accentuate.swatchImage }}" />
+							</div>
+							<p>Color  <span>Please Select</span></p>
+							<br clear="all" />
+						</div>
+						<div id="color-select">
+			                {% assign selected_colors = product.metafields.accentuate.productColors | split: '|' %}
+			                {% for selected_colors in selected_colors %}
+							<!-- Single color ouput -->
+							<a href="{{ all_products[selected_colors].url }}">
+								<label for="productColor" class="color-select-item" onClick="{{ all_products[selected_colors].url }}">
+									<input type="radio" name="color" class="color-select">
+									<div class="color-img-wrap">
+										<img src="{{ all_products[selected_colors].metafields.accentuate.swatchImage }}" />
+									</div>
+									<span>{{ all_products[selected_colors].title }}</span>
+									<br clear="all" />
+								</label>
+							</a>
+							{% endfor %}
+						</div>
+					</div>
+            {% if product.variants.size > 0 %}
+            {% if product.options[0] %}
+            {% assign used = '' %}
+            <!-- Size selection -->
+            <div class="grid-x size-select-wrap">
+              <div class="large-3 small-3 cell text-center">
+                {{ 'hat-icon.png' | asset_url | img_tag: 'Select Size' }}<br />
+                <a class="selector-link" data-toggle="showSize">Size Guide</a>
+              </div>
+              <div class="large-9 small-9 cell relative">
+                <div class="currrent-size-wrap">
+                  <h2 id="current-size-title">Size</h2>
+                  <p id="current-size">Select Size</p>
+                </div>
+                <div id="size-select">
+
+                  {% for variant in product.variants %}
+                  {% unless used contains variant.option1 %}
+                  {% capture count %}{% increment _count %}{% endcapture %}
+                  <!-- Single size output -->
+                  <label for="productSize{{ count }}" class="size-select-item update-product-size">
+                    <input type="radio" id="productSize{{ count }}" name="size" class="size-select" value="{{ variant.option1 }}" onchange="letsDoThis()" {% if forloop.first == true %}checked{% else %}{% endif %}>
+                    <span>{{ variant.option1 }}</span>
+                  </label>
+                  {% capture used %}{{ used }} {{ variant.option1 }}{% endcapture %}
+                  {% endunless %}
+                  {% endfor %}
+
+                </div>
+              </div>
+            </div>
+            {% endif %}
+
+            {% if product.options[2] %}
+            {% assign used = '' %}
+            <!-- Quality selection -->
+            <div class="grid-x quality-select-wrap">
+              <div class="large-3 small-3 cell text-center">
+                {{ 'hat-icon.png' | asset_url | img_tag: 'Select Quality' }}<br />
+                <a href="" class="selector-link">Quality</a>
+              </div>
+              <div class="large-9 small-9 cell relative">
+                <div class="currrent-quality-wrap">
+                  <h2 id="current-quality-title">Quality</h2>
+                  <p id="current-quality">Select Quality</p>
+                </div>
+                <div id="quality-select">
+
+                  {% for variant in product.variants %}
+                  {% unless used contains variant.option3 %}
+                  {% capture count %}{% increment _count %}{% endcapture %}
+                  <!-- Single quality output -->
+                  <label for="productQuality{{ count }}" class="quality-select-item">
+                    <input type="radio" id="productQuality{{ count }}" name="quality" class="quality-select" value="{{ variant.option3 }}" onchange="letsDoThis()" {% if forloop.first == true %}checked{% else %}{% endif %}>
+                    <span>{{ variant.option3 }} {{ variant.price | money }}</span>
+                  </label>
+                  {% capture used %}{{ used }} {{ variant.option3 }}{% endcapture %}
+                  {% endunless %}
+                  {% endfor %}
+
+                </div>
+              </div>
+            </div>
+            {% endif %}
+
+            {% endif %}
+
+            <input type="hidden" name="id" id="product-select" value="{{ product.variants.first.id }}" />
+
+            <!-- Product Description and tabs -->
+            <div id="prod-description">
+              {% include 'tabbed-description' %}
+            </div>
+
+            <!-- Quantity and Add to cart -->
+            <div class="grid-x">
+              <div class="large-3 small-3 cell">
+                <div id="quantity-select">
+                  <div class="quantity-select-item">
+                    <input type="number" id="q1" name="quantity" value="1">
+                  </div>
+                </div>
+              </div>
+              <div class="large-9 small-9 cell">
+				{% if product.available %}
+				 <button type="submit" data-toggle="showCart">Add to bag</button>
+				{% else %}
+				 <button type="submit" disabled="disabled" data-toggle="showCart">Size or Color is sold out</button>
+				{% endif %}
+
+
+              </div>
+            </div>
+
+            <!-- Customize -->
+            <a class="button" id="prod-customize" data-toggle="showCustom">Customize</a>
+            <p class="small">or 4 interest-free installments of $62.50 USD by Afterpay.<a href="">Learn more</a>
+
+          </form>
+
+          <script>
+
+          	function letsDoThis() {
+
+              {% if product.options[0] %}
+              var opt1 = document.querySelector('input[name="size"]:checked').value;
+              console.log(opt1);
+              {% endif %}
+
+          		{% if product.options[1] %}
+              var opt2 = document.querySelector('input[name="color"]:checked').value;
+              console.log(opt2);
+              {% endif %}
+
+          		{% if product.options[2] %}
+              var opt3 = document.querySelector('input[name="quality"]:checked').value;
+              console.log(opt3);
+              {% endif %}
+
+          		var id = '';
+          		{% for v in product.variants %}
+          		if(opt1=="{{ v.option1 }}"{% if product.options[1] %} && opt2=="{{ v.option2 }}"{% endif %}{% if product.options[2] %} && opt3=="{{ v.option3 }}"{% endif %}) {
+          				var id = {{ v.id }};
+          				var price = "{{ v.price | money }}";
+          			}
+          		{% endfor %}
+          		if(id!='') {
+          			document.getElementById('product-select').value = id;
+          			document.getElementById('price').innerHTML = price;
+          		} else {
+          			document.getElementById('product-select').value = '';
+          			document.getElementById('price').innerHTML = 'Unavailable';
+          		}
+
+          	}
+          </script>
+
+          <script type="application/json" id="productJson">
+            {{ product | json }}
+          </script>
+
+        </div>
+      </div>
+
+    </div>
+
+    {% if product.metafields.quote.quote %}
+    <!-- 12 column quote -->
+    <div class="grid-x grid-padding-x bottom50">
+      <div class="large-12 cell text-center">
+        <blockquote>{{ product.metafields.quote.quote }}</blockquote>
+      </div>
+    </div>
+    {% endif %}
+
+    {% for value in product.metafields.title1.title1 %}
+    {% if product.metafields.textLeftRight.textLeftRight[forloop.index0] == 'left' %}
+    <!-- Non-product related image right -->
+    <div class="grid-x grid-padding-x align-middle section-space120">
+      <div class="large-5 cell">
+        <div class="support-text">
+          <h5>{{ product.metafields.title2.title2[forloop.index0] }}</h5>
+          <h3>{{ product.metafields.title1.title1[forloop.index0] }}</h3>
+          <a href="{{ product.metafields.linkURL.linkURL[forloop.index0] }}" class="cta dark">{{ product.metafields.linkText.linkText[forloop.index0] }}</a>
+        </div>
+      </div>
+      <div class="large-7 cell">
+        <img src="{{ product.metafields.moreImage.moreImage[forloop.index0] }}" />
+      </div>
+    </div>
+
+    {% elsif product.metafields.textLeftRight.textLeftRight[forloop.index0] == 'right' %}
+    <!-- Non-product related image left -->
+    <div class="grid-x grid-padding-x align-middle section-space80">
+      <div class="large-7 cell">
+        <img src="{{ product.metafields.moreImage.moreImage[forloop.index0] }}" />
+      </div>
+      <div class="large-5 cell">
+        <div class="support-text">
+          <h5>{{ product.metafields.title2.title2[forloop.index0] }}</h5>
+          <h3>{{ product.metafields.title1.title1[forloop.index0] }}</h3>
+          <a href="{{ product.metafields.linkURL.linkURL[forloop.index0] }}" class="cta dark">{{ product.metafields.linkText.linkText[forloop.index0] }}</a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <!-- You might also like -->
+    <div class="grid-x grid-padding-x align-middle also-like">
+      <h5 class="large-12 cell text-center section-space50">You might also like</h5>
+
+      {% assign selected_handles = product.metafields.relatedProducts.relatedProducts | split: '|' %}
+      {% for selected_handle in selected_handles %}
+      <!-- Single related product -->
+      <div class="large-3 cell text-center prod-list-item">
+        <a href="{{ all_products[selected_handle].url }}" class="zoom"><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/{{ all_products[selected_handle].featured_image }}" /></a>
+        <h3><a href="{{ all_products[selected_handle].url }}">{{ all_products[selected_handle].title }}</a></h3>
+        <p class="price">{{ all_products[selected_handle].price }}</p>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+<!-- Full screen slideshow when you click on the smaller slideshow -->
+<div class="full reveal" id="productImages" data-reveal>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  {% for image in product.images %}
+  <img src="{{ image.src | img_url: '2048x2048' }}" data-close>
+  {% endfor %}
+</div>
+
+{% include 'cart-customize' %}
+{% include 'prod-size' %}

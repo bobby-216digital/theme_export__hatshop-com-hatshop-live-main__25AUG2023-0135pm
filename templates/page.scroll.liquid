@@ -1,0 +1,2010 @@
+{% layout none %}
+
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<style>
+		/* --------------------------------
+
+		Primary style
+
+		-------------------------------- */
+		*, *::after, *::before {
+		  box-sizing: border-box;
+		}
+
+		html {
+		  font-size: 62.5%;
+		}
+
+		body {
+		  font-size: 1.6rem;
+		  font-family: "Open Sans", sans-serif;
+		  color: #ffffff;
+		  background-color: #22283f;
+		  -webkit-font-smoothing: antialiased;
+		  -moz-osx-font-smoothing: grayscale;
+		}
+		body::before {
+		  /* never visible - this is used in jQuery to check the current MQ */
+		  content: 'mobile';
+		  display: none;
+		}
+		@media only screen and (min-width: 1050px) {
+		  body::before {
+		    /* never visible - this is used in jQuery to check the current MQ */
+		    content: 'desktop';
+		  }
+		}
+
+		a {
+		  color: #267481;
+		  text-decoration: none;
+		}
+
+		/* --------------------------------
+
+		Main Components
+
+		-------------------------------- */
+		@media only screen and (min-width: 1050px) {
+		  body[data-hijacking="on"] {
+		    overflow: hidden;
+		  }
+		}
+
+		.cd-section {
+		  height: 100vh;
+		}
+		.cd-section h2 {
+		  line-height: 100vh;
+		  text-align: center;
+		  font-size: 2.4rem;
+		}
+		.cd-section:first-of-type > div {
+		  background-color: #2b334f;
+		}
+		.cd-section:first-of-type > div::before {
+		  /* alert -> all scrolling effects are not visible on small devices */
+		  content: 'Effects not visible on mobile!';
+		  position: absolute;
+		  width: 100%;
+		  text-align: center;
+		  top: 20px;
+		  z-index: 2;
+		  font-weight: bold;
+		  font-size: 1.3rem;
+		  text-transform: uppercase;
+		  color: #6a7083;
+		}
+		.cd-section:nth-of-type(2) > div {
+		  background-color: #2e5367;
+		}
+		.cd-section:nth-of-type(3) > div {
+		  background-color: #267481;
+		}
+		.cd-section:nth-of-type(4) > div {
+		  background-color: #fcb052;
+		}
+		.cd-section:nth-of-type(5) > div {
+		  background-color: #f06a59;
+		}
+		[data-animation="parallax"] .cd-section > div, [data-animation="fixed"] .cd-section > div, [data-animation="opacity"] .cd-section > div {
+		  background-position: center center;
+		  background-repeat: no-repeat;
+		  background-size: cover;
+		}
+		[data-animation="parallax"] .cd-section:first-of-type > div, [data-animation="fixed"] .cd-section:first-of-type > div, [data-animation="opacity"] .cd-section:first-of-type > div {
+		  background-image: url("../img/img-1.jpg");
+		}
+		[data-animation="parallax"] .cd-section:nth-of-type(2) > div, [data-animation="fixed"] .cd-section:nth-of-type(2) > div, [data-animation="opacity"] .cd-section:nth-of-type(2) > div {
+		  background-image: url("../img/img-2.jpg");
+		}
+		[data-animation="parallax"] .cd-section:nth-of-type(3) > div, [data-animation="fixed"] .cd-section:nth-of-type(3) > div, [data-animation="opacity"] .cd-section:nth-of-type(3) > div {
+		  background-image: url("../img/img-3.jpg");
+		}
+		[data-animation="parallax"] .cd-section:nth-of-type(4) > div, [data-animation="fixed"] .cd-section:nth-of-type(4) > div, [data-animation="opacity"] .cd-section:nth-of-type(4) > div {
+		  background-image: url("../img/img-4.jpg");
+		}
+		[data-animation="parallax"] .cd-section:nth-of-type(5) > div, [data-animation="fixed"] .cd-section:nth-of-type(5) > div, [data-animation="opacity"] .cd-section:nth-of-type(5) > div {
+		  background-image: url("../img/img-5.jpg");
+		}
+		@media only screen and (min-width: 1050px) {
+		  .cd-section h2 {
+		    font-size: 4rem;
+		    font-weight: 300;
+		  }
+		  [data-hijacking="on"] .cd-section {
+		    opacity: 0;
+		    visibility: hidden;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		  }
+		  [data-hijacking="on"] .cd-section > div {
+		    visibility: visible;
+		  }
+		  [data-hijacking="off"] .cd-section > div {
+		    opacity: 0;
+		  }
+		  [data-animation="rotate"] .cd-section {
+		    /* enable a 3D-space for children elements */
+		    -webkit-perspective: 1800px;
+		    -moz-perspective: 1800px;
+		    perspective: 1800px;
+		  }
+		  [data-hijacking="on"][data-animation="rotate"] .cd-section:not(:first-of-type) {
+		    -webkit-perspective-origin: center 0;
+		    -moz-perspective-origin: center 0;
+		    perspective-origin: center 0;
+		  }
+		  [data-animation="scaleDown"] .cd-section > div, [data-animation="gallery"] .cd-section > div, [data-animation="catch"] .cd-section > div {
+		    box-shadow: 0 0 0 rgba(25, 30, 46, 0.4);
+		  }
+		  [data-animation="opacity"] .cd-section.visible > div {
+		    z-index: 1;
+		  }
+		}
+
+		@media only screen and (min-width: 1050px) {
+		  .cd-section:first-of-type > div::before {
+		    display: none;
+		  }
+		}
+		@media only screen and (min-width: 1050px) {
+		  .cd-section > div {
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    /* Force Hardware Acceleration */
+		    -webkit-transform: translateZ(0);
+		    -moz-transform: translateZ(0);
+		    -ms-transform: translateZ(0);
+		    -o-transform: translateZ(0);
+		    transform: translateZ(0);
+		    -webkit-backface-visibility: hidden;
+		    backface-visibility: hidden;
+		  }
+		  [data-hijacking="on"] .cd-section > div {
+		    position: absolute;
+		  }
+		  [data-animation="rotate"] .cd-section > div {
+		    -webkit-transform-origin: center bottom;
+		    -moz-transform-origin: center bottom;
+		    -ms-transform-origin: center bottom;
+		    -o-transform-origin: center bottom;
+		    transform-origin: center bottom;
+		  }
+		}
+
+		.cd-vertical-nav {
+		  /* lateral navigation */
+		  position: fixed;
+		  z-index: 1;
+		  right: 3%;
+		  top: 50%;
+		  bottom: auto;
+		  -webkit-transform: translateY(-50%);
+		  -moz-transform: translateY(-50%);
+		  -ms-transform: translateY(-50%);
+		  -o-transform: translateY(-50%);
+		  transform: translateY(-50%);
+		  display: none;
+		}
+		.cd-vertical-nav a {
+		  display: block;
+		  height: 40px;
+		  width: 40px;
+		  /* image replace */
+		  overflow: hidden;
+		  text-indent: 100%;
+		  white-space: nowrap;
+		  background: url(../img/cd-icon-arrow.svg) no-repeat center center;
+		}
+		.cd-vertical-nav a.cd-prev {
+		  -webkit-transform: rotate(180deg);
+		  -moz-transform: rotate(180deg);
+		  -ms-transform: rotate(180deg);
+		  -o-transform: rotate(180deg);
+		  transform: rotate(180deg);
+		  margin-bottom: 10px;
+		}
+		.cd-vertical-nav a.inactive {
+		  visibility: hidden;
+		  opacity: 0;
+		  -webkit-transition: opacity 0.2s 0s, visibility 0s 0.2s;
+		  -moz-transition: opacity 0.2s 0s, visibility 0s 0.2s;
+		  transition: opacity 0.2s 0s, visibility 0s 0.2s;
+		}
+		@media only screen and (min-width: 1050px) {
+		  .cd-vertical-nav {
+		    display: block;
+		  }
+		}
+
+	</style>
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+  	 {{ 'jquery.js' | asset_url | script_tag }}
+	<title>Page Scroll Effects | CodyHouse</title>
+</head>
+<!-- hijacking: on/off - animation: none/scaleDown/rotate/gallery/catch/opacity/fixed/parallax -->
+
+<body data-hijacking="on" data-animation="parallax">
+
+	    <!-- Announcement Bars -->
+	    <div id="shopify-section-announcements" class="shopify-section">
+
+	<!-- Annoumcement Bar 1 -->
+	<div class="grid-x grid-padding-x announcement-bar announcement-bar-1">
+	  <div class="large-12 cell text-center">
+	    <p class="line1">Line number 1</p>
+	    <p class="line2">Line number 2</p>
+	    <p class="line3">Line number 3</p>
+	  </div>
+	  <span class="announcement-close">X</span>
+	</div>
+
+
+
+
+
+	</div>
+
+	    <!-- This is the searh bar which is initialy off screen
+	         but activated when the search icon is clicked or tapped
+	    -->
+	    <div class="search-bar" id="searchBbar">
+	      <div class="grid-container full">
+	        <div class="grid-x grid-padding-x align-center">
+	          <div class="large-12 cell text-center">
+	            <form class="search" action="/search">
+				        <input type="hidden" name="type" value="product">
+	              <input type="text" name="q" placeholder="What are you looking for?" class="search-input" value="">
+	            </form>
+	          </div>
+	        </div>
+	      </div>
+	      <button class="close-button" aria-label="Close seach" type="button" data-close>
+	        <span aria-hidden="true">&times;</span>
+	      </button>
+	    </div>
+
+	    <!-- Header - Use class "absolute" to make the header overlap the content at top of page -->
+	    <header class="transparent light desktop scrollhide-nav">
+
+	      <!-- Information above main  navigation -->
+	<div class="grid-x grid-padding-x nav-top show-for-large">
+	  <div class="large-6 cell">
+	    <span><a href="/pages/contact"><i class="fal fa-map-marker-alt" style="    margin-right: 10px;"></i>
+	     Visit our NYC Shop</a></span>
+	    <span><a href="tel:212-265-2887"><i class="fal fa-phone" style="margin-right: 10px;"></i>
+	     212-265-2887</a></span>
+	  </div>
+	  <div class="large-6 cell text-right">
+	  	<span><a href="/account/login">Login</a></span>
+	  	<span><a href="/account/register">Register</a></span>
+	  	<span><a href="/a/wishlist">Wish List</a></span>
+	    <span class="hatbox-desktop" data-toggle="showCart"><?xml version="1.0" encoding="UTF-8"?>
+	    <svg width="21px" height="25px" viewBox="0 0 21 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	        <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+	        <title>Hatbox</title>
+	        <desc>Created with Sketch.</desc>
+	        <defs>
+	            <polygon id="path-1" points="0.103778748 0.10462963 9.59394223 0.10462963 9.59394223 9.09875661 0.103778748 9.09875661"></polygon>
+	        </defs>
+	        <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+	            <g id="Mobile-Header-Copy" transform="translate(-283.000000, -22.000000)">
+	                <g id="Hatbox" transform="translate(283.000000, 22.000000)">
+	                    <g id="Group-6">
+	                        <g id="Group-3" transform="translate(5.381250, 0.027646)">
+	                            <mask id="mask-2" fill="white">
+	                                <use xlink:href="#path-1"></use>
+	                            </mask>
+	                            <g id="Clip-2"></g>
+	                            <path d="M0.830248125,9.09875661 C0.431773125,9.09875661 0.108635625,8.77349206 0.108373125,8.37177249 L0.103779375,2.37798942 C0.102860625,1.12785714 1.11112313,0.109867725 2.35156688,0.108941799 L7.33801688,0.10457672 L7.33985437,0.10457672 C8.57951062,0.10457672 9.58842937,1.12044974 9.58947937,2.36992063 L9.59394187,8.36383598 C9.59433562,8.76555556 9.27132937,9.09161376 8.87272313,9.09187831 L8.87206687,9.09187831 C8.47359187,9.09187831 8.15058562,8.76661376 8.15019187,8.36502646 L8.14572937,2.37111111 C8.14546687,2.15589947 8.06107312,1.95246032 7.90790438,1.79835979 C7.75486687,1.64439153 7.55313562,1.55960317 7.33985437,1.55960317 L7.33919812,1.55960317 L2.35274813,1.56396825 C1.90833563,1.56436508 1.54713562,1.92891534 1.54752937,2.37679894 L1.55212313,8.37071429 C1.55238563,8.77243386 1.22951063,9.09849206 0.830773125,9.09875661 L0.830248125,9.09875661 Z" id="Fill-1" fill="#000000" mask="url(#mask-2)"></path>
+	                        </g>
+	                        <path d="M10.5,5.18637566 C5.50633125,5.18637566 1.44375,9.28068783 1.44375,14.3133598 C1.44375,19.3460317 5.50633125,23.4403439 10.5,23.4403439 C15.4936687,23.4403439 19.55625,19.3460317 19.55625,14.3133598 C19.55625,9.28068783 15.4936687,5.18637566 10.5,5.18637566 M10.5,24.8953704 C4.7103,24.8953704 0,20.1482804 0,14.3133598 C0,8.47843915 4.7103,3.73134921 10.5,3.73134921 C16.2897,3.73134921 21,8.47843915 21,14.3133598 C21,20.1482804 16.2897,24.8953704 10.5,24.8953704" id="Fill-4" fill="#000000"></path>
+	                    </g>
+	                </g>
+	            </g>
+	        </g>
+	    </svg><span data-cart-render="item_count"></span></span>
+	    <span id="searchActivate"><i class="fal fa-search"></i></span>
+	  </div>
+	</div>
+
+	<!-- Begin Main Navigation in all it's glory Desktop -->
+	<div class="grid-container desktop-nav show-for-large">
+	  <div class="grid-x grid-padding-x nav-menu">
+	    <div class="large-12 cell text-center">
+
+		  <a href="/collections/all" class="nav-item" id="nav-shop"><span>Shop</span></a>
+
+		  <a href="/pages/hat-repair" class="nav-item" id="nav-hat-repair"><span>Hat Repair</span></a>
+
+		  <a href="/pages/custom" class="nav-item" id="nav-custom"><span>Custom</span></a>
+
+	      <a href="/" class="logo"></a>
+
+		  <a href="/blogs/atelier" class="nav-item" id="nav-w-w-culture"><span>W&W Culture</span></a>
+
+		  <a href="/pages/under-my-hat-about" class="nav-item" id="nav-underneath-my-hat"><span>Underneath My Hat</span></a>
+
+	    </div>
+	  </div>
+	</div>
+
+	<!-- And now let's do one for mobile and tablet -->
+	<div class="grid-container mobile-nav hide-for-large">
+	  <div class="grid-x grid-padding-x nav-menu">
+	    <div class="small-3 cell">
+	      <span class="hamburger" data-toggle="showNav">&#9776;</span>
+	    </div>
+	    <div class="small-6 cell text-center">
+	      <a href="/" class="logo"></a>
+	    </div>
+	    <div class="small-3 cell text-right">
+	      <span class="hatbox-mobile" data-toggle="showCart"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/hatbox-mobile-2x.png?4048" alt="Cart" /><span data-cart-render="item_count"></span></span>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Show cart icons, search and favorites for desktop -->
+	<div class="icons-alt show-for-large">
+	  <span><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/icon-fav.png?4048" alt="Favorite" /></span>
+	  <span class="hatbox-desktop" data-toggle="showCart"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/hatbox-mobile-2x.png?4048" alt="Cart" /><span data-cart-render="item_count"></span></span>
+	  <span id="searchActivate"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/icon-search.png?4048" alt="Search" /></span>
+	</div>
+
+
+	    </header>
+
+	    <!-- Begin the drop down menus -->
+	    <!-- Begin the drop down menus -->
+
+	<!-- First up is the "Shop" drop down menu -->
+	<div class="nav-drop nav-drop-desktop" id="subnav-shop" style="">
+	  <div class="grid-container grid-x grid-padding-x">
+	    <div class="large-2 cell">
+	      <div class="nav-drop-section">
+	        <h4 class="small-body-title">Women's Hats</h4>
+
+	      	  <a href="/collections/women" class="nav-item link-activate" id="subnav-link-all-womens" data-hover-id="zoom-all-womens" data-image-id="collect-img-all-womens">All Women's</a>
+
+	      	  <a href="/collections/womens-beaver-felt-hats" class="nav-item link-activate" id="subnav-link-beaver-felt-hats" data-hover-id="zoom-beaver-felt-hats" data-image-id="collect-img-beaver-felt-hats">Beaver Felt Hats</a>
+
+	      	  <a href="/collections/womens-hare-felt-hats" class="nav-item link-activate" id="subnav-link-hare-felt-hats" data-hover-id="zoom-hare-felt-hats" data-image-id="collect-img-hare-felt-hats">Hare Felt Hats</a>
+
+	      	  <a href="/collections/womens-hand-dye-hats" class="nav-item link-activate" id="subnav-link-hand-dye-hats" data-hover-id="zoom-hand-dye-hats" data-image-id="collect-img-hand-dye-hats">Hand Dye Hats</a>
+
+	      	  <a href="/collections/womens-straw-hats" class="nav-item link-activate" id="subnav-link-straw-hats" data-hover-id="zoom-straw-hats" data-image-id="collect-img-straw-hats">Straw Hats</a>
+
+	      	  <a href="/collections/womens-montecristi-hats" class="nav-item link-activate" id="subnav-link-montecristi-hats" data-hover-id="zoom-montecristi-hats" data-image-id="collect-img-montecristi-hats">Montecristi Hats</a>
+
+	      </div>
+	      <div class="nav-drop-section">
+	        <h4 class="small-body-title">Men's Hats</h4>
+
+	          <a href="/collections/men" class="nav-item link-activate" id="subnav-link-all-mens" data-hover-id="zoom-all-mens" data-image-id="collect-img-mens-all-mens">All Men's</a>
+
+	          <a href="/collections/beaver-felt-hats" class="nav-item link-activate" id="subnav-link-beaver-felt-hats" data-hover-id="zoom-beaver-felt-hats" data-image-id="collect-img-mens-beaver-felt-hats">Beaver felt hats</a>
+
+	          <a href="/collections/mens-hare-felt-hats" class="nav-item link-activate" id="subnav-link-hare-felt-hats" data-hover-id="zoom-hare-felt-hats" data-image-id="collect-img-mens-hare-felt-hats">Hare Felt Hats</a>
+
+	          <a href="/collections/mens-hand-dye-hats" class="nav-item link-activate" id="subnav-link-hand-dye-hats" data-hover-id="zoom-hand-dye-hats" data-image-id="collect-img-mens-hand-dye-hats">Hand Dye Hats</a>
+
+	          <a href="/collections/straw-hats" class="nav-item link-activate" id="subnav-link-straw-hats" data-hover-id="zoom-straw-hats" data-image-id="collect-img-mens-straw-hats">Straw Hats</a>
+
+	          <a href="/collections/montecristi-hats" class="nav-item link-activate" id="subnav-link-montecristi-hats" data-hover-id="zoom-montecristi-hats" data-image-id="collect-img-mens-montecristi-hats">Montecristi Hats</a>
+
+	      </div>
+	    </div>
+	    <div class="large-2 cell">
+	      <div class="nav-drop-section">
+	        <h4 class="small-body-title">Accessories</h4>
+
+	          <a href="/collections/accessories" class="nav-item link-activate" id="subnav-link-all-accessories" data-hover-id="zoom-all-accessories" data-image-id="collect-img-all-accessories">All Accessories</a>
+
+	          <a href="/collections/hat-box" class="nav-item link-activate" id="subnav-link-hat-box" data-hover-id="zoom-hat-box" data-image-id="collect-img-hat-box">Hat Box</a>
+
+	          <a href="/collections/tools" class="nav-item link-activate" id="subnav-link-tools" data-hover-id="zoom-tools" data-image-id="collect-img-tools">Tools</a>
+
+	      </div>
+	      <!--<div class="nav-drop-section">
+	        <h4 class="small-body-title">W&W Little</h4>
+
+	          <a href="/collections/w-w-little" class="nav-item" id="subnav-link-all-w-w-little" data-image-id="collect-img-all-w-w-little">All W&W Little</a>
+
+	          <a href="/collections/w-w-little-felt-hats" class="nav-item" id="subnav-link-felt-hats" data-image-id="collect-img-felt-hats">Felt Hats</a>
+
+	          <a href="/collections/w-w-little-straw-hats" class="nav-item" id="subnav-link-straw-hats" data-image-id="collect-img-straw-hats">Straw Hats</a>
+
+	      </div>-->
+	      <div class="nav-drop-section">
+	        <h4 class="small-body-title">Gift Cards</h4>
+
+	          <a href="/collections/gift-card" class="nav-item link-activate" id="subnav-link-gift-card" data-hover-id="zoom-gift-card" data-image-id="collect-img-gift-card">Gift Card</a>
+
+	          <a href="/collections/virtual-gift-card" class="nav-item link-activate" id="subnav-link-virtual-gift-card" data-hover-id="zoom-virtual-gift-card" data-image-id="collect-img-virtual-gift-card">Virtual Gift Card</a>
+
+	      </div>
+	    </div>
+	    <div class="large-2 cell">
+
+		  <a href="/pages/custom" class="nav-item link-activate" id="subnav-link-custom" data-hover-id="zoom-custom" data-image-id="collect-img-custom"><span>Custom</span></a>
+
+		  <a href="/pages/hat-size" class="nav-item link-activate" id="subnav-link-your-hat-size" data-hover-id="zoom-your-hat-size" data-image-id="collect-img-your-hat-size"><span>Your Hat Size</span></a>
+
+	    </div>
+	    <div class="large-6 cell relative">
+
+	<a href="#" class="zoom" data-hover-id="zoom-all-womens"><img class="collect-img" data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/Worth-and-Worth-Nav-WOMEN-ALL_WOMENS-hat.jpg?v=1557770877"
+	            data-image-alt=""  src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/Worth-and-Worth-Nav-WOMEN-ALL_WOMENS-hat.jpg?v=1557770877" data-image-id="collect-img-all-womens"></a>
+
+	<a href="#" class="zoom" data-hover-id="zoom-beaver-felt-hats"><img class="collect-img" data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/about-studio.jpg?v=1559273935"
+	            data-image-alt=""  src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/about-studio.jpg?v=1559273935" data-image-id="collect-img-beaver-felt-hats"></a>
+
+	<a href="#" class="zoom" data-hover-id="zoom-hare-felt-hats"><img class="collect-img" data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/step3.jpg?v=1557769809"
+	            data-image-alt=""  src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/step3.jpg?v=1557769809" data-image-id="collect-img-hare-felt-hats"></a>
+
+	<a href="#" class="zoom" data-hover-id="zoom-hand-dye-hats"><img class="collect-img" data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/Worth-and-Worth-Nav-WOMEN-HAND_DYE-hat.jpg?v=1557771079"
+	            data-image-alt=""  src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/Worth-and-Worth-Nav-WOMEN-HAND_DYE-hat.jpg?v=1557771079" data-image-id="collect-img-hand-dye-hats"></a>
+
+	<a href="#" class="zoom" data-hover-id="zoom-straw-hats"><img class="collect-img" data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/stage_474a06ed-7b52-4891-9a61-4fccd96a7e08.jpg?v=1557771051"
+	            data-image-alt=""  src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/stage_474a06ed-7b52-4891-9a61-4fccd96a7e08.jpg?v=1557771051" data-image-id="collect-img-straw-hats"></a>
+
+	<a href="#" class="zoom" data-hover-id="zoom-montecristi-hats"><img class="collect-img" data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/montecristi.jpg?v=1557770951"
+	            data-image-alt=""  src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/montecristi.jpg?v=1557770951" data-image-id="collect-img-montecristi-hats"></a>
+
+
+	<a href="#" class="zoom" data-hover-id="zoom-all-mens"><img class="collect-img"
+		            data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/Worth-and-Worth-Nav-MEN-ALL_MENS-hat.jpg?v=1559248579"
+		            data-image-alt=""
+
+		          src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/Worth-and-Worth-Nav-MEN-ALL_MENS-hat.jpg?v=1559248579" data-image-id="collect-img-mens-all-mens"></a>
+
+	<a href="#" class="zoom" data-hover-id="zoom-beaver-felt-hats"><img class="collect-img"
+		            data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/Worth-and-Worth-Nav-MEN-BEAVER-hat.jpg?v=1559190431"
+		            data-image-alt=""
+
+		          src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/Worth-and-Worth-Nav-MEN-BEAVER-hat.jpg?v=1559190431" data-image-id="collect-img-mens-beaver-felt-hats"></a>
+
+	<a href="#" class="zoom" data-hover-id="zoom-hare-felt-hats"><img class="collect-img"
+		            data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/Worth-and-Worth-Nav-MEN-HARE-FELT-hat_copy.jpg?v=1559274030"
+		            data-image-alt=""
+
+		          src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/Worth-and-Worth-Nav-MEN-HARE-FELT-hat_copy.jpg?v=1559274030" data-image-id="collect-img-mens-hare-felt-hats"></a>
+
+	<a href="#" class="zoom" data-hover-id="zoom-hand-dye-hats"><img class="collect-img"
+		            data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/hat-nav.jpg?v=1559273974"
+		            data-image-alt=""
+
+		          src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/hat-nav.jpg?v=1559273974" data-image-id="collect-img-mens-hand-dye-hats"></a>
+
+	<a href="#" class="zoom" data-hover-id="zoom-straw-hats"><img class="collect-img"
+		            data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/Worth-and-Worth-Nav-MEN-STRAW-hat.jpg?v=1557771091"
+		            data-image-alt=""
+
+		          src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/Worth-and-Worth-Nav-MEN-STRAW-hat.jpg?v=1557771091" data-image-id="collect-img-mens-straw-hats"></a>
+
+	<a href="#" class="zoom" data-hover-id="zoom-montecristi-hats"><img class="collect-img"
+		            data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/Worth-and-Worth-Nav-MEN-MONTECRISTI-hat.jpg?v=1557770993"
+		            data-image-alt=""
+
+		          src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/Worth-and-Worth-Nav-MEN-MONTECRISTI-hat.jpg?v=1557770993" data-image-id="collect-img-mens-montecristi-hats"></a>
+
+
+	<a href="#" class="zoom" data-hover-id="zoom-all-accessories"><img class="collect-img"  data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/IMG_5735_Copy.jpg?v=1557331643"  data-image-alt=""  src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/IMG_5735_Copy.jpg?v=1557331643" data-image-id="collect-img-all-accessories"></a>
+
+	<a href="#" class="zoom" data-hover-id="zoom-hat-box"><img class="collect-img"  data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/IMG_5735_Copy.jpg?v=1557331643"  data-image-alt=""  src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/IMG_5735_Copy.jpg?v=1557331643" data-image-id="collect-img-hat-box"></a>
+
+	<a href="#" class="zoom" data-hover-id="zoom-tools"><img class="collect-img"  data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/IMG_5735_Copy.jpg?v=1557331643"  data-image-alt=""  src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/IMG_5735_Copy.jpg?v=1557331643" data-image-id="collect-img-tools"></a>
+
+		 <!--
+	<span class="collect-img"
+		            data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/IMG_5735_Copy.jpg?v=1557331643"
+		            data-image-alt=""
+
+		          style="background: url(//cdn.shopify.com/s/files/1/0031/1699/0564/collections/IMG_5735_Copy.jpg?v=1557331643) no-repeat top center/cover;" data-image-id="collect-img-all-w-w-little">
+		          </span>
+
+	<span class="collect-img"
+		            data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/IMG_5735_Copy.jpg?v=1557331643"
+		            data-image-alt=""
+
+		          style="background: url(//cdn.shopify.com/s/files/1/0031/1699/0564/collections/IMG_5735_Copy.jpg?v=1557331643) no-repeat top center/cover;" data-image-id="collect-img-felt-hats">
+		          </span>
+
+	<span class="collect-img"
+		            data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/stage_25fff0ee-d95b-49c7-b73d-777f7671caad.jpg?v=1557331652"
+		            data-image-alt=""
+
+		          style="background: url(//cdn.shopify.com/s/files/1/0031/1699/0564/collections/stage_25fff0ee-d95b-49c7-b73d-777f7671caad.jpg?v=1557331652) no-repeat top center/cover;" data-image-id="collect-img-straw-hats">
+		          </span>
+		  -->
+
+	<a href="#" class="zoom" data-hover-id="zoom-gift-card"><img class="collect-img" data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/stage_25fff0ee-d95b-49c7-b73d-777f7671caad.jpg?v=1557331652" data-image-alt=""  src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/stage_25fff0ee-d95b-49c7-b73d-777f7671caad.jpg?v=1557331652" data-image-id="collect-img-gift-card"></a>
+
+	<a href="#" class="zoom" data-hover-id="zoom-virtual-gift-card"><img class="collect-img" data-image="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/stage_8cd24193-0f2b-4b46-b54f-44833344cde0.jpg?v=1557331314" data-image-alt=""  src="//cdn.shopify.com/s/files/1/0031/1699/0564/collections/stage_8cd24193-0f2b-4b46-b54f-44833344cde0.jpg?v=1557331314" data-image-id="collect-img-virtual-gift-card"></a>
+
+	    	</div>
+		</div>
+	</div>
+
+	<!-- Second up is the "Hat Repair" drop down menu -->
+	<div class="nav-drop nav-drop-desktop" id="subnav-repair">
+	  <div class="grid-container grid-x grid-padding-x align-middle">
+	    <div class="large-2 cell">
+	      <h4 class="small-body-title">HAT SERVICES</h4>
+
+	       <a href="/pages/hat-size" class="nav-item" id="nav-your-hat-size" data-hover-id="nav-your-hat-size">Your Hat Size</a>
+
+	       <a href="/pages/hat-repair" class="nav-item" id="nav-hat-services" data-hover-id="nav-hat-services">Hat Services</a>
+
+	       <a href="/pages/hat-care" class="nav-item" id="nav-hat-care" data-hover-id="nav-hat-care">Hat Care</a>
+
+	       <a href="/pages/custom" class="nav-item" id="nav-w-w-custom" data-hover-id="nav-w-w-custom">W&W Custom</a>
+
+	    </div>
+	    <div class="large-10 cell relative repair-nav-image-wrap">
+	      <div class="repair-nav-image relative">
+	        <a href="/pages/hat-size" class="zoom" data-hover-id="nav-your-hat-size">
+		        <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/hr1.jpg?4048" />
+		        <h5>Your Hat Size</h5>
+	        </a>
+	      </div>
+	      <div class="repair-nav-image relative">
+			 <a href="/pages/hat-repair" class="zoom" data-hover-id="nav-hat-services">
+		        <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/hr2.jpg?4048" />
+		        <h5>Hat Services</h5>
+			 </a>
+	      </div>
+	      <div class="repair-nav-image relative">
+			<a href="/pages/hat-care" class="zoom" data-hover-id="nav-hat-care">
+		        <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/hr3.jpg?4048" />
+		        <h5>Hat Care</h5>
+	        </a>
+	      </div>
+	      <div class="repair-nav-image relative">
+			<a href="/pages/custom" class="zoom" data-hover-id="nav-w-w-custom">
+		        <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/hr4.jpg?4048" />
+		        <h5>W&W Custom</h5>
+	        </a>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Third up is the "Custom" drop down menu -->
+	<div class="nav-drop nav-drop-desktop" id="subnav-custom">
+		<div class="grid-container grid-x grid-padding-x align-middle">
+			<div class="large-4 large-offset-1 cell text-center">
+		  		<div class="custom-text-wrap">
+		  			<h4>Craft the Perfect Hat to Call Your Own</h4>
+		  			<p>The quick, brown fox jumps over a lazy dog. DJ's flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps.</p>
+		  			<a class="button filled" href="/pages/custom">Start here</a>
+		  		</div>
+			</div>
+			<div class="large-6 large-offset-1 cell relative">
+				<a href="/pages/custom" class="zoom"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/dropnav-custom.png?4048" /></a>
+	    	</div>
+		</div>
+	</div>
+
+	<!-- Fourth up is the "W&W Culture" drop down menu -->
+	<div class="nav-drop nav-drop-desktop" id="subnav-culture">
+	  <div class="grid-container grid-x grid-padding-x align-middle">
+	    <div class="medium-2 cell">
+	      <h4 class="small-body-title">W&W Culture</h4>
+
+	        <a href="/blogs/atelier" class="nav-item" id="subnav-link-the-atelier" data-image-id="collect-img-the-atelier">The Atelier</a>
+
+	        <a href="/blogs/press" class="nav-item" id="subnav-link-press" data-image-id="collect-img-press">Press</a>
+
+	        <a href="/pages/icons" class="nav-item" id="subnav-link-icons" data-image-id="collect-img-icons">Icons</a>
+
+	        <a href="/pages/lookbook" class="nav-item" id="subnav-link-lookbook" data-image-id="collect-img-lookbook">Lookbook</a>
+
+	        <a href="/pages/timeline" class="nav-item" id="subnav-link-the-timeline" data-image-id="collect-img-the-timeline">The Timeline</a>
+
+	    </div>
+	    <div class="medium-9 cell relative">
+	      <h3>From the Atelier</h3>
+	      <p class="subnav-culture-seeall"><a href="/blogs/atelier">See all</a></p>
+	      <div class="subnav-culture-slideshow cycle-slideshow" data-cycle-fx="fadeout" data-cycle-timeout="0" data-cycle-slides="> div">
+
+	        <!-- Subnav slideshow item -->
+	        <div>
+	          <div class="grid-x grid-padding-x">
+	            <div class="medium-6 cell relative">
+	             <a href="#" class="zoom"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/dropnav-custom.png?4048" />
+	              <div class="sub-culture-text">
+	                <h5>Press</h5>
+	                <h4>Four Seaons Magazine</h4>
+	              </div>
+	              </a>
+	            </div>
+	            <div class="medium-6 cell relative">
+	             <a href="#" class="zoom"> <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/dropnav-custom.png?4048" />
+	              <div class="sub-culture-text">
+	                <h5>Press</h5>
+	                <h4>Four Seaons Magazine</h4>
+				  </div></a>
+	            </div>
+	          </div>
+	        </div>
+
+	        <!-- Subnav slideshow item -->
+	        <div>
+	          <div class="grid-x grid-padding-x">
+	            <div class="medium-6 cell relative">
+	              <a href="#" class="zoom"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/dropnav-custom.png?4048" />
+	              <div class="sub-culture-text">
+	                <h5>Blah blah</h5>
+	                <h4>Blah and more text</h4>
+				  </div></a>
+	            </div>
+	            <div class="medium-6 cell relative">
+	              <a href="#" class="zoom"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/dropnav-custom.png?4048" />
+	              <div class="sub-culture-text">
+	                <h5>Press</h5>
+	                <h4>Four Seaons Magazine</h4>
+				  </div></a>
+	            </div>
+	          </div>
+	        </div>
+
+	        <!-- Subnav slideshow item -->
+	        <div>
+	          <div class="grid-x grid-padding-x">
+	            <div class="medium-6 cell relative">
+	              <a href="#" class="zoom"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/dropnav-custom.png?4048" />
+	              <div class="sub-culture-text">
+	                <h5>Working slideshow</h5>
+	                <h4>Four Seaons Magazine</h4>
+				  </div></a>
+	            </div>
+	            <div class="medium-6 cell relative">
+	              <a href="#" class="zoom"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/dropnav-custom.png?4048" />
+	              <div class="sub-culture-text">
+	                <h5>Press</h5>
+	                <h4>Four Seaons Magazine</h4>
+				  </div></a>
+	            </div>
+	          </div>
+	        </div>
+
+	        <!-- Previous and next controls -->
+	        <span class="cycle-prev cycle-control">
+	          <</span> <span class="cycle-next cycle-control">>
+	        </span>
+
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Fifth up is the "Under my hat" drop down menu -->
+	<div class="nav-drop nav-drop-desktop" id="subnav-umh">
+	  <div class="grid-container grid-x grid-padding-x align-middle">
+	    <div class="large-3 cell">
+	      <h4>Underneath My Hat</h4>
+	      <a href="">About orlando</a>
+	      <a href="">Collaborations</a>
+	      <a href="">Creations</a>
+	    </div>
+	    <div class="large-8 cell relative repair-nav-image-wrap">
+	      <div class="umh-nav-image relative">
+	        <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/atelier-story.png?4048" />
+	        <h3>About Orlando</h3>
+	      </div>
+	      <div class="umh-nav-image relative">
+	        <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/atelier-story.png?4048" />
+	        <h3>Collaborations</h3>
+	      </div>
+	      <div class="umh-nav-image relative">
+	        <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/atelier-story.png?4048" />
+	        <h3>Creations</h3>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	    <!-- Page content to begin here -->
+	    <div id="shopify-section-home-ss2" class="shopify-section">
+	<!-- Homepage Slideshow -->
+	<section class="main-slider home-slideshow section-space">
+
+
+
+	  	<div class="item image home-ss-1" style="background-image: url('//cdn.shopify.com/s/files/1/0031/1699/0564/files/26331501_1222417621224266_7833039866999865344_n.jpg?v=1552061776')">
+
+	    	<div class="grid-container slider-copy">
+				<div class="grid-x grid-padding-x align-middle">
+					<div class="large-6 cell">
+						<div class="ss1-wrap">
+							<h1>Explore Our  <br>Montecristi Hats</h1>
+							<a href="https://worth-and-worth.myshopify.com/collections/montecristi-hats" class="cta light">SHOP NOW</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="home-ss-overlay"></div>
+
+
+
+	  </div>
+
+
+
+	  <div class="item image home-ss-2" style="background-image: url('//cdn.shopify.com/s/files/1/0031/1699/0564/files/Bitmap.png?v=1559785909')">
+
+	    <div class="grid-container slider-copy">
+	      <div class="grid-x grid-padding-x align-bottom ">
+	        <div class="large-10 cell">
+	          <h1>A Slightly Longer, Bottom-alinged Banner Header</h1>
+	          <a href="http://yahoo.com" class="cta light">Shop Now</a>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="home-ss-overlay"></div>
+
+
+
+	  </div>
+
+
+
+
+	  <div class="item image home-ss-3" style="background-image: url('//cdn.shopify.com/s/files/1/0031/1699/0564/files/26331501_1222417621224266_7833039866999865344_n.jpg?v=1552061776')">
+
+	    <div class="grid-container slider-copy">
+	      <div class="grid-x grid-padding-x align-middle align-center">
+	        <div class="large-7 cell text-center">
+	          <h1>A Slightly Longer Banner Header</h1>
+	            <div class="cta-wrap">
+	              <a href="http://yahoo.com" class="cta light">Text Center 1</a>
+	              <a href="http://google.com" class="cta light">Text Center Right</a>
+	            </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="home-ss-overlay"></div>
+
+
+
+	  </div>
+
+
+
+
+	  <div class="item image home-ss-4" style="background-image: url('//cdn.shopify.com/s/files/1/0031/1699/0564/files/banner6.jpg?v=1559786584')">
+
+	    <div class="grid-container slider-copy">
+	      <div class="grid-x grid-padding-x align-middle align-center">
+	        <div class="large-7 cell text-center">
+	          <h1>A Slightly, Slightly Longer Banner Header</h1>
+	          <a href="" class="cta-button light">Shop Now</a>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="home-ss-overlay"></div>
+
+
+	  </div>
+
+
+
+		  <div class="item image home-ss-5" style="background-image: url('//cdn.shopify.com/s/files/1/0031/1699/0564/files/banner4.png?v=1559787079')">
+
+		    <div class="grid-container slider-copy">
+		      <div class="grid-x grid-padding-x align-middle align-center">
+		        <div class="large-7 cell text-center">
+		          <h1>A Slightly Longer Banner Header</h1>
+		            <div class="cta-wrap">
+		              <a href="https://yahoo.com" class="cta-button light ">Shop Now</a>
+		              <a href="https://yahoo.com" class="cta-button outline">Custom Orders</a>
+		            </div>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="home-ss-overlay"></div>
+
+
+
+	  </div>
+
+
+
+	    <div class="item image home-ss-4a" style="background-image: url('//cdn.shopify.com/s/files/1/0031/1699/0564/files/banner5.png?v=1559786426')">
+
+	      <div class="grid-container slider-copy">
+	        <div class="grid-x grid-padding-x align-middle align-center">
+	          <div class="large-7 cell text-center">
+	            <h1>A Slightly Longer Banner Header</h1>
+	            <a href="" class="cta-button light outline">Shop Now</a>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="home-ss-overlay"></div>
+
+
+	    </div>
+
+
+
+
+	    <div class="item video home-ss-1a">
+
+
+	      <div class="home-ss-overlay"></div>
+
+
+	      <video class="slide-video slide-media" loop muted preload="metadata" poster="//cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c.gif">
+	        <source src="https://player.vimeo.com/external/111144207.hd.mp4?s=b2a549564da5cd51c3bfc191d7e138b3e8248a5b&profile_id=113" type="video/mp4" />
+	      </video>
+
+
+	    </div>
+
+
+
+
+
+	    <div class="item video home-ss-6">
+
+	      <div class="grid-container slider-copy">
+	        <div class="grid-x grid-padding-x align-bottom video-button">
+	          <div class="large-12 cell text-center">
+	            <a href="#" class="cta-button light"> <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/watch-dark.png?4048" alt="" style="display: inline;" class="watch-dark" /> Watch Video</a>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="home-ss-overlay"></div>
+
+
+	      <video class="slide-video slide-media" loop muted preload="metadata" poster="//cdn.shopify.com/s/files/1/0031/1699/0564/files/banner6.jpg?v=1559786584">
+	        <source src="https://player.vimeo.com/external/111144207.hd.mp4?s=b2a549564da5cd51c3bfc191d7e138b3e8248a5b&profile_id=113" type="video/mp4" />
+	      </video>
+
+
+	    </div>
+
+
+
+	  <div class="item video home-ss-3">
+
+	    <div class="grid-container slider-copy">
+	      <div class="grid-x grid-padding-x align-middle align-center">
+	        <div class="large-7 cell text-center">
+	          <h1>A  Banner to go on top.</h1>
+	            <div class="cta-wrap">
+	              <a href="#" class="cta light"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/watch-light.png?4048" alt="" style="display: inline;" class="watch-light" /> Watch Now</a>
+
+	            </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="home-ss-overlay"></div>
+
+
+	    <video class="slide-video slide-media" loop muted preload="metadata" poster="//cdn.shopify.com/s/files/1/0031/1699/0564/files/26331501_1222417621224266_7833039866999865344_n.jpg?v=1552061776">
+	      <source src="https://player.vimeo.com/external/111144207.hd.mp4?s=b2a549564da5cd51c3bfc191d7e138b3e8248a5b&profile_id=113" type="video/mp4" />
+	    </video>
+
+
+	  </div>
+
+
+
+	</section>
+
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<style>
+	.slick-slide, .slick-slide::before, .caption {
+	  -webkit-backface-visibility: hidden;
+	  backface-visibility: hidden;
+	}
+	.slick-slide::before {
+	  content: '';
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	}
+	.main-slider {
+	  position: relative;
+	  width: 100%;
+	  height: 100vh;
+	  max-height: 100vh;
+	  opacity: 0;
+	  visibility: hidden;
+	  transition: all 1.2s ease;
+	}
+	.main-slider.slick-initialized {
+	  opacity: 1;
+	  visibility: visible;
+	}
+
+	.slick-slide {
+	  position: relative;
+	  height: 100vh;
+	  max-height: 100vh;
+	  background-size: cover;
+	}
+	.slick-slide::before {
+	  background-color: #000;
+	  opacity: .3;
+	  z-index: 1;
+	}
+	.slick-slide video {
+	  display: block;
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  min-width: 100%;
+	  min-height: 100%;
+	  width: auto;
+	  height: auto;
+	  z-index: -1;
+	  object-fit: cover;
+	  -webkit-transform: translate(-50%, -50%);
+	          transform: translate(-50%, -50%);
+	}
+	.slick-slide iframe {
+	  position: relative;
+	  pointer-events: none;
+	}
+	.slick-slide figure {
+	  position: relative;
+	  height: 100%;
+	}
+	.slick-slide .slide-image {
+	  opacity: 0;
+	  height: 100%;
+	  background-size: cover;
+	  background-position: center;
+	  transition: all .8s ease;
+	}
+	.slick-slide .slide-image.show {
+	  opacity: 1;
+	}
+	.slick-slide .image-entity {
+	  width: 100%;
+	  opacity: 0;
+	  visibility: hidden;
+	}
+	.slick-slide .loading {
+	  position: absolute;
+	  top: 44%;
+	  left: 0;
+	  width: 100%;
+	}
+	.slick-slide .slide-media {
+	  -webkit-animation: slideOut 0.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+	          animation: slideOut 0.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+	}
+	.slick-slide.slick-active {
+	  z-index: 1;
+	}
+	.slick-slide.slick-active .slide-media {
+	  -webkit-animation: slideIn 2.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+	          animation: slideIn 2.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+	}
+	.slick-slide.slick-active .caption {
+	  opacity: 1;
+	  -webkit-transform: translateY(0);
+	          transform: translateY(0);
+	  transition: all 0.7s cubic-bezier(0.32, 0.34, 0, 1.62) 0.6s;
+	}
+
+	.caption {
+	  position: absolute;
+	  top: 44%;
+	  left: 5%;
+	  text-align: center;
+	  padding: 20px;
+	  border: 3px solid;
+	  color: #fff;
+	  margin: 0;
+	  font-size: 40px;
+	  font-weight: bold;
+	  letter-spacing: .02em;
+	  opacity: 0;
+	  z-index: 1;
+	  transition: all .3s ease;
+	  -webkit-transform: translateY(100px);
+	          transform: translateY(100px);
+	}
+
+	.slick-dots {
+	    text-align: center;
+	    padding-top: 15px;
+	    position: absolute;
+	    bottom: 30px;
+	    z-index: 999999;
+	    width: 100%;
+	    margin-left: 0;
+	}
+	.slick-dots li {
+	  display: inline-block;
+	  vertical-align: top;
+	  margin: 0 8px;
+	}
+	.slick-dots li button {
+	  width: 16px;
+	  height: 16px;
+	  border: none;
+	  cursor: pointer;
+	  border-radius: 50% !important;
+	  border: 2px solid #fff;
+	  box-shadow: 0 0 0 0 transparent;
+	  vertical-align: middle;
+	  color: #fff;
+	  background-color: #fff;
+	  transition: all .3s ease;
+	  opacity: .4;
+	}
+	.slick-dots li button:focus {
+	  outline: none;
+	}
+	.slick-dots li button:hover {
+	  opacity: 1;
+	}
+	.slick-dots li.slick-active button {
+	  border-color: #2d3042;
+	  box-shadow: 0 0 0 2px #fff;
+	  opacity: 1;
+	}
+	@-webkit-keyframes slideIn {
+	  from {
+	    -webkit-filter: blur(15px);
+	            filter: blur(15px);
+	  }
+	  to {
+	    -webkit-filter: blur(0);
+	            filter: blur(0);
+	  }
+	}
+
+	@keyframes slideIn {
+	  from {
+	    -webkit-filter: blur(15px);
+	            filter: blur(15px);
+	  }
+	  to {
+	    -webkit-filter: blur(0);
+	            filter: blur(0);
+	  }
+	}
+	@-webkit-keyframes slideOut {
+	  from {
+	    -webkit-filter: blur(0);
+	            filter: blur(0);
+	  }
+	  to {
+	    -webkit-filter: blur(15px);
+	            filter: blur(15px);
+	  }
+	}
+	@keyframes slideOut {
+	  from {
+	    -webkit-filter: blur(0);
+	            filter: blur(0);
+	  }
+	  to {
+	    -webkit-filter: blur(15px);
+	            filter: blur(15px);
+	  }
+	}
+	.instagram .slick-slide {
+	    position: relative;
+	    height: auto;
+	    max-height: 100%;
+	    background-size: cover;
+	}
+	.instagram .slick-slide::before {
+	    background-color: #ffffff;
+	    opacity: .3;
+	    z-index: 1;
+	}
+	.instagram .slick-prev {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		z-index: 99999;
+		background: url(https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/insta-left.png?2617) no-repeat top left/cover;
+		display: block;
+		width: 56px;
+		height: 56px;
+		text-indent: -9999em;
+		transform: translate(0, -50%);
+		cursor: pointer;
+	}
+	.instagram .slick-next {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		z-index: 99999;
+		background: url(https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/insta-right.png?2617) no-repeat top left/cover;
+		display: block;
+		width: 56px;
+		height: 56px;
+		text-indent: -9999em;
+		transform: translate(0, -50%);
+		cursor: pointer;
+	}
+	.instagram .slick-prev:hover, .instagram .slick-next:hover {
+		background-position: bottom left;
+	}
+	</style>
+
+	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script>
+	var slideWrapper = $(".main-slider"),
+	    iframes = slideWrapper.find('.embed-player'),
+	    lazyImages = slideWrapper.find('.slide-image'),
+	    lazyCounter = 0;
+
+	// POST commands to YouTube or Vimeo API
+	function postMessageToPlayer(player, command){
+	  if (player == null || command == null) return;
+	  player.contentWindow.postMessage(JSON.stringify(command), "*");
+	}
+
+	// When the slide is changing
+	function playPauseVideo(slick, control){
+	  var currentSlide, slideType, startTime, player, video;
+
+	  currentSlide = slick.find(".slick-current");
+	  slideType = currentSlide.attr("class").split(" ")[1];
+	  player = currentSlide.find("iframe").get(0);
+	  startTime = currentSlide.data("video-start");
+
+	  if (slideType === "vimeo") {
+	    switch (control) {
+	      case "play":
+	        if ((startTime != null && startTime > 0 ) && !currentSlide.hasClass('started')) {
+	          currentSlide.addClass('started');
+	          postMessageToPlayer(player, {
+	            "method": "setCurrentTime",
+	            "value" : startTime
+	          });
+	        }
+	        postMessageToPlayer(player, {
+	          "method": "play",
+	          "value" : 1
+	        });
+	        break;
+	      case "pause":
+	        postMessageToPlayer(player, {
+	          "method": "pause",
+	          "value": 1
+	        });
+	        break;
+	    }
+	  } else if (slideType === "youtube") {
+	    switch (control) {
+	      case "play":
+	        postMessageToPlayer(player, {
+	          "event": "command",
+	          "func": "mute"
+	        });
+	        postMessageToPlayer(player, {
+	          "event": "command",
+	          "func": "playVideo"
+	        });
+	        break;
+	      case "pause":
+	        postMessageToPlayer(player, {
+	          "event": "command",
+	          "func": "pauseVideo"
+	        });
+	        break;
+	    }
+	  } else if (slideType === "video") {
+	    video = currentSlide.children("video").get(0);
+	    if (video != null) {
+	      if (control === "play"){
+	        video.play();
+	      } else {
+	        video.pause();
+	      }
+	    }
+	  }
+	}
+
+	// Resize player
+	function resizePlayer(iframes, ratio) {
+	  if (!iframes[0]) return;
+	  var win = $(".main-slider"),
+	      width = win.width(),
+	      playerWidth,
+	      height = win.height(),
+	      playerHeight,
+	      ratio = ratio || 16/9;
+
+	  iframes.each(function(){
+	    var current = $(this);
+	    if (width / ratio < height) {
+	      playerWidth = Math.ceil(height * ratio);
+	      current.width(playerWidth).height(height).css({
+	        left: (width - playerWidth) / 2,
+	         top: 0
+	        });
+	    } else {
+	      playerHeight = Math.ceil(width / ratio);
+	      current.width(width).height(playerHeight).css({
+	        left: 0,
+	        top: (height - playerHeight) / 2
+	      });
+	    }
+	  });
+	}
+
+	// DOM Ready
+	$(function() {
+	  // Initialize
+	  slideWrapper.on("init", function(slick){
+	    slick = $(slick.currentTarget);
+	    setTimeout(function(){
+	      playPauseVideo(slick,"play");
+	    }, 1000);
+	    resizePlayer(iframes, 16/9);
+	  });
+	  slideWrapper.on("beforeChange", function(event, slick) {
+	    slick = $(slick.$slider);
+	    playPauseVideo(slick,"pause");
+	  });
+	  slideWrapper.on("afterChange", function(event, slick) {
+	    slick = $(slick.$slider);
+	    playPauseVideo(slick,"play");
+	  });
+	  slideWrapper.on("lazyLoaded", function(event, slick, image, imageSource) {
+	    lazyCounter++;
+	    if (lazyCounter === lazyImages.length){
+	      lazyImages.addClass('show');
+	      // slideWrapper.slick("slickPlay");
+	    }
+	  });
+
+	  //start the slider
+	  slideWrapper.slick({
+	    // fade:true,
+	    autoplaySpeed:4000,
+	    lazyLoad:"progressive",
+	    speed:600,
+	    arrows:false,
+	    dots:true,
+	    cssEase:"cubic-bezier(0.87, 0.03, 0.41, 0.9)"
+	  });
+	});
+
+	// Resize event
+	$(window).on("resize.slickVideoPlayer", function(){
+	  resizePlayer(iframes, 16/9);
+	});
+	</script>
+
+
+	</div>
+
+	<div id="shopify-section-home-shop" class="shopify-section"><!-- Latest Hats for Women's, Men's -->
+	<section class="home-latest">
+	  <div class="grid-container">
+
+
+
+	    <!-- Women's latest -->
+	    <div class="grid-x grid-padding-x align-middle align-justify section-space">
+	      <div class="medium-2 cell home-latest-text-1 small-order-2 medium-order-1">
+		  	<h2><a href="/collections/women" class="link-activate" data-hover-id="womenLink">Women’s Hats</a></h2>
+	        <a href="/collections/women" class="cta dark link-activate" data-hover-id="womenLink">Shop</a>
+	      </div>
+	      <div class="medium-9 cell small-order-1 medium-order-2">
+	        <div class="relative">
+	          <a href="/collections/women" class="zoom latest-img women-home-img" data-hover-id="womenLink"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/files/SOPHIE_worthandworth12.jpg?v=1549941371" /></a>
+			  <span class="women-texture" style="background:url(//cdn.shopify.com/s/files/1/0031/1699/0564/files/home-texture-1.jpg?v=1558577254) no-repeat top left/cover;width: 31%; height: 62%;position: absolute; z-index: 1;left: -33px; top: -33px;"></span>
+	        </div>
+	      </div>
+	    </div>
+
+
+
+
+	    <!-- Men's latest -->
+	    <div class="grid-x grid-padding-x align-middle align-justify section-space80">
+	      <div class="medium-9 cell  small-order-1 medium-order-1">
+	        <div class="relative">
+	          <a href="/collections/men" class="zoom latest-img men-home-img" data-hover-id="menLink"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/files/WorthWorth_ManoftheWorld_Dec_2015_1.jpg?v=1549941651" /></a>
+			  <span class="men-texture" style="background: url(//cdn.shopify.com/s/files/1/0031/1699/0564/files/home-texture-2.jpg?v=1558577268) no-repeat top right/cover;width: 77%; height: 96%;position: absolute;z-index: 1; right: -28px;top: -38px;"></span>
+	        </div>
+	      </div>
+	      <div class="medium-2 cell home-latest-text-2 small-order-2 medium-order-2">
+		  	<h2><a href="/collections/men" class="link-activate shop-men-link" data-hover-id="menLink">Men's Hats</a></h2>
+	        <a href="/collections/men" class="cta dark shop-men-link link-activate" data-hover-id="menLink">Shop</a>
+	      </div>
+	    </div>
+
+
+
+
+
+	  </div>
+	</section>
+
+	<!-- Latest Creations -->
+	<section class="home-latest home-creations">
+		<div class="grid-container full hide-for-large">
+			<!-- Latest Creation -->
+			<div class="grid-x align-middle section-space latest-creations">
+				<div class="medium-12 small-12 cell text-center latest-creations-text">
+					<h3>Latest Creations</h3>
+				</div>
+				<div class="medium-6 small-5 cell text-center">
+					<a href="" class="zoom"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/files/ashland_19979940-f510-4cab-89b3-25d141ce5168_900x900.jpg?v=1549941757" class="prod-image" /></a>
+				</div>
+				<div class="medium-6 small-7 cell">
+					<a href="" class="zoom"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/files/32872494_311170736086763_870437305070911488_n_900x900.jpg?v=1549941688" class="latest-creation-image" /></a>
+				</div>
+				<div class="medium-12 small-12 cell text-center latest-creations-text">
+					<h2>The Ashland</h2>
+					<span class="price">$325.00</span>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+			<!-- Latest Creation -->
+			<section class="cd-section visible">
+			<div class="grid-container show-for-large scrolljack">
+			<div class="grid-x grid-padding-x align-middle section-space latest-creations">
+				<div class="medium-6 small-6 cell text-center latest-creations-text">
+					<h3>Latest Creations</h3>
+					<a href="" class="zoom"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/files/ashland_19979940-f510-4cab-89b3-25d141ce5168_900x900.jpg?v=1549941757" class="prod-image" /></a>
+					<h2>The Ashland</h2>
+					<span class="price">$325.00</span>
+				</div>
+				<div class="medium-6 small-6 cell">
+					<a href="" class="zoom"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/files/32872494_311170736086763_870437305070911488_n.jpg?v=1549941688" class="latest-creation-image" /></a>
+				</div>
+			</div>
+			</div>
+			</section>
+			<section class="cd-section">
+			<div class="grid-container show-for-large scrolljack">
+			<div class="grid-x grid-padding-x align-middle section-space latest-creations">
+				<div class="medium-6 small-6 cell">
+					<a href="" class="zoom"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/files/32872494_311170736086763_870437305070911488_n.jpg?v=1549941688" class="latest-creation-image" /></a>
+				</div>
+				<div class="medium-6 small-6 cell text-center latest-creations-text">
+					<h3>Latest Creations</h3>
+					<a href="" class="zoom"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/files/ashland_19979940-f510-4cab-89b3-25d141ce5168_900x900.jpg?v=1549941757" class="prod-image" /></a>
+					<h2>The Ashland</h2>
+					<span class="price">$325.00</span>
+				</div>
+
+			</div>
+			</div>
+			</section>
+	<section class="cd-section visible">
+		<div>
+			<h2>Page Scroll Effects</h2>
+		</div>
+	</section>
+
+	<section class="cd-section">
+		<div>
+			<h2>Section 2</h2>
+		</div>
+	</section>
+
+	<section class="cd-section">
+		<div>
+			<h2>Section 3</h2>
+		</div>
+	</section>
+
+	<section class="cd-section">
+		<div>
+			<h2>Section 4</h2>
+		</div>
+	</section>
+
+	<section class="cd-section">
+		<div>
+			<h2>Section 5</h2>
+		</div>
+	</section>
+
+	<nav>
+		<ul class="cd-vertical-nav">
+			<li><a href="#0" class="cd-prev inactive">Next</a></li>
+			<li><a href="#0" class="cd-next">Prev</a></li>
+		</ul>
+	</nav> <!-- .cd-vertical-nav -->
+
+
+
+
+</div>
+
+<div id="shopify-section-home-meet" class="shopify-section"><!-- Meet the designer. The one and only Orlando Palacios -->
+<section class="home-meet section-space">
+	<!-- Meet the designer headline -->
+  	<div class="grid-container">
+  		<div class="grid-x grid-padding-x">
+  			<div class="medium-12 cell text-center">
+  				<blockquote>A hat reflects the essence of its wearer far more than does a pair of trousers, shoes or a jacket.</blockquote>
+  			</div>
+  		</div>
+  	</div>
+  	<!-- Meet the designer content -->
+  	<div class="home-meet-bg">
+  		<div class="grid-container">
+  			<div class="grid-x grid-padding-x align-justify align-middle">
+  				<div class="medium-9 cell relative">
+  					<a href="http://yahoo.com" class="zoom" data-hover-id="orlandoLink"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/files/orlando-bio2.png?v=1548441151" class="home-orlando-1"/></a>
+  					<img src="//cdn.shopify.com/s/files/1/0031/1699/0564/files/orlando-bio1.png?v=1548441165" class="home-orlando-2" />
+  				</div>
+  				<div class="medium-2 cell text-center home-orlando-bio"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-orlando.png?4048" alt="Orlando" />
+  					<h4>MEET THE DESIGNER</h4>
+  					<p>Keeping the art of hat-making alive with centuries-old techniques, and unchallenged innovative style and design.</p>
+  					<a href="http://yahoo.com" class="cta light link-activate" data-hover-id="orlandoLink">Learn More</a>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+</section>
+
+
+</div>
+
+<div id="shopify-section-home-explore" class="shopify-section"><!-- Explore the collection -->
+<section class="home-meet section-space">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="medium-12 cell text-center">
+				<h3 class="h5">EXPLORE THE COLLECTION</h3>
+			</div>
+		</div>
+	</div>
+	<div class="grid-container home-orlando-more">
+		<div class="grid-x grid-padding-x">
+			<!-- Latest hat -->
+			<div class="medium-5 cell">
+				<a href="https://worth-and-worth.myshopify.com/collections/womens-beaver-felt-hats" class="zoom" data-hover-id="photoLU"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/files/30084128_790175854512788_7589832769723695104_n.jpg?v=1548454245" class="home-orlando-latest" /></a>
+				<h4><a href="https://worth-and-worth.myshopify.com/collections/womens-beaver-felt-hats" class="link-activate" data-hover-id="photoLU">Latest Beaver Fur Hats</a></h4>
+			</div>
+			<!-- Explore -->
+			<div class="medium-7 cell">
+				<a href="https://worth-and-worth.myshopify.com/collections/montecristi-hats" class="zoom" data-hover-id="photoRU"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/files/Screen_Shot_2018-04-23_at_3.16.21_PM.jpg?v=1548454300" class="home-orlando-explore" /></a>
+				<h4 class="home-explore-title photoRightlink"><a href="https://worth-and-worth.myshopify.com/collections/montecristi-hats" class="link-activate" data-hover-id="photoRU">Explore the Montecristi</a></h4>
+				<div class="grid-x grid-padding-x align-center">
+
+					<div class="medium-5 small-6 cell text-center">
+						<a href="/products/taal" class="zoom" data-hover-id="featured1"><img src="https://cdn.accentuate.io/2808693751908/7849030549604/worthandworth_TAALFRONTLR.jpg?721x721" /></a>
+						<p class="home-orlando-hat"><a href="/products/taal" class="link-activate" data-hover-id="featured1">Taal</a></p>
+						<p class="home-orlando-type"><a href="https://worth-and-worth.myshopify.com/collections/womens-beaver-felt-hats">BEAVER HATS</a></p>
+					</div>
+
+					<div class="medium-5 small-6 cell text-center">
+						<a href="/products/samui" class="zoom" data-hover-id="featured2"><img src="https://cdn.accentuate.io/2815934562404/7849030549604/samui.jpg?721x721" /></a>
+						<p class="home-orlando-hat"><a href="/products/samui" class="link-activate" data-hover-id="featured2">Samui</a></p>
+						<p class="home-orlando-type"><a href="https://worth-and-worth.myshopify.com/collections/montecristi-hats">MONTECRISTI HATS</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+</div>
+
+<div id="shopify-section-home-culture" class="shopify-section"><!-- Culture -->
+<section class="home-culture section-space50 mobile-nospace">
+	<!-- Culture headline -->
+	<div class="grid-container section-space30">
+		<div class="grid-x grid-padding-x">
+			<div class="medium-12 cell text-center">
+				<blockquote>A legacy of craftsmanship, carried on by a master.</blockquote>
+			</div>
+		</div>
+	</div>
+	<!-- Culture examples -->
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<h3 class="medium-12 cell">W&W CULTURE</h3>
+			<div class="medium-6 cell">
+				<a href="http://yahoo.com" class="zoom" data-hover-id="cultureLeft"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/files/timthumb_900x900.jpg?v=1548455093" /></a>
+				<h4><a href="http://yahoo.com" class="link-activate" data-hover-id="cultureLeft">On the Cover: GQ Magazine</a></h4>
+				<p class="home-orlando-type"><a href="https://worth-and-worth.myshopify.com/blogs/press">Press</a></p>
+			</div>
+			<div class="medium-6 cell">
+				<a href="http://now.com" class="zoom" data-hover-id="cultureRight"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/files/daniel-main-image_900x900.jpg?v=1548455136" /></a>
+				<h4><a href="http://now.com" class="link-activate" data-hover-id="cultureRight">Meet the icon: Daniel</a></h4>
+				<p  class="home-orlando-type"><a href="https://worth-and-worth.myshopify.com/pages/icons">Icons</a></p>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+</div>
+
+<!-- Instagram feed. Uses link tags for columns -->
+<section class="instagram">
+    <!-- Begin Instafeed plugin -->
+	<div class="grid-x grid-padding-x">
+		<div class="large-12 cell text-center">
+			<h3 class="h5 section-space30 mobile-space20">FOLLOW US ON  <a href="https://www.instagram.com/worthandworth/" target="_blank">@WORTHANDWORTH</a></h3>
+		</div>
+	</div>
+	<div class="grid-x grid-padding-x multiple-item" id="instafeed"></div>
+</section>
+
+   	<!-- Newsletter sign up -->
+  	<div class="footer-newsletter">
+     	<div class="grid-container">
+  	 		<div class="grid-x grid-padding-x align-center">
+  	 			<div class="large-12 cell text-center">
+  	 				<h3 class="h5 section-space30">subscribe to our newsletter</h3>
+  	 			</div>
+  	 			<div class="large-5 cell">
+  	 				<form>
+  	 					<input type="text" placeholder="Email Address" name="email" />
+  	 					<button type="submit"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/newsletter-arrow.png?4048" alt="submit" /></button>
+  	 				</form>
+  	 			</div>
+  	 		</div>
+	 	   </div>
+   	</div>
+
+
+    <!-- Actual footer content and links -->
+    <footer>
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x footer-content">
+          <div class="large-2 cell">
+            <h5>Shop Online</h5>
+
+      			<a href="https://worth-and-worth.myshopify.com/account/login">Sign In</a>
+
+      			<a href="https://worth-and-worth.myshopify.com/account/">Track Your Order</a>
+
+      			<a href="/pages/custom">Personal Consultation</a>
+
+      			<a href="/pages/shipping">Shipping</a>
+
+      			<a href="/pages/returns">Returns/Exchanges</a>
+
+          </div>
+          <div class="large-2 cell">
+            <h5>About</h5>
+
+      			<a href="/pages/about">Our Story</a>
+
+      			<a href="/blogs/press">Press</a>
+
+      			<a href="https://google.com">Stockists</a>
+
+      			<a href="/pages/careers">Career</a>
+
+          </div>
+          <div class="large-5 cell">
+            <h5>Customer Care</h5>
+
+      			<a href="/pages/contact">Contact</a>
+
+      			<a href="/pages/hat-care">Hat Care</a>
+
+      			<a href="/pages/hat-size">Size Guide</a>
+
+      			<a href="/pages/faq">FAQ</a>
+
+          </div>
+          <div class="large-3 cell text-center footer-contact">
+            <address>
+              <p>50 E 57th Street, 6th Floor <br />
+              New York, NY 10022</p>
+            </address>
+            <p>1-212-265-2887 <br />
+              Mon—Tue: 10-6pm <br />
+              Wed—Fri: 10-7pm <br />
+              Sat: 10-6</p>
+          </div>
+        </div>
+        <div class="large-12 cell footer-security">
+          <p><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/icon-secure.png?4048" alt="Secure" /> [Hatshop.com is secure, etc etc]</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Thought we were done, but we actually need one last thing. The copyright. -->
+    <section class="copy text-center">
+      <span>© Copyright 2019 Worth & Worth</span>
+      <span><a href="/pages/terms">Terms & Conditions</a></span>
+      <span><a href="/pages/privacy">Privacy Policy</a></span>
+      <span><a href="">Site Credit</a></span>
+    </section>
+
+<div class="off-canvas position-left" id="showNav" data-off-canvas data-transition="overlap" style="opacity:0;">
+  <div class="cart-drawer-padding">
+
+    <!-- Search bar -->
+    <form>
+      <input type="text" name="q" placeholder="What are you looking for?" class="search-input">
+    </form>
+
+    <!-- Main Navigation list -->
+    <ul class="vertical menu drilldown" data-drilldown>
+
+      <!-- Navigation Item -->
+      <li>
+        <a href="#">Shop</a>
+        <ul class="menu vertical nested">
+          <li>
+
+            <!-- Shop content -->
+            <div class="nav-drop nav-drop-mobile" id="subnav-shop">
+              <div class="grid-container grid-x grid-padding-x">
+                <div class="large-12 cell">
+                  <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/m-subnav-shop.png?4048" />
+                  <div class="nav-drop-section">
+                    <h4 class="small-body-title">Women's Hats</h4>
+
+                    <a href="/collections/women" class="nav-item" id="subnav-link-all-womens" data-image-id="collect-img-all-womens">All Women's</a>
+
+                    <a href="/collections/womens-beaver-felt-hats" class="nav-item" id="subnav-link-beaver-felt-hats" data-image-id="collect-img-beaver-felt-hats">Beaver Felt Hats</a>
+
+                    <a href="/collections/womens-hare-felt-hats" class="nav-item" id="subnav-link-hare-felt-hats" data-image-id="collect-img-hare-felt-hats">Hare Felt Hats</a>
+
+                    <a href="/collections/womens-hand-dye-hats" class="nav-item" id="subnav-link-hand-dye-hats" data-image-id="collect-img-hand-dye-hats">Hand Dye Hats</a>
+
+                    <a href="/collections/womens-straw-hats" class="nav-item" id="subnav-link-straw-hats" data-image-id="collect-img-straw-hats">Straw Hats</a>
+
+                    <a href="/collections/womens-montecristi-hats" class="nav-item" id="subnav-link-montecristi-hats" data-image-id="collect-img-montecristi-hats">Montecristi Hats</a>
+
+                  </div>
+                  <div class="nav-drop-section">
+                    <h4 class="small-body-title">Men's Hats</h4>
+
+                    <a href="/collections/men" class="nav-item" id="subnav-link-all-mens" data-image-id="collect-img-mens-all-mens">All Men's</a>
+
+                    <a href="/collections/beaver-felt-hats" class="nav-item" id="subnav-link-beaver-felt-hats" data-image-id="collect-img-mens-beaver-felt-hats">Beaver felt hats</a>
+
+                    <a href="/collections/mens-hare-felt-hats" class="nav-item" id="subnav-link-hare-felt-hats" data-image-id="collect-img-mens-hare-felt-hats">Hare Felt Hats</a>
+
+                    <a href="/collections/mens-hand-dye-hats" class="nav-item" id="subnav-link-hand-dye-hats" data-image-id="collect-img-mens-hand-dye-hats">Hand Dye Hats</a>
+
+                    <a href="/collections/straw-hats" class="nav-item" id="subnav-link-straw-hats" data-image-id="collect-img-mens-straw-hats">Straw Hats</a>
+
+                    <a href="/collections/montecristi-hats" class="nav-item" id="subnav-link-montecristi-hats" data-image-id="collect-img-mens-montecristi-hats">Montecristi Hats</a>
+
+                  </div>
+                </div>
+                <div class="large-12 cell">
+                  <div class="nav-drop-section">
+                    <h4 class="small-body-title">Accessories</h4>
+
+                    <a href="/collections/accessories" class="nav-item" id="subnav-link-all-accessories" data-image-id="collect-img-all-accessories">All Accessories</a>
+
+                    <a href="/collections/hat-box" class="nav-item" id="subnav-link-hat-box" data-image-id="collect-img-hat-box">Hat Box</a>
+
+                    <a href="/collections/tools" class="nav-item" id="subnav-link-tools" data-image-id="collect-img-tools">Tools</a>
+
+                  </div>
+                  <div class="nav-drop-section">
+                    <h4 class="small-body-title">W&W Little</h4>
+
+                    <a href="/collections/w-w-little" class="nav-item" id="subnav-link-all-w-w-little" data-image-id="collect-img-all-w-w-little">All W&W Little</a>
+
+                    <a href="/collections/w-w-little-felt-hats" class="nav-item" id="subnav-link-felt-hats" data-image-id="collect-img-felt-hats">Felt Hats</a>
+
+                    <a href="/collections/w-w-little-straw-hats" class="nav-item" id="subnav-link-straw-hats" data-image-id="collect-img-straw-hats">Straw Hats</a>
+
+                  </div>
+                  <div class="nav-drop-section">
+                    <h4 class="small-body-title">Gift Cards</h4>
+
+                    <a href="/collections/gift-card" class="nav-item" id="subnav-link-gift-card" data-image-id="collect-img-gift-card">Gift Card</a>
+
+                    <a href="/collections/virtual-gift-card" class="nav-item" id="subnav-link-virtual-gift-card" data-image-id="collect-img-virtual-gift-card">Virtual Gift Card</a>
+
+                  </div>
+                </div>
+                <div class="large-12 cell">
+
+                  <a href="/pages/custom" class="nav-item" id="subnav-link-custom" data-image-id="collect-img-custom">Custom</a>
+
+                  <a href="/pages/hat-size" class="nav-item" id="subnav-link-your-hat-size" data-image-id="collect-img-your-hat-size">Your Hat Size</a>
+
+                </div>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+      </li>
+
+      <!-- Navigation Item -->
+      <li>
+        <a href="#">Hat Repair</a>
+        <ul class="menu vertical nested">
+          <li>
+
+            <!-- Hat Repair content -->
+            <div class="nav-drop" id="subnav-repair">
+              <div class="grid-container grid-x grid-padding-x align-middle">
+                <div class="large-12 cell">
+                  <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/hr4.jpg?4048" />
+                  <h4 class="small-body-title">HAT SERVICES</h4>
+
+                  <a href="/pages/hat-size" class="nav-item" id="nav-your-hat-size">Your Hat Size</a>
+
+                  <a href="/pages/hat-repair" class="nav-item" id="nav-hat-services">Hat Services</a>
+
+                  <a href="/pages/hat-care" class="nav-item" id="nav-hat-care">Hat Care</a>
+
+                  <a href="/pages/custom" class="nav-item" id="nav-w-w-custom">W&W Custom</a>
+
+                </div>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+      </li>
+
+      <!-- Navigation Item -->
+      <li>
+        <a href="#">Custom</a>
+        <ul class="menu vertical nested">
+          <li>
+
+            <!-- Custom content -->
+            <div class="nav-drop" id="subnav-custom">
+              <div class="grid-container grid-x grid-padding-x align-middle">
+                <div class="large-12 large-offset-1 cell relative">
+                  <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/dropnav-custom.png?4048" />
+                </div>
+                <div class="large-12 large-offset-1 cell text-center ">
+                  <h4>Craft the Perfect Hat to Call Your Own</h4>
+                  <p>The quick, brown fox jumps over a lazy dog. DJ's flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps.</p>
+                  <a class="button filled" href="/custom">Start here</a>
+                </div>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+      </li>
+
+      <!-- Navigation Item -->
+      <li>
+        <a href="#">W&W Culture</a>
+        <ul class="menu vertical nested">
+          <li>
+
+            <!-- Culture content -->
+            <div class="nav-drop" id="subnav-culture">
+              <div class="grid-container grid-x grid-padding-x align-middle">
+                <div class="large-12 cell">
+                  <h4 class="small-body-title">W&W Culture</h4>
+
+                  <a href="/blogs/atelier" class="nav-item" id="subnav-link-the-atelier" data-image-id="collect-img-the-atelier">The Atelier</a>
+
+                  <a href="/blogs/press" class="nav-item" id="subnav-link-press" data-image-id="collect-img-press">Press</a>
+
+                  <a href="/pages/icons" class="nav-item" id="subnav-link-icons" data-image-id="collect-img-icons">Icons</a>
+
+                  <a href="/pages/lookbook" class="nav-item" id="subnav-link-lookbook" data-image-id="collect-img-lookbook">Lookbook</a>
+
+                  <a href="/pages/timeline" class="nav-item" id="subnav-link-the-timeline" data-image-id="collect-img-the-timeline">The Timeline</a>
+
+                </div>
+                <div class="large-12 cell relative">
+                  <h3>From the Atelier</h3>
+                  <p class="subnav-culture-seeall"><a href="">See all</a></p>
+                  <div class="large-12 cell relative">
+                    <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/dropnav-custom.png?4048" />
+                    <div class="sub-culture-text">
+                      <h5>Press</h5>
+                      <h4>Four Seaons Magazine</h4>
+                    </div>
+                  </div>
+                  <div class="large-12 cell relative">
+                    <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/dropnav-custom.png?4048" />
+                    <div class="sub-culture-text">
+                      <h5>Press</h5>
+                      <h4>Four Seaons Magazine</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+      </li>
+
+      <!-- Navigation Item -->
+      <li>
+        <a href="#">Underneath my hat</a>
+        <ul class="menu vertical nested">
+          <li>
+
+            <!-- UMH content -->
+            <div class="nav-drop" id="subnav-umh">
+              <div class="grid-container grid-x grid-padding-x align-middle">
+                <div class="large-12 cell">
+                  <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/umh-subnav.png?4048" />
+                  <h4>Underneath My Hat</h4>
+                  <a href="">About orlando</a>
+                  <a href="">Collaborations</a>
+                  <a href="">Creations</a>
+                </div>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+
+    <!-- Account and wishlist -->
+    <div class="mobile-nav-section">
+      <ul>
+        <li><a href="/account">My account</li>
+        <li><a href="/wishlist">Wishlist</a>
+      </ul>
+    </div>
+
+    <!-- Call or visit office -->
+    <div class="mobile-nav-section">
+      <ul>
+        <li><a href="/contact"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/icon-visit.png?4048" alt="Visit" /> Visit our NYC Shop</li>
+        <li><a href="tel:2122652887"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/icon-call.png?4048" alt="Call" /> 212-265-2887</a>
+      </ul>
+    </div>
+
+  </div>
+  <button class="close-button" aria-label="Close menu" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+
+    <div class="off-canvas position-right" id="showCart" data-off-canvas data-transition="overlap">
+	<div class="cart-drawer-padding">
+		<!-- List of items in shopping cart currently -->
+	    <div class="grid-container" data-cart-view="data-cart-view">
+			<div class="grid-x grid-padding-x">
+				<div class="small-12 cell">
+					<h2>Your bag (3)</h2>
+				</div>
+				<!-- Single cart item -->
+				<div rv-each-item="cart.items" class="large-12 cell ajax-item-row">
+					<div class="grid-x grid-padding-x">
+						<div class="medium-5 small-6 small-offset-3 medium-offset-0 cell">
+							<img rv-src="item.image | product_image_size '900x900'" />
+						</div>
+						<div class="medium-7 small-12 cell">
+							<div class="cart-item-description">
+								<h3 rv-text="item.product_title"></h3>
+								<p rv-text="item.variant_title"></p>
+							</div>
+							<div class="grid-x">
+								<div class="small-6 cell">
+									<div class="cart-item-description">
+										<p class="remove"><a href="#" class="remove" rv-data-cart-remove="index | plus 1">Remove</a></p>
+									</div>
+								</div>
+								<div class="small-6 cell text-right">
+									<p rv-html="item.price | money Currency.currentCurrency"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- If the cart is empyt, show this instead -->
+				<div rv-show="cart.item_count | lt 1" class="large-12 cell">
+					<div class="grid-container" data-cart-view="data-cart-view">
+							<div class="grid-x grid-padding-x">
+								<div class="small-12 cell">
+									<h2>Your bag is empty</h2>
+								</div>
+								<!-- Empty -->
+								<div class="large-12 cell">
+									<div class="grid-x grid-padding-x">
+										<a href="/collections/women" class="zoom empty-image"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/womens-hats-cart.jpg?4048" alt="Shop Women's Hats"  /><h5 class="text-center">Women's Hats</h5></a>
+										<a href="/collections/men" class="zoom empty-image"><img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/mens-hats-cart.jpg?4048" alt="Shop Men's Hats" /><h5 class="text-center">Men's Hats</h5></a>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+				</div>
+			</div>
+	    </div>
+		
+	<!-- Checkout button -->
+	<div rv-show="cart.item_count | gt 0" class="cart-checkout text-center drawer-checkout">
+	    <form action="/cart" method="post" novalidate>
+			<button type="submit" name="checkout">Checkout</button>
+	    </form>
+	    <p class="cart-secure">Hatshop is secure</p>
+	</div>
+	<button class="close-button" aria-label="Close menu" type="button" data-close>
+	    <span aria-hidden="true">&times;</span>
+	</button>
+</div>
+
+
+    <!-- Javascript  vendor plugins and applications -->
+    <script src="//cdn.shopify.com/s/assets/themes_support/option_selection-fe6b72c2bbdd3369ac0bfefe8648e3c889efca213baefd4cfb0dd9363563831f.js" type="text/javascript"></script>
+    <script src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/what-input.js?4048" type="text/javascript"></script>
+    <script src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/foundation.js?4048" type="text/javascript"></script>
+    <script src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/jquery.cycle2.min.js?4048" type="text/javascript"></script>
+	  <script src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/jquery.cycle2.carousel.min.js?4048" type="text/javascript"></script>
+	  <script src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/tail.datetime.js?4048" type="text/javascript"></script>
+    <script src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/app.js?4048" type="text/javascript"></script>
+    <script src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/rivets-cart.min.js?4048" type="text/javascript"></script>
+
+    <script src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/ajaxinate.js?4048" type="text/javascript"></script>
+      <script src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/instafeed.min.js?4048" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+    var userFeed = new Instafeed({
+        get: 'user',
+        userId: '311452055',
+		limit: 15,
+		clientID: '08b9a46e8f764db9abcd27f97f6dcb69',
+        accessToken: '311452055.1677ed0.1b6af190c15143e39bd659eb031165db',
+		resolution: 'standard_resolution',
+		template: '<div><a href="{{link}}" class="insta-link zoom" style="background:url({{image}}) no-repeat center center/cover;"></a></div>',
+		after: function () {
+		    $('.multiple-item').slick({
+		     infinite: true,
+		      slidesToShow: 5,
+		      slidesToScroll: 1 });
+		}
+    });
+    userFeed.run();
+</script>
+
+
+{{ 'velocity.min.js' | asset_url | script_tag }}
+{{ 'velocity.ui.min.js' | asset_url | script_tag }}
+ {{ 'main.js' | asset_url | script_tag }}
+    <!-- Some JS that needs the help of liquid -->
+    <script type="text/javascript">
+        // Initiate some pretty awesome ajax cart action
+        $(function() {
+                CartJS.init({"token":"9990b40fba85252bacbe009c85a8bc60","note":null,"attributes":{},"original_total_price":97500,"total_price":97500,"total_discount":0,"total_weight":0.0,"item_count":3,"items":[{"id":24606051795044,"properties":null,"quantity":3,"variant_id":24606051795044,"key":"24606051795044:b69c14f419f499e7e0ddcf2e9c0d435d","title":"Marfa Black - 7 1\/8","price":32500,"original_price":32500,"discounted_price":32500,"line_price":97500,"original_line_price":97500,"total_discount":0,"discounts":[],"sku":"WF2999BLACK 7 1\/8","grams":0,"vendor":"Worth and Worth","taxable":false,"product_id":2899853181028,"gift_card":false,"final_price":32500,"final_line_price":97500,"url":"\/products\/marfa-black-mens?variant=24606051795044","image":"https:\/\/cdn.shopify.com\/s\/files\/1\/0031\/1699\/0564\/products\/WorthWorth_MarfaBlack_Front_LR_517c9499-ef47-4f85-9e3a-78253c0a4a37.jpg?v=1551064196","handle":"marfa-black-mens","requires_shipping":false,"product_type":"","product_title":"Marfa Black","product_description":"Design\nNamed after the City in the high desert of the Trans-Pecos in far West Texas, this plantation style hat will protect you from the elements.\nMaterial\n100% Hare Fur Felt sustainably acquired\nSpecifications\n4” pencil curled brim and 4 1\/4” teardrop crown. Handmade in our atelier in NYC.","variant_title":"7 1\/8","variant_options":["7 1\/8"],"line_level_discount_allocations":[]}],"requires_shipping":false,"currency":"USD","items_subtotal_price":97500,"cart_level_discount_applications":[]}, {
+                    "moneyFormat": "${{amount}}",
+                    "moneyWithCurrencyFormat": "${{amount}} USD"
+                });
+            });
+    </script>
+
+  </body>
+</html>

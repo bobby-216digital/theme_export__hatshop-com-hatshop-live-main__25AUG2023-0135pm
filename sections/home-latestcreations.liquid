@@ -1,0 +1,192 @@
+<!-- Latest Hats for Women's, Men's --> 
+  	<style>
+  		.one, .two, .three, .four {
+  			height: 100vh;
+  		}
+  	</style>
+  	<!-- Latest Creations -->
+  	<section class="home-latest home-creations">
+  		<div class="grid-container full hide-for-large">
+			<!-- Latest Creation -->
+			<div class="grid-x align-middle section-space latest-creations">
+				<div class="medium-12 small-12 cell text-center latest-creations-text">
+					<h3>{{ section.settings.latestTitle }}</h3>
+				</div>
+		    {% for block in section.blocks %}
+		    {% case block.type %}
+		    {% when 'latestcreation' %}
+		    {% assign count = 0 %}
+		    {% assign lcp = all_products[block.settings.latestcreationproduct] %}
+		    {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+		    {% if thecycle == 'odd' %}
+
+		<!-- Latest Creation -->
+		<div class="grid-x align-middle section-space latest-creations odd">
+			<div class="medium-6 small-5 cell text-center">
+				<a href="{{ lcp.url }}"><img src="{{lcp.metafields.accentuate.productImg}}" class="prod-image" /></a>
+			</div>
+			<div class="medium-6 small-7 cell">
+				<a href="{{ lcp.url }}" class="zoom"><img src="{{ block.settings.largeImage | img_url: 'master' }}" class="latest-creation-image" /></a>
+			</div>
+			<div class="medium-12 small-12 cell text-center latest-creations-text">
+				<h2><a href="{{ lcp.url }}">{{ lcp.title }}</a></h2>
+				<span class="price"><a href="{{ lcp.url }}">{{ lcp.price | money  }}</a></span>
+
+			</div>
+		</div>
+			{% else %}
+		<!-- Latest Creation -->
+		<div class="grid-x align-middle section-space latest-creations even">
+
+			<div class="medium-6 small-7 cell">
+				<a href="{{ lcp.url }}" class="zoom"><img src="{{ block.settings.largeImage | img_url: 'master' }}" class="latest-creation-image" /></a>
+			</div>
+			<div class="medium-6 small-5 cell text-center">
+				<a href="{{ lcp.url }}"><img src="{{lcp.metafields.accentuate.productImg}}" class="prod-image" /></a>
+			</div>
+			<div class="medium-12 small-12 cell text-center latest-creations-text">
+				<h2><a href="{{ lcp.url }}">{{ lcp.title }}</a></h2>
+				<span class="price"><a href="{{ lcp.url }}">{{ lcp.price | money  }}</a></span>
+
+			</div>
+		</div>
+	{% endif %}
+
+{% endcase %}
+{% endfor %}
+	</div>
+  		</div>
+
+<div class="grid-container full show-for-large">
+	<!-- Latest Creation -->
+	<div class="grid-x align-middle latest-creations">
+		<div class="medium-12 small-12 cell text-center latest-creations-text">
+			<h3>{{ section.settings.latestTitle }}</h3>
+		</div>
+	</div>
+</div>
+  {% for block in section.blocks %}
+    {% case block.type %}
+{% when 'latestcreation' %}
+{% assign count2 = 0 %}
+{% assign lcp2 = all_products[block.settings.latestcreationproduct] %}
+ {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+  {% if thecycle == 'odd' %}
+<!-- Latest Creation -->
+<section class="panel" id="slide{% assign count2 = count2 | plus: 1 %}"  data-aos="slide-up">
+	<div class="grid-container show-for-large">
+		<div class="grid-x grid-padding-x align-middle section-space latest-creations">
+			<div class="medium-6 small-6 cell text-center latest-creations-text">
+				<a href="{{ lcp2.url }}" class="zoom" data-hover-id="{{ lcp2.handle }}"><img src="{{lcp2.metafields.accentuate.productImg}}" class="prod-image" /></a>
+				<h2><a href="{{ lcp2.url }}" class="link-activate" data-hover-id="{{ lcp2.handle }}">{{ lcp2.title }}</a></h2>
+				<span class="price">{{ lcp2.price | money  }}</span>
+			</div>
+			<div class="medium-6 small-6 cell">
+				<a href="{{ lcp2.url }}" class="zoom"><img src="{{ block.settings.largeImage | img_url: 'master' }}" class="latest-creation-image" /></a>
+			</div>
+		</div>
+	</div>
+</section>
+{% else %}
+<!-- Latest Creation -->
+<section class="panel" id="slide{% assign count2 = count2 | plus: 1 %}"  data-aos="slide-up">
+	<div class="grid-container show-for-large">
+		<div class="grid-x grid-padding-x align-middle section-space latest-creations">
+			<div class="medium-6 small-6 cell">
+				<a href="{{ lcp2.url }}" class="zoom"><img src="{{ block.settings.largeImage | img_url: 'master' }}" class="latest-creation-image" /></a>
+			</div>
+			<div class="medium-6 small-6 cell text-center latest-creations-text">
+				<a href="{{ lcp2.url }}" class="zoom" data-hover-id="{{ lcp2.handle }}"><img src="{{lcp2.metafields.accentuate.productImg}}" class="prod-image" /></a>
+				<h2><a href="{{ lcp.url }}" class="link-activate" data-hover-id="{{ lcp2.handle }}">{{ lcp2.title }}</a></h2>
+				<span class="price">{{ lcp2.price | money }}</span>
+			</div>
+
+		</div>
+	</div>
+</section>
+{% endif %}
+{% endcase %}
+{% endfor %}
+</section>
+
+<style type="text/css">
+
+	.panel {
+	    height: 100vh;
+	    width: 100%;
+	    background: #ffffff;
+	    min-height: 773px;
+	}
+</style>
+
+<!--<script>
+// var stickyTop = $('#stickyBanner').offset().top;
+// $(window).on( 'scroll', function(){
+// 		if ($(window).scrollTop() >= stickyTop) {
+// 			$('#stickyBanner').css({position: "fixed", top: "0px"});
+// 		} else {
+// 			$('#stickyBanner').css({position: "relative", top: "0px"});
+// 		}
+// 	});
+</script>
+<script src="https://scrollmagic.io/assets/js/lib/greensock/TweenMax.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js" type="text/javascript"></script>
+
+
+<script>
+	$(function () { // wait for document ready
+		// init
+		var controller = new ScrollMagic.Controller({
+			globalSceneOptions: {
+				triggerHook: 'onLeave',
+				duration: "120%" // this works just fine with duration 0 as well
+				// However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
+				// Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
+			}
+		});
+
+		// get all slides
+		var slides = document.querySelectorAll("section.panel");
+
+		// create scene for every slide
+		for (var i=0; i<slides.length; i++) {
+			new ScrollMagic.Scene({
+					triggerElement: slides[i]
+				})
+				.setPin(slides[i], {pushFollowers: false})
+				.addTo(controller);
+		}
+	});
+</script>-->
+
+
+{% schema %}
+  {
+    "name": "Latest Creations",
+    "settings": [
+       {
+         "id": "latestTitle",
+         "type": "text",
+         "label": "Section Title"
+        }
+     ],
+    "blocks": [
+      {
+        "type": "latestcreation",
+        "name": "Latest Creation",
+        "settings": [
+          {
+            "id": "largeImage",
+            "type": "image_picker",
+            "label": "Large Image (1148px x 1554px)"
+          },
+          {
+            "id": "latestcreationproduct",
+            "type": "product",
+            "label": "Latest Creation Product"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

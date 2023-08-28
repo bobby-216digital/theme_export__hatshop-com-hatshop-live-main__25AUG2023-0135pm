@@ -1,0 +1,116 @@
+<div class="header-spacer"></div>
+
+<!-- Hat Care -->
+
+
+<div class="grid-container care-title">
+    <div class="grid-x grid-padding-x">
+		<div class="medium-12 cell relative">
+			<h1 class="h2"><span class="care-title">How to care for your</span>  <span id="style-selector-halo"><span class="selector-border">Straw Hat</span>: <i class="fal fa-chevron-down"></i></span></h1>
+			<div id="style-select4">
+				<!-- Single size output -->
+				<a href="/pages/hat-care-felt-hat" class="hat-car-sub">Felt Hat</a>
+				</label>
+			</div>
+		</div>
+	</div>
+</div>
+<section class="hat-care straw bottom50">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x" id="post">
+			<div class="medium-6 cell small-order-2 medium-order-1 data-sticky-container">
+				<div class="sticky" data-sticky data-anchor="post" data-sticky-on="large">
+				  	<ul class="accordion" data-accordion  data-deep-link="true" data-update-history="true"  id="deeplinked-accordion">
+						<li class="accordion-item" data-accordion-item data-acc="straw1">
+							<a href="#hatcaretip1" class="accordion-title"><span class="care-step">1.</span> Crease</a>
+							<div class="accordion-content" data-tab-content id="hatcaretip1">
+								<p>Do not leave your hat in a confined space exposed to heat and humidity, this prevents shrinkage and distortion of shape and color.</p>
+							</div>
+						</li>
+						<li class="accordion-item" data-accordion-item data-acc="straw2">
+							<a href="#hatcaretip2" class="accordion-title"><span class="care-step">2.</span> Pinch</a>
+							<div class="accordion-content" data-tab-content id="hatcaretip2">
+								<p>Never handle your hat by the pinch or the crown, always by the Brim. This prevents breakage and keeps the hat clean of oils and dirt.</p>
+							</div>
+						</li>
+						<li class="accordion-item" data-accordion-item data-acc="straw3">
+							<a href="#hatcaretip3" class="accordion-title"><span class="care-step">3.</span> Hatband</a>
+							<div class="accordion-content" data-tab-content id="hatcaretip3">
+								<p>A hatband is not a permanent fixture of your hat. It cannot be repaired and is interchangeable.</p>
+							</div>
+						</li>
+						<li class="accordion-item" data-accordion-item data-acc="straw4">
+							<a href="#hatcaretip4" class="accordion-title"><span class="care-step">4.</span> Crown</a>
+							<div class="accordion-content" data-tab-content id="hatcaretip4">
+								<p>Remove surface dirt from the crown by brushing loose dust off with a light colored brush then using a clean, damp cloth and gently rubbing counter-clockwise towards the back.</p>
+							</div>
+						</li>
+						<li class="accordion-item" data-accordion-item data-acc="straw5">
+							<a href="#hatcaretip5" class="accordion-title"><span class="care-step">5.</span> Brim</a>
+							<div class="accordion-content" data-tab-content id="hatcaretip5">
+								<p>Never rest a hat on its brim/flat. Rest your hat upside down on a flat, clean surface to prevent the brim from distorting or flattening.</p>
+							</div>
+						</li>
+						<li class="accordion-item" data-accordion-item data-acc="straw6">
+							<a href="#hatcaretip6" class="accordion-title"><span class="care-step">6.</span> Storing your hat</a>
+							<div class="accordion-content" data-tab-content id="hatcaretip6">
+								<p>Always place your hat upside down when not on your head or in a hatbox. Do not leave your hat in a confined space exposed to heat and humidity, this prevents shrinkage and distortion of shape and color.</p>
+				     		</div>
+						</li>
+						<li class="accordion-item" data-accordion-item data-acc="straw7">
+							<a href="#hatcaretip7" class="accordion-title"><span class="care-step">7.</span> Sweatband</a>
+							<div class="accordion-content" data-tab-content id="hatcaretip7">
+								<p>Flip up to air/dry ventilate. This prevents saturation due to perspiration and/or hair products.</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="medium-6 cell small-order-1 medium-order-2">
+				<div class="straw-top">
+					<a class="care-tip" id="straw1" href="#hatcaretip1" data-acc="straw1">1</a>
+					<a class="care-tip" id="straw2" href="#hatcaretip2" data-acc="straw2">2</a>
+					<a class="care-tip" id="straw3" href="#hatcaretip3" data-acc="straw3">3</a>
+					<a class="care-tip" id="straw4" href="#hatcaretip4" data-acc="straw4">4</a>
+					<a class="care-tip" id="straw5" href="#hatcaretip5" data-acc="straw5">5</a>
+					<img src="{{ 'hat-care-straw-top.jpg' | asset_url }}" alt="" />
+				</div>
+				<div class="straw-bottom">
+					<a class="care-tip" id="straw6" href="#hatcaretip6" data-acc="straw6">6</a>
+					<a class="care-tip" id="straw7" href="#hatcaretip7" data-acc="straw7">7</a>
+					<img src="{{ 'hat-care-straw-bottom.jpg' | asset_url }}" alt="" />
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="hat-repair-promo">{% section 'hatrepair-more' %}</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	$('.accordion-item').click(function(){
+	if($(this).hasClass('is-active')){
+	 var myEm3 = $(this).attr('data-acc');
+	 	$('.care-tip').removeClass('active') //Clear all checked class on .size
+	     $('.care-tip[data-acc = '+myEm3+']').addClass('active');
+	}
+	});
+	$('.care-tip').click(function(){
+	 	$('.care-tip').removeClass('active') //Clear all checked class on .size
+	     $(this).addClass('active');
+
+	});
+	});
+
+	$(document).ready(function(){
+	    $('.custom-select select').on("change", function() {
+	      $('.hat-care').hide();
+	      $('.hat-care' + $(this).val()).fadeIn(1000);
+	    });
+	});
+	$("#style-selector-halo").click(function() {
+	  $("#style-select2").hide("fast", function() {});
+	  $("#style-select4").toggle("fast", function() {});
+
+	});
+</script>

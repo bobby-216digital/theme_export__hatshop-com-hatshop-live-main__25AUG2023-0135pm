@@ -1,0 +1,65 @@
+<div class="full reveal" id="icon-video" data-reveal data-animation-in="fade-in" data-animation-out="fade-out" data-reset-on-close="true"> 
+      <div class="icon-fullscreen-video">
+        <video loop=""  poster="{{ section.settings.backgroundImage | img_url: 'master' }}" controls="">
+            <source src="{{ section.settings.videoURL }}" type="video/mp4">
+        </video>
+      </div>
+      <span class="close" data-close>x</span>
+    </div>
+
+<!-- Full page picture intro -->
+<section class="full-page contact-full-page" style="background-image:url('{{ section.settings.backgroundImage | img_url: 'master' }}')">
+
+  <!-- Optional overlay to darken background image to see menu and text better -->
+  <div class="full-page-overlay"></div>
+
+  <div class="hero-section">
+    <div class="hero-section-text">
+      <h1>{{ section.settings.headerTitle }}</h1>
+      <!--<a href="#" class="button  fullscreen-watch" data-toggle="icon-video" >{{ section.settings.buttonText }}</a>-->
+
+    </div>
+  </div>
+
+  <!-- Using SVG to draw the custom down arrow -->
+  <a href="#scrollto" class="full-page-arrow scrollme">
+    <i class="fal fa-chevron-down" style="color: #ffffff;font-size: 24px;"></i>
+    </a>
+
+</section>
+<script>
+$(document).ready(function($) {
+    $('.fullscreen-watch').click(function() {
+        $('video').trigger('play');
+    });
+});
+
+</script>
+
+{% schema %}
+  {
+    "name": "Consult Header and Video",
+    "settings": [
+      {
+        "id": "backgroundImage",
+        "type": "image_picker",
+        "label": "Background Image"
+      },
+      {
+        "id": "headerTitle",
+        "type": "text",
+        "label": "Title"
+      },
+      {
+        "id": "buttonText",
+        "type": "text",
+        "label": "Button Text"
+      },
+      {
+        "id": "videoURL",
+        "type": "text",
+        "label": "Video Source URL"
+      }
+    ]
+  }
+{% endschema %}

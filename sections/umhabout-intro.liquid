@@ -1,0 +1,36 @@
+<!-- Introduction text - Don't forget to set the section bg color -->
+<section class="umh-about-textintro">
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x align-center">
+      <div class="medium-7 cell">
+        <h1 class="umh h1 text-center">{{ section.settings.header }}</h1>
+        <div>{{ section.settings.content }}</div>
+        <h3 class="text-center umh more-life">{{ section.settings.outro }}</h3>
+		<a href="#shopify-section-umhabout-content" class="scrollme" style="text-align: center;display: block;margin-top: -44px;margin-bottom: 45px;"><img src="{{ 'UMH-down-arrow.png' | asset_url }}" alt="" style="width: 42px;" /></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Intro",
+    "settings": [
+      {
+        "id": "header",
+        "type": "text",
+        "label": "Header Text"
+      },
+      {
+        "id": "content",
+        "type": "richtext",
+        "label": "Content"
+      },
+      {
+        "id": "outro",
+        "type": "textarea",
+        "label": "Outro"
+      }
+    ]
+  }
+{% endschema %}

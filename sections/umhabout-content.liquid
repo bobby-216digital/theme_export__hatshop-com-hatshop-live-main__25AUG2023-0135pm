@@ -1,0 +1,168 @@
+{% for block in section.blocks %}
+{% case block.type %}
+
+{% when 'textleft' %}
+<!-- Row type image box right, text left -->
+<section class="umh-about image-right relative {{ block.settings.selectColorLeft }}" style="background: url({{ block.settings.textLeftImage | img_url: 'master' }}) no-repeat center center/cover">
+
+	<img src="{{ block.settings.textLeftImageMobile | img_url: 'master' }}" alt="" class="hide-for-large" />
+	<span class="umh-number">{{ block.settings.textLeftCount }}</span>
+	<div class="grid-container">
+		<div class="grid-x grid-margin-x align-middle">
+			<div class="medium-6 cell">
+
+				<div class="left-inner">
+					<h2>{{ block.settings.textLeftTitle }}</h2>
+					<h3>{{ block.settings.textLeftsubheader }}</h3>
+					{{ block.settings.textLeftContent }}
+					<a href="javascript:void(0)" class="button umh-button" data-open="{{ block.settings.textLeftURL }}">{{ block.settings.textLeftButton }}</a>
+				</div>
+			</div>
+			<div class="medium-6 cell">
+			</div>
+		</div>
+	</div>
+</section>
+{% when 'textright' %}
+<!-- Row type image box left, text right -->
+<section class="umh-about image-left relative {{ block.settings.selectColorRight }}" style="background: url({{ block.settings.textRightImage | img_url: 'master' }}) no-repeat center center/cover">
+
+	<img src="{{ block.settings.textRightImageMobile | img_url: 'master' }}" alt="" class="hide-for-large" />
+	<span class="umh-number">{{ block.settings.textRightCount }}</span>
+	<div class="grid-container">
+		<div class="grid-x grid-margin-x align-middle">
+			<div class="medium-6 medium-offset-6 cell">
+				<div class="right-inner">
+					<h2>{{ block.settings.textRightTitle }}</h2>
+					<h3>{{ block.settings.textRightsubheader }}</h3>
+					{{ block.settings.textRightContent }}
+					<a href="javascript:void(0)" data-open="{{ block.settings.textRightURL }}" class="button umh-button">{{ block.settings.textRightButton }}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+{% endcase %}
+{% endfor %}
+
+
+{% schema %}
+  {
+    "name": "Content",
+    "blocks": [
+      {
+        "type": "textleft",
+        "name": "Text Left",
+        "settings": [
+          {
+            "id": "textLeftImage",
+            "type": "image_picker",
+            "label": "Desktop Image"
+          },
+          {
+            "id": "textLeftImageMobile",
+            "type": "image_picker",
+            "label": "Mobile Image"
+          },
+          {
+            "id": "textLeftTitle",
+            "type": "text",
+            "label": "Section Title"
+          },
+          {
+            "id": "textLeftsubheader",
+            "type": "text",
+            "label": "Sub-Header"
+          },
+          {
+            "id": "textLeftContent",
+            "type": "richtext",
+            "label": "Text"
+          },
+          {
+            "id": "textLeftButton",
+            "type": "text",
+            "label": "Button Text"
+          },
+          {
+            "id": "textLeftURL",
+            "type": "text",
+            "label": "URL"
+          },
+          {
+            "id": "textLeftCount",
+            "type": "text",
+            "label": "Section Count"
+          },
+          {
+           "type": "select",
+           "id": "selectColorLeft",
+           "options": [
+              { "value": "light", "label": "Light"},
+              { "value": "dark", "label": "Dark"}
+           ],
+           "label": "Background Color"
+         }
+        ]
+      },
+      {
+        "type": "textright",
+        "name": "Text Right",
+        "settings": [
+          {
+            "id": "textRightImage",
+            "type": "image_picker",
+            "label": "Desktop"
+          },
+          {
+            "id": "textRightImageMobile",
+            "type": "image_picker",
+            "label": "Mobile Image"
+          },
+          {
+            "id": "textRightTitle",
+            "type": "text",
+            "label": "Title"
+          },
+          {
+            "id": "textRightsubheader",
+            "type": "text",
+            "label": "Sub-Header"
+          },
+          {
+            "id": "textRightContent",
+            "type": "richtext",
+            "label": "Text"
+          },
+          {
+            "id": "textRightButton",
+            "type": "text",
+            "label": "Button Text"
+          },
+          {
+            "id": "textRightURL",
+            "type": "text",
+            "label": "URL"
+          },
+          {
+            "id": "textRightCount",
+            "type": "text",
+            "label": "Section Count"
+          },
+          {
+           "type": "select",
+           "id": "selectColorRight",
+           "options": [
+              { "value": "light", "label": "Light"},
+              { "value": "dark", "label": "Dark"}
+           ],
+           "label": "Background Color"
+         }
+        ]
+      }
+    ]
+  }
+{% endschema %}

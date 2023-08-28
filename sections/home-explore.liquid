@@ -1,0 +1,112 @@
+<!-- Explore the collection -->
+<section class="home-meet section-space"> 
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="medium-12 cell text-center">
+				<h3 class="h5">{{ section.settings.exploreTitle }}</h3>
+			</div>
+		</div>
+	</div>
+	<div class="grid-container home-orlando-more">
+		<div class="grid-x grid-padding-x">
+			<!-- Latest hat -->
+			<div class="medium-5 cell">
+				<a href="{{ section.settings.photoLeftURL }}" class="zoom" data-hover-id="photoLU"><img src="{{ section.settings.photoLeft | img_url: 'master' }}" class="home-orlando-latest" /></a>
+				<h4><a href="{{ section.settings.photoLeftURL }}" class="link-activate" data-hover-id="photoLU">{{ section.settings.photoLeftTitle }}</a></h4>
+			</div>
+			<!-- Explore -->
+			<div class="medium-7 cell">
+				<a href="{{ section.settings.photoRightURL }}" class="zoom" data-hover-id="photoRU"><img src="{{ section.settings.photoRight | img_url: 'master' }}" class="home-orlando-explore" /></a>
+				<h4 class="home-explore-title photoRightlink"><a href="{{ section.settings.photoRightURL }}" class="link-activate" data-hover-id="photoRU">{{ section.settings.hatsTitle }}</a></h4>
+				<div class="grid-x grid-padding-x align-center">
+					{% assign featured1 = all_products[section.settings.featured1] %}
+					<div class="medium-5 small-6 cell text-center">
+						<a href="{{ featured1.url }}" class="zoom" data-hover-id="featured1"><img src="{{featured1.metafields.accentuate.productImg}}" /></a>
+						<p class="home-orlando-hat"><a href="{{ featured1.url }}" class="link-activate" data-hover-id="featured1">{{ featured1.title }}</a></p>
+						<p class="home-orlando-type"><a href="{{ section.settings.hatLink1 }}">{{ section.settings.hatType1 }}</a></p>
+					</div>
+					{% assign featured2 = all_products[section.settings.featured2] %}
+					<div class="medium-5 small-6 cell text-center">
+						<a href="{{ featured2.url }}" class="zoom" data-hover-id="featured2"><img src="{{featured2.metafields.accentuate.productImg}}" /></a>
+						<p class="home-orlando-hat"><a href="{{ featured2.url }}" class="link-activate" data-hover-id="featured2">{{ featured2.title }}</a></p>
+						<p class="home-orlando-type"><a href="{{ section.settings.hatLink2 }}">{{ section.settings.hatType2 }}</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Explore the collection",
+    "settings": [
+      {
+        "id": "exploreTitle",
+        "type": "text",
+        "label": "Title"
+      },
+      {
+        "id": "photoLeft",
+        "type": "image_picker",
+        "label": "Photo Left (880x1344)"
+      },
+      {
+        "id": "photoLeftTitle",
+        "type": "text",
+        "label": "Photo Left Title"
+      },
+      {
+        "id": "photoLeftURL",
+        "type": "text",
+        "label": "Photo Left URL"
+      },
+      {
+        "id": "photoRight",
+        "type": "image_picker",
+        "label": "Photo Right (1336x828)"
+      },
+      {
+        "id": "photoRightURL",
+        "type": "text",
+        "label": "Photo Right URL"
+      },
+      {
+        "id": "hatsTitle",
+        "type": "text",
+        "label": "Hats Title"
+      },
+      {
+       "type": "product",
+       "id": "featured1",
+       "label": "Hat Left "
+      },
+      {
+        "id": "hatType1",
+        "type": "text",
+        "label": "Hat Left Category"
+      },
+      {
+        "id": "hatLink1",
+        "type": "text",
+        "label": "Hat Left Category Link"
+      },
+      {
+       "type": "product",
+       "id": "featured2",
+       "label": "Hat Right"
+      },
+      {
+        "id": "hatType2",
+        "type": "text",
+        "label": "Hat Right Category"
+      },
+      {
+        "id": "hatLink2",
+        "type": "text",
+        "label": "Hat Right Category Link"
+      }
+    ]
+  }
+{% endschema %}

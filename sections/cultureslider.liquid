@@ -1,0 +1,77 @@
+<div class="subnav-culture-slideshow cycle-slideshow show-for-large" data-cycle-fx="fadeout" data-cycle-timeout="0" data-cycle-slides="> div"> 
+	{% for block in section.blocks %}
+	{% cycle ' <div><div class="grid-x grid-padding-x">', '' %}
+    <div class="medium-6 cell relative">
+		<a href="{{ block.settings.cultureSlideLink }}" class="zoom relative">
+			<div class="home-ss-overlay"></div>
+			<img src="{{ block.settings.cultureslideImage | img_url: 'master' }}" />
+		</a>
+		<div class="sub-culture-text">
+
+			<h4><a href="{{ block.settings.cultureSlideLink }}">{{  block.settings.cultureSlideTitle }}</a></h4>
+			<h5><a href="{{ block.settings.cultureSlideCategoryLink }}">{{  block.settings.cultureSlideCategory }}</a></h5>
+		</div>
+    </div>
+	{% cycle '', ' </div></div>' %}
+	{% endfor %}
+	<!-- Previous and next controls -->
+    <span class="cycle-prev cycle-control">
+      <</span> <span class="cycle-next cycle-control">>
+    </span>
+</div>
+<div class="subnav-culture-slideshow hide-for-large">
+<div class="grid-x grid-padding-x">
+	{% for block in section.blocks %}
+    <div class="medium-6 cell relative">
+		<a href="{{ block.settings.cultureSlideLink }}" class="zoom relative">
+			<div class="home-ss-overlay"></div>
+			<img src="{{ block.settings.cultureslideImage | img_url: 'master' }}" />
+		</a>
+		<div class="sub-culture-text">
+
+			<h4><a href="{{ block.settings.cultureSlideLink }}">{{  block.settings.cultureSlideTitle }}</a></h4>
+			<h5><a href="{{ block.settings.cultureSlideCategoryLink }}">{{  block.settings.cultureSlideCategory }}</a></h5>
+		</div>
+    </div>
+	{% endfor %}
+	</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Culture Slideshow",
+    "blocks": [
+      {
+        "type": "cultureSlide",
+        "name": "Culture Slide",
+        "settings": [
+          {
+            "id": "cultureslideImage",
+            "type": "image_picker",
+            "label": "Image - 788px x 506px"
+          },
+          {
+            "id": "cultureSlideLink",
+            "type": "text",
+            "label": "Post Link"
+          },
+          {
+            "id": "cultureSlideTitle",
+            "type": "text",
+            "label": "Title"
+          },
+          {
+            "id": "cultureSlideCategory",
+            "type": "text",
+            "label": "Category"
+          },
+          {
+            "id": "cultureSlideCategoryLink",
+            "type": "text",
+            "label": "Category Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

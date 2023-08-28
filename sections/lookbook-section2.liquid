@@ -1,0 +1,168 @@
+
+<div id="fullpage2">
+  <!-- Lookbook fullscreen slideshow -->
+  <div class="section fp-auto-height-responsive lookbook-ss" id="section4">
+  	 {% assign slide2count = 0 %}
+ {% for block in section.blocks %}
+
+{% assign slide2count = slide2count | plus: 1 %}
+
+{% case block.type %}
+
+{% when 'slider2' %}
+
+    <!-- Slide 1 -->
+   <div class="slide" id="slide{{ slide2count }}" style="background-image:url(' {{ block.settings.slider2image | img_url: 'master' }}')">
+
+   	{% unless block.settings.wanthat == blank %}
+   	{% assign want = all_products[block.settings.wanthat] %}
+   	<div class="over-image-want text-center"><a href="{{ want.url }}"><p><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" />SHOP THE LOOK</p></a></div>
+   	{% endunless %}
+   </div>
+{% endcase %}
+{% endfor %}
+  </div>
+
+ {% for block in section.blocks %}
+{% case block.type %}
+      {% when 'looks1' %}
+  <!-- Lookbook Text Left -->
+  <div class="section fp-auto-height-responsive" id="section0">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x align-center align-middle">
+		{% assign featured = all_products[block.settings.featured] %}
+        <div class="medium-4 medium-offset-1 cell small-order-2 medium-order-1 look-hat">
+          <img src="{% if block.settings.productimage  %}{{ block.settings.productimage | img_url: '400x400' }}{% else %}{{ featured.featured_image | img_url: '400x400' }}{% endif %}" />
+          <h2 class="h4"><a href="{{ featured.url }}">{{ featured.title }}</a></h2>
+		  <p> {{ featured.metafields.accentuate.short_description }}</p>
+          <a href="{{ featured.url }}" class="text-link cta">
+            SHOP</a>
+        </div>
+        <div class="medium-6 medium-offset-1 cell small-order-1 medium-order-2">
+			<a href="javascript:;" class="zoom"><img src="{{ block.settings.productLifestyle | img_url: 'master' }}" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+      {% when 'looks2' %}
+
+  <!-- Lookbook Text Right -->
+  <div class="section fp-auto-height-responsive" id="section0">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x align-center align-middle">
+        <div class="medium-6 cell">
+			<a href="javascript:;" class="zoom"><img src="{{ block.settings.productLifestyle2 | img_url: 'master' }}" /></a>
+        </div>
+        <div class="medium-4 medium-offset-1 cell look-hat">
+		  {% assign featured2 = all_products[block.settings.featured2] %}
+          <img src="{% if block.settings.productimage2  %}{{ block.settings.productimage2 | img_url: '400x400' }}{% else %}{{ featured2.featured_image | img_url: '400x400' }}{% endif %}" />
+          <h2 class="h4"><a href="{{ featured2.url }}">{{ featured2.title }}</a></h2>
+		  <p> {{ featured2.metafields.accentuate.short_description }}</p>
+          <a href="{{ featured2.url }}" class="text-link cta">
+            SHOP</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {% endcase %}
+{% endfor %}
+
+
+</div>
+  <a href="#" class="button">Back to top</a>
+
+
+{{ 'fullpage.min.js' | asset_url | script_tag }}
+<script>
+// Lookbook
+var myFullpage = new fullpage('#fullpage', {
+  anchors: ['firstPage', 'secondPage', '3rdPage'],
+  scrollBar: true,
+  navigation: true,
+  navigationPosition: 'left',
+  paddingTop: '46px',
+   responsiveWidth: 610
+});
+$.fn.fullpage.destroy('all')
+var myFullpage2 = new fullpage('#fullpage2', {
+  anchors: ['firstPage', 'secondPage', '3rdPage'],
+  scrollBar: true,
+  navigation: true,
+  navigationPosition: 'left',
+  paddingTop: '46px',
+   responsiveWidth: 610
+});
+
+</script>
+
+
+
+<!-- Timeline -->
+
+
+{% schema %}
+  {
+    "name": "Lookbook 2",
+    "blocks": [
+      {
+        "type": "looks1",
+        "name": "Look Prod Left Img Right",
+        "settings": [
+          {
+           "type": "product",
+           "id": "featured",
+           "label": "Feature product"
+          },
+          {
+            "id": "productimage",
+            "type": "image_picker",
+            "label": "Product Image"
+          },
+          {
+            "id": "productLifestyle",
+            "type": "image_picker",
+            "label": "Product Lifestyle Photo"
+          }
+        ]
+      },
+      {
+        "type": "slider2",
+        "name": "Second Slider",
+        "settings": [
+          {
+            "id": "slider2image",
+            "type": "image_picker",
+            "label": "Image"
+          },{
+           "type": "product",
+           "id": "wanthat2",
+           "label": "I want this hat"
+          }
+        ]
+      },
+      {
+        "type": "looks2",
+        "name": "Look Img Left Prod Right",
+        "settings": [
+          {
+           "type": "product",
+           "id": "featured2",
+           "label": "Feature product"
+          },
+          {
+            "id": "productimage2",
+            "type": "image_picker",
+            "label": "Product Image"
+          },
+          {
+            "id": "productLifestyle2",
+            "type": "image_picker",
+            "label": "Product Lifestyle Photo"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

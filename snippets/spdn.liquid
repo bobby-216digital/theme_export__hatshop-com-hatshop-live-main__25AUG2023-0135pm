@@ -1,0 +1,14 @@
+<script type="text/worker" id="spdnworker">onmessage=function(e){var t=new Request("https://api.speedien.com/optimize/f7f579124a7cbc1ff63d03ffa36ee4fe",{redirect:"follow"});fetch(t).then(e=>e.text()).then(e=>{postMessage(e)})};</script>
+<script type="text/javascript">var spdnx=new Worker("data:text/javascript;base64,"+btoa(document.getElementById("spdnworker").textContent));spdnx.onmessage=function(t){var e=document.createElement("script");e.type="text/javascript",e.textContent=t.data,document.head.appendChild(e)},spdnx.postMessage("init");</script>
+<script type="text/javascript" data-spdn="1">
+const observer=new MutationObserver(mutations=>{mutations.forEach(({addedNodes})=>{addedNodes.forEach(node=>{if(node.tagName==='SCRIPT'&&node.className=='analytics'){node.type='text/spdnscript'}
+if(node.tagName==='SCRIPT'&&node.innerHTML.includes('asyncLoad')){node.type='text/spdnscript'}
+if(node.nodeType===1&&node.tagName==='SCRIPT'&&node.innerHTML.includes('facebook')){node.type='text/spdnscript'}
+if(node.nodeType===1&&node.tagName==='SCRIPT'&&node.innerHTML.includes('hotjar')){node.type='text/spdnscript'}
+if(node.nodeType===1&&node.tagName==='SCRIPT'&&node.innerHTML.includes('gtag')){node.type='text/spdnscript'}
+if(node.nodeType===1&&node.tagName==='SCRIPT'&&node.innerHTML.includes('tagmanager')){node.type='text/spdnscript'}
+if(node.nodeType===1&&node.tagName==='SCRIPT'&&node.innerHTML.includes('gtm')){node.type='text/spdnscript'}
+if(node.nodeType===1&&node.tagName==='SCRIPT'&&node.innerHTML.includes('klaviyo')){node.type='text/spdnscript'}
+if(node.nodeType===1&&node.tagName==='SCRIPT'&&node.src.includes('klaviyo')){node.type='text/spdnscript'}
+if(node.nodeType===1&&node.tagName==='SCRIPT'&&node.src.includes('googlet')){node.type='text/spdnscript'}})})})
+var ua = navigator.userAgent.toLowerCase();if (ua.indexOf('chrome') > -1) {observer.observe(document.documentElement,{childList:true,subtree:true})}</script> 

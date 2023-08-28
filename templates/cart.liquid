@@ -1,0 +1,124 @@
+<div class="header-spacer"></div>
+
+<!-- List of items in shopping cart currently -->
+<div class="grid-container" data-cart-view="data-cart-view">
+  <div class="grid-x grid-padding-x align-center">
+    <div class="small-10 cell">
+      <h2>Your bag ({{ cart.item_count }})</h2>
+    </div>
+
+    <!-- Single cart item -->
+     {%- for item in cart.items -%}
+  <div  class="large-10 cell ajax-item-row">
+      <div class="grid-x grid-padding-x">
+        <div class="small-2 cell">
+          {% if item.image %}
+                      {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
+                      <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
+                        <div class="cart-item__image-container gradient global-media-settings">
+                          <img src="{{ item.image | image_url: width: 300 }}"
+                            class="cart-item__image"
+                            alt="{{ item.image.alt | escape }}"
+                            loading="lazy"
+                            width="150"
+                            height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
+                          >
+                        </div>
+                    {% endif %}
+        </div>
+        <div class="small-9 small-offset-1 cell">
+          <h3>{{ item.product.title }}</h3>
+       <p>{{  item.variant.title}}</p>  
+          <div class="grid-x">
+            <div class="small-6 cell">
+              <p> <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
+                        <a href="{{ item.url_to_remove }}" class="remove" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+                          Remove
+                        </a>
+                      </cart-remove-button></p>
+            </div>
+            <div class="small-6 cell text-right">
+   {%- if item.original_price != item.final_price -%}
+                      <div class="cart-item__discounted-prices">
+                        <span class="visually-hidden">
+                          {{ 'products.product.price.regular_price' | t }}
+                        </span>
+                        <s class="cart-item__old-price product-option">
+                          {{- item.original_price | money -}}
+                        </s>
+                        <span class="visually-hidden">
+                          {{ 'products.product.price.sale_price' | t }}
+                        </span>
+                        <strong class="cart-item__final-price product-option">
+                          {{ item.final_price | money }}
+                      
+                        </strong>
+                      </div>
+                    {%- else -%}
+                      <div class="product-option">
+                       {% if item.variant.compare_at_price > 0 %} <del>{{  item.variant.compare_at_price | money }}</del>{% endif %}
+                        {{ item.original_price | money }}
+                      </div>
+                    {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        {%- endfor -%}
+
+     
+
+    <!-- If the cart is empyt, show this instead -->
+    <div rv-show="cart.item_count | lt 1" class="large-12 cell">
+      <p colspan="5">You don't have any items in your cart.</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Checkout button -->
+<div class="grid-container">
+  <div class="grid-x grid-padding-x align-center">
+    <div class="small-10 cell">
+<div rv-show="cart.item_count | gt 0" class="cart-checkout text-center drawer-checkout">
+  <form action="/cart" method="post" novalidate>
+    <button type="submit" name="checkout">Checkout</button>
+  </form>
+</div>
+
+    </div>
+  </div>
+</div>
+                    <afterpay-placement
+                        data-amount="{{cart.total_price | money}}"
+                        data-locale="en_US"
+                        data-currency="USD"
+                        data-logo-type="lockup"
+                        data-lockup-theme=""
+                        data-show-interest-free=false
+                        data-size="xs">
+                    </afterpay-placement>
+
+<style>
+  afterpay-placement{
+   text-align: center;
+    --logo-badge-width: 80px;              
+  }
+</style>
+<p style="text-align:center;"><a href="/collections/all" class="cta">Back to Shop</a></p>
+
+<style>
+.cart-checkout {
+ position: relative !important;
+ translate: none !important;
+ border-top: none;
+}
+  .installments {
+    width: 100%;
+}
+  .cart-shipping {
+   	border-top: none;  
+  }
+</style>

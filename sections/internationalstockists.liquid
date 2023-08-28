@@ -1,0 +1,73 @@
+
+<div class="grid-x grid-padding-x bottom50 align-center stock-list">
+	<div class="medium-7 cell">
+		<div class="grid-x grid-padding-x">
+		<div class="medium-12 cell">
+			<h2>International</h2>
+		</div>
+		{% for block in section.blocks %}
+		{% case block.type %}
+			{% when 'text' %}
+			<div class="medium-12 cell region-title">
+				<h3 class="h5"> {{ block.settings.region }}</h3>
+			</div>
+			{% when 'article' %}
+			<!-- Row type single column text -->
+			<div class="medium-6 cell location">
+				{% assign article = articles[block.settings.location] %}
+				<img src="{{ article.image.src | img_url: 'master' }}" alt="" />
+				<div class="info">
+					<h4 class="small-body-title">{{ article.title }}</h4>
+					{{ article.content }}
+				</div>
+			</div>
+			{% endcase %}
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+{% schema %}
+  {
+    "name": "International",
+    "class": "index-section",
+    "blocks": [
+      {
+        "type": "text",
+        "name": "State or Region Heading",
+        "settings": [
+          {
+            "type": "text",
+            "id": "region",
+            "label": "State or Region"
+          }
+        ]
+      },
+      {
+        "type": "article",
+        "name": "Article",
+        "settings": [
+          {
+            "type": "article",
+            "id": "location",
+            "label": "Article"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "United States Stockists Builder",
+        "category": "Advanced layout",
+        "blocks": [
+          {
+            "type": "article"
+          },
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

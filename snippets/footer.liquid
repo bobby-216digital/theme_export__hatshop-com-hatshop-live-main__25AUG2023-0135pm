@@ -1,0 +1,112 @@
+<!-- Actual footer content and links --> 
+<footer class="show-for-large">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x footer-content">
+      <div class="medium-2 cell">
+        <h4 class="h5">Shop Online</h4>
+  			{% for link in linklists.shop-online.links %}
+  			<a href="{{ link.url }}">{{ link.title }}</a>
+  			{% endfor %}
+      </div>
+      <div class="medium-2 cell">
+        <h4 class="h5">About</h4>
+  			{% for link in linklists.about.links %}
+  			<a href="{{ link.url }}">{{ link.title }}</a>
+  			{% endfor %}
+      </div>
+      <div class="medium-2 cell">
+        <h4 class="h5">Customer Care</h4>
+  			{% for link in linklists.customer-care.links %}
+  			<a href="{{ link.url }}">{{ link.title }}</a>
+  			{% endfor %}
+      </div>
+	  <div class="medium-3 cell">
+        <h4 class="h5">Covid-19</h4>
+  			<a href="/pages/covid-19">Helpful information for Covid-19</a>
+      </div>
+      <div class="medium-3 cell text-center footer-contact">
+		<a href="https://www.instagram.com/worthandworth/" target="_blank"><i class="fab fa-instagram"></i><span class="screen-reader-only">Instagram (opens in a new tab)</span></a>
+		<a href="https://www.facebook.com/worthandworth/" target="_blank"><i class="fab fa-facebook-f"></i><span class="screen-reader-only">Facebook (opens in a new tab)</span></a>
+		<a href="mailto:info@hatshop.com" target="_blank"><i class="fal fa-envelope-open"></i><span class="screen-reader-only">Send Email (opens in a new tab)</span></a>
+        <address>
+          <p>263 Bowery <Br />New York, NY 10002</p>
+        </address>
+        <p>1-212-265-2887 <br /><br />Monday: closed <Br />
+Tuesday-Saturday: 11-7<Br />
+Sunday: 12-5 
+          <!--Mon-Tue: 10-6pm <br />
+          Wed-Fri: 10-7pm <br />
+          Sat: 10-6--></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<footer class="hide-for-large">
+	<ul class="vertical menu accordion-menu " data-accordion-menu>
+		<li>
+			<a href="javascript:void(0)" class="footer-mobile-trigger">Shop Online</a>
+			<ul class="menu vertical nested">
+				{% for link in linklists.shop-online.links %}
+				<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</li>
+		<li>
+			<a href="javascript:void(0)" class="footer-mobile-trigger">About</a>
+			<ul class="menu vertical nested">
+				{% for link in linklists.about.links %}
+				<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</li>
+		<li>
+			<a href="javascript:void(0)" class="footer-mobile-trigger">Customer Care</a>
+			<ul class="menu vertical nested">
+				{% for link in linklists.customer-care.links %}
+				<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+				{% endfor %}
+				<li><a href="/pages/terms">Terms & Conditions</a></li>
+				<li><a href="/pages/privacy">Privacy Policy</a></li>
+				<li><a href="/pages/request-personal-data">Request Personal Data</a></li>
+              <li><a href="/pages/ccpa-opt-out">Do not sell my personal information
+                </a></li>
+			</ul>
+		</li>
+	</ul>
+	<div class="medium-12 cell text-center footer-contact">
+		<a href="https://www.instagram.com/worthandworth/" target="_blank"><i class="fab fa-instagram"></i></a>
+		<a href="https://www.facebook.com/worthandworth/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+		<a href="mailto:info@hatshop.com" target="_blank"><i class="fal fa-envelope-open"></i></a>
+	  <address>
+	    <p>263 Bowery 
+<br />
+New York, NY 10002</p>
+	  </address>
+	  <p><a href="tel:12122652887" class="mobile-footer-tel">1-212-265-2887</a> <br /><br />Monday: closed <Br />
+Tuesday-Saturday: 11-7<Br />
+Sunday: 12-5 
+	   <!-- Mon-Tue: 10-6pm <br />
+	    Wed-Fri: 10-7pm <br />
+	    Sat: 10-6--></p>
+	</div>
+</footer>
+
+<!-- Thought we were done, but we actually need one last thing. The copyright. -->
+<section class="copy text-center show-for-large">
+  <span>© Copyright 2023 Worth & Worth</span>
+  <span><a href="/pages/terms">Terms & Conditions</a></span>
+  <span><a href="/pages/privacy">Privacy Policy</a></span>
+  <span><a href="/pages/request-personal-data">Request Personal Data</a></span>
+   <span><a href="/pages/ccpa-opt-out">Do not sell my personal information
+                </a></span>
+  <span><a href="https://goose-works.com" id="credits-show" target="_blank">Site Credit</a></span>
+</section>
+
+<!-- Thought we were done, but we actually need one last thing. The copyright. -->
+<section class="copy text-center hide-for-large">
+  <span>© Copyright 2023 Worth & Worth</span>
+  <span><a href="https://goose-works.com" id="credits-show" target="_blank">Site Credit</a></span>
+</section>

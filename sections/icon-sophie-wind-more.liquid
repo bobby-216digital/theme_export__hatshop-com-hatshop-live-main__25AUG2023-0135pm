@@ -1,0 +1,50 @@
+{% if section.settings.moreContent != '' %}
+<!-- 7 column centered text only -->
+<section class="icon-row-text">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x align-center bottom50">
+      <div class="medium-7 cell">
+        <p>{{ section.settings.moreContent }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Full width image with zoom -->
+<section class="icon-fullwidth-image bottom50">
+	<div class="cycle-slideshow" data-cycle-manual-fx="fadeout" data-cycle-manual-speed="1000" data-cycle-timeout="0" data-cycle-swipe="true" data-cycle-swipe-fx="fadeout" style="position: relative;">
+		{% for block in section.blocks %}
+		<img src="{{ block.settings.sliderimage | img_url: 'master' }}" />
+		{% endfor %}
+		<!-- Previous and next controls -->
+		<span class="cycle-prev cycle-control"><</span> <span class="cycle-next cycle-control">></span>
+	</div>
+</section>
+
+{% schema %}
+  {
+    "name": "Slider + More text",
+    "settings": [
+
+      {
+        "id": "moreContent",
+        "type": "textarea",
+        "label": "More Content"
+      }
+      ],
+      "blocks": [
+        {
+          "type": "slider1",
+          "name": "Slider Images",
+          "settings": [
+            {
+              "id": "sliderimage",
+              "type": "image_picker",
+              "label": "Large Image  (2000px x 1205px)"
+            }
+          ]
+       }
+    ]
+  }
+{% endschema %}

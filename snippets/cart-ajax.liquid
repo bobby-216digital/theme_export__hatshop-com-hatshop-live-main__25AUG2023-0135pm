@@ -1,0 +1,106 @@
+<div class="off-canvas position-right" id="showCart" data-off-canvas data-transition="overlap">
+	<div class="cart-drawer-padding wrap1">
+		<!-- List of items in shopping cart currently -->
+	    <div class="grid-container wrap2" data-cart-view="data-cart-view">
+			<div class="grid-x grid-padding-x wrap3" rv-show="cart.item_count | gt 0">
+				<div class="small-12 cell">
+					<h2 rv-show="cart.item_count | gt 0">Your bag (<span data-cart-render="item_count"></span>)</h2>
+                   <!-- <h3 style="color:#936124;margin-left:20px">Exclusive sale you are saving 20% off on our current collection. 
+  <br /><small>*Secret sale excluded</small></h3>-->
+				</div> 
+				
+				
+				<!-- Single cart item -->
+				<div rv-each-item="cart.items" class="large-12 cell ajax-item-row">
+					<div class="grid-x grid-padding-x align-middle">
+						<div class="medium-4 small-6 small-offset-3 medium-offset-0 cell">
+							<img rv-src="item.image | product_image_size '900x900'" />
+						</div>
+						<div class="medium-2 text-center cell qty-col" style="font-family: proxima-nova,sans-serif;
+    font-weight: 400;
+    color: #000;
+    font-size: 13px;
+    letter-spacing: 0;">
+							 <a href="#" rv-data-cart-update="index | plus 1" rv-data-cart-quantity="item.quantity | minus 1">-</a>
+  <span rv-text="item.quantity" class="cartText" style="padding:0 6px"></span>
+  <a href="#" rv-data-cart-update="index | plus 1" rv-data-cart-quantity="item.quantity | plus 1">+</a>
+						</div>
+						<div class="medium-6 small-12 cell">
+							<div class="cart-item-description">
+								<h3 rv-text="item.product_title"></h3>
+													
+								<!--<span rv-html="item.quantity"></span>-->
+								
+								<p><span rv-text="item.variant_title"> <br /></span>
+									
+								</p>
+								<!--<div rv-if="item.variant_options | includes? 'Size'">
+									<span class="meta">Size <span rv-show="item.variants_options"></span></span>
+								</div>-->
+							</div>
+							<div class="grid-x">
+								<div class="small-6 cell">
+									<div class="cart-item-description">
+										<p class="remove"><a href="#" class="remove" rv-data-cart-remove="index | plus 1">Remove</a></p>
+									</div>
+								</div>
+								<div class="small-6 cell text-right">
+                                 
+									<p rv-html="item.price | money Currency.currentCurrency"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<!-- Subtotal and Afterpay  offer -->
+			<div class="grid-x grid-padding-x">
+				<!-- Checkout button -->
+				<div rv-show="cart.item_count | gt 0" class="cart-checkout text-center drawer-checkout">
+				    <form action="/cart" method="post" novalidate>
+						<span class="showNote">add order instructions +</span>
+						<textarea class="cartNote" name="note" id="cart-note" rows="2" placeholder="How can we help you?" data-scrollable=""></textarea>
+							<button type="submit" name="checkout">
+							<span class="checkout-text">Checkout</span>
+							<span>•</span>
+							<div class="button-subtotal"  rv-show="cart.item_count | gt 0" data-cart-view="data-cart-view">
+								<span rv-html="cart.total_price | money Currency.currentCurrency" class="afterpay subtotal"></span>
+							</div>
+						</button>
+				    </form>
+                 <!-- <p  style="color:#936124;text-align:center;    font-family: miller-display,serif;
+    font-size: 14.4px;">Discount already applied</p>-->
+					<!--<div class="medium-12 cell after-pay">
+						<p>or 4 interest-free installments of $62.50 USD by  
+						<img src="{{ 'brand-logo-monochrome-download-png.png' | asset_img_url  }}" alt="After Pay" width="73px" />
+						<a href="">Learn More</a></p>
+					</div>-->
+					<span class="closeNote">
+						<span aria-hidden="true">×</span>
+					</span>
+				</div>
+				<!-- If the cart is empyt, show this instead -->
+				<div class="grid-x grid-padding-x">
+					<div rv-show="cart.item_count | lt 1" class="large-12 cell">
+						<div class="grid-container" data-cart-view="data-cart-view">
+							<div class="grid-x grid-padding-x">
+								<div class="small-12 cell">
+									<h2>Your bag is empty</h2>
+								</div>
+								<!-- Empty -->
+								<div class="large-12 cell">
+									<div class="grid-x grid-padding-x text-center">
+										<a href="/collections/women" class="zoom empty-image"><img src="{{ 'womens-hats-cart.jpg' | asset_url }}" alt="Shop Women's Hats"  /><h5 class="text-center">Women's Hats</h5></a>
+										<a href="/collections/men" class="zoom empty-image"><img src="{{ 'mens-hats-cart.jpg' | asset_url }}" alt="Shop Men's Hats" /><h5 class="text-center">Men's Hats</h5></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<button class="close-button" aria-label="Close menu" type="button" data-close>
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>

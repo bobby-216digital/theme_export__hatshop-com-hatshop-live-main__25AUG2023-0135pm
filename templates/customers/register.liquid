@@ -1,0 +1,44 @@
+<!-- /templates/customers/register.liquid -->
+<div class="header-spacer"></div>
+
+<!-- Shipping -->
+<section class="account-content">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x align-center" id="post">
+			<!--<div class="large-3 cell data-sticky-container">
+				<div class="sticky" data-sticky data-anchor="post">
+					<!-- Side Navigatioon --*>
+					<h4 class="small-body-title underline">Assistance</h4>
+					<p class="support">For support or answers to additional questions, please <a href="/pages/contact">contact us</a>.</p>
+				</div>
+			</div>large-offset-half -->
+			<div class="medium-7 cell">
+				<div class="text-center form-spacer">
+				  <h1>{{ 'customer.register.title' | t }}</h1>
+					{{ 'sketch-border.png' | asset_url | img_tag: 'Border', 'sketch-border' }}
+					<!--<p style="text-align: center;font-size: 14px;margin-top: 40px;font-style: normal;">Welcome to the Worth & Worth family!</p>-->
+				</div>
+				<div class="form-register form-vertical">
+				  {% form 'create_customer' %}
+
+				    {{ form.errors | default_errors }}
+
+				    <label for="FirstName" class="label--hidden">{{ 'customer.register.first_name' | t }}</label>
+				    <input type="text" name="customer[first_name]" id="FirstName" class="medium-6 cell" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+
+				    <label for="LastName" class="label--hidden">{{ 'customer.register.last_name' | t }}</label>
+				    <input class="medium-6 cell"  type="text" name="customer[last_name]" id="LastName" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
+
+				    <label for="Email" class="label--hidden">{{ 'customer.register.email' | t }}</label>
+				    <input type="email" name="customer[email]" id="Email" class="{% if form.errors contains 'email' %} input--error{% endif %}" placeholder="{{ 'customer.register.email' | t }}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+
+				    <label for="CreatePassword" class="label--hidden">{{ 'customer.register.password' | t }}</label>
+				    <input type="password" name="customer[password]" id="CreatePassword" class="{% if form.errors contains 'password' %} input--error{% endif %}" placeholder="{{ 'customer.register.password' | t }}">
+
+				<button type="submit" class="button filled"> {{ 'customer.register.submit' | t }}</button>
+				  {% endform %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,22 @@
+<!-- Hat Repair Intro -->
+<h1 class="h2">{{ section.settings.mainp}}</h1>
+
+        <p>{{ section.settings.secondp}}</p>
+
+{% schema %}
+  {
+    "name": "Intro Text",
+    "settings": [
+      {
+        "id": "mainp",
+        "type": "textarea",
+        "label": "Main Paragprah"
+      },
+      {
+        "id": "secondp",
+        "type": "textarea",
+        "label": "Second Paragprah"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,72 @@
+<section class="custom-hats " id="scrollto"> 
+  <div class="grid-container top-text">
+
+    {% for block in section.blocks %}
+    {% case block.type %}
+
+
+    {% when 'images' %}
+    <!-- Row type portriat image left, landscape image right  -->
+    <div class="grid-x grid-padding-x section-space80">
+      <div class="large-6 cell">
+        <a href="{{ block.settings.linkLeft }}" class="zoom" style="background:transparent"><img src="{{ block.settings.imageLeft | img_url: '900x900' }}" class="orlando-bw" /></a>
+        <h4 style="margin-top: 15px;font-size: 28px;"><a href="{{ block.settings.linkLeft }}">{{ block.settings.titleLeft }}</a></h4>
+      </div>
+      <div class="large-5 large-offset-1 cell relative">
+        <div class="valign">
+          <a href="{{ block.settings.linkRight }}" class="zoom"><img src="{{ block.settings.imageRight | img_url: '900x900' }}" class="hat-shelf" /></a>
+          <h4 style="margin-top: 15px;font-size: 28px;"><a href="{{ block.settings.linkRight }}">{{ block.settings.titleRight }}</a></h4>
+        </div>
+      </div>
+    </div>
+
+    {% endcase %}
+    {% endfor %}
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Content",
+    "blocks": [
+      
+      {
+        "type": "images",
+        "name": "Images Row",
+        "settings": [
+          {
+            "id": "imageLeft",
+            "type": "image_picker",
+            "label": "Image Left"
+          },
+			{
+            "id": "titleLeft",
+            "type": "text",
+            "label": "Title Left"
+          },
+			{
+            "id": "linkLeft",
+            "type": "page",
+            "label": "Link Left"
+          },
+          {
+            "id": "imageRight",
+            "type": "image_picker",
+            "label": "Image Right"
+          },
+          {
+            "id": "titleRight",
+            "type": "text",
+            "label": "Title Right"
+          },
+          {
+            "id": "linkRight",
+            "type": "page",
+            "label": "Link Right"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

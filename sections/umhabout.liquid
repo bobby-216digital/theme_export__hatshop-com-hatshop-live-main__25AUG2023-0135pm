@@ -1,0 +1,194 @@
+<!-- Homepage slideshow -->
+<section class="home-slideshow cycle-slideshow section-space" data-cycle-pager=".ss-pager" data-cycle-fx="fadeout" data-cycle-timeout="7000" data-cycle-slides="> div">
+
+  {% for block in section.blocks %}
+  {% case block.type %}
+
+  {% when 'homess1' %}
+  <!-- Slidshow type 1 -->
+  <div class="home-ss-1" style="background-image: url('{{ block.settings.textLeftImage | img_url: '900x900' }}')">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x align-middle">
+        <div class="large-10 large-offset-1 cell">
+          <h1>{{ block.settings.textLeft }}</h1>
+          <a href="{{ block.settings.textLeftURL }}" class="cta light">{{ block.settings.textLeftButton }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="home-ss-overlay"></div>
+  </div>
+
+  {% when 'homess2' %}
+  <!-- Slidshow type 2 -->
+  <div class="home-ss-2" style="background-image: url('{{ block.settings.textBottomImage | img_url: '900x900' }}')">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x align-bottom">
+        <div class="large-12 cell">
+          <h1>{{ block.settings.textBottom }}</h1>
+          <a href="{{ block.settings.textBottomURL }}" class="cta light">{{ block.settings.textBottomButton }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="home-ss-overlay"></div>
+  </div>
+
+  {% when 'homess3' %}
+  <!-- Slidshow type 3 -->
+  <div class="home-ss-3" style="background-image: url('{{ block.settings.textCenter1Image | img_url: '900x900' }}')">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x align-middle align-center">
+        <div class="large-7 cell text-center">
+          <h1>{{ block.settings.textCenter1 }}</h1>
+            <div class="cta-wrap">
+              <a href="{{ block.settings.textCenterURL1a }}" class="cta light">{{ block.settings.textCenterButton1a }}</a>
+              <a href="{{ block.settings.textCenterURL1b }}" class="cta light">{{ block.settings.textCenterButton1b }}</a>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="home-ss-overlay"></div>
+  </div>
+
+  {% when 'homess4' %}
+  <!-- Slidshow type 4 -->
+  <div class="home-ss-4" style="background-image: url('{{ block.settings.textCenter2Image | img_url: '900x900' }}')">
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x align-middle align-center">
+        <div class="large-7 cell text-center">
+          <h1>{{ block.settings.textCenter2 }}</h1>
+          <a href="{{ block.settings.homess4.alt }}" class="cta-button light">{{ block.settings.textCenterButton2 }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="home-ss-overlay"></div>
+  </div>
+
+  {% endcase %}
+  {% endfor %}
+
+  <!-- This is where the pager will be created by Cycle2 -->
+  <span class="ss-pager"></span>
+
+</section>
+
+{% schema %}
+  {
+    "name": "Slideshow",
+    "blocks": [
+      {
+        "type": "homess1",
+        "name": "Text left",
+        "settings": [
+          {
+            "id": "textLeftImage",
+            "type": "image_picker",
+            "label": "Background Image"
+          },
+          {
+            "id": "textLeft",
+            "type": "text",
+            "label": "Text"
+          },
+          {
+            "id": "textLeftButton",
+            "type": "text",
+            "label": "Button Text"
+          },
+          {
+            "id": "textLeftURL",
+            "type": "text",
+            "label": "URL"
+          }
+        ]
+      },
+      {
+        "type": "homess2",
+        "name": "Text Bottom",
+        "settings": [
+          {
+            "id": "textBottomImage",
+            "type": "image_picker",
+            "label": "Background Image"
+          },
+          {
+            "id": "textBottom",
+            "type": "text",
+            "label": "Text"
+          },
+          {
+            "id": "textBottomButton",
+            "type": "text",
+            "label": "Button Text"
+          },
+          {
+            "id": "textBottomURL",
+            "type": "text",
+            "label": "URL"
+          }
+        ]
+      },
+      {
+        "type": "homess3",
+        "name": "Text Center 1",
+        "settings": [
+          {
+            "id": "textCenter1Image",
+            "type": "image_picker",
+            "label": "Background Image"
+          },
+          {
+            "id": "textCenter1",
+            "type": "text",
+            "label": "Text"
+          },
+          {
+            "id": "textCenterButton1a",
+            "type": "text",
+            "label": "Link Text Left"
+          },
+          {
+            "id": "textCenterURL1a",
+            "type": "text",
+            "label": "Link Left"
+          },
+          {
+            "id": "textCenterButton1b",
+            "type": "text",
+            "label": "Link Text Right"
+          },
+          {
+            "id": "textCenterURL1b",
+            "type": "text",
+            "label": "Link Right"
+          }
+        ]
+      },
+      {
+        "type": "homess4",
+        "name": "Text Center 2",
+        "settings": [
+          {
+            "id": "textCenter2Image",
+            "type": "image_picker",
+            "label": "Background Image"
+          },
+          {
+            "id": "textCenter2",
+            "type": "text",
+            "label": "Text"
+          },
+          {
+            "id": "textCenterButton2",
+            "type": "text",
+            "label": "Button Text"
+          },
+          {
+            "id": "textCenterURL2",
+            "type": "text",
+            "label": "Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

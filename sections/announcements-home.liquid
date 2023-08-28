@@ -1,0 +1,239 @@
+{% for block in section.blocks %}
+{% case block.type %}
+
+
+{% when 'Homeannouncementnone' %}
+<div id="no-announcement"></div>
+
+
+{% when 'Hannouncement2' %}
+<!-- Annoumcement Bar 2 -->
+<div class="announcement-slideshow cycle-slideshow" data-cycle-timeout="9000" data-cycle-slides="> div" data-cycle-fx="scrollHorz"   data-cycle-pause-on-hover="true"
+       data-cycle-speed="800">
+  <div class="first">
+    <div class="grid-x grid-padding-x announcement-bar announcement-bar-3 align-middle">
+      <div class="large-12 cell text-center">
+        <p class="line2"><a href="{{ block.settings.Homelinkslide1nt }}">{{ block.settings.Homeslideitem1nt }}</a></p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="grid-x grid-padding-x announcement-bar announcement-bar-3 align-middle">
+      <div class="large-12 cell text-center">
+        <p class="line2"><a href="{{ block.settings.Homelinkslide2nt }}">{{ block.settings.Homeslideitem2nt }}</a></p>
+      </div>
+    </div>
+  </div>
+  
+  <div>
+    <div class="grid-x grid-padding-x announcement-bar announcement-bar-3 align-middle">
+      <div class="large-12 cell text-center">
+        <p class="line2"><a href="{{ block.settings.Homelinkslide3 }}">{{ block.settings.Homeslideitem3nt }}</a></p>
+      </div>
+    </div>
+  </div>
+  
+  <span class="cycle-prev cycle-control"></span>
+  <span class="cycle-next cycle-control"></span>
+  <span class="announcement-close">Close</span>
+</div>
+<style>
+  .header-spacer {
+    height: 213px;
+  }
+  .search-open .header-spacer {
+      height: 283px;
+	  transition: all .05s ease;
+  }
+  @media screen and (max-width: 63.9375em) {
+    .header-spacer {
+      height: 135px;
+    }
+  }
+</style>
+<style>
+.announcement-slideshow .announcement-close { top: 10px !important; }
+.cycle-control {
+ position: absolute;
+ top: 12px;
+ color: #fff;
+ cursor: pointer;
+ z-index: 1000;
+}
+  .cycle-prev { left: 15px;width: 9px; height: 16px;background-image: url('{{ 'a-left.png' | asset_img_url }}'); }
+  .cycle-next { right: 15px;width: 9px; height: 16px;background-image: url('{{ 'a-right.png' | asset_img_url }}'); }
+
+@media screen and (max-width: 63.9375em) {
+  .cycle-prev, .cycle-next {
+    display: none;
+  }
+  .announcement-bar .line2, .announcement-bar .line2 a {
+    font-size: 11px;
+  }
+
+}
+
+</style>
+{% when 'Hannouncement3' %}
+<!-- Annoumcement Bar 3 -->
+<div class="announcement-slideshow cycle-slideshow" data-cycle-timeout="9000" data-cycle-slides="> div" data-cycle-fx="scrollHorz"   data-cycle-pause-on-hover="true"
+       data-cycle-speed="800">
+  <div class="first">
+    <div class="grid-x grid-padding-x announcement-bar announcement-bar-3 align-middle">
+      <div class="large-12 cell text-center">
+        <p class="line2"><a href="{{ block.settings.Homelinkslide1 }}">{{ block.settings.Homeslideitem1 }}</a></p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="grid-x grid-padding-x announcement-bar announcement-bar-3 align-middle">
+      <div class="large-12 cell text-center">
+        <p class="line2"><a href="{{ block.settings.Homelinkslide2 }}">{{ block.settings.Homeslideitem2 }}</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="grid-x grid-padding-x announcement-bar announcement-bar-3 align-middle">
+      <div class="large-12 cell text-center">
+        <p class="line2"><a href="{{ block.settings.Homelinkslide3 }}">{{ block.settings.Homeslideitem3 }}</a></p>
+      </div>
+    </div>
+  </div>
+
+  <span class="cycle-prev cycle-control"></span>
+  <span class="cycle-next cycle-control"></span>
+  <span class="announcement-close">Close</span>
+</div>
+<div class="announcement-stripe"></div>
+<style>
+  .header-spacer {
+    height: 213px;
+  }
+  .search-open .header-spacer {
+      height: 283px;
+	  transition: all .05s ease;
+  }
+  @media screen and (max-width: 63.9375em) {
+    .header-spacer {
+      height: 135px;
+    }
+  }
+</style>
+<style>
+.announcement-slideshow .announcement-close { top: 10px !important; }
+.cycle-control {
+ position: absolute;
+ top: 12px;
+ color: #fff;
+ cursor: pointer;
+ z-index: 1000;
+}
+  .cycle-prev { left: 15px;width: 9px; height: 16px;background-image: url('{{ 'a-left.png' | asset_img_url }}'); }
+  .cycle-next { right: 15px;width: 9px; height: 16px;background-image: url('{{ 'a-right.png' | asset_img_url }}'); }
+
+@media screen and (max-width: 63.9375em) {
+  .cycle-prev, .cycle-next {
+    display: none;
+  }
+  .announcement-bar .line2, .announcement-bar .line2 a {
+    font-size: 11px;
+  }
+
+}
+
+</style>
+
+
+{% endcase %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Home Announcement",
+    "blocks": [
+      {
+        "type": "Hannouncement3",
+        "name": "Announcement Texture ",
+        "settings": [
+          {
+            "id": "Homeslideitem1",
+            "type": "text",
+            "label": "Slide 1"
+          },
+          {
+            "id": "Homelinkslide1",
+            "type": "url",
+            "label": "Link"
+          },
+          {
+            "id": "Homeslideitem2",
+            "type": "text",
+            "label": "Slide 2"
+          },
+          {
+            "id": "Homelinkslide2",
+            "type": "url",
+            "label": "Link"
+          },
+          {
+            "id": "Homeslideitem3",
+            "type": "text",
+            "label": "Slide 3"
+          },
+          {
+            "id": "Homelinkslide3",
+            "type": "url",
+            "label": "Link"
+          }
+        ]
+      },{
+        "type": "Hannouncement2",
+        "name": "Announcement NO Texture ",
+        "settings": [
+          {
+            "id": "Homeslideitem1nt",
+            "type": "text",
+            "label": "Slide 1"
+          },
+          {
+            "id": "Homelinkslide1nt",
+            "type": "url",
+            "label": "Link"
+          },
+          {
+            "id": "Homeslideitem2nt",
+            "type": "text",
+            "label": "Slide 2"
+          },
+          {
+            "id": "Homelinkslide2nt",
+            "type": "url",
+            "label": "Link"
+          },
+          {
+            "id": "Homeslideitem3nt",
+            "type": "text",
+            "label": "Slide 3"
+          },
+          {
+            "id": "Homelinkslide3nt",
+            "type": "url",
+            "label": "Link"
+          }
+        ]
+      },
+      {
+        "type": "Homeannouncementnone",
+        "name": "HomeNo Announcement",
+        "settings": [
+          {
+            "id": "Homenoannouncement",
+            "type": "text",
+            "label": "Nothing to do! Just save/publish"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

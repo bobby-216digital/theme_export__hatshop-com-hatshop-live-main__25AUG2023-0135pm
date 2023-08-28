@@ -1,0 +1,75 @@
+<div class="full reveal" id="contactepisode" data-reveal data-animation-in="fade-in" data-animation-out="fade-out" data-reset-on-close="true"> 
+    <div class="icon-fullscreen-video">
+        <video  class="videofile"  controlsList="nodownload" poster="{{ section.settings.image | img_url: 'master' }}" controls="">
+            <source src="{{ section.settings.video }}" type="video/mp4">
+        </video>
+    </div>
+    <span class="close" data-close>x</span>
+</div>
+<section class="full-page contact-full-page">
+	<div class="icon-header-info">
+		<div class="grid-container">
+			<div class="grid-x">
+				<div class="large-12 cell text-center">
+					<h1>{{ section.settings.contactTitle }}</h1>
+					<a href="#" class="button  fullscreen-watch" data-toggle="contactepisode" ><i class="fal fa-play"></i> {{ section.settings.buttonText }}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="general-overlay"></div>
+  	<div class="mobile-image hide-for-large" style="background: url({{ section.settings.image | img_url: 'master' }}) no-repeat center center/cover"></div>
+  	<video class="show-for-large" autoplay loop muted preload="metadata" poster="{{ section.settings.image | img_url: 'master' }}">
+  		<source src="{{ section.settings.videoBG }}" type="video/mp4" />
+  	</video>
+	<!-- Using SVG to draw the custom down arrow -->
+	<a href="#scrollto" class="full-page-arrow scrollme">
+	    <i class="fal fa-chevron-down animated infinite pulse" style="color: #ffffff;font-size: 24px;"></i>
+	    </a>
+		<!-- Icon header video and/or image -->
+
+</section>
+<script>
+$(document).ready(function($) {
+    $('.fullscreen-watch').click(function() {
+        $('video').trigger('play');
+    });
+	$('.videofile').on('ended',function(){
+       $('#contactepisode').foundation('close');
+    });
+  });
+
+</script>
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "id": "image",
+        "type": "image_picker",
+        "label": "Image"
+      },
+      {
+        "id": "video",
+        "type": "text",
+        "label": "Video URL"
+      },
+      {
+        "id": "videoBG",
+        "type": "text",
+        "label": "Background Video URL"
+      },
+      {
+        "id": "contactTitle",
+        "type": "text",
+        "label": "Contact Intro Title"
+      },
+      {
+        "id": "buttonText",
+        "type": "text",
+        "label": "Contact Intro Button Text"
+      }
+    ]
+  }
+{% endschema %}

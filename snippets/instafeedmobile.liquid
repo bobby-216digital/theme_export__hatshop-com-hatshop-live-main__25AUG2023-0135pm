@@ -1,0 +1,21 @@
+{{ 'instafeed.min.js' | asset_url | script_tag }}
+{% assign special = '{{image}}' %}
+{% assign linkme = '{{link}}' %}
+<script type="text/javascript">
+    var userFeed = new Instafeed({
+        get: 'user',
+        userId: '311452055',
+		limit: 15,
+		clientID: '08b9a46e8f764db9abcd27f97f6dcb69',
+        accessToken: '311452055.1677ed0.8b1c26356c5040af95eebc63abdf7a29',
+		resolution: 'standard_resolution',
+		template: '<div><a href="{{ linkme }}" class="insta-link zoom" style="background:url({{ special }}) no-repeat center center/cover;"></a></div>',
+		after: function () {
+		    $('.multiple-item').slick({
+		     infinite: true,
+		      slidesToShow: 4,
+		      slidesToScroll: 1 });
+		}
+    });
+    userFeed.run();
+</script>

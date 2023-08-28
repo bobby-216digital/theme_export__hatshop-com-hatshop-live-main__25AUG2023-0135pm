@@ -1,0 +1,104 @@
+<!-- Information above main  navigation -->
+<div class="grid-x grid-padding-x nav-top show-for-large"> 
+  <div class="large-6 cell">
+    <span><a href="/pages/contact"><i class="fal fa-map-marker-alt" style="    margin-right: 10px;"></i>
+     Contact Us</a></span>
+    <span><a href="tel:212-265-2887"><i class="fal fa-phone" style="margin-right: 10px;"></i>
+     212-265-2887</a></span>
+  </div>
+  <div class="large-6 cell text-right">
+  	<span>{% if customer %}<a href="/account">Welcome {{ customer.first_name
+  	 }}!</a>{% else %}<a href="/account/login">Login</a>{% endif %}</span>
+  	<span>{% if customer %}<a href="/account/logout">Logout</a>{% else %}<a href="/account/register">Register</a>{% endif %}</span>
+  	<span><a href="/a/wishlist">Wish List</a></span>
+    <span class="hatbox-desktop" data-toggle="showCart"><?xml version="1.0" encoding="UTF-8"?>
+    <svg width="21px" height="25px" viewBox="0 0 21 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+        <title>Hatbox</title>
+        <desc>Created with Sketch.</desc>
+        <defs>
+            <polygon id="path-1" points="0.103778748 0.10462963 9.59394223 0.10462963 9.59394223 9.09875661 0.103778748 9.09875661"></polygon>
+        </defs>
+        <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Mobile-Header-Copy" transform="translate(-283.000000, -22.000000)">
+                <g id="Hatbox" transform="translate(283.000000, 22.000000)">
+                    <g id="Group-6">
+                        <g id="Group-3" transform="translate(5.381250, 0.027646)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Clip-2"></g>
+                            <path d="M0.830248125,9.09875661 C0.431773125,9.09875661 0.108635625,8.77349206 0.108373125,8.37177249 L0.103779375,2.37798942 C0.102860625,1.12785714 1.11112313,0.109867725 2.35156688,0.108941799 L7.33801688,0.10457672 L7.33985437,0.10457672 C8.57951062,0.10457672 9.58842937,1.12044974 9.58947937,2.36992063 L9.59394187,8.36383598 C9.59433562,8.76555556 9.27132937,9.09161376 8.87272313,9.09187831 L8.87206687,9.09187831 C8.47359187,9.09187831 8.15058562,8.76661376 8.15019187,8.36502646 L8.14572937,2.37111111 C8.14546687,2.15589947 8.06107312,1.95246032 7.90790438,1.79835979 C7.75486687,1.64439153 7.55313562,1.55960317 7.33985437,1.55960317 L7.33919812,1.55960317 L2.35274813,1.56396825 C1.90833563,1.56436508 1.54713562,1.92891534 1.54752937,2.37679894 L1.55212313,8.37071429 C1.55238563,8.77243386 1.22951063,9.09849206 0.830773125,9.09875661 L0.830248125,9.09875661 Z" id="Fill-1" fill="#000000" mask="url(#mask-2)"></path>
+                        </g>
+                        <path d="M10.5,5.18637566 C5.50633125,5.18637566 1.44375,9.28068783 1.44375,14.3133598 C1.44375,19.3460317 5.50633125,23.4403439 10.5,23.4403439 C15.4936687,23.4403439 19.55625,19.3460317 19.55625,14.3133598 C19.55625,9.28068783 15.4936687,5.18637566 10.5,5.18637566 M10.5,24.8953704 C4.7103,24.8953704 0,20.1482804 0,14.3133598 C0,8.47843915 4.7103,3.73134921 10.5,3.73134921 C16.2897,3.73134921 21,8.47843915 21,14.3133598 C21,20.1482804 16.2897,24.8953704 10.5,24.8953704" id="Fill-4" fill="#000000"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg><span data-cart-render="item_count"></span></span>
+    <span class="searchActivate"><i class="fal fa-search"></i></span>
+  </div>
+</div>
+
+<!-- Begin Main Navigation in all it's glory Desktop -->
+<div class="grid-container desktop-nav show-for-large">
+  <div class="grid-x grid-padding-x nav-menu">
+    <div class="large-12 cell text-center">
+      {% for link in linklists.main-menu.links %}
+      <a href="{{ link.url }}" class="nav-item" id="nav-{{ link.title | handle }}"><span>{{ link.title }}</span></a>
+      {% endfor %}
+      <a href="/" class="logo"></a>
+      {% for link in linklists.main-menu-right.links %}
+  	  <a href="{{ link.url }}" class="nav-item" id="nav-{{ link.title | handle }}"><span>{{ link.title }}</span></a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Show cart icons, search and favorites for desktop -->
+  <div class="icons-alt show-for-large">
+  	<span><a href="/a/wishlist">{{ 'icon-fav.png' | asset_url | img_tag: 'Favorite' }}</a></span>
+    <span class="hatbox-desktop" data-toggle="showCart"><?xml version="1.0" encoding="UTF-8"?>
+    <svg width="21px" height="25px" viewBox="0 0 21 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+        <title>Hatbox</title>
+        <desc>Created with Sketch.</desc>
+        <defs>
+            <polygon id="path-1" points="0.103778748 0.10462963 9.59394223 0.10462963 9.59394223 9.09875661 0.103778748 9.09875661"></polygon>
+        </defs>
+        <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Mobile-Header-Copy" transform="translate(-283.000000, -22.000000)">
+                <g id="Hatbox" transform="translate(283.000000, 22.000000)">
+                    <g id="Group-6">
+                        <g id="Group-3" transform="translate(5.381250, 0.027646)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Clip-2"></g>
+                            <path d="M0.830248125,9.09875661 C0.431773125,9.09875661 0.108635625,8.77349206 0.108373125,8.37177249 L0.103779375,2.37798942 C0.102860625,1.12785714 1.11112313,0.109867725 2.35156688,0.108941799 L7.33801688,0.10457672 L7.33985437,0.10457672 C8.57951062,0.10457672 9.58842937,1.12044974 9.58947937,2.36992063 L9.59394187,8.36383598 C9.59433562,8.76555556 9.27132937,9.09161376 8.87272313,9.09187831 L8.87206687,9.09187831 C8.47359187,9.09187831 8.15058562,8.76661376 8.15019187,8.36502646 L8.14572937,2.37111111 C8.14546687,2.15589947 8.06107312,1.95246032 7.90790438,1.79835979 C7.75486687,1.64439153 7.55313562,1.55960317 7.33985437,1.55960317 L7.33919812,1.55960317 L2.35274813,1.56396825 C1.90833563,1.56436508 1.54713562,1.92891534 1.54752937,2.37679894 L1.55212313,8.37071429 C1.55238563,8.77243386 1.22951063,9.09849206 0.830773125,9.09875661 L0.830248125,9.09875661 Z" id="Fill-1" fill="#838383" mask="url(#mask-2)"></path>
+                        </g>
+                        <path d="M10.5,5.18637566 C5.50633125,5.18637566 1.44375,9.28068783 1.44375,14.3133598 C1.44375,19.3460317 5.50633125,23.4403439 10.5,23.4403439 C15.4936687,23.4403439 19.55625,19.3460317 19.55625,14.3133598 C19.55625,9.28068783 15.4936687,5.18637566 10.5,5.18637566 M10.5,24.8953704 C4.7103,24.8953704 0,20.1482804 0,14.3133598 C0,8.47843915 4.7103,3.73134921 10.5,3.73134921 C16.2897,3.73134921 21,8.47843915 21,14.3133598 C21,20.1482804 16.2897,24.8953704 10.5,24.8953704" id="Fill-4" fill="#838383"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg><span data-cart-render="item_count"></span></span>
+    <span class="searchActivate"><i class="fal fa-search"></i></span>
+  </div>
+
+</div>
+
+<!-- And now let's do one for mobile and tablet -->
+<div class="grid-container mobile-nav hide-for-large">
+  <div class="grid-x grid-padding-x nav-menu">
+    <div class="small-3 cell">
+      <span class="hamburger" data-toggle="showNav">&#9776;</span>
+    </div>
+    <div class="small-6 cell text-center">
+      <a href="/" class="logo"></a>
+    </div>
+    <div class="small-3 cell text-right">
+	  <span class="mobile-wishlist"><a href="/a/wishlist"><i class="fal fa-heart"></i></a></span>
+      <span class="hatbox-mobile" data-toggle="showCart">{{ 'hatbox-mobile-2x.png' | asset_url | img_tag: 'Cart' }}<span data-cart-render="item_count"></span></span>
+    </div>
+  </div>
+</div>

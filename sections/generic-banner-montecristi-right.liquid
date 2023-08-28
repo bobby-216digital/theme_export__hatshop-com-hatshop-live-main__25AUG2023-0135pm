@@ -1,0 +1,53 @@
+<!-- Icon header video and/or image -->
+<div class="grid-container">
+	<div class="grid-x grid-padding-x align-middle section-space80">
+		<div class="medium-5 cell small-order-2 medium-order-1">
+			<div class="support-text">
+				<h5>{{ section.settings.montecristiBannerSmalltitleR }}</h5>
+				<h3>{{ section.settings.montecristiBannertitleR }}</h3>
+				<div class="banner-text">{{ section.settings.fmontecristiBannerDescriptionR }}</div>
+				{% if section.settings.montecristiBannerLinkR %}<a href="{{ section.settings.montecristiBannerLinkR }}" class="cta dark link-activate" data-hover-id="mbR">{{ section.settings.montecristiBannerLinkTextR }}</a>{%endif %}
+			</div>
+		</div>
+		<div class="large-7 cell small-order-1 medium-order-2">
+			<a href="{{ montecristiBannerLinkR }}" class="zoom" data-hover-id="mbR"><img src="{{ section.settings.montecristiBannerImgageR | img_url: 'master' }}"></a>
+		</div>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "Montecristi Banner",
+    "settings": [
+      {
+        "id": "montecristiBannerImgageR",
+        "type": "image_picker",
+        "label": "Banner Image - Size: 1400px x 1000px"
+      },
+      {
+        "id": "montecristiBannerSmalltitleR",
+        "type": "text",
+        "label": "Small Text above title"
+      },
+      {
+        "id": "montecristiBannertitleR",
+        "type": "text",
+        "label": "Title"
+      },
+      {
+        "id": "fmontecristiBannerDescriptionR",
+        "type": "richtext",
+        "label": "Description"
+      },
+      {
+        "id": "montecristiBannerLinkR",
+        "type": "text",
+        "label": "Link"
+      },
+      {
+        "id": "montecristiBannerLinkTextR",
+        "type": "text",
+        "label": "Link Text"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,38 @@
+{{ 'jquery.instagramFeed.min.js' | asset_url | script_tag }} 
+{% assign special = '{{image}}' %}
+{% assign linkme = '{{link}}' %}
+<script type="text/javascript">
+ 
+  
+  // Instagram Images
+jQuery(window).on('load', function(){
+    jQuery.instagramFeed({
+        'username': 'worthandworth',
+        'container': "#instafeed",
+        'display_profile': false,
+        'display_biography': false,
+        'display_gallery': true,
+        'callback': null,
+        'styling': true,
+        'items': 4,
+        'items_per_row': 4,
+        'margin': 0
+    });
+});
+   
+  // Instagram Images
+jQuery(window).on('load', function(){
+    jQuery.instagramFeed({
+        'username': 'worthandworth',
+        'container': "#instafeedmobile",
+        'display_profile': false,
+        'display_biography': false,
+        'display_gallery': true,
+        'callback': null,
+        'styling': true,
+        'items': 4,
+        'items_per_row': 4,
+        'margin': 0
+    });
+});
+</script>

@@ -1,0 +1,56 @@
+{% assign products = collections.all.products | sort: 'published_at' | reverse %}
+
+    {% for product in products limit:4 %}
+	<!-- Product List Item -->
+	<div data-jplist-item class="medium-3 small-6 cell text-center prod-list-item red style1">
+        <div class="prod-wrap">
+          <a class="product-card" href="{{ product.url }}">
+            <div class="product-image-wrap"{% if product.metafields.accentuate.lifestyle %} style="background-image:url('{{ product.metafields.accentuate.lifestyle }}')"{% endif %}>
+
+              {% if product.metafields.accentuate.lifestyle == blank %}
+                {% for image in product.images %}
+                {% if forloop.first %}
+                <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" alt="">
+                <img src="{{ product.images[1] | product_img_url: 'master' }}" class="prod-hat2" alt="">
+                {% endif %}
+                {% endfor %}
+              {% else %}
+                <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" />
+              {% endif %}
+
+              {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
+              {% for selected_handle in selected_handles %}
+                <img src="{{ all_products[selected_handle].metafields.accentuate.productImg }}" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" class="prod-hat-color {{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+              {% endfor %}
+
+            </div>
+            <h2>{% if product.metafields.accentuate.product_short_name == blank %}{{ product.title }}{% else %}{{ product.metafields.accentuate.product_short_name }}{% endif %}</h2>
+			        {% if product.available %} {% else %} <p class="small-body-title on-sale">Sold Out</p>{% endif %}
+            <p class="price">{%- if product.price_varies -%}
+              <span class="visuallyhidden">Starting at</span>
+              {% if product.compare_at_price_max > product.price %} <del>{{ product.compare_at_price_max | money }}</del> <span class="on-sale">{{ product.price | money }}</span>{%- else -%}<span>{{ product.price | money }}</span>{% endif %}
+              {%- else -%}
+
+               {% if product.compare_at_price_max > product.price %} <del>{{ product.compare_at_price_max | money }}</del> <span class="on-sale">{{ product.price | money }}</span>{%- else -%}<span>{{ product.price | money }}</span>{% endif %}
+              {%- endif -%}
+            </p>
+          </a>
+
+          <div class="product-list-colors">
+
+            <div class="product-list-colors">
+              {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
+              {% for selected_handle in selected_handles %}
+                <a href="{{ all_products[selected_handle].url }}"  class="color-swatch-wrap" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}">
+                  <img src="{{ all_products[selected_handle].metafields.accentuate.swatchImage }}"  width="16" height="16" class="product-list-swatch color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+                </a>
+              {% endfor %}
+            </div>
+
+          </div>
+
+        </div>
+    <span class="{% for tag in product.tags %}{{ tag | handle }} {% endfor %}">
+    </span>
+  </div>
+  {% endfor %}

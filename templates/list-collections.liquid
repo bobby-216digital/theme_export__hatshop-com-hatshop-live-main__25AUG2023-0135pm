@@ -1,0 +1,281 @@
+<div class="header-spacer"></div>
+TEST
+<!-- Product List Banner Title -->
+<section class="list-banner text-center">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x align-middle">
+      <div class="large-12 cell text-center">
+        <h1>{{ collection.title }}</h1>
+        <h2>Montecristi</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="filter-sort">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x relative">
+      <div class="medium-6 cell">
+        <h5 class="small-body-title">Filters</h5>
+      </div>
+      <div class="medium-6 cell">
+        <div class="collection-filters">
+          <div class="collection-dropdown select-wrapper ">
+            <span class="selected-text"></span>
+            <select data-collection-sorting>
+              <option value="" selected="selected">Sort</option>
+              <option value="manual">Featured</option>
+              <option value="best-selling">Best Selling</option>
+              <option value="price-ascending">$ Low to High</option>
+              <option value="price-descending">$ High to Low</option>
+              <option value="title-descending">Z-A</option>
+              <option value="title-ascending">A-Z</option>
+              <option value="created-ascending">Oldest to Newest</option>
+              <option value="created-descending">Newest to Oldest</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<script>
+
+// Simple solution to inject HTML controlled by custom fields...
+// into a straight list of products without going crazy with Shopify queries
+// The below injects HTML after the 4th and 12th products displayed
+//$(function() {
+//  $('.product-list .prod-list-item:nth-child(6)').after('<div class="large-6 cell prod-list-item"><img src="http://gooseworksdev.com/hs/sample/prod-makingof.png" /></div><div class="large-4 large-offset-1 cell prod-list-callout"><img src="http://gooseworksdev.com/hs/sample/prod-feature-decor.png" /><br /><h2>The making of <span>Making the Montecristi</span></h2><p>The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, //flick quartz, vex nymphs.</p><br /><a href="" class="cta">Learn More</a></div>');
+//  $('.product-list .prod-list-item:nth-child(14)').after('<div class="large-12 cell prod-list-callout text-center"><blockquote>A hat reflects the essence of its wearer far more than does a pair of trousers, shoes or a jacket.</blockquote></div>');
+//});
+//</script>
+
+<!-- Product List and filters -->
+<section class="product-list">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="large-3 cell filter-container">
+
+        <!-- Product Filters -->
+        <ul class="vertical menu accordion-menu" data-accordion-menu>
+          <li>
+            <a href="#">Color</a>
+            <ul class="menu vertical nested">
+              <li class="filters">
+                <div class="grid-x grid-padding-x filter-color button-group" data-filter-group="price">
+
+                  <!-- Begin list of colors -->
+                  <div class="large-3 cell filter-color-item filter-button" data-filter=".red">
+                    <img src="https://placeimg.com/200/200" class="filter-color-circle" />
+                  </div>
+
+                  <div class="large-3 cell filter-color-item filter-button" data-filter=".blue">
+                    <img src="https://placeimg.com/200/200" class="filter-color-circle" />
+                  </div>
+
+                  <div class="large-3 cell filter-color-item filter-button" data-filter=".green">
+                    <img src="https://placeimg.com/200/200" class="filter-color-circle" />
+                  </div>
+
+                  <div class="large-3 cell filter-color-item filter-button" data-filter=".yellow">
+                    <img src="https://placeimg.com/200/200" class="filter-color-circle" />
+                  </div>
+
+                  <div class="large-3 cell filter-color-item filter-button">
+                    <img src="https://placeimg.com/200/200" class="filter-color-circle" />
+                  </div>
+
+                  <div class="large-3 cell filter-color-item filter-button">
+                    <img src="https://placeimg.com/200/200" class="filter-color-circle" />
+                  </div>
+
+                  <div class="large-3 cell filter-color-item filter-button">
+                    <img src="https://placeimg.com/200/200" class="filter-color-circle" />
+                  </div>
+
+                  <div class="large-3 cell filter-color-item filter-button">
+                    <img src="https://placeimg.com/200/200" class="filter-color-circle" />
+                  </div>
+
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Style</a>
+            <ul class="menu vertical nested">
+              <li class="filters">
+                <div class="grid-x grid-padding-x filter-style button-group" data-filter-group="style">
+
+                  <!-- Begin list of styles -->
+                  <div class="large-6 cell filter-style-item filter-button" data-filter=".style1">
+                    <label class="container">Style 1
+                      <input type="checkbox" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+
+                  <div class="large-6 cell filter-style-item filter-button" data-filter=".style2">
+                    <label class="container">Style 2
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+
+                  <div class="large-6 cell filter-style-item filter-button">
+                    <label class="container">Style 3
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+
+                  <div class="large-6 cell filter-style-item filter-button">
+                    <label class="container">Style 4
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Season</a>
+            <ul class="menu vertical nested">
+              <li class="filters">
+                <div class="grid-x grid-padding-x filter-season button-group" data-filter-group="season">
+
+                  <!-- Begin list of seasons -->
+                  <div class="large-6 cell filter-season-item filter-button" data-filter=".season1">
+                    <label class="container">Season 1
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+
+                  <div class="large-6 cell filter-season-item filter-button" data-filter=".season2">
+                    <label class="container">Season 2
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+
+                  <div class="large-6 cell filter-season-item filter-button">
+                    <label class="container">Season 3
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+
+                  <div class="large-6 cell filter-season-item filter-button">
+                    <label class="container">Season 4
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Price</a>
+            <ul class="menu vertical nested">
+              <li class="filters">
+                <div class="grid-x grid-padding-x filter-price button-group" data-filter-group="price">
+
+                  <!-- Begin list of prices -->
+                  <div class="large-6 cell filter-price-item filter-button" data-filter=".price1">
+                    <label class="container">Price 1
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+
+                  <div class="large-6 cell filter-price-item filter-button" data-filter=".price2">
+                    <label class="container">Price 2
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+
+                  <div class="large-6 cell filter-price-item filter-button">
+                    <label class="container">Price 3
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+
+                  <div class="large-6 cell filter-price-item filter-button">
+                    <label class="container">Price 4
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Materials</a>
+            <ul class="menu vertical nested">
+              <li>
+                <div class="grid-x grid-padding-x filter-materials">
+
+                  <!-- Begin list of materials -->
+                  <div class="large-6 cell filter-material-item">
+                    <a href="">Material 1</a>
+                  </div>
+
+                  <div class="large-6 cell filter-material-item">
+                    <a href="">Material 2</a>
+                  </div>
+
+                  <div class="large-6 cell filter-material-item">
+                    <a href="">Material 3</a>
+                  </div>
+
+                  <div class="large-6 cell filter-material-item">
+                    <a href="">Material 4</a>
+                  </div>
+
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="large-9 cell">
+
+        <!-- Produt List -->
+        <div class="grid-x grid-padding-x" id="product-list">
+
+          {% for product in collection.products %}
+          <!-- Product List Item -->
+          <div class="large-4 cell text-center prod-list-item red style1">
+            <div class="prod-wrap">
+              <a class="product-card" href="{{ product.url | within: collection }}">
+                <img src="{{ product.featured_image.src | img_url: '1024x' }}" alt="">
+                <h2>{{ product.title }}</h2>
+                <p class="price">{%- if product.price_varies -%}
+                  <span class="visuallyhidden">Starting at</span>
+                  {{ product.price_min | money_without_trailing_zeros }}
+                  <span aria-hidden="true">+</span>
+                  {%- else -%}
+                  {{ product.price | money_without_trailing_zeros }}
+                  {%- endif -%}</p>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

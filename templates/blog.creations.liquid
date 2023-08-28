@@ -1,0 +1,37 @@
+<!-- UMH Creatioins background -->
+<section class="umh-creations press-list" style="background:url('http://gooseworksdev.com/hs/sample/umh-collab-bg.png') no-repeat center center/cover">
+
+  <!-- UMH Creatioins list-->
+
+  <div class="grid-container">
+  	<div class="grid-x grid-padding-x AjaxinateLoop">
+  		{% paginate blog.articles by 44 %}
+  		{% for article in blog.articles %}
+  		<!-- Press single item -->
+  		<div class="large-3 cell bottom50 press-item">
+  			<a href="{{ article.url }}" class="zoom" data-hover-id="{{ article.id}}">
+  				<div class="press-double relative">
+  					<img src="{{ article.metafields.accentuate.creationslandingmain }}" class="press-main-landing " />
+  					{% if article.metafields.accentuate.creationslandingvertical %}
+  					<img src="{{ article.metafields.accentuate.creationslandingvertical }}" class="press-second-vertical" />
+  					{% endif %}
+  					{% if article.metafields.accentuate.creationslandinghorizontal
+  					 %}
+  					<img src="{{ article.metafields.accentuate.creationslandinghorizontal
+  					}}" class="press-second-horizontal" />
+  					{% endif %}
+  				</div>
+  			</a>
+  		</div>
+  		{% endfor %}
+  	</div>
+  	<div class="grid-x grid-padding-x">
+  		<div class="AjaxinatePagination large-12 cell text-center">
+  			{% if paginate.next %}
+  			<a href="{{ paginate.next.url }}" onclick="jplist.refresh();">Load More</a>
+  			{% endif %}
+  		</div>
+  		{% endpaginate %}
+  	</div>
+  </div>
+</section>

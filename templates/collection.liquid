@@ -1,0 +1,712 @@
+{{ 'new-filter.css' | asset_url | stylesheet_tag }}
+
+{% if collection.metafields.accentuate.background_image %}
+{% section 'pop' %}
+<!-- Product List Banner Title -->
+<section class="collection-header wide-banner" style="background:url({% for image in collection.metafields.accentuate.background_image %}{{ image.src }}{% endfor %}) no-repeat center center/cover;padding-top: 43%;padding-bottom: 33px;">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x align-bottom">
+      <div class="medium-6 cell small-order-2 medium-order-1">
+        {% if collection.handle == "men" or collection.handle == "women" %}
+        {% else %}
+        <h2 class="small-body-title">{{ collection.metafields.accentuate.parentcollection}}</h2>
+        {% endif %}
+        <h1>{{ collection.metafields.accentuate.short_name}}</h1>
+      </div>
+  
+    </div>
+  </div>
+</section>
+{% else %}
+
+<div class="header-spacer"></div>
+{% section 'pop' %}
+<!-- Product List Banner Title -->
+<section class="collection-header">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x align-middle">
+      <div class="medium-4 cell small-order-2 medium-order-1">
+        {% if collection.handle == "men" or collection.handle == "women" %}
+        {% else %}
+        <h2 class="small-body-title">{{ collection.metafields.accentuate.parentcollection}}</h2>
+        {% endif %}
+        <h1>{{ collection.metafields.accentuate.short_name}}</h1>
+        {{ 'lines.png' | asset_url | img_tag: 'A line' }}<br />
+        {{ collection.description }}
+      </div>
+      <div class="medium-7 medium-offset-1 cell small-order-1 medium-order-2">
+	  	<a href="#" class="zoom"><img src="{{ collection.metafields.accentuate.collection_header_image }}" class="collection-header-image" /></a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+<!-- Product list begins right here -->
+
+{% if collection.metafields.accentuate.wide_banner %}
+
+{% if collection.metafields.accentuate.video_url %}
+<script>
+
+// Simple solution to inject HTML controlled by custom fields...
+// into a straight list of products without going crazy with Shopify queries
+// The below injects HTML after the 4th and 12th products displayed
+$(function() {
+  $('.product-list .prod-list-item:nth-child(6)').after('<div class="grid-container collection-banner wide-collection-banner"><div class="grid-x grid-padding-x align-middle video-injection"><div class="medium-12  prod-list-item cell prod-list-callout"><video muted="" autoplay="" playsinline="" loop="" controls="" poster="{{ collection.metafields.collection.image }}"><source src="{{ collection.metafields.accentuate.video_url }}" type="video/mp4"></video></div><div class="medium-12  prod-list-item cell prod-list-callout prod-list-callout-text">{% if collection.metafields.collection.title1 %}<div class="prod-list-callout-inner"><h2>{{ collection.metafields.collection.title1 }} <span>{{ collection.metafields.collection.title2 }}<br />{{ collection.metafields.accentuate.title_2_line_2 }}</span></h2>{% if collection.metafields.collection.content %}<p>{{ collection.metafields.collection.content }}</p>{% endif %}</div></div>{% endif %}</div></div>');
+  $('.product-list .prod-list-item:nth-child(13)').after('<div class="medium-12 cell prod-list-callout text-center"><blockquote>{{ collection.metafields.collection.quote }}</blockquote></div>');
+});
+
+</script>
+{% elsif collection.metafields.collection.image == blank %}
+{% else %}
+<script>
+
+// Simple solution to inject HTML controlled by custom fields...
+// into a straight list of products without going crazy with Shopify queries
+// The below injects HTML after the 4th and 12th products displayed
+$(function() {
+  $('.product-list .prod-list-item:nth-child(6)').after('<div class="grid-container collection-banner wide-collection-banner"><div class="grid-x grid-padding-x align-middle"><div class="medium-12  prod-list-item cell prod-list-callout"><img src="{{ collection.metafields.collection.image }}" /></div><div class="medium-12  prod-list-item cell prod-list-callout prod-list-callout-text"><div class="prod-list-callout-inner"><h2><span>{{ collection.metafields.collection.title2 }}<br />{{ collection.metafields.accentuate.title_2_line_2 }}</span></h2><a href="{{ collection.metafields.collection.buttonurl }}" class="cta border-bottom">{{ collection.metafields.collection.buttontext }}</a></div></div></div></div>');
+  $('.product-list .prod-list-item:nth-child(13)').after('<div class="medium-12 cell prod-list-callout text-center"><blockquote>{{ collection.metafields.collection.quote }}</blockquote></div>');
+});
+
+</script>
+{% endif %}
+
+
+{% else %}
+
+{% if collection.metafields.accentuate.video_url %}
+<script>
+
+// Simple solution to inject HTML controlled by custom fields...
+// into a straight list of products without going crazy with Shopify queries
+// The below injects HTML after the 4th and 12th products displayed
+$(function() {
+  $('.product-list .prod-list-item:nth-child(6)').after('<div class="grid-container collection-banner"><div class="grid-x grid-padding-x align-middle video-injection"><div class="medium-8  prod-list-item cell prod-list-callout"><video muted="" playsinline="" autoplay="" loop="" controls="" poster="{{ collection.metafields.collection.image }}"><source src="{{ collection.metafields.accentuate.video_url }}" type="video/mp4"></video></div><div class="medium-4  prod-list-item cell prod-list-callout"><div class="prod-list-callout-inner"><h2>{{ collection.metafields.collection.title1 }} <span>{{ collection.metafields.collection.title2 }}<br />{{ collection.metafields.accentuate.title_2_line_2 }}</span></h2>{% if collection.metafields.collection.content %}<p>{{ collection.metafields.collection.content }}</p>{% endif %}<a href="#" class="cta  fullscreen-watch" data-toggle="watch-video" ><i class="fal fa-play"></i>Watch Video</a></div></div></div></div>');
+  $('.product-list .prod-list-item:nth-child(13)').after('<div class="medium-12 cell prod-list-callout text-center"><blockquote>{{ collection.metafields.collection.quote }}</blockquote></div>');
+});
+
+</script>
+{% elsif collection.metafields.collection.image == blank %}
+{% else %}
+<script>
+
+// Simple solution to inject HTML controlled by custom fields...
+// into a straight list of products without going crazy with Shopify queries
+// The below injects HTML after the 4th and 12th products displayed
+$(function() {
+  $('.product-list .prod-list-item:nth-child(6)').after('<div class="grid-container collection-banner"><div class="grid-x grid-padding-x align-middle"><div class="medium-8  prod-list-item cell prod-list-callout"><img src="{{ collection.metafields.collection.image }}" /></div><div class="medium-4  prod-list-item cell prod-list-callout"><div class="prod-list-callout-inner"><h2>{{ collection.metafields.collection.title1 }} <span>{{ collection.metafields.collection.title2 }}<br />{{ collection.metafields.accentuate.title_2_line_2 }}</span></h2> {% if collection.metafields.collection.content %}<p>{{ collection.metafields.collection.content }}</p>{% endif %}<a href="{{ collection.metafields.collection.buttonurl }}" class="cta">{{ collection.metafields.collection.buttontext }}</a></div></div></div></div>');
+  $('.product-list .prod-list-item:nth-child(13)').after('<div class="medium-12 cell prod-list-callout text-center"><blockquote>{{ collection.metafields.collection.quote }}</blockquote></div>');
+});
+
+</script>
+{% endif %}
+
+{% endif %}
+
+
+<!-- Product List and filters -->
+<section class="product-list" id="product-list-filters">
+  {% if collection.handle == 'weather-refined-secret-sale' %}
+    {% else %}
+<div class="medium-3 cell refine hide-for-large text-center">
+	<a href="javascript:;" data-toggle="showFilter"> Refine <span class="refine-plus">+</span><span class="refine-minus"><i class="fal fa-times"></i></span></a>
+</div>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x product-list-top show-for-large">
+      <div class="medium-6 cell">
+        <span class="small-body-title">Filters</span>
+      </div>
+      <div class="medium-6 cell text-right">
+        <select id="sort-by" dir="rtl">
+		      <option value="" selected>Sort</option>
+          <option value="manual">Featured</option>
+		      <option value="best-selling">Best Selling</option>
+          <option value="price-ascending">Price: Low to High</option>
+          <option value="price-descending">Price: High to Low</option>
+          <option value="title-ascending">A-Z</option>
+        </select>
+        {{ 'arrow-down.png' | asset_url | img_tag: 'submit' }}
+        <script>
+          Shopify.queryParams = {};
+          if (location.search.length) {
+            for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+              aKeyValue = aCouples[i].split('=');
+              if (aKeyValue.length > 1) {
+                Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+              }
+            }
+          }
+          jQuery('#sort-by')
+            .val('{{ collection.sort_by | default: collection.default_sort_by | escape }}')
+            .bind('change', function() {
+              Shopify.queryParams.sort_by = jQuery(this).val();
+              location.search = jQuery.param(Shopify.queryParams).replace(/\+/g, '%20');
+            });
+        </script>
+      </div>
+	  <div id="filter-line"></div>
+    </div>
+    <div class="grid-x grid-padding-x" id="productList">
+      <div class="medium-3 cell filter-container data-sticky-container" data-sticky-on="large">
+        <div class="sticky" data-sticky data-anchor="productList" data-sticky-on="large">
+ <ul class="active-filters">
+		   {% for tag in collection.tags %}
+             <div style="display:none">{{ current_tags }} {{ tag }}</div>
+            
+                 {% if current_tags contains tag %}
+                        <li class="active">
+                            {{ tag  | capitalize | link_to_remove_tag: tag }}
+                            <span class="clear_filter">{{ 'x'  | capitalize | link_to_remove_tag: tag }}</span>
+                        </li>
+                        
+                        {% endif %}
+						
+                        {% endfor %}
+						<li class="active"><span id="querystring"><span id="amount-selected" 
+						></span> <span class="clear_filter">X</span></span></li>
+		  </ul>
+          <!-- Product Filters -->
+          <ul class="vertical menu accordion-menu" data-accordion data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge-delay="500" data-accordion-menu>
+            <li>
+						<a href="#color">Color</a>
+						<ul class="menu vertical nested apply-active">
+							<li class="filters">
+								<div class="grid-x grid-padding-x filter-color">
+									<!--<div class="medium-6 small-6 cell filter-style-item filter-button">
+										<label class="container clear">Clear Filter
+											<input name="color" type="radio" class="coll-filter" value="" >
+											<span class="xmark"></span>
+										</label>
+									</div>-->
+									<!--<div class="medium-6 small-6 cell filter-style-item filter-button"></div>-->
+                    <!-- Begin list of colors -->
+                    {% assign tags = 'Black, Blue, Gray, Red, Pink, White, Brown, Green,  Natural, Yellow,  Orange, Hand dyed' | split: ',' %}
+
+                    {% for t in tags %}
+        		       {% assign tagCount = 0 %}
+        		           {% assign tag = t | strip %}
+						   {% paginate collection.products by 1000 %}
+        		       	{% for product in collection.products %}
+        		       	  {% for productTag in product.tags %}
+        		       	    {% if productTag == tag %}
+        		       	       {% assign tagCount = tagCount | plus: 1 %}
+        		       	    {% endif %}
+        		       	  {% endfor %}
+        		       	{% endfor %}
+					   	{% endpaginate %}
+
+                    <div class="medium-3 small-3 cell filter-style-item filter-button">
+                      <label class="container tag-count {% if tagCount > 0 %} enabled{% else %} disabled{% endif %}">
+
+                        {% if current_tags contains tag %}
+            		        <input name="color" type="radio" class="color-input coll-filter " value="{{ tag | handle }}" checked="checked">
+            		        {% else %}
+            		        <input name="color" type="radio" class="color-input coll-filter" value="{{ tag | handle }}" >
+            		        {% endif %}
+							<span data-tooltip tabindex="1" title="{{ tag | handle }}" class="bottom"> <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/color-{{ tag | handle }}.png" class="filter-color-circle" /></span>
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                    {% endfor %}
+
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#style">Collection</a>
+              <ul class="menu vertical nested apply-active">
+                <li class="filters">
+                  <div class="grid-x grid-padding-x filter-style">
+					<!--<div class="medium-6 small-6 cell filter-style-item filter-button">
+					  <label class="container clear">Clear Filter
+						<input name="style" type="radio" class="coll-filter" value="" >
+					    <span class="xmark"></span>
+					  </label>
+					</div>
+					<div class="medium-6 small-6 cell filter-style-item filter-button"></div>-->
+                    <!-- Begin list of styles -->
+                    {% assign tags = 'Resort, Montecristi, Hand Dye, Indigo,  Bridal ' | split: ',' %}
+
+                    {% for t in tags %}
+        		        {% assign tagCount = 0 %}
+        		            {% assign tag = t | strip %}
+							{% paginate collection.products by 1000 %}
+        		        	{% for product in collection.products %}
+        		        	  {% for productTag in product.tags %}
+        		        	    {% if productTag == tag %}
+        		        	       {% assign tagCount = tagCount | plus: 1 %}
+        		        	    {% endif %}
+        		        	  {% endfor %}
+        		        	{% endfor %}
+{% endpaginate %}
+                    <div class="medium-6 small-6 cell filter-style-item filter-button check-type">
+                      <label class="container tag-count {% if tagCount > 0 %} enabled{% else %} disabled{% endif %}">{{ tag }}
+                        {% if current_tags contains tag %}
+            		        <input name="style" type="radio" class="coll-filter " value="{{ tag | handle }}" checked="checked">
+            		        {% else %}
+            		        <input name="style" type="radio" class="coll-filter" value="{{ tag | handle }}" >
+            		        {% endif %}
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+
+                    {% endfor %}
+ 
+                  </div>
+                </li>
+              </ul>
+            </li>
+            
+            <li>
+              <a href="#price">Price</a> 
+              <ul class="menu vertical nested apply-active">
+                <li class="filters">
+                  <div class="grid-x grid-padding-x filter-price">
+					<!--<div class="medium-6 small-6 cell filter-style-item filter-button">
+					  <label class="container" id="querystring">Clear Filter
+					    <span class="xmark"></span>
+					  </label>
+					</div>
+					<div class="medium-6 small-6 cell filter-style-item filter-button"></div>-->
+                    <!-- Begin list of prices -->
+                   
+                   
+
+
+<form action="" id="form">
+    <div id="slider-range"></div>
+	<input type="text" id="amount" readonly style="border: none !important;color: #28b1ff;font-weight: normal;font-size: 17px !important;" />
+    <input id="minValue" name="filter.v.price.gte" type="hidden"  />
+    <input id="maxValue" name="filter.v.price.lte" type="hidden"  />
+</form>
+
+                  </div>
+                </li>
+              </ul>
+            </li>
+			{% if collection.handle == 'women' or collection.handle == 'men' or collection.handle == 'all' %}
+			<li>
+              <a href="#material">Material</a>
+              <ul class="menu vertical nested apply-active">
+                <li class="filters">
+                  <div class="grid-x grid-padding-x filter-material">
+					<!--<div class="medium-6 small-6 cell filter-style-item filter-button">
+					  <label class="container clear">Clear Filter
+						<input name="material" type="radio" class="coll-filter" value="" >
+					    <span class="xmark"></span>
+					  </label>
+					</div>
+					<div class="medium-6 small-6 cell filter-style-item filter-button"></div>-->
+                    <!-- Begin list of prices -->
+                    {% assign tags = 'Straw, Felt, Cashmere' | split: ',' %}
+
+                    {% for t in tags %}
+        		        {% assign tagCount = 0 %}
+        		            {% assign tag = t | strip %}
+							{% paginate collection.products by 1000 %}
+        		        	{% for product in collection.products %}
+        		        	  {% for productTag in product.tags %}
+        		        	    {% if productTag == tag %}
+        		        	       {% assign tagCount = tagCount | plus: 1 %}
+        		        	    {% endif %}
+        		        	  {% endfor %}
+							  
+        		        	{% endfor %}
+{% endpaginate %}
+
+                    <div class="medium-6 small-6 cell filter-style-item filter-button check-type">
+                      <label class="container tag-count{% if tagCount > 0 %} enabled{% else %} disabled{% endif %}">
+                     
+						 {% if tag == 'Straw' %}Straw{% endif %}
+						 {% if tag == 'Felt' %}Felt{% endif %}
+                      {% if tag == 'Cashmere' %}Cashmere{% endif %}
+                        {% if current_tags contains tag %}
+            		        <input name="material" type="radio" class="coll-filter " value="{{ tag | handle }}" checked="checked">
+            		        {% else %}
+            		        <input name="material" type="radio" class="coll-filter" value="{{ tag | handle }}" >
+            		        {% endif %}
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+
+                    {% endfor %}
+
+                  </div>
+                </li>
+              </ul>
+            </li>
+			{% endif %}
+   <li>
+              <a href="#ready">Availability</a>
+              <ul class="menu vertical nested apply-active">
+                <li class="filters">
+                  <div class="grid-x grid-padding-x filter-season">
+				
+                    <!-- Begin list of seasons -->
+                    {% assign tags = 'ready to ship' | split: ',' %}
+
+
+
+
+                    {% for t in tags %}
+          					{% assign tagCount = 0 %}
+                  	{% assign tag = t | strip %}
+				  	{% paginate collection.products by 1000 %}
+          						{% for product in collection.products %}
+          						  {% for productTag in product.tags %}
+          						    {% if productTag == tag %}
+          						       {% assign tagCount = tagCount | plus: 1 %}
+          						    {% endif %}
+          						  {% endfor %}
+          						{% endfor %}
+{% endpaginate %}
+
+                    <div class="medium-12 small-12 cell filter-style-item filter-button check-type">
+						<label class="container tag-count{% if tagCount > 0 %} enabled{% else %} disabled{% endif %}"><span class="rts" style="display: block;">{{ tag }} <img src="{{'icon-ship.png' | asset_url}}" alt="Ready to Ship" /></span>
+
+                        {% if current_tags contains tag %}
+            		        <input name="ready" type="radio" class="coll-filter" value="{{ tag | handle }}" checked="checked">
+            		        {% else %}
+							<input name="ready" type="radio" class="coll-filter" value="{{ tag | handle }}">
+            		        {% endif %}
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+
+                    {% endfor %}
+	<!--<div class="medium-6 small-6 cell filter-style-item filter-button">
+					  <label class="container clear">Clear Filter
+						<input name="ready" type="radio" class="coll-filter" value="" >
+					    <span class="xmark"></span>
+					  </label>
+					</div>
+					<div class="medium-6 small-6 cell filter-style-item filter-button"></div>-->
+                  </div>
+                </li>
+              </ul>
+            </li>
+            
+          </ul>
+           
+ <div class="clear-filter" style="margin-top:8px"><a href="{{collection.url}}" class="filter-btn"><i class="fa fa-refresh" aria-hidden="true"></i> Clear Filters</a></div>
+
+        </div>
+      </div>
+
+	  <div class="medium-3 cell done hide-for-large text-center">
+	  	<a href="javascript:;" >DONE <span><i class="fal fa-times"></i></span></a>
+	  </div>
+    {% endif %}
+      <div class="medium-12 large-9 collection-wrap cell">
+
+        <!-- Product List -->
+        <div data-jplist-group="data-products" class="grid-x grid-padding-x AjaxinateLoop" id="product-list">
+
+          {% if collection.handle == 'mens-hare-felt-hats' or collection.handle == 'ready-to-ship-men' %}
+			{% paginate collection.products by 18 %}
+			{% for product in collection.products %}
+			          {% unless product.tags contains 'Hide' %}
+			          <!-- Product List Item -->
+			          <div data-jplist-item class="medium-4 small-6 cell text-center prod-list-item red style1">
+			            <div class="prod-wrap">
+			              <a class="product-card" href="{{ product.url }}">
+			                <div class="product-image-wrap"{% if product.metafields.accentuate.lifestyle %} style="background-image:url('{{ product.metafields.accentuate.lifestyle }}')"{% endif %}>
+			
+			                  {% if product.metafields.accentuate.lifestyle == blank %}
+			                    {% for image in product.images %}
+			                    {% if forloop.first %}
+			                    <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" alt="">
+			                    <img src="{{ product.images[1] | product_img_url: 'master' }}" class="prod-hat2" alt="">
+			                    {% endif %}
+			                    {% endfor %}
+			                  {% else %}
+			                    <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" />
+			                  {% endif %}
+			
+			                  {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
+			                  {% for selected_handle in selected_handles %}
+			                    <img src="{{ all_products[selected_handle].metafields.accentuate.productImg }}" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" class="prod-hat-color {{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+			                  {% endfor %}
+			
+			                </div>
+			                <h2>{% if product.metafields.accentuate.product_short_name == blank %}{{ product.title }}{% else %}{{ product.metafields.accentuate.product_short_name }}{% endif %}</h2>
+							        {% if product.available %} {% else %} <p class="small-body-title on-sale">Sold Out</p>{% endif %}
+			                <p class="price">{%- if product.price_varies -%}
+			                  <span class="visuallyhidden">Starting at</span>
+			                  {% if product.compare_at_price_max > product.price %} <del>{{ product.compare_at_price_min | money }}</del> <span class="on-sale">{{ product.price | money }}</span>{%- else -%}<span>{{ product.price | money }}</span>{% endif %}
+			                  {%- else -%}
+			
+			                   {% if product.compare_at_price_max > product.price %} <del>{{ product.compare_at_price_min | money }}</del> <span class="on-sale">{{ product.price | money }}</span>{%- else -%}<span>{{ product.price | money }}</span>{% endif %}
+			                  {%- endif -%}
+			                </p>
+			              </a>
+			
+			              <div class="product-list-colors">
+			
+			                <div class="product-list-colors">
+			                  {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
+			                  {% for selected_handle in selected_handles %}
+			                    <a href="{{ all_products[selected_handle].url }}"  class="color-swatch-wrap" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}">
+			                      <img src="{{ all_products[selected_handle].metafields.accentuate.swatchImage }}"  width="16" height="16" class="product-list-swatch color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+			                    </a>
+			                  {% endfor %}
+			                </div>
+			
+			              </div>
+			
+			            </div>
+			            <span class="{% for tag in product.tags %}{{ tag | handle }} {% endfor %}">
+			            </span>
+			          </div>
+			          {% endunless %}
+			          {% endfor %}
+			        </div>
+			
+			        <div class="grid-x grid-padding-x load-me">
+			          <div class="AjaxinatePagination medium-12 cell text-center">
+			            {% if paginate.next %}
+			            <a href="{{ paginate.next.url }}">Load More</a>
+			            {% endif %}
+			
+			          </div>
+			        </div>
+					{% endpaginate %}
+         {% elsif collection.handle == 'ready-to-ship-women' %}
+			{% paginate collection.products by 12 %}
+			{% for product in collection.products %}
+			          {% unless product.tags contains 'Hide' %}
+			          <!-- Product List Item -->
+			          <div data-jplist-item class="medium-4 small-6 cell text-center prod-list-item red style1">
+			            <div class="prod-wrap">
+			              <a class="product-card" href="{{ product.url }}">
+			                <div class="product-image-wrap"{% if product.metafields.accentuate.lifestyle %} style="background-image:url('{{ product.metafields.accentuate.lifestyle }}')"{% endif %}>
+			
+			                  {% if product.metafields.accentuate.lifestyle == blank %}
+			                    {% for image in product.images %}
+			                    {% if forloop.first %}
+			                    <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" alt="">
+			                    <img src="{{ product.images[1] | product_img_url: 'master' }}" class="prod-hat2" alt="">
+			                    {% endif %}
+			                    {% endfor %}
+			                  {% else %}
+			                    <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" />
+			                  {% endif %}
+			
+			                  {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
+			                  {% for selected_handle in selected_handles %}
+			                    <img src="{{ all_products[selected_handle].metafields.accentuate.productImg }}" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" class="prod-hat-color {{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+			                  {% endfor %}
+			
+			                </div>
+			                <h2>{% if product.metafields.accentuate.product_short_name == blank %}{{ product.title }}{% else %}{{ product.metafields.accentuate.product_short_name }}{% endif %}</h2>
+							        {% if product.available %} {% else %} <p class="small-body-title on-sale">Sold Out</p>{% endif %}
+			                <p class="price">{%- if product.price_varies -%}
+			                  <span class="visuallyhidden">Starting at</span>
+			                  {% if product.compare_at_price_max > product.price %} <del>{{ product.compare_at_price_min | money }}</del> <span class="on-sale">{{ product.price | money }}</span>{%- else -%}<span>{{ product.price | money }}</span>{% endif %}
+			                  {%- else -%}
+			
+			                   {% if product.compare_at_price_max > product.price %} <del>{{ product.compare_at_price_min | money }}</del> <span class="on-sale">{{ product.price | money }}</span>{%- else -%}<span>{{ product.price | money }}</span>{% endif %}
+			                  {%- endif -%}
+			                </p>
+			              </a>
+			
+			              <div class="product-list-colors">
+			
+			                <div class="product-list-colors">
+			                  {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
+			                  {% for selected_handle in selected_handles %}
+			                    <a href="{{ all_products[selected_handle].url }}"  class="color-swatch-wrap" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}">
+			                      <img src="{{ all_products[selected_handle].metafields.accentuate.swatchImage }}"  width="16" height="16" class="product-list-swatch color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+			                    </a>
+			                  {% endfor %}
+			                </div>
+			
+			              </div>
+			
+			            </div>
+			            <span class="{% for tag in product.tags %}{{ tag | handle }} {% endfor %}">
+			            </span>
+			          </div>
+			          {% endunless %}
+			          {% endfor %}
+			        </div>
+			
+			        <div class="grid-x grid-padding-x load-me">
+			          <div class="AjaxinatePagination medium-12 cell text-center">
+			            {% if paginate.next %}
+			            <a href="{{ paginate.next.url }}">Load More</a>
+			            {% endif %}
+			
+			          </div>
+			        </div>
+					{% endpaginate %}
+			{% else %}
+			{% paginate collection.products by 30 %}
+          {% for product in collection.products %}
+          {% unless product.tags contains 'Hide' %}
+          <!-- Product List Item -->
+          <div data-jplist-item class="medium-4 small-6 cell text-center prod-list-item red style1">
+            <div class="prod-wrap">
+              <a class="product-card" href="{{ product.url }}">
+                <div class="product-image-wrap"{% if product.metafields.accentuate.lifestyle %} style="background-image:url('{{ product.metafields.accentuate.lifestyle }}')"{% endif %}>
+
+                  {% if product.metafields.accentuate.lifestyle == blank %}
+                    {% for image in product.images %}
+                    {% if forloop.first %}
+                    <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" alt="">
+                    <img src="{{ product.images[1] | product_img_url: 'master' }}" class="prod-hat2" alt="">
+                    {% endif %}
+                    {% endfor %}
+                  {% else %}
+                    <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" />
+                  {% endif %}
+
+                  {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
+                  {% for selected_handle in selected_handles %}
+                    <img src="{{ all_products[selected_handle].metafields.accentuate.productImg }}" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" class="prod-hat-color {{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+                  {% endfor %}
+
+                </div>
+                <h2>{% if product.metafields.accentuate.product_short_name == blank %}{{ product.title }}{% else %}{{ product.metafields.accentuate.product_short_name }}{% endif %}</h2>
+				        {% if product.available %} {% else %} <p class="small-body-title on-sale">Sold Out</p>{% endif %}
+                <p class="price">{%- if product.price_varies -%}
+                  <span class="visuallyhidden">Starting at</span>
+                  {% if product.compare_at_price_max > product.price %} <del>{{ product.compare_at_price_min | money }}</del> <span class="on-sale">{{ product.price | money }}</span>{%- else -%}<span>{{ product.price | money }}</span>{% endif %}
+                  {%- else -%}
+
+                   {% if product.compare_at_price_max > product.price %} <del>{{ product.compare_at_price_min | money }}</del> <span class="on-sale">{{ product.price | money }}</span>{%- else -%}<span>{{ product.price | money }}</span>{% endif %}
+                  {%- endif -%}
+                </p>
+              </a>
+
+              <div class="product-list-colors">
+
+                <div class="product-list-colors">
+                  {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
+                  {% for selected_handle in selected_handles %}
+                    <a href="{{ all_products[selected_handle].url }}"  class="color-swatch-wrap" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}">
+                      <img src="{{ all_products[selected_handle].metafields.accentuate.swatchImage }}"  width="16" height="16" class="product-list-swatch color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+                    </a>
+                  {% endfor %}
+                </div>
+
+              </div>
+
+            </div>
+            <span class="{% for tag in product.tags %}{{ tag | handle }} {% endfor %}">
+            </span>
+          </div>
+          {% endunless %}
+          {% endfor %}
+        </div>
+
+        <div class="grid-x grid-padding-x load-me">
+          <div class="AjaxinatePagination medium-12 cell text-center">
+            {% if paginate.next %}
+            <a href="{{ paginate.next.url }}">Load More</a>
+            {% endif %}
+
+          </div>
+        </div>
+		{% endpaginate %}
+		
+					{% endif %}
+		
+      </div>
+    </div>
+  </div>
+  <div class="sticky-description">
+  	<p class="small-body-title">{{ collection.metafields.accentuate.description_title }}</p>
+  	<div class="text">{{ collection.metafields.accentuate.description_text }}</div>
+  </div>
+</section>
+{% if collection.metafields.accentuate.video_url %}
+<div class="full reveal" id="watch-video" data-reveal data-animation-in="fade-in" data-animation-out="fade-out" data-reset-on-close="true">
+    <div class="icon-fullscreen-video">
+        <video class="videofile" poster="{{ collection.metafields.collection.image }}" controls="">
+            <source src="{{ collection.metafields.accentuate.video_url }}" type="video/mp4">
+        </video>
+    </div>
+    <span class="close" data-close>x</span>
+</div>
+{% endif %}
+
+<!-- Collection pages tags and URL creation -->
+<!--  <script>
+  if (jQuery('.all-btn').prop('checked')) {
+      jQuery('.allCheck').prop('checked',false)
+  }
+  else {
+      jQuery('.allCheck').prop('checked',true)
+  };
+  </script>-->
+  <!-- Collection pages tags and URL creation -->
+  <script>
+    Shopify.queryParams = {};
+    if (location.search.length) {
+      for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+        aKeyValue = aCouples[i].split('=');
+        if (aKeyValue.length > 1) {
+          Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+        }
+      }
+    }
+    var collFilters = jQuery('.coll-filter');
+    collFilters.change(function() {
+      var newTags = [];
+      var newURL = '';
+      delete Shopify.queryParams.page;
+      collFilters.each(function() {
+        if (jQuery(this).val() && jQuery(this).is(':checked')) {
+          newTags.push(jQuery(this).val());
+        }
+      });
+      {% if collection.handle %}
+      newURL = '/collections/' + '{{ collection.handle }}';
+      if (newTags.length) {
+        newURL += '/' + newTags.join('+');
+      }
+      var search = jQuery.param(Shopify.queryParams);
+      if (search.length) {
+        newURL += '?' + search;
+      }
+      location.href = newURL;
+      {% else %}
+      if (newTags.length) {
+        Shopify.queryParams.constraint = newTags.join('+');
+      }
+      else {
+        delete Shopify.queryParams.constraint;
+      }
+      location.search = jQuery.param(Shopify.queryParams).replace(/\+/g, '%20');
+      {% endif %}
+    });
+
+    $(document).ready(function($) {
+        $('.fullscreen-watch').click(function() {
+            $('.videofile').trigger('play');
+        });
+    });
+
+$(window).bind('scroll', function() {
+    if($(window).scrollTop() >= $('#productList .collection-wrap').offset().top + $('#productList .collection-wrap').outerHeight() - window.innerHeight) {
+       $('.sticky-description').css('opacity', '1');
+    } else {
+		$('.sticky-description').css('opacity', '0');
+	}
+
+});
+</script>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var endlessClick = new Ajaxinate({
+        method: 'click'
+      });
+    });
+
+  </script>
+

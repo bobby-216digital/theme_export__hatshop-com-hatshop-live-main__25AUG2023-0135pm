@@ -1,0 +1,617 @@
+<div class="header-spacer"></div>
+<!-- Hat Size -->
+<section class="repair-services hat-size-page-services">
+	<div class="hat-size-picture show-for-large" style="width: 50%;display: inline-block;vertical-align: top;"><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/hatsize.jpg?5821" alt="" style="width: 100%;max-width: 100%;"  />
+	</div><div class="hat-size-page" id="showSize" style="width: 50%;display: inline-block;vertical-align: top;">
+		<div class="cart-drawer-padding">
+
+
+			<!-- Hat size chart and help -->
+			<div class="grid-container">
+				<div class="grid-x grid-padding-x">
+					<div class="small-12 cell">
+						<!-- Tabs -->
+						<ul class="tabs size-me" data-tabs id="example-tabs">
+							<li class="tabs-title is-active how-tab"><a href="#sizeHow" aria-selected="true" class="active">{{ 'Hatsize_1@2x.png' | asset_url | img_tag: 'How to size' }} How to Measure</a></li>
+							<li class="tabs-title size-tab"><a data-tabs-target="sizeChart" href="#sizeChart">{{ 'size.png' | asset_url | img_tag: 'Call' }} Size Chart</a></li>
+						</ul>
+						<!-- Content -->
+						<div class="tabs-content size-steps" data-tabs-content="example-tabs">
+							<!-- How to measure your hat -->
+							<div class="tabs-panel is-active" id="sizeHow">
+								<div class="step1 size-step">
+									<h3>First, how would you wear your hat?</h3>
+									<div class="grid-x grid-padding-x text-center">
+										<div class="small-6 cell">
+											<div class="halo-wrap">
+												<label class="style-click" for="halo" id="halo-wrap">
+													<input name="measure" id="halo" type="radio" class="hat-measure" value="halo" >
+													<img src="{{ 'hat-size-halo.jpg' | asset_url }}" />
+													<h5>Halo Style</h5>
+												</label>
+											</div>
+										</div>
+										<div class="small-6 cell">
+											<div class="trad-wrap">
+	          						<label class="style-click" for="traditional" id="traditional-wrap">
+	          								<input name="measure" type="radio" class="hat-measure" id="traditional" value="traditional" >
+	          								<img src="{{ 'traditional.jpg' | asset_url }}" />
+	          								<h5>CLASSIC STYLE</h5>
+	          							</label>
+	        						</div>
+										</div>
+										<div class="small-12 cell text-center">
+											<a href="#" class="text-link read-tips" data-tips-id="step-1"><span class="close-tips">X </span>READ TIPS</a>
+											<div class="tips" data-tips-id="step-1">
+												<p>You will need to have a cloth tape measure handy and it helps if you have assistance from another person to ensure accuracy. </p>
+
+												<p>Do not pull the tape measure too tight or your hat will fit just as snug. Measure exactly how you like wearing your hats. Do not try to measure the inside of a hat, this never works. It’s much easier and accurate to measure your head or have assistance.</p>
+											</div>
+										</div>
+										<div class="small-12 cell text-center">
+											<div class="button filled  go-to-step-2">Measure Your Head</div>
+										</div>
+									</div>
+								</div>
+								<div class="step2 halo size-step relative" id="step2Size">
+									<h3>Measure for the <span id="style-selector-halo"><span class="selector-border">Halo style</span>: <i class="fal fa-chevron-down"></i></span></h3>
+									<div id="style-select3">
+										<!-- Single size output -->
+										<label for="tradselector" class="style-select-item update-size-item">
+											<input type="radio" id="tradselector" name="style" class="style-select update-size" value="halo" checked>
+											<span>Classic Style</span>
+										</label>
+
+									</div>
+									<div class="small-12 cell text-center">
+										<div class="measure-video">
+											<video id="step2SizeVideo" src="https://player.vimeo.com/external/345708979.hd.mp4?s=67fcf8987e067587dadd8f04c8385d4fccf6131e&profile_id=174" controls poster="https://i.vimeocdn.com/video/795554972.jpg"></video>
+										</div>
+										<a href="#" class="text-link read-tips" data-tips-id="halo-step-2"><span class="close-tips">X </span>READ TIPS</a>
+										<div class="tips" data-tips-id="halo-step-2">
+											<p>With a cloth tape measure start at the center front of the forehead. Hold the tape firm, then pull around to the ear, at the angle desired above the ear. Continue under your occipital bone which is located in the back of your head, then back around following the same procedure ending at the starting point.<Br />You will either have inches or centimeters depending on the type of tape measure used.</p>
+										</div>
+										<div class="small-12 cell text-center">
+											<div class="button filled go-to-step-3">Select Your Measurement</div>
+											<p class="go-to-step-1 remove"><a href="javascript:;">START OVER</a></p>
+										</div>
+									</div>
+								</div>
+								<div class="step2 traditional size-step relative" id="classicStep2">
+									<h3>Measure for the <span id="style-selector-trad"><span class="selector-border">Classic style</span>: <i class="fal fa-chevron-down"></i></span></h3>
+									<div id="style-select2">
+										<!-- Single size output -->
+										<label for="haloselector" class="style-select-item update-size-item">
+											<input type="radio" id="haloselector" name="style" class="style-select update-size" value="halo" checked>
+											<span>Halo Style</span>
+										</label>
+
+									</div>
+									<div class="small-12 cell text-center">
+										<div class="measure-video">
+											<video id="classic2SizeVideo" src="https://player.vimeo.com/external/345708792.hd.mp4?s=f7b93326432b4dd03f439ebd83ac60b4a3f0a88b&profile_id=174" controls poster="https://i.vimeocdn.com/video/795554885.jpg"></video>
+										</div>
+										<a href="#" class="text-link read-tips" data-tips-id="trad-step-2"><span class="close-tips">X </span>READ TIPS</a>
+										<div class="tips" data-tips-id="trad-step-2">
+											<p>With a cloth tape measure start at the center front of the forehead. Hold the tape firm, then pull around to the ear, at about an index finger above the ear. Continue over your occipital bone which is located in the back of your head, then back around following the same procedure ending at the starting point. <br />You will either have inches or centimeters depending on the type of tape measure used.</p>
+										</div>
+										<div class="small-12 cell text-center">
+											<div class="button filled go-to-step-3">Select Your Measurement</div>
+											<p class="go-to-step-1 remove"><a href="javascript:;">START OVER</a></p>
+										</div>
+									</div>
+								</div>
+								<div class="step3 size-step relative">
+									<h3>Select your measurement (cm):</h3>
+									<div class="currrent-size-wrap2 sizeguide-wrap relative">
+										<p id="current-size2"><span class="head-text">Head Measurement</span><span class="selected-measurement"></span> <i class="fal fa-chevron-down"></i></p>
+										<!-- Sizes dropdown container -->
+										<div id="size-select2">
+											<!-- Single size output -->
+											<label for="chartSize1" class="size-select-item update-size-item sizeguide-select">
+												<input type="radio" id="chartSize1" name="size" class="size-select update-size" value="1" checked>
+												<span>53</span>
+											</label>
+											<!-- Single size output -->
+											<label for="chartSize2" class="size-select-item update-size-item sizeguide-select">
+												<input type="radio" id="chartSize2" name="size" class="size-select update-size" value="2">
+												<span>54</span>
+											</label>
+											<!-- Single size output -->
+											<label for="chartSize3" class="size-select-item update-size-item sizeguide-select">
+												<input type="radio" id="chartSize3" name="size" class="size-select update-size" value="3">
+												<span>55</span>
+											</label>
+											<!-- Single size output -->
+											<label for="chartSize4" class="size-select-item update-size-item sizeguide-select">
+												<input type="radio" id="chartSize4" name="size" class="size-select update-size" value="4">
+												<span>56</span>
+											</label>
+											<!-- Single size output -->
+											<label for="chartSize5" class="size-select-item update-size-item sizeguide-select">
+												<input type="radio" id="chartSize5" name="size" class="size-select update-size" value="5">
+												<span>57</span>
+											</label>
+											<!-- Single size output -->
+											<label for="chartSize6" class="size-select-item update-size-item sizeguide-select">
+												<input type="radio" id="chartSize6" name="size" class="size-select update-size" value="6">
+												<span>58</span>
+											</label>
+											<!-- Single size output -->
+											<label for="chartSize7" class="size-select-item update-size-item sizeguide-select">
+												<input type="radio" id="chartSize7" name="size" class="size-select update-size" value="7">
+												<span>59</span>
+											</label>
+											<!-- Single size output -->
+											<label for="chartSize8" class="size-select-item update-size-item sizeguide-select">
+												<input type="radio" id="chartSize8" name="size" class="size-select update-size" value="8">
+												<span>60</span>
+											</label>
+											<!-- Single size output -->
+											<label for="chartSize9" class="size-select-item update-size-item sizeguide-select">
+												<input type="radio" id="chartSize9" name="size" class="size-select update-size" value="9">
+												<span>61</span>
+											</label>
+											<!-- Single size output -->
+											<label for="chartSize10" class="size-select-item update-size-item sizeguide-select">
+												<input type="radio" id="chartSize10" name="size" class="size-select update-size" value="10">
+												<span>62</span>
+											</label>
+											<!-- Single size output -->
+											<label for="chartSize11" class="size-select-item update-size-item sizeguide-select">
+												<input type="radio" id="chartSize11" name="size" class="size-select update-size" value="11">
+												<span>63</span>
+											</label>
+											<!-- Single size output -->
+											<label for="chartSize12" class="size-select-item update-size-item sizeguide-select">
+												<input type="radio" id="chartSize12" name="size" class="size-select update-size" value="12">
+												<span>64</span>
+											</label>
+											<!-- Single size output -->
+											<label for="chartSize13" class="size-select-item update-size-item sizeguide-select">
+												<input type="radio" id="chartSize13" name="size" class="size-select update-size" value="13">
+												<span>65</span>
+											</label>
+										</div>
+									</div>
+					        <div class="fill head">
+										<ul class="size-list s0">
+											<li><span class="small-6 cell us-label">US Hat Size</span><span class="small-6 cell text-right us-value">-</span></li>
+											<li><span class="small-6 cell uk-label">UK Hat Size</span><span class="small-6 cell text-right uk-value">-</span></li>
+											<li><span class="small-6 cell cm-label">Head Size in IN</span><span class="small-6 cell text-right cm-value">-</span></li>
+											<li><span class="small-6 cell size-label">Hat Size</span><span class="small-6 cell text-right size-value">-</span></li>
+										</ul>
+										<ul class="size-list s1">
+											<li><span class="small-6 cell us-label">US Hat Size</span><span class="small-6 cell text-right us-value">6 5/8</span></li>
+											<li><span class="small-6 cell uk-label">UK Hat Size</span><span class="small-6 cell text-right uk-value">6 1/2</span></li>
+											<li><span class="small-6 cell cm-label">Head Size in IN</span><span class="small-6 cell text-right cm-value">20 7/8</span></li>
+											<li><span class="small-6 cell size-label">Hat Size</span><span class="small-6 cell text-right size-value">X-Small</span></li>
+										</ul>
+										<ul class="size-list s2">
+											<li><span class="small-6 cell us-label">US Hat Size</span><span class="small-6 cell text-right us-value">6 3/4</span></li>
+											<li><span class="small-6 cell uk-label">UK Hat Size</span><span class="small-6 cell text-right uk-value">6 5/8</span></li>
+											<li><span class="small-6 cell cm-label">Head Size in IN</span><span class="small-6 cell text-right cm-value">21 1/4</span></li>
+											<li><span class="small-6 cell size-label">Hat Size</span><span class="small-6 cell text-right size-value">Small</span></li>
+										</ul>
+										<ul class="size-list s3">
+											<li><span class="small-6 cell us-label">US Hat Size</span><span class="small-6 cell text-right us-value">6 7/8</span></li>
+											<li><span class="small-6 cell uk-label">UK Hat Size</span><span class="small-6 cell text-right uk-value">6 3/4</span></li>
+											<li><span class="small-6 cell cm-label">Head Size in IN</span><span class="small-6 cell text-right cm-value">21 5/8</span></li>
+											<li><span class="small-6 cell size-label">Hat Size</span><span class="small-6 cell text-right size-value">Small</span></li>
+										</ul>
+										<ul class="size-list s4">
+											<li><span class="small-6 cell us-label">US Hat Size</span><span class="small-6 cell text-right us-value">7</span></li>
+											<li><span class="small-6 cell uk-label">UK Hat Size</span><span class="small-6 cell text-right uk-value">6 7/8</span></li>
+											<li><span class="small-6 cell cm-label">Head Size in IN</span><span class="small-6 cell text-right cm-value">22</span></li>
+											<li><span class="small-6 cell size-label">Hat Size</span><span class="small-6 cell text-right size-value">Medium</span></li>
+										</ul>
+										<ul class="size-list s5">
+											<li><span class="small-6 cell us-label">US Hat Size</span><span class="small-6 cell text-right us-value">7 1/8</span></li>
+											<li><span class="small-6 cell uk-label">UK Hat Size</span><span class="small-6 cell text-right uk-value">7</span></li>
+											<li><span class="small-6 cell cm-label">Head Size in IN</span><span class="small-6 cell text-right cm-value">22 1/8</span></li>
+											<li><span class="small-6 cell size-label">Hat Size</span><span class="small-6 cell text-right size-value">Medium</span></li>
+										</ul>
+										<ul class="size-list s6">
+											<li><span class="small-6 cell us-label">US Hat Size</span><span class="small-6 cell text-right us-value">7 1/4</span></li>
+											<li><span class="small-6 cell uk-label">UK Hat Size</span><span class="small-6 cell text-right uk-value">7 1/8</span></li>
+											<li><span class="small-6 cell cm-label">Head Size in IN</span><span class="small-6 cell text-right cm-value">22 7/8</span></li>
+											<li><span class="small-6 cell size-label">SIZE</span><span class="small-6 cell text-right size-value">Large</span></li>
+										</ul>
+										<ul class="size-list s7">
+											<li><span class="small-6 cell us-label">US Hat Size</span><span class="small-6 cell text-right us-value">7 3/8</span></li>
+											<li><span class="small-6 cell uk-label">UK Hat Size</span><span class="small-6 cell text-right uk-value">7 1/4</span></li>
+											<li><span class="small-6 cell cm-label">Head Size in IN</span><span class="small-6 cell text-right cm-value">23 1/4</span></li>
+											<li><span class="small-6 cell size-label">Hat Size</span><span class="small-6 cell text-right size-value">Large</span></li>
+										</ul>
+										<ul class="size-list s8">
+											<li><span class="small-6 cell us-label">US Hat Size</span><span class="small-6 cell text-right us-value">7 1/2</span></li>
+											<li><span class="small-6 cell uk-label">UK Hat Size</span><span class="small-6 cell text-right uk-value">7 3/8</span></li>
+											<li><span class="small-6 cell cm-label">Head Size in IN</span><span class="small-6 cell text-right cm-value">23 5/8</span></li>
+											<li><span class="small-6 cell size-label">Hat Size</span><span class="small-6 cell text-right size-value">x-Large</span></li>
+										</ul>
+										<ul class="size-list s9">
+											<li><span class="small-6 cell us-label">US Hat Size</span><span class="small-6 cell text-right us-value">7 5/8</span></li>
+											<li><span class="small-6 cell uk-label">UK Hat Size</span><span class="small-6 cell text-right uk-value">7 1/2</span></li>
+											<li><span class="small-6 cell cm-label">Head Size in IN</span><span class="small-6 cell text-right cm-value">24</span></li>
+											<li><span class="small-6 cell size-label">Hat Size</span><span class="small-6 cell text-right size-value">x-Large</span></li>
+										</ul>
+										<ul class="size-list s10">
+											<li><span class="small-6 cell us-label">US Hat Size</span><span class="small-6 cell text-right us-value">7 3/4</span></li>
+											<li><span class="small-6 cell uk-label">UK Hat Size</span><span class="small-6 cell text-right uk-value">7 5/8</span></li>
+											<li><span class="small-6 cell cm-label">Head Size in IN</span><span class="small-6 cell text-right cm-value">24 3/8</span></li>
+											<li><span class="small-6 cell size-label">Hat Size</span><span class="small-6 cell text-right size-value">XX-Large</span></li>
+										</ul>
+										<ul class="size-list s11">
+											<li><span class="small-6 cell us-label">US Hat Size</span><span class="small-6 cell text-right us-value">7 7/8</span></li>
+											<li><span class="small-6 cell uk-label">UK Hat Size</span><span class="small-6 cell text-right uk-value">7 3/4</span></li>
+											<li><span class="small-6 cell cm-label">Head size in IN</span><span class="small-6 cell text-right cm-value">24 3/4</span></li>
+											<li><span class="small-6 cell size-label">Hat Size</span><span class="small-6 cell text-right size-value">XX-Large</span></li>
+										</ul>
+										<ul class="size-list s12">
+											<li><span class="small-6 cell us-label">US Hat Size</span><span class="small-6 cell text-right us-value">8</span></li>
+											<li><span class="small-6 cell uk-label">UK Hat Size</span><span class="small-6 cell text-right uk-value">7 7/8</span></li>
+											<li><span class="small-6 cell cm-label">Head Size in IN</span><span class="small-6 cell text-right cm-value">25 1/4</span></li>
+											<li><span class="small-6 cell size-label">Hat Size</span><span class="small-6 cell text-right size-value">XX-Large</span></li>
+										</ul>
+										<ul class="size-list s13">
+											<li><span class="small-6 cell us-label">US Hat Size</span><span class="small-6 cell text-right us-value">8 1/8</span></li>
+											<li><span class="small-6 cell uk-label">UK</span><span class="small-6 cell text-right uk-value">8</span></li>
+											<li><span class="small-6 cell cm-label">Head Size in IN</span><span class="small-6 cell text-right cm-value">25 5/8</span></li>
+											<li><span class="small-6 cell size-label">Hat Size</span><span class="small-6 cell text-right size-value">XXX-Large</span></li>
+										</ul>
+					        		</div>
+									<div class="small-12 cell text-center">
+										<a href="#" class="text-link read-tips" data-tips-id="step-3"><span class="close-tips">X </span>READ TIPS</a>
+										<div class="tips" data-tips-id="step-3">
+											<p>Taking the size tag in a hat you own that fits well, then using the Hat Size Chart above to convert the size on the tag to a measurement in inches/centimeters is another way of properly determining the size of your new Worth & Worth Hat.</p>
+										</div>
+									</div>
+									<div class="small-12 cell text-center" data-tabs>
+										<a class="button filled see-full-chart" data-tabs-target="sizeChart">See Full Size Chart</a>
+										<p class="go-to-step-1 remove"><a href="javascript:;">START OVER</a></p>
+									</div>
+								</div>
+							</div>
+							<!-- Hat Size Chart -->
+							<div class="tabs-panel" id="sizeChart">
+								<h2>Find your size</h2>
+								<p class="small-body-title">Match your measurements to a hat size</p>
+								<div class="table-wrap">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" style="width: 1000px;">
+										<tr>
+											<th scope="row">Hat Size in CM</th>
+											<td>53</td>
+											<td>54</td>
+											<td>55</td>
+											<td>56</td>
+											<td>57</td>
+											<td>58</td>
+											<td>59</td>
+											<td>60</td>
+											<td>61</td>
+											<td>62</td>
+											<td>63</td>
+											<td>64</td>
+											<td>65</td>
+										</tr>
+										<tr>
+											<th scope="row">Head Size in In</th>
+											<td>20 7/8</td>
+											<td>21 1/4</td>
+											<td>21 5/8</td>
+											<td>22</td>
+											<td>22 1/8</td>
+											<td>22 7/8</td>
+											<td>23 1/4</td>
+											<td>23 5/8</td>
+											<td>24</td>
+											<td>24 3/8</td>
+											<td>24 3/4</td>
+											<td>25 1/4</td>
+											<td>25 5/8</td>
+										</tr>
+										<tr>
+											<th scope="row">US Hat Size</th>
+											<td width="100">6 5/8</td>
+											<td>6 3/4</td>
+											<td>6 7/8</td>
+											<td>7</td>
+											<td>7 1/8</td>
+											<td>7 1/4</td>
+											<td>7 3/8</td>
+											<td>7 1/2</td>
+											<td>7 5/8</td>
+											<td>7 3/4</td>
+											<td>7 7/8</td>
+											<td>8</td>
+											<td>8 1/8</td>
+										</tr>
+										<tr>
+											<th scope="row">UK Hat Size</th>
+											<td>6 1/2</td>
+											<td>6 5/8</td>
+											<td>6 3/4</td>
+											<td>6 7/8</td>
+											<td>7</td>
+											<td>7 1/8</td>
+											<td>7 1/4</td>
+											<td>7 3/8</td>
+											<td>7 1/2</td>
+											<td>7 5/8</td>
+											<td>7 3/4</td>
+											<td>7 7/8</td>
+											<td>8</td>
+										</tr>
+
+										<tr>
+											<th scope="row">Hat Size</th>
+											<td>X-S</td>
+											<td>S</td>
+											<td>S</td>
+											<td>M</td>
+											<td>M</td>
+											<td>L</td>
+											<td>L</td>
+											<td>X-L</td>
+											<td>X-L</td>
+											<td>XX-L</td>
+											<td>XX-L</td>
+											<td>XX-L</td>
+											<td>XXX-L</td>
+										</tr>
+									</table>
+								</div>
+								<div class="small-12 cell text-center">
+									<a href="#" class="text-link read-tips" data-tips-id="chart"><span class="close-tips">X </span>READ TIPS</a>
+									<div class="tips" data-tips-id="chart">
+										<p>There is no such thing as an overall correct fit. Whatever feels right to you. It is entirely a matter of personal preference. A tighter-fitting hat stays on better for active people, windy settings, and those who like their hats to sit high on the head. A looser-fitting hat is more comfortable, sits lower and works well when wearing for an extended period of time (over 3 hours).</p>
+									</div>
+								</div>
+								<div class="small-12 cell text-center" data-tabs>
+									<a class="button filled how-to-measure" data-tabs-target="sizeHow">How to measure</a>
+									<p class="go-to-step-1 remove"><a href="javascript:;">START OVER</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			</div>
+		</div>
+	 </div>
+
+ <style>
+ .table-wrap {
+     overflow-x: scroll;
+     padding-left: 143px;
+     background: #292929;
+     position: relative;
+ }
+ .table-wrap th {
+     position: absolute;
+     width: 143px;
+     left: 0;
+     text-align: left;
+     padding-top: 14px;
+     background: #292929;
+     color: #ffffff;
+     text-transform: none;
+     font-family: proxima-nova, sans-serif;
+		 font-weight:600;
+     font-size: 13px;
+     color: #FFFFFF;
+     letter-spacing: 0;
+     padding-left: 14px;
+     padding-bottom: 0;
+ }
+ .js-off-canvas-overlay.is-visible {
+     background: #ffffff url(https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/texture-popup.png?2764) no-repeat top left/cover;
+ }
+ .container.active {
+ 	border: 1px solid #333;
+ }
+ #size-select, #size-select2, #quality-select, #style-select2, #style-select3 {
+     position: absolute;
+     height: auto;
+     padding: 10px;
+     background: #FFFFFF;
+     box-shadow: -1px 2px 4px 0 rgba(0,0,0,0.50);
+     display: none;
+     z-index: 9;
+
+ }
+ #style-select2, #style-select3 {
+     width: 222px;
+     left: 203px;
+     background: transparent;
+     box-shadow: none;
+     padding: 0;
+	     top: 39px;
+ }
+ .size-select-item, .quality-select-item  {
+   display: block;
+   cursor: pointer;
+ }
+ .size-select-item input[type="radio"], .quality-select-item input[type="radio"] {
+   display: none;
+ }
+ .size-select-item span, .quality-select-item span {
+     display: block;
+     font-family: miller-display, serif; 	 font-weight: 300;
+ 	font-size: 16px;
+     color: #000000;
+     letter-spacing: 0;
+ 	transition: all .5s ease;
+ }
+ .size-select-item span:hover, .quality-select-item span:hover {
+     color: #717171;
+     padding-left: 10px;
+ }
+ .currrent-size-wrap, .currrent-size-wrap2, .currrent-quality-wrap {
+   cursor: pointer;
+ }
+ #current-size, #current-quality{
+     font-family: miller-display, serif; 	 font-weight: 300;
+     font-size: 16px;
+     color: #191919;
+     letter-spacing: 0;
+     padding-left: 20px;
+     margin-bottom: 0;
+     line-height: 16px;
+ }
+ </style>
+ <script type="text/javascript">
+ document.onclick = function check(e){
+
+ 		var target = (e && e.target) || (event && event.srcElement);
+     var obj = document.getElementById('step2Size');
+     if(target != obj){
+         document.getElementById('step2SizeVideo').pause();
+     }
+ }
+ document.onclick = function check(e){
+
+ 		var target2 = (e && e.target2) || (event && event.srcElement);
+     var obj2 = document.getElementById('classicStep2');
+     if(target2 != obj2){
+         document.getElementById('classic2SizeVideo').pause();
+     }
+ }
+
+ 	$(function() {
+
+ 		$('#sizeHow-label').on("click", function() {
+ 			$('#sizeChart').removeClass('is-active').hide();
+ 			$('.size-tab').removeClass('is-active');
+ 			$('#sizeHow').addClass('is-active').show();
+ 			$('#sizeChart-label').removeClass('active');
+			$('#sizeHow-label').addClass('active');
+ 			console.log('How tab clicked');
+ 		});
+ 		$('#sizeChart-label').on("click", function() {
+ 			$('#sizeHow').removeClass('is-active').hide();
+ 			$('.how-tab').removeClass('is-active');
+ 			$('#sizeChart').addClass('is-active').show();
+ 			$('#sizeHow-label').removeClass('active');
+			$('#sizeChart-label').addClass('active');
+ 			console.log('Size tab clicked');
+			document.getElementById('step2SizeVideo').pause();
+			document.getElementById('classic2SizeVideo').pause();
+ 			});
+
+
+ 		$('.size-list').hide();
+ 		$('.s0').show();
+
+     	$('.update-size').on("change", function() {
+ 			$('.size-list').hide();
+ 			$('.s' + $(this).val()).fadeIn(1000);
+ 		});
+ 		$('.size-step').hide();
+ 		$('.step1').show();
+ 		//    $('.go-to-step-2').click(function() {
+ 		//      $('.step1').hide();
+ 		//      $('.step2.halo').fadeIn(1000);
+ 		//    });
+ 		$('.go-to-step-3').click(function() {
+ 			$('.step2.halo').hide();
+ 			$('.step2.traditional').hide();
+ 			$('.step3').fadeIn(1000);
+ 		});
+ 		$('.go-to-step-1').click(function() {
+ 			$('.step2').hide();
+ 			$('.step3').hide();
+ 			$('.tips').hide();
+ 			$('.trad-wrap').removeClass('disabled');
+ 			$('.halo-wrap').removeClass('disabled');
+ 			$('.style-click').removeClass('active');
+ 			$('.close-tips').removeClass('active');
+ 			$('.selected-measurement').text('');
+ 			$(".size-me").foundation("selectTab", $("#sizeHow"));
+ 			$('.step1').fadeIn(1000);
+ 			$("#sizeChart").css("display", "none");
+ 			$("#sizeHow").css("display", "block");
+ 			$('#sizeChart-label').removeClass('active');
+ 			$('#sizeHow-label').addClass('active');
+ 		});
+ 	});
+ 	$(".see-full-chart").on("click", function() {
+ 		$(".size-me").foundation("selectTab", $("#sizeChart"));
+ 		$("#sizeChart").show();
+ 		$("#sizeHow").hide();
+ 		$('#sizeChart-label').addClass('active');
+ 		$('#sizeHow-label').removeClass('active');
+ 	});
+ 	$('#sizeChart-label').on("click", function() {
+ 		$(".size-me").foundation("selectTab", $("#sizeChart"));
+ 		$("#sizeChart").show();
+ 		$("#sizeHow").hide();
+ 		$('#sizeChart-label').addClass('active');
+ 		$('#sizeHow-label').removeClass('active');
+ 	});
+ 	$(".how-to-measure").on("click", function() {
+ 		$(".size-me").foundation("selectTab", $("#sizeHow"));
+ 		$("#sizeChart").css("display", "none");
+ 		$("#sizeHow").css("display", "block");
+ 		$('#sizeChart-label').removeClass('active');
+ 		$('#sizeHow-label').addClass('active');
+ 	});
+ 	$('#sizeHow-label').on("click", function() {
+ 		$(".size-me").foundation("selectTab", $("#sizeHow"));
+ 		$("#sizeChart").hide();
+ 		$("#sizeHow").css("display", "block");
+ 		$('#sizeChart-label').removeClass('active');
+ 		$('#sizeHow-label').addClass('active');
+ 	});
+ 	$("#halo-wrap").click(function(){
+ 		$('.style-click').removeClass('active');
+ 		$(".trad-wrap").addClass('disabled');
+ 		$(".halo-wrap").removeClass('disabled');
+   	  	$(this).addClass('active');
+   	  	$('.step2').hide();
+   	  	$('.step3').hide();
+   	  	$('.tips').hide();
+   	  	$('.trad-wrap').removeClass('disabled');
+   	  	$('.halo-wrap').removeClass('disabled');
+   	  	$('.close-tips').removeClass('active');
+   	  	$('.selected-measurement').text('');
+   	  	$(".size-me").foundation("selectTab", $("#sizeHow"));
+   	  	$("#sizeChart").css("display", "none");
+   	  	$("#sizeHow").css("display", "block");
+   	  	$('#sizeChart-label').removeClass('active');
+   	  	$('#sizeHow-label').addClass('active');
+   	  	$('.go-to-step-2').addClass('active');
+             $('.step1').hide();
+ 			$('.step2.traditional').hide();
+             $('.step2.halo').fadeIn(1000);
+ 	});
+   	$("#traditional-wrap").click(function(){
+   		$('.step2').hide();
+   		$('.step3').hide();
+   		$('.tips').hide();
+   		$('.trad-wrap').removeClass('disabled');
+   		$('.halo-wrap').removeClass('disabled');
+   		$('.style-click').removeClass('active');
+   		$('.close-tips').removeClass('active');
+   		$('.selected-measurement').text('');
+   		$(".size-me").foundation("selectTab", $("#sizeHow"));
+   		$("#sizeChart").css("display", "none");
+   		$("#sizeHow").css("display", "block");
+   		$('#sizeChart-label').removeClass('active');
+   		$('#sizeHow-label').addClass('active');
+   		$(".halo-wrap").addClass('disabled');
+   		$(".trad-wrap").removeClass('disabled');
+   		$(this).addClass('active');
+   		$('.step1').hide();
+   		$('.step2.halo').hide();
+   		$('.step2.traditional').fadeIn(1000);
+   	});
+
+ </script>
+
+
+
+</section>
+<div class="js-off-canvas-overlay"></div>

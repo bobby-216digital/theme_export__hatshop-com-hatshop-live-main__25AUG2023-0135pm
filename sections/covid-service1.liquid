@@ -1,0 +1,48 @@
+<!-- Clearing & Blocking Services -->
+<div class="services-list-wrap">
+  {% for block in section.blocks %}
+  {% case block.type %}
+
+  {% when 'service' %}
+  <!-- Single service item -->
+  <div class="covid-item">
+    <h2 class="h5">{{ block.settings.serviceTitle }}</h2>
+    <div>{{ block.settings.servicePrice }}</div>
+    <br clear="all" />
+  </div>
+
+  {% endcase %}
+  {% endfor %}
+
+</div>
+
+{% schema %}
+  {
+    "name": "Details",
+    "settings": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading Text"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "service",
+        "name": "Service",
+        "settings": [
+          {
+            "id": "serviceTitle",
+            "type": "text",
+            "label": "Title"
+          },
+          {
+            "id": "servicePrice",
+            "type": "richtext",
+            "label": "Information"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

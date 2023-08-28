@@ -1,0 +1,346 @@
+<div class="off-canvas position-left" id="showFilter" data-off-canvas data-transition="overlap">
+	
+	<div class="grid-x grid-padding-x" class="product-list-top hide-for-large"> 
+	  <div class="medium-6 cell">
+	    <h3>Refine search</h3>
+	  </div>
+	  <div class="medium-6 cell text-right">
+	  </div>
+	  <div id="filter-line"></div>
+	</div>
+	<div class="medium-3 cell filter-container data-sticky-container hide-for-large" data-sticky-on="large">
+	        <div class="sticky" data-sticky data-anchor="productList" data-sticky-on="large">
+	
+	          <!-- Product Filters -->
+	          <ul class="vertical menu accordion-menu" data-accordion data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge-delay="500" data-accordion-menu>
+	            <li>
+	              <a href="#color">Color</a>
+	              <ul class="menu vertical nested apply-active">
+	                <li class="filters">
+	                  <div class="grid-x grid-padding-x filter-color">
+						<div class="medium-6 small-6 cell filter-style-item filter-button">
+						  <label class="container clear">Clear Filter
+							<input name="color" type="radio" class="coll-filter-m" value="" >
+						    <span class="xmark"></span>
+						  </label>
+						</div>
+						<div class="medium-6 small-6 cell filter-style-item filter-button"></div>
+	                    <!-- Begin list of colors -->
+	                    {% assign tags = 'Black, Blue, Brown, Green, Gray, Red, Natural, Yellow, Pink, White, Orange, Hand dyed' | split: ',' %}
+	
+	                    {% for t in tags %}
+	        		       {% assign tagCount = 0 %}
+	        		           {% assign tag = t | strip %}
+	        		       	{% for product in collection.products %}
+	        		       	  {% for productTag in product.tags %}
+	        		       	    {% if productTag == tag %}
+	        		       	       {% assign tagCount = tagCount | plus: 1 %}
+	        		       	    {% endif %}
+	        		       	  {% endfor %}
+	        		       	{% endfor %}
+	
+	                    <div class="medium-3 small-3 cell filter-style-item filter-button">
+	                      <label class="container tag-count{% if tagCount > 0 %} enabled{% else %} disabled{% endif %}">
+	
+	                        {% if current_tags contains tag %}
+	            		        <input name="color" type="radio" class="color-input coll-filter-m " value="{{ tag | handle }}" checked="checked">
+	            		        {% else %}
+	            		        <input name="color" type="radio" class="color-input coll-filter-m" value="{{ tag | handle }}" >
+	            		        {% endif %}
+								 <img src="//cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/color-{{ tag | handle }}.png" class="filter-color-circle" />
+	                        <span class="checkmark"></span>
+	                      </label>
+	                    </div>
+	
+	                    {% endfor %}
+	
+	                  </div>
+	                </li>
+	              </ul>
+	            </li>
+	            <li>
+	              <a href="#style">Style</a>
+	              <ul class="menu vertical nested apply-active">
+	                <li class="filters">
+	                  <div class="grid-x grid-padding-x filter-style">
+						<div class="medium-6 small-6 cell filter-style-item filter-button">
+						  <label class="container clear">Clear Filter
+							<input name="style" type="radio" class="coll-filter-m" value="" >
+						    <span class="xmark"></span>
+						  </label>
+						</div>
+						<div class="medium-6 small-6 cell filter-style-item filter-button"></div>
+	                    <!-- Begin list of styles -->
+	                    {% assign tags = 'Classic, Contemporary, Fedora, Panama, Caps' | split: ',' %}
+	
+	                    {% for t in tags %}
+	        		        {% assign tagCount = 0 %}
+	        		            {% assign tag = t | strip %}
+	        		        	{% for product in collection.products %}
+	        		        	  {% for productTag in product.tags %}
+	        		        	    {% if productTag == tag %}
+	        		        	       {% assign tagCount = tagCount | plus: 1 %}
+	        		        	    {% endif %}
+	        		        	  {% endfor %}
+	        		        	{% endfor %}
+	
+	                    <div class="medium-6 small-6 cell filter-style-item filter-button">
+	                      <label class="container tag-count{% if tagCount > 0 %} enabled{% else %} disabled{% endif %}">{{ tag }}
+	                        {% if current_tags contains tag %}
+	            		        <input name="style" type="radio" class="coll-filter-m " value="{{ tag | handle }}" checked="checked">
+	            		        {% else %}
+	            		        <input name="style" type="radio" class="coll-filter-m" value="{{ tag | handle }}" >
+	            		        {% endif %}
+	                        <span class="checkmark"></span>
+	                      </label>
+	                    </div>
+	
+	                    {% endfor %}
+	
+	                  </div>
+	                </li>
+	              </ul>
+	            </li>
+	            <li>
+	              <a href="#season">Season</a>
+	              <ul class="menu vertical nested apply-active">
+	                <li class="filters">
+	                  <div class="grid-x grid-padding-x filter-season">
+						<div class="medium-6 small-6 cell filter-style-item filter-button">
+						  <label class="container clear">Clear Filter
+							<input name="season" type="radio" class="coll-filter-m" value="" >
+						    <span class="xmark"></span>
+						  </label>
+						</div>
+						<div class="medium-6 small-6 cell filter-style-item filter-button"></div>
+	                    <!-- Begin list of seasons -->
+	                    {% assign tags = 'Winter, Fall, Summer, Spring' | split: ',' %}
+	
+	
+	
+	
+	                    {% for t in tags %}
+	          					{% assign tagCount = 0 %}
+	                  	{% assign tag = t | strip %}
+	          						{% for product in collection.products %}
+	          						  {% for productTag in product.tags %}
+	          						    {% if productTag == tag %}
+	          						       {% assign tagCount = tagCount | plus: 1 %}
+	          						    {% endif %}
+	          						  {% endfor %}
+	          						{% endfor %}
+	
+	
+	                    <div class="medium-6 small-6 cell filter-style-item filter-button">
+	                      <label class="container tag-count{% if tagCount > 0 %} enabled{% else %} disabled{% endif %}">{{ tag }}
+	                        {% if current_tags contains tag %}
+	            		        <input name="season" type="radio" class="coll-filter-m" value="{{ tag | handle }}" checked="checked">
+	            		        {% else %}
+								<input name="season" type="radio" class="coll-filter-m" value="{{ tag | handle }}">
+	            		        {% endif %}
+	                        <span class="checkmark"></span>
+	                      </label>
+	                    </div>
+	
+	                    {% endfor %}
+	
+	                  </div>
+	                </li>
+	              </ul>
+	            </li>
+	            <li>
+	              <a href="#price">Price</a>
+	              <ul class="menu vertical nested apply-active">
+	                <li class="filters">
+	                  <div class="grid-x grid-padding-x filter-price">
+						<div class="medium-6 small-6 cell filter-style-item filter-button">
+						  <label class="container clear">Clear Filter
+							<input name="price" type="radio" class="coll-filter-m" value="" >
+						    <span class="xmark"></span>
+						  </label>
+						</div>
+						<div class="medium-6 small-6 cell filter-style-item filter-button"></div>
+	                    <!-- Begin list of prices -->
+	                    {% assign tags = 'price-$50-$250, price-$250-$450, price-$450-$750, price-$750-MORE' | split: ',' %}
+	
+	                    {% for t in tags %}
+	        		        {% assign tagCount = 0 %}
+	        		            {% assign tag = t | strip %}
+	        		        	{% for product in collection.products %}
+	        		        	  {% for productTag in product.tags %}
+	        		        	    {% if productTag == tag %}
+	        		        	       {% assign tagCount = tagCount | plus: 1 %}
+	        		        	    {% endif %}
+	        		        	  {% endfor %}
+	        		        	{% endfor %}
+	
+	                    <div class="medium-6 small-6 cell filter-style-item filter-button">
+	                      <label class="container tag-count{% if tagCount > 0 %} enabled{% else %} disabled{% endif %}">
+	                        {% if tag == 'price-$50-$250' %}$50 - $250{% endif %}
+	                        {% if tag == 'price-$250-$450' %}$250 - $450{% endif %}
+	                        {% if tag == 'price-$450-$750' %}$450 - $750{% endif %}
+	                        {% if tag == 'price-$750-MORE' %}$750 +{% endif %}
+	                        {% if current_tags contains tag %}
+	            		        <input name="price" type="radio" class="coll-filter-m " value="{{ tag | handle }}" checked="checked">
+	            		        {% else %}
+	            		        <input name="price" type="radio" class="coll-filter-m" value="{{ tag | handle }}" >
+	            		        {% endif %}
+	                        <span class="checkmark"></span>
+	                      </label>
+	                    </div>
+	
+	                    {% endfor %}
+	
+	                  </div>
+	                </li>
+	              </ul>
+	            </li>
+	            <li>
+	              <a href="#">Materials</a>
+	              <ul class="menu vertical nested apply-active">
+	                <li>
+	                  <div class="grid-x grid-padding-x filter-materials">
+	
+	                    {% if collection.handle == 'women' or collection.handle == 'womens-beaver-felt-hats' or collection.handle == 'womens-hare-felt-hats' or collection.handle == 'womens-hand-dye-hats' or collection.handle == 'womens-straw-hats' or collection.handle == 'womens-montecristi-hats' %}
+	                    <!-- Begin list of materials for Women -->
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/womens-beaver-felt-hats">Beaver Felt</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/womens-hare-felt-hats">Hare Felt</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/womens-hand-dye-hats">Hand Dye</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/womens-straw-hats">Straw</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/womens-montecristi-hats">Montecristi</a>
+	                    </div>
+	                    {% endif %}
+	
+	                    {% if collection.handle == 'men' or collection.handle == 'beaver-felt-hats' or collection.handle == 'mens-hare-felt-hats' or collection.handle == 'mens-hand-dye-hats' or collection.handle == 'straw-hats' or collection.handle == 'montecristi-hats' %}
+	                    <!-- Begin list of materials for Men -->
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/beaver-felt-hats">Beaver Felt</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/mens-hare-felt-hats">Hare Felt</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/mens-hand-dye-hats">Hand Dye</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/straw-hats">Straw</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/montecristi-hats">Montecristi</a>
+	                    </div>
+	                    {% endif %}
+	
+	                    {% if collection.handle == 'all' %}
+	                    <!-- Begin list of materials for Women -->
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/womens-beaver-felt-hats">Womens Beaver Felt</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/womens-hare-felt-hats">Womens Hare Felt</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/womens-hand-dye-hats">Womens Hand Dye</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/womens-straw-hats">Womens Straw</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/womens-montecristi-hats">Womens Montecristi</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/beaver-felt-hats">Mens Beaver Felt</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/mens-hare-felt-hats">Mens Hare Felt</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/mens-hand-dye-hats">Mens Hand Dye</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/straw-hats">Mens Straw</a>
+	                    </div>
+	
+	                    <div class="medium-6 small-6 cell filter-material-item">
+	                      <a href="/collections/montecristi-hats">Mens Montecristi</a>
+	                    </div>
+	                    {% endif %}
+	
+	                  </div>
+	                </li>
+	              </ul>
+	            </li>
+	          </ul>
+	
+	        </div>
+	      </div>
+	<button class="close-button" aria-label="Close menu" type="button" data-close>
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<script>
+  Shopify.queryParams = {};
+  if (location.search.length) {
+    for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+      aKeyValue = aCouples[i].split('=');
+      if (aKeyValue.length > 1) {
+        Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+      }
+    }
+  }
+  var collFiltersM = jQuery('.coll-filter-m');
+  collFiltersM.change(function() {
+    var newTagsM = [];
+    var newURLM = '';
+    delete Shopify.queryParams.page;
+    collFiltersM.each(function() {
+      if (jQuery(this).val() && jQuery(this).is(':checked')) {
+        newTagsM.push(jQuery(this).val());
+      }
+    });
+    {% if collection.handle %}
+    newURLM = '/collections/' + '{{ collection.handle }}';
+    if (newTagsM.length) {
+      newURLM += '/' + newTagsM.join('+');
+    }
+    var search = jQuery.param(Shopify.queryParams);
+    if (search.length) {
+      newURLM += '?' + search;
+    }
+    location.href = newURLM;
+    {% else %}
+    if (newTagsM.length) {
+      Shopify.queryParams.constraint = newTagsM.join('+');
+    }
+    else {
+      delete Shopify.queryParams.constraint;
+    }
+    location.search = jQuery.param(Shopify.queryParams).replace(/\+/g, '%20');
+    {% endif %}
+  });
+</script>
+

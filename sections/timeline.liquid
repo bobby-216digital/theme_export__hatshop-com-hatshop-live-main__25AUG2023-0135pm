@@ -1,0 +1,134 @@
+<!-- Timeline -->
+<section class="timeline">
+
+  <!-- Timeline navigatioin -->
+  <div class="timeline-nav text-center">
+    <h3>Select a milestone</h3>
+    <ul data-magellan>
+
+      {% for block in section.blocks %}
+      {% case block.type %}
+
+      {% when 'textRight' %}
+      <li>
+        <a href="#year{{ block.settings.textRightYear }}">
+          {{ block.settings.textRightYear }}
+        </a>
+      </li>
+
+      {% when 'textLeft' %}
+      <li>
+        <a href="#year{{ block.settings.textLeftYear }}">
+          {{ block.settings.textLeftYear }}
+        </a>
+      </li>
+
+      {% endcase %}
+      {% endfor %}
+
+    </ul>
+  </div>
+
+  <div class="grid-x align-center align-middle">
+    {% for block in section.blocks %}
+    {% case block.type %}
+
+    {% when 'textRight' %}
+
+    <!-- Timeline item -->
+    <div class="large-6 cell" id="year{{ block.settings.textRightYear }}" data-magellan-target="year{{ block.settings.textRightYear }}">
+      <img src="{{ block.settings.textRightImg | img_url: '620x775' }}" />
+    </div>
+    <div class="large-6 cell timeline-content">
+      <h1>{{ block.settings.textRightTitle }}</h1>
+      <p class="timeline-intro">{{ block.settings.textRightIntro }}</p>
+      <p>{{ block.settings.textRightContent }}</p>
+    </div>
+
+    {% when 'textLeft' %}
+
+    <!-- Timeline item -->
+    <div class="large-6 cell timeline-content">
+      <h1>{{ block.settings.textLeftTitle }}</h1>
+      <p class="timeline-intro">{{ block.settings.textLeftIntro }}</p>
+      <p>{{ block.settings.textLeftContent }}</p>
+    </div>
+    <div class="large-6 cell" id="year{{ block.settings.textLeftYear }}" data-magellan-target="year{{ block.settings.textLeftYear }}">
+      <img src="{{ block.settings.textLeftImg | img_url: '620x775' }}" />
+    </div>
+
+    {% endcase %}
+    {% endfor %}
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Timeline",
+    "blocks": [
+      {
+        "type": "textRight",
+        "name": "Text Right/Image Left",
+        "settings": [
+          {
+            "id": "textRightImg",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "textRightTitle",
+            "type": "text",
+            "label": "Title"
+          },
+          {
+            "id": "textRightIntro",
+            "type": "textarea",
+            "label": "Intro"
+          },
+          {
+            "id": "textRightContent",
+            "type": "textarea",
+            "label": "Content"
+          },
+          {
+            "id": "textRightYear",
+            "type": "text",
+            "label": "Year"
+          }
+        ]
+      },
+      {
+        "type": "textLeft",
+        "name": "Text Left/Image Right",
+        "settings": [
+          {
+            "id": "textLeftImg",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "textLeftTitle",
+            "type": "text",
+            "label": "Title"
+          },
+          {
+            "id": "textLeftIntro",
+            "type": "textarea",
+            "label": "Intro"
+          },
+          {
+            "id": "textLeftContent",
+            "type": "textarea",
+            "label": "Content"
+          },
+          {
+            "id": "textLeftYear",
+            "type": "text",
+            "label": "Year"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

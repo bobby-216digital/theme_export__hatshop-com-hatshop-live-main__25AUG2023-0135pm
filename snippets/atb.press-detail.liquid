@@ -1,0 +1,435 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Slideshow",
+  "id": "press-detail",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "class": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "block_type",
+      "label": "Block Type",
+      "info": "",
+      "default": "",
+      "options": [
+        {
+          "value": "doubleimages",
+          "label": "Double Images"
+        },
+        {
+          "value": "homess1",
+          "label": "homess1"
+        },
+        {
+          "value": "homess2",
+          "label": "homess2"
+        },
+        {
+          "value": "homess3",
+          "label": "homess3"
+        },
+        {
+          "value": "homess4",
+          "label": "homess4"
+        }
+      ],
+      "repeatable": "block"
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "block"
+    },
+    {
+      "id": "block_doubleimage1",
+      "type": "image_picker",
+      "label": "Double Image Left",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:doubleimages"
+    },
+    {
+      "id": "block_doubleimage2",
+     "type": "image_picker",
+     "label": "Double Image Right",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:doubleimages"
+    },
+    {
+      "id": "block_textLeftImage",
+      "type": "image_picker",
+      "label": "Background Image",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess1"
+    },
+    {
+      "id": "block_textLeftVideo",
+      "type": "text",
+      "label": "Video Link",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess1"
+    },
+    {
+      "id": "block_textLeft",
+      "type": "text",
+      "label": "Text",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess1"
+    },
+    {
+      "id": "block_textLeftButton",
+      "type": "text",
+      "label": "Button Text",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess1"
+    },
+    {
+      "id": "block_textLeftURL",
+      "type": "text",
+      "label": "URL",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess1"
+    },
+    {
+      "id": "block_textBottomImage",
+      "type": "image_picker",
+      "label": "Background Image",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess2"
+    },
+    {
+      "id": "block_textBottomVideo",
+      "type": "text",
+      "label": "Video Link",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess2"
+    },
+    {
+      "id": "block_textBottom",
+      "type": "text",
+      "label": "Text",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess2"
+    },
+    {
+      "id": "block_textBottomButton",
+      "type": "text",
+      "label": "Button Text",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess2"
+    },
+    {
+      "id": "block_textBottomURL",
+      "type": "text",
+      "label": "URL",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess2"
+    },
+    {
+      "id": "block_textCenter1Image",
+      "type": "image_picker",
+      "label": "Background Image",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess3"
+    },
+    {
+      "id": "block_textCenterVideo",
+      "type": "text",
+      "label": "Video Link",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess3"
+    },
+    {
+      "id": "block_textCenter1",
+      "type": "text",
+      "label": "Text",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess3"
+    },
+    {
+      "id": "block_textCenterButton1a",
+      "type": "text",
+      "label": "Link Text Left",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess3"
+    },
+    {
+      "id": "block_textCenterURL1a",
+      "type": "text",
+      "label": "Link Left",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess3"
+    },
+    {
+      "id": "block_textCenterButton1b",
+      "type": "text",
+      "label": "Link Text Right",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess3"
+    },
+    {
+      "id": "block_textCenterURL1b",
+      "type": "text",
+      "label": "Link Right",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess3"
+    },
+    {
+      "id": "block_textCenter2Image",
+      "type": "image_picker",
+      "label": "Background Image",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess4"
+    },
+    {
+      "id": "block_textCenter2Video",
+      "type": "text",
+      "label": "Video Link",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess4"
+    },
+    {
+      "id": "block_textCenter2",
+      "type": "text",
+      "label": "Text",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess4"
+    },
+    {
+      "id": "block_textCenterButton2",
+      "type": "text",
+      "label": "Button Text",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess4"
+    },
+    {
+      "id": "block_textCenterURL2",
+      "type": "text",
+      "label": "Link",
+      "repeatable": "block",
+      "info": "",
+      "conditional": "block_type:homess4"
+    }
+  ],
+  "warnings": [
+    "repeating image fields may not be properly handled"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{% include 'atb-render' field:'section_id' %}
+{% assign section_id = val %}
+{% include 'atb-render' field:'block_type' %}
+{% assign block_type = val %}
+{% include 'atb-render' field:'blocks' %}
+{% assign blocks = val %}
+{% include 'atb-render' field:'block_doubleimage1' %}
+{% assign block_doubleimage1 = val %}
+{% include 'atb-render' field:'block_doubleimage2' %}
+{% assign block_doubleimage2 = val %}
+{% include 'atb-render' field:'block_textLeftImage' %}
+{% assign block_textLeftImage = val %}
+{% include 'atb-render' field:'block_textLeftVideo' %}
+{% assign block_textLeftVideo = val %}
+{% include 'atb-render' field:'block_textLeft' %}
+{% assign block_textLeft = val %}
+{% include 'atb-render' field:'block_textLeftButton' %}
+{% assign block_textLeftButton = val %}
+{% include 'atb-render' field:'block_textLeftURL' %}
+{% assign block_textLeftURL = val %}
+{% include 'atb-render' field:'block_textBottomImage' %}
+{% assign block_textBottomImage = val %}
+{% include 'atb-render' field:'block_textBottomVideo' %}
+{% assign block_textBottomVideo = val %}
+{% include 'atb-render' field:'block_textBottom' %}
+{% assign block_textBottom = val %}
+{% include 'atb-render' field:'block_textBottomButton' %}
+{% assign block_textBottomButton = val %}
+{% include 'atb-render' field:'block_textBottomURL' %}
+{% assign block_textBottomURL = val %}
+{% include 'atb-render' field:'block_textCenter1Image' %}
+{% assign block_textCenter1Image = val %}
+{% include 'atb-render' field:'block_textCenterVideo' %}
+{% assign block_textCenterVideo = val %}
+{% include 'atb-render' field:'block_textCenter1' %}
+{% assign block_textCenter1 = val %}
+{% include 'atb-render' field:'block_textCenterButton1a' %}
+{% assign block_textCenterButton1a = val %}
+{% include 'atb-render' field:'block_textCenterURL1a' %}
+{% assign block_textCenterURL1a = val %}
+{% include 'atb-render' field:'block_textCenterButton1b' %}
+{% assign block_textCenterButton1b = val %}
+{% include 'atb-render' field:'block_textCenterURL1b' %}
+{% assign block_textCenterURL1b = val %}
+{% include 'atb-render' field:'block_textCenter2Image' %}
+{% assign block_textCenter2Image = val %}
+{% include 'atb-render' field:'block_textCenter2Video' %}
+{% assign block_textCenter2Video = val %}
+{% include 'atb-render' field:'block_textCenter2' %}
+{% assign block_textCenter2 = val %}
+{% include 'atb-render' field:'block_textCenterButton2' %}
+{% assign block_textCenterButton2 = val %}
+{% include 'atb-render' field:'block_textCenterURL2' %}
+{% assign block_textCenterURL2 = val %}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section ">
+
+<!-- Homepage Slideshow -->
+<section class="main-slider home-slideshow section-space">
+
+  {% for block0 in blocks %}
+{% assign my_image_key4 = block_textCenter2Image[forloop.index0]| split: '/files/' | last %}
+{% assign my_image4 = images[my_image_key4] %}
+{% assign my_image_key3 = block_textCenter1Image[forloop.index0]| split: '/files/' | last %}
+{% assign my_image3 = images[my_image_key3] %}
+{% assign my_image_key2 = block_textBottomImage[forloop.index0]| split: '/files/' | last %}
+{% assign my_image2 = images[my_image_key2] %}
+{% assign my_image_key1 = block_textLeftImage[forloop.index0]| split: '/files/' | last %}
+{% assign my_image1 = images[my_image_key1] %}
+{% assign my_image_key0 = block_doubleimage1[forloop.index0]| split: '/files/' | last %}
+{% assign my_image0 = images[my_image_key0] %}
+{% assign my_image_key5 = block_doubleimage2[forloop.index0]| split: '/files/' | last %}
+{% assign my_image5 = images[my_image_key5] %}
+  {% case block_type[forloop.index0] %}
+
+  {% when 'homess1' %}
+  <div class="item {% if block_textLeftVideo[forloop.index0] == blank %}image{% else %}video{% endif %} home-ss-1"{% if block_textLeftVideo[forloop.index0] == blank %} style="background-image: url('{{ my_image1 | img_url: 'master' }}')"{% endif %}>
+
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x align-middle">
+        <div class="large-10 large-offset-1 cell">
+          <h1>{{ block_textLeft[forloop.index0] }}</h1>
+          <a href="{{ block_textLeftURL[forloop.index0] }}" class="cta light">{{ block_textLeftButton[forloop.index0] }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="home-ss-overlay"></div>
+
+    {% unless block_textLeftVideo[forloop.index0] == blank %}
+    <video class="slide-video slide-media" loop muted preload="metadata" poster="{{ my_image1 | img_url: 'master' }}">
+      <source src="{{ block_textLeftVideo[forloop.index0] }}" type="video/mp4" />
+    </video>
+    {% endunless %}
+
+  </div>
+   {% when 'doubleimages' %}
+   <!-- Row type two images -->
+   <div class="grid-x grid-padding-x bottom50">
+     <div class="large-6 cell">
+       <img src="{{my_image0}}" />
+     </div>
+     <div class="large-6 cell">
+       <img src="{{my_image5}}" />
+     </div>
+   </div>
+
+
+  {% when 'homess2' %}
+  <div class="item {% if block_textBottomVideo[forloop.index0] == blank %}image{% else %}video{% endif %} home-ss-2"{% if block_textBottomVideo[forloop.index0] == blank %} style="background-image: url('{{ my_image2 | img_url: '900x900' }}')"{% endif %}>
+
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x align-bottom">
+        <div class="large-12 cell">
+          <h1>{{ block_textBottom[forloop.index0] }}</h1>
+          <a href="{{ block_textBottomURL[forloop.index0] }}" class="cta light">{{ block_textBottomButton[forloop.index0] }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="home-ss-overlay"></div>
+
+    {% unless block_textBottomVideo[forloop.index0] == blank %}
+    <video class="slide-video slide-media" loop muted preload="metadata" poster="{{ my_image2 | img_url: '900x900' }}">
+      <source src="{{ block_textBottomVideo[forloop.index0] }}" type="video/mp4" />
+    </video>
+    {% endunless %}
+
+  </div>
+
+  {% when 'homess3' %}
+  <div class="item {% if block_textCenter1Video[forloop.index0] == blank %}image{% else %}video{% endif %} home-ss-3"{% if block_textCenter1Video[forloop.index0] == blank %} style="background-image: url('{{ my_image3 | img_url: '900x900' }}')"{% endif %}>
+
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x align-middle align-center">
+        <div class="large-7 cell text-center">
+          <h1>{{ block_textCenter1[forloop.index0] }}</h1>
+            <div class="cta-wrap">
+              <a href="{{ block_textCenterURL1a[forloop.index0] }}" class="cta light">{{ block_textCenterButton1a[forloop.index0] }}</a>
+              <a href="{{ block_textCenterURL1b[forloop.index0] }}" class="cta light">{{ block_textCenterButton1b[forloop.index0] }}</a>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="home-ss-overlay"></div>
+
+    {% unless block_textCenter1Video[forloop.index0] == blank %}
+    <video class="slide-video slide-media" loop muted preload="metadata" poster="{{ my_image3 | img_url: '900x900' }}">
+      <source src="{{ block_textCenter1Video[forloop.index0] }}" type="video/mp4" />
+    </video>
+    {% endunless %}
+
+  </div>
+
+  {% when 'homess4' %}
+  <div class="item {% if block_textCenter2Video[forloop.index0] == blank %}image{% else %}video{% endif %} home-ss-4"{% if block_textCenter2Video[forloop.index0] == blank %} style="background-image: url('{{ my_image4 | img_url: '900x900' }}')"{% endif %}>
+
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x align-middle align-center">
+        <div class="large-7 cell text-center">
+          <h1>{{ block_textCenter2[forloop.index0] }}</h1>
+          <a href="{{ block_homess4[forloop.index0].alt }}" class="cta-button light">{{ block_textCenterButton2[forloop.index0] }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="home-ss-overlay"></div>
+
+    {% unless block_textCenter2Video[forloop.index0] == blank %}
+    <video class="slide-video slide-media" loop muted preload="metadata" poster="{{ my_image4 | img_url: '900x900' }}">
+      <source src="{{ block_textCenter2Video[forloop.index0] }}" type="video/mp4" />
+    </video>
+    {% endunless %}
+
+  </div>
+
+  {% endcase %}
+  {% endfor %}
+
+</section>
+
+
+</section> 

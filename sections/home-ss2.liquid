@@ -1,0 +1,1143 @@
+
+<!-- Homepage Slideshow -->
+<section class="main-slider home-slideshow section-space"> 
+ {% assign slide1count = 0 %}
+  {% for block in section.blocks %}
+
+  {% assign slide1count = slide1count | plus: 1 %}
+
+  {% case block.type %}
+
+  {% when 'homess1' %}
+   	<div class="item {% if block.settings.textLeftVideo == blank %}image{% elsif block.settings.textLeftImageMobile != blank %}{% else %}video{% endif %} home-ss-1 ss-1{{ slide1count }}" {% if block.settings.textLeftVideo == blank %} style="background-image: url('{{ block.settings.textLeftImage | img_url: 'master' }}')"{% endif %}>
+    	<div class="grid-container slider-copy">
+			<div class="grid-x grid-padding-x align-middle">
+				<div class="large-6 cell">
+					<div class="ss1-wrap">
+						<h1>{{ block.settings.textLeft }}</h1>
+						<a href="{{ block.settings.textLeftURL }}" data-toggle="slidevideo{{ slide1count }}" class="cta light">{{ block.settings.textLeftButton }}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="home-ss-overlay"></div>
+
+
+    {% unless block.settings.textLeftVideo == blank %}
+
+
+    <video  controlsList="nodownload" class="slide-video slide-media" autoplay playsinline muted preload="metadata" poster="{{ block.settings.textLeftImage | img_url: 'master' }}">
+      <source src="{{ block.settings.textLeftVideo }}" type="video/mp4" />
+    </video>
+
+	<!-- Icon header video and/or image -->
+	<div class="full reveal" id="slidevideo{{ slide1count }}" data-reveal data-animation-in="fade-in" data-animation-out="fade-out" data-reset-on-close="true">
+	    <div class="icon-fullscreen-video">
+	        <video  controlsList="nodownload" loop=""  poster="{{ block.settings.textLeftImage | img_url: 'master' }}" controls="">
+	            <source src="{{ block.settings.textLeftVideo }}" type="video/mp4">
+	        </video>
+	    </div>
+	    <span class="close" data-close>x</span>
+	</div>
+    {% endunless %}
+	<style>
+	  
+	  	{% if block.settings.textLeftImageMobile != blank %}
+	
+	  	@media screen and (max-width: 63.9375em) {
+	  	.ss-1{{ slide1count }} {
+	  		background-image: url("{{ block.settings.textLeftImageMobile | img_url: 'master' }}")!important;
+	  		}
+	  	}
+	  	{% endif %}
+	
+	  </style>
+
+  </div>
+   {% when 'homess1a' %}
+    <div class="item {% if block.settings.noTextVideo == blank %}image{% else %}video{% endif %} home-ss-1a"{% if block.settings.noTextVideo == blank %} style="background-image: url('{{ block.settings.noTextImage | img_url: 'master' }}')"{% endif %}>
+
+
+      <div class="home-ss-overlay"></div>
+
+      {% unless block.settings.noTextVideo == blank %}
+      <video  controlsList="nodownload" class="slide-video slide-media" loop muted preload="metadata" poster="{{ block.settings.noTextImage | img_url: 'master' }}">
+        <source src="{{ block.settings.noTextVideo }}" type="video/mp4" />
+      </video>
+      {% endunless %}
+
+    </div>
+
+
+  {% when 'homess2' %}
+  <div class="item {% if block.settings.textBottomVideo == blank %}image{% else %}video{% endif %} home-ss-2"{% if block.settings.textBottomVideo == blank %} style="background-image: url('{{ block.settings.textBottomImage | img_url: 'master' }}')"{% endif %}>
+
+    <div class="grid-container slider-copy">
+      <div class="grid-x grid-padding-x align-bottom ">
+        <div class="large-10 cell">
+          <h1>{{ block.settings.textBottom }}</h1>
+          <a href="{{ block.settings.textBottomURL }}"  data-toggle="slidevideo{{ slide1count }}" class="cta light">{{ block.settings.textBottomButton }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="home-ss-overlay"></div>
+
+    {% unless block.settings.textBottomVideo == blank %}
+    <video  controlsList="nodownload" class="slide-video slide-media" loop muted preload="metadata" poster="{{ block.settings.textBottomImage | img_url: 'master' }}">
+      <source src="{{ block.settings.textBottomVideo }}" type="video/mp4" />
+    </video>
+	<!-- Icon header video and/or image -->
+	<div class="full reveal" id="slidevideo{{ slide1count }}" data-reveal data-animation-in="fade-in" data-animation-out="fade-out" data-reset-on-close="true">
+	    <div class="icon-fullscreen-video">
+	        <video  controlsList="nodownload" loop=""  poster="{{ block.settings.textBottomImage | img_url: 'master' }}" controls="">
+	            <source src="{{ block.settings.textBottomVideo }}" type="video/mp4">
+	        </video>
+	    </div>
+	    <span class="close" data-close>x</span>
+	</div>
+    {% endunless %}
+
+  </div>
+
+  {% when 'homess3' %}
+  <div class="item {% if block.settings.textCenter1Video == blank %}image{% else %}video{% endif %} home-ss-3 slider{{ slide1count }}">
+
+    <div class="grid-container slider-copy">
+      <div class="grid-x grid-padding-x align-middle align-center">
+        <div class="large-7 cell text-center">
+          <h1>{{ block.settings.textCenter1 }}</h1>
+            <div class="cta-wrap">
+              <a href="{{ block.settings.textCenterURL1a }}" class="cta light">{{ block.settings.textCenterButton1a }}</a>
+              <a href="{{ block.settings.textCenterURL1b }}" class="cta light">{{ block.settings.textCenterButton1b }}</a>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="home-ss-overlay"></div>
+
+    {% unless block.settings.textCenter1Video == blank %}
+    <video  controlsList="nodownload" class="slide-video slide-media" loop muted preload="metadata" poster="{{ block.settings.textCenter1Image | img_url: 'master' }}">
+      <source src="{{ block.settings.textCenter1Video }}" type="video/mp4" />
+    </video>
+    {% endunless %}
+
+  </div>
+
+  <style>
+  	{% if block.settings.textCenter1Video == blank %}
+  	.slider{{ slide1count }} {
+  	background-image: url({{ block.settings.textCenter1Image | img_url: 'master' }}) 
+  	}
+  	{% endif %}
+  	{% if block.settings.textCenter1ImageMobile != blank %}
+
+  	@media screen and (max-width: 63.9375em) {
+  	.slider{{ slide1count }} {
+  		background-image: url({{ block.settings.textCenter1ImageMobile | img_url: 'master' }}) !important
+  		}
+  	}
+  	{% endif %}
+
+  </style>
+
+  {% when 'homess4' %}
+  <div class="item {% if block.settings.textCenter2Video == blank %}image{% else %}video{% endif %} home-ss-4"{% if block.settings.textCenter2Video == blank %} style="background-image: url('{{ block.settings.textCenter2Image | img_url: 'master' }}')"{% endif %}>
+
+    <div class="grid-container slider-copy">
+      <div class="grid-x grid-padding-x align-middle align-center">
+        <div class="large-7 cell text-center">
+          <h1>{{ block.settings.textCenter2 }}</h1>
+          <a href="{{ block.settings.homess4.alt }}" class="cta-button light">{{ block.settings.textCenterButton2 }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="home-ss-overlay"></div>
+
+    {% unless block.settings.textCenter2Video == blank %}
+    <video  controlsList="nodownload" class="slide-video slide-media" loop muted preload="metadata" poster="{{ block.settings.textCenter2Image | img_url: 'master' }}">
+      <source src="{{ block.settings.textCenter2Video }}" type="video/mp4" />
+    </video>
+	    {% endunless %}
+  </div>
+  {% when 'homess4a' %}
+    <div class="item {% if block.settings.textCenter4aVideo == blank %}image{% else %}video{% endif %} home-ss-4a"{% if block.settings.textCenter4aVideo == blank %} style="background-image: url('{{ block.settings.textCenter4aImage | img_url: 'master' }}')"{% endif %}>
+
+      <div class="grid-container slider-copy">
+        <div class="grid-x grid-padding-x align-middle align-center">
+          <div class="large-7 cell text-center">
+            <h1>{{ block.settings.textCenter4a }}</h1>
+            <a href="{{ block.settings.textCenterURL4a }}" class="cta-button light outline">{{ block.settings.textCenterButton4a }}</a>
+          </div>
+        </div>
+      </div>
+      <div class="home-ss-overlay"></div>
+
+      {% unless block.settings.textCenter4aVideo == blank %}
+      <video  controlsList="nodownload" class="slide-video slide-media" loop muted preload="metadata" poster="{{ block.settings.textCenter4aImage | img_url: 'master' }}">
+        <source src="{{ block.settings.textCenter4aVideo }}" type="video/mp4" />
+      </video>
+  	    {% endunless %}
+    </div>
+
+	{% when 'homess5' %}
+	  <div class="item {% if block.settings.textCenter5Video == blank %}image{% else %}video{% endif %} home-ss-5"{% if block.settings.textCenter5Video == blank %} style="background-image: url('{{ block.settings.textCenter5Image | img_url: 'master' }}')"{% endif %}>
+
+	    <div class="grid-container slider-copy">
+	      <div class="grid-x grid-padding-x align-middle align-center">
+	        <div class="large-7 cell text-center">
+	          <h1>{{ block.settings.textCenter5 }}</h1>
+	            <div class="cta-wrap">
+	              <a href="{{ block.settings.textCenterURL5a }}" class="cta-button light ">{{ block.settings.textCenterButton5a }}</a>
+                <br class="hide-for-large" />
+                <div class="hide-for-large" style="
+                    margin-top: 69px !important;
+                    display: inline-block;
+                    position: relative;
+                "></div>
+	              <a href="{{ block.settings.textCenterURL5b }}" class="cta-button outline">{{ block.settings.textCenterButton5b }}</a>
+	            </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="home-ss-overlay"></div>
+
+	    {% unless block.settings.textCenter5Video == blank %}
+	    <video  controlsList="nodownload" class="slide-video slide-media" loop muted preload="metadata" poster="{{ block.settings.textCenter5Image | img_url: 'master' }}">
+	      <source src="{{ block.settings.textCenter5Video }}" type="video/mp4" />
+	    </video>
+	    {% endunless %}
+
+  </div>
+  {% when 'homess6' %}
+    <div class="item {% if block.settings.textCenter6Video == blank %}image{% else %}video{% endif %} home-ss-6 ss-6{{ slide1count }}"{% if block.settings.textCenter6Video == blank %} style="background-image: url('{{ block.settings.textCenter6Image | img_url: 'master' }}')"{% endif %}>
+
+      <div class="grid-container slider-copy">
+        <div class="grid-x grid-padding-x align-bottom video-button">
+          <div class="large-12 cell text-center">
+			{% if block.settings.textCenter6Video == blank %}
+            <a href="{{ block.settings.textCenterURL6 }}" class="cta-button light home-ss-6-button"> <i class="fal fa-play"></i> {{ block.settings.textCenterButton6 }}</a>
+			{% else %}
+			<a href="#" data-toggle="slidevideo{{ slide1count }}" class="cta-button light home-ss-6-button fullscreen-watch"> <i class="fal fa-play"></i> {{ block.settings.textCenterButton6 }}</a>
+			{% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="home-ss-overlay"></div>
+
+      {% unless block.settings.textCenter6Video == blank %}
+      <video  controlsList="nodownload" class="slide-video slide-media" loop muted preload="metadata" poster="{{ block.settings.textCenter6Image | img_url: 'master' }}">
+        <source src="{{ block.settings.textCenter6VideoBG }}" type="video/mp4" />
+      </video>
+
+	  <!-- Icon header video and/or image -->
+	  <div class="full reveal" id="slidevideo{{ slide1count }}" data-reveal data-animation-in="fade-in" data-animation-out="fade-out" data-reset-on-close="true">
+	      <div class="icon-fullscreen-video">
+	          <video class="videofile{{ slide1count }}" controlsList="nodownload" poster="{{ block.settings.textCenter6Image | img_url: 'master' }}" controls="">
+	              <source src="{{ block.settings.textCenter6Video }}" type="video/mp4">
+	          </video>
+	      </div>
+	      <span class="close" data-close>x</span>
+		  <script>
+		  $(document).ready(function($) {
+		  	$('.videofile{{ slide1count }}').on('ended',function(){
+		         $('#slidevideo{{ slide1count }}').foundation('close');
+		      });
+		    });
+
+		  </script>
+	  </div>
+      {% endunless %}
+	  <style>
+	    
+	    	{% if block.settings.textCenter6ImageMobile != blank %}
+	  
+	    	@media screen and (max-width: 63.9375em) {
+	    	.ss-6{{ slide1count }} {
+	    		background-image: url("{{ block.settings.textCenter6ImageMobile | img_url: 'master' }}")!important;
+	    		}
+	    	}
+	    	{% endif %}
+	  
+	    </style>
+
+    </div>
+{% when 'homess6a' %}
+  <div class="item {% if block.settings.textCenter6aVideo == blank %}image{% else %}video{% endif %} home-ss-3 ss-6a{{ slide1count }}"{% if block.settings.textCenter6aVideo == blank %} style="background-image: url('{{ block.settings.textCenter6aImage | img_url: 'master' }}')"{% endif %}>
+
+    <div class="grid-container slider-copy">
+      <div class="grid-x grid-padding-x align-middle align-center">
+        <div class="large-7 cell text-center">
+          <h1>{{ block.settings.textCenter6a }}</h1>
+            <div class="cta-wrap">
+              <a href="{{ block.settings.textCenterURL6a }}" class="cta light"><!--<img src="{{ 'watch-light.png' | asset_url }}" alt="" style="display: inline;" class="watch-light" />--> {{ block.settings.textCenterButton6a }}</a>
+
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="home-ss-overlay"></div>
+
+    {% unless block.settings.textCenter6aVideo == blank %}
+    <video  controlsList="nodownload" class="slide-video slide-media" loop muted preload="metadata" poster="{{ block.settings.textCenter6aImage | img_url: 'master' }}">
+      <source src="{{ block.settings.textCenter6aVideoBG }}" type="video/mp4" />
+    </video>
+	<!-- Icon header video and/or image -->
+	<div class="full reveal" id="slidevideo{{ slide1count }}" data-reveal data-animation-in="fade-in" data-animation-out="fade-out" data-reset-on-close="true">
+	    <div class="icon-fullscreen-video">
+	        <video class="videofile{{ slide1count }}" controlsList="nodownload" poster="{{ block.settings.textCenter6aImage | img_url: 'master' }}" controls="">
+	            <source src="{{ block.settings.textCenter6aVideo }}" type="video/mp4">
+	        </video>
+	    </div>
+	    <span class="close" data-close>x</span>
+		  <script>
+		  $(document).ready(function($) {
+		  	$('.videofile{{ slide1count }}').on('ended',function(){
+		         $('#slidevideo{{ slide1count }}').foundation('close');
+		      });
+		    });
+
+		  </script>
+	</div>
+    {% endunless %}
+<style>
+  
+  	{% if block.settings.textCenter6aImageMobile != blank %}
+
+  	@media screen and (max-width: 63.9375em) {
+  	.ss-6a{{ slide1count }} {
+  		background-image: url("{{ block.settings.textCenter6aImageMobile | img_url: 'master' }}")!important;
+  		}
+  	}
+  	{% endif %}
+
+  </style>
+  </div>
+ 
+  {% when 'homess7' %}
+    <div class="item image home-ss-3 ss-7{{ slide1count }}" style="background-image: url('{{ block.settings.textCenter7Image | img_url: 'master' }}')">
+
+      <div class="grid-container slider-copy">
+        <div class="grid-x grid-padding-x align-middle align-center">
+          <div class="large-7 cell text-center">
+            <h1>{{ block.settings.textCenter7 }}</h1>
+              <div class="cta-wrap">
+                <a href="{{ block.settings.textCenterURL7 }}" class="cta light">{{ block.settings.textCenterButton7 }}</a>
+
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="home-ss-overlay"></div>
+	  <style>
+	    
+	    	{% if block.settings.textCenter7ImageMobile != blank %}
+	  
+	    	@media screen and (max-width: 63.9375em) {
+	    	.ss-7{{ slide1count }} {
+	    		background-image: url("{{ block.settings.textCenter7ImageMobile | img_url: 'master' }}")!important;
+	    		}
+	    	}
+	    	{% endif %}
+	  
+	    </style>
+    </div>
+  {% endcase %}
+  {% endfor %}
+
+</section>
+
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<style>
+.slick-slide, .slick-slide::before, .caption {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.slick-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.main-slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1.2s ease;
+}
+.main-slider.slick-initialized {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slick-slide {
+  position: relative;
+  height: 100vh;
+  max-height: 100vh;
+  background-size: cover;
+      background-position: center center;
+}
+.slick-slide::before {
+  background-color: #000;
+  opacity: .3;
+  z-index: 1;
+}
+.slick-slide video {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.slick-slide iframe {
+  position: relative;
+  pointer-events: none;
+}
+.slick-slide figure {
+  position: relative;
+  height: 100%;
+}
+.slick-slide .slide-image {
+  opacity: 0;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: all .8s ease;
+}
+.slick-slide .slide-image.show {
+  opacity: 1;
+}
+.slick-slide .image-entity {
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+}
+.slick-slide .loading {
+  position: absolute;
+  top: 44%;
+  left: 0;
+  width: 100%;
+}
+.slick-slide .slide-media {
+  -webkit-animation: slideOut 0.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+          animation: slideOut 0.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+}
+.slick-slide.slick-active {
+  z-index: 1;
+}
+.slick-slide.slick-active .slide-media {
+  -webkit-animation: slideIn 2.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+          animation: slideIn 2.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+}
+.slick-slide.slick-active .caption {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  transition: all 0.7s cubic-bezier(0.32, 0.34, 0, 1.62) 0.6s;
+}
+
+.caption {
+  position: absolute;
+  top: 44%;
+  left: 5%;
+  text-align: center;
+  padding: 20px;
+  border: 3px solid;
+  color: #fff;
+  margin: 0;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: .02em;
+  opacity: 0;
+  z-index: 1;
+  transition: all .3s ease;
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+}
+
+.slick-dots {
+    text-align: center;
+    padding-top: 15px;
+    position: absolute;
+    bottom: 30px;
+    z-index: 999999;
+    width: 100%;
+    margin-left: 0;
+}
+.slick-dots li {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 8px;
+}
+.slick-dots li button {
+    width: 6px;
+    height: 6px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50% !important;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 0 transparent;
+    vertical-align: middle;
+    color: #fff;
+    background-color: #fff;
+    transition: all .3s ease;
+    opacity: .4;
+    text-indent: -99999em;
+}
+.slick-dots li button:focus {
+  outline: none;
+}
+.slick-dots li button:hover {
+  opacity: 1;
+}
+.slick-dots li.slick-active button {
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+}
+@-webkit-keyframes slideIn {
+  from {
+    -webkit-filter: blur(15px);
+            filter: blur(15px);
+  }
+  to {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    -webkit-filter: blur(15px);
+            filter: blur(15px);
+  }
+  to {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}
+@-webkit-keyframes slideOut {
+  from {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  to {
+    -webkit-filter: blur(15px);
+            filter: blur(15px);
+  }
+}
+@keyframes slideOut {
+  from {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  to {
+    -webkit-filter: blur(15px);
+            filter: blur(15px);
+  }
+}
+.instagram .slick-slide {
+    position: relative;
+    height: auto;
+    max-height: 100%;
+    background-size: cover;
+}
+.instagram .slick-slide::before {
+    background-color: #ffffff;
+    opacity: .3;
+    z-index: 1;
+}
+.instagram .slick-prev{
+	position: absolute;
+	top: 50%;
+	left: 0;
+	z-index: 99999;
+	background: url(https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/insta-left.png?2617) no-repeat top left/cover;
+	display: block;
+	width: 56px;
+	height: 56px;
+	text-indent: -9999em;
+	transform: translate(0, -50%);
+	cursor: pointer;
+}
+.instagram .slick-next {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	z-index: 99999;
+	background: url(https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/insta-right.png?2617) no-repeat top left/cover;
+	display: block;
+	width: 56px;
+	height: 56px;
+	text-indent: -9999em;
+	transform: translate(0, -50%);
+	cursor: pointer;
+}
+
+.instagram .slick-prev:hover, .instagram .slick-next:hover{
+	background-position: bottom left;
+}
+.home-slideshow .slick-next {
+	display: none;
+
+}
+.home-slideshow .slick-prev {
+	display: none;
+	}
+	@media screen and (max-width: 63.9375em) {
+		.home-slideshow .slick-prev, .home-slideshow .slick-next {
+			display: none;
+		}
+		.instagram .slick-slide {
+		    margin-right: 2px;
+		}
+		}
+</style>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+var slideWrapper = $(".main-slider"),
+    iframes = slideWrapper.find('.embed-player'),
+    lazyImages = slideWrapper.find('.slide-image'),
+    lazyCounter = 0;
+
+// POST commands to YouTube or Vimeo API
+function postMessageToPlayer(player, command){
+  if (player == null || command == null) return;
+  player.contentWindow.postMessage(JSON.stringify(command), "*");
+}
+
+// When the slide is changing
+function playPauseVideo(slick, control){
+  var currentSlide, slideType, startTime, player, video;
+
+  currentSlide = slick.find(".slick-current");
+  slideType = currentSlide.attr("class").split(" ")[1];
+  player = currentSlide.find("iframe").get(0);
+  startTime = currentSlide.data("video-start");
+
+  if (slideType === "vimeo") {
+    switch (control) {
+      case "play":
+        if ((startTime != null && startTime > 0 ) && !currentSlide.hasClass('started')) {
+          currentSlide.addClass('started');
+          postMessageToPlayer(player, {
+            "method": "setCurrentTime",
+            "value" : startTime
+          });
+        }
+        postMessageToPlayer(player, {
+          "method": "play",
+          "value" : 1
+        });
+        break;
+      case "pause":
+        postMessageToPlayer(player, {
+          "method": "pause",
+          "value": 1
+        });
+        break;
+    }
+  } else if (slideType === "youtube") {
+    switch (control) {
+      case "play":
+        postMessageToPlayer(player, {
+          "event": "command",
+          "func": "mute"
+        });
+        postMessageToPlayer(player, {
+          "event": "command",
+          "func": "playVideo"
+        });
+        break;
+      case "pause":
+        postMessageToPlayer(player, {
+          "event": "command",
+          "func": "pauseVideo"
+        });
+        break;
+    }
+  } else if (slideType === "video") {
+    video = currentSlide.children("video").get(0);
+    if (video != null) {
+      if (control === "play"){
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
+  }
+}
+
+// Resize player
+function resizePlayer(iframes, ratio) {
+  if (!iframes[0]) return;
+  var win = $(".main-slider"),
+      width = win.width(),
+      playerWidth,
+      height = win.height(),
+      playerHeight,
+      ratio = ratio || 16/9;
+
+  iframes.each(function(){
+    var current = $(this);
+    if (width / ratio < height) {
+      playerWidth = Math.ceil(height * ratio);
+      current.width(playerWidth).height(height).css({
+        left: (width - playerWidth) / 2,
+         top: 0
+        });
+    } else {
+      playerHeight = Math.ceil(width / ratio);
+      current.width(width).height(playerHeight).css({
+        left: 0,
+        top: (height - playerHeight) / 2
+      });
+    }
+  });
+}
+
+// DOM Ready
+$(function() {
+  // Initialize
+  slideWrapper.on("init", function(slick){
+    slick = $(slick.currentTarget);
+    setTimeout(function(){
+      playPauseVideo(slick,"play");
+    }, 1000);
+    resizePlayer(iframes, 16/9);
+  });
+  slideWrapper.on("beforeChange", function(event, slick) {
+    slick = $(slick.$slider);
+    playPauseVideo(slick,"pause");
+  });
+  slideWrapper.on("afterChange", function(event, slick) {
+    slick = $(slick.$slider);
+    playPauseVideo(slick,"play");
+  });
+  slideWrapper.on("lazyLoaded", function(event, slick, image, imageSource) {
+    lazyCounter++;
+    if (lazyCounter === lazyImages.length){
+      lazyImages.addClass('show');
+      // slideWrapper.slick("slickPlay");
+    }
+  });
+
+  //start the slider
+  slideWrapper.slick({
+    // fade:true,
+    autoplaySpeed:9000,
+    lazyLoad:"progressive",
+    speed:1000,
+    dots:true,
+	autoplay: true,
+	arrows: false,
+	pauseOnFocus: false,
+	pauseOnHover: false,
+    cssEase:"cubic-bezier(0.87, 0.03, 0.41, 0.9)"
+  });
+});
+
+// Resize event
+$(window).on("resize.slickVideoPlayer", function(){
+  resizePlayer(iframes, 16/9);
+});
+</script>
+
+<script>
+$(document).ready(function($) {
+    $('.fullscreen-watch').click(function() {
+        $('video').trigger('play');
+    });
+});
+$(document).ready(function(){
+    $('video').on('ended',function(){
+      console.log('Video has ended!');
+    });
+  });
+
+</script>
+
+{% schema %}
+  {
+    "name": "Slideshow",
+    "blocks": [
+      {
+      "type": "homess1a",
+        "name": "No Text",
+        "settings": [
+          {
+            "id": "noTextImage",
+            "type": "image_picker",
+            "label": "Background Image (2480x1592)"
+          },
+          {
+            "id": "noTextImageMobile",
+            "type": "image_picker",
+            "label": "Background Image Mobile (640 x 900)"
+          },
+          {
+            "id": "noTextVideo",
+            "type": "text",
+            "label": "Video Link"
+          }
+        ]
+      },
+      {
+        "type": "homess1",
+        "name": "Text left",
+        "settings": [
+          {
+            "id": "textLeftImage",
+            "type": "image_picker",
+            "label": "Background Image (2480x1592)"
+          },
+          {
+            "id": "textLeftImageMobile",
+            "type": "image_picker",
+            "label": "Background Image Mobile (640 x 900)"
+          },
+          {
+            "id": "textLeftVideo",
+            "type": "text",
+            "label": "Video Link"
+          },
+          {
+            "id": "textLeft",
+            "type": "text",
+            "label": "Text"
+          },
+          {
+            "id": "textLeftButton",
+            "type": "text",
+            "label": "Button Text"
+          },
+          {
+            "id": "textLeftURL",
+            "type": "text",
+            "label": "URL"
+          }
+        ]
+      },{
+        "type": "homess2",
+        "name": "Text Bottom",
+        "settings": [
+          {
+            "id": "textBottomImage",
+            "type": "image_picker",
+            "label": "Background Image (2480x1592)"
+          },
+          {
+            "id": "textBottomImageMobile",
+            "type": "image_picker",
+            "label": "Background Image Mobile (640 x 900)"
+          },
+
+          {
+            "id": "textBottomVideo",
+            "type": "text",
+            "label": "Video Link"
+          },
+          {
+            "id": "textBottom",
+            "type": "text",
+            "label": "Text"
+          },
+          {
+            "id": "textBottomButton",
+            "type": "text",
+            "label": "Button Text"
+          },
+          {
+            "id": "textBottomURL",
+            "type": "text",
+            "label": "URL"
+          }
+        ]
+      },
+      {
+        "type": "homess3",
+        "name": "Text Center 2 Links",
+        "settings": [
+          {
+            "id": "textCenter1Image",
+            "type": "image_picker",
+            "label": "Background Image (2480x1592)"
+          },
+          {
+            "id": "textCenter1ImageMobile",
+            "type": "image_picker",
+            "label": "Background Image Mobile (640 x 900)"
+          },
+          {
+            "id": "textCenterVideo",
+            "type": "text",
+            "label": "Video Link"
+          },
+          {
+            "id": "textCenter1",
+            "type": "text",
+            "label": "Text"
+          },
+          {
+            "id": "textCenterButton1a",
+            "type": "text",
+            "label": "Link Text Left"
+          },
+          {
+            "id": "textCenterURL1a",
+            "type": "text",
+            "label": "Link Left"
+          },
+          {
+            "id": "textCenterButton1b",
+            "type": "text",
+            "label": "Link Text Right"
+          },
+          {
+            "id": "textCenterURL1b",
+            "type": "text",
+            "label": "Link Right"
+          }
+        ]
+      },
+      {
+        "type": "homess4",
+        "name": "Text Center Filled Btn",
+        "settings": [
+          {
+            "id": "textCenter2Image",
+            "type": "image_picker",
+            "label": "Background Image (2480x1592)"
+          },
+          {
+            "id": "textCenter2ImageMobile",
+            "type": "image_picker",
+            "label": "Background Image Mobile (640 x 900)"
+          },
+          {
+            "id": "textCenter2Video",
+            "type": "text",
+            "label": "Video Link"
+          },
+          {
+            "id": "textCenter2",
+            "type": "text",
+            "label": "Text"
+          },
+          {
+            "id": "textCenterButton2",
+            "type": "text",
+            "label": "Button Text"
+          },
+          {
+            "id": "textCenterURL2",
+            "type": "text",
+            "label": "Link"
+          }
+        ]
+      },
+      {
+        "type": "homess4a",
+        "name": "Text Center Outline Btn",
+        "settings": [
+          {
+            "id": "textCenter4aImage",
+            "type": "image_picker",
+            "label": "Background Image (2480x1592)"
+          },
+          {
+            "id": "textCenter4aImageMobile",
+            "type": "image_picker",
+            "label": "Background Image Mobile (640 x 900)"
+          },
+          {
+            "id": "textCenter4aVideo",
+            "type": "text",
+            "label": "Video Link"
+          },
+          {
+            "id": "textCenter4a",
+            "type": "text",
+            "label": "Text"
+          },
+          {
+            "id": "textCenterButton4a",
+            "type": "text",
+            "label": "Button Text"
+          },
+          {
+            "id": "textCenterURL4a",
+            "type": "text",
+            "label": "Link"
+          }
+        ]
+      },
+      {
+        "type": "homess5",
+        "name": "Text Center 2 Buttons",
+        "settings": [
+          {
+            "id": "textCenter5Image",
+            "type": "image_picker",
+            "label": "Background Image (2480x1592)"
+          },
+          {
+            "id": "textCenter5ImageMobile",
+            "type": "image_picker",
+            "label": "Background Image Mobile (640 x 900)"
+          },
+          {
+            "id": "textCenter5Video",
+            "type": "text",
+            "label": "Video Link"
+          },
+          {
+            "id": "textCenter5",
+            "type": "text",
+            "label": "Text"
+          },
+          {
+            "id": "textCenterButton5a",
+            "type": "text",
+            "label": "Link Text Left"
+          },
+          {
+            "id": "textCenterURL5a",
+            "type": "text",
+            "label": "Link Left"
+          },
+          {
+            "id": "textCenterButton5b",
+            "type": "text",
+            "label": "Link Text Right"
+          },
+          {
+            "id": "textCenterURL5b",
+            "type": "text",
+            "label": "Link Right"
+          }
+        ]
+      },
+      {
+        "type": "homess6",
+        "name": "Video Button",
+        "settings": [
+          {
+            "id": "textCenter6Image",
+            "type": "image_picker",
+            "label": "Background Image (2480x1592)"
+          },
+          {
+            "id": "textCenter6ImageMobile",
+            "type": "image_picker",
+            "label": "Background Image Mobile (640 x 900)"
+          },
+          {
+            "id": "textCenter6Video",
+            "type": "text",
+            "label": "Sound Video Link"
+          },
+          {
+            "id": "textCenter6VideoBG",
+            "type": "text",
+            "label": "Background Video Link"
+          },
+          {
+            "id": "textCenterButton6",
+            "type": "text",
+            "label": "Link Text"
+          },
+          {
+            "id": "textCenterURL6",
+            "type": "text",
+            "label": "Link"
+          }
+        ]
+      },
+      {
+        "type": "homess6a",
+        "name": "Text Center Video Link",
+        "settings": [
+          {
+            "id": "textCenter6aImage",
+            "type": "image_picker",
+            "label": "Background Image (2480x1592)"
+          },
+          {
+            "id": "textCenter6aImageMobile",
+            "type": "image_picker",
+            "label": "Background Image Mobile (640 x 900)"
+          },
+          {
+            "id": "textCenter6aVideo",
+            "type": "text",
+            "label": "Sound Video Link"
+          },
+          {
+            "id": "textCenter6aVideoBG",
+            "type": "text",
+            "label": "Background Video Link"
+          },
+          {
+            "id": "textCenter6a",
+            "type": "text",
+            "label": "Text"
+          },
+          {
+            "id": "textCenterButton6a",
+            "type": "text",
+            "label": "Link Text"
+          },
+          {
+            "id": "textCenterURL6a",
+            "type": "text",
+            "label": "Link"
+          }
+            ]
+          },
+          {
+            "type": "homess7",
+            "name": "Text Center Image Link",
+            "settings": [
+              {
+                "id": "textCenter7Image",
+                "type": "image_picker",
+                "label": "Background Image"
+              },
+              {
+                "id": "textCenter7ImageMobile",
+                "type": "image_picker",
+                "label": "Background Image Mobile (640 x 900)"
+              },
+              {
+                "id": "textCenter7",
+                "type": "text",
+                "label": "Text"
+              },
+              {
+                "id": "textCenterButton7",
+                "type": "text",
+                "label": "Link Text"
+              },
+              {
+                "id": "textCenterURL7",
+                "type": "text",
+                "label": "Link"
+              }
+        ]
+      }
+    ]
+  }
+{% endschema %}

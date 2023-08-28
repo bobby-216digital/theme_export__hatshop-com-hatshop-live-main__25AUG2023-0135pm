@@ -1,0 +1,100 @@
+<div class="header-spacer"></div>
+
+{% for article in blogs.atelier.articles limit:1 %}
+<!-- Atelier Intro -->
+<section class="atelier-intro">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="medium-12 cell text-center">
+	  	<a href="{{ article.url }}" class="zoom" data-hover-id="{{ article.id }}"><img src="{{ article.metafields.accentuate.atelier_introimage }}" /></a>
+        <h1 class="h3"><a href="{{ article.url }}" class="link-activate" data-hover-id="{{ article.id }}">{{ article.title }}</a></h1>
+		  <h3><a href="/blogs/atelier">Stories</a></h3>
+      </div>
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<!-- Atelier Icons -->
+<section class="atelier-icons">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="medium-5 cell text-center">
+				<div class="atelier-icon1">
+					<a href="/pages/icon-molly" class="zoom" data-hover-id="molly"><img src="{{ 'Bitmap.jpg' | asset_url }}" /></a>
+					<h2 class="h4"><a href="/pages/icon-molly" class="link-activate" data-hover-id="molly">Meet the Icon: Molly</a></h2>
+					<h3 class="h2"><a href="/pages/icons">Icons</a></h3>
+				</div>
+			</div>
+			<div class="medium-7 cell">
+				<div class="atelier-icon-spacer">
+					<a href="/pages/icons" class="text-right see-all show-for-large">See all icons</a>
+					<div class="atelier-icon2">
+						<a href="/pages/icon-daniel" class="zoom" data-hover-id="daniel"><img src="{{ 'daniel-video.jpg' | asset_url }}" /></a>
+						<h2 class="h4"><a href="/pages/icon-daniel" class="link-activate" data-hover-id="daniel">Meet the Icon: Daniel</a></h2>
+						<h3 class="h2"><a href="/pages/icons">Icons</a></h3>
+					</div>
+				</div>
+				<a href="/pages/icons" class="text-center see-all hide-for-large">See all icons</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Atelier Press -->
+{% assign blog_handle = 'press' %}
+<section class="atelier-press">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="medium-2 cell">
+				<a href="/blogs/press" class="see-all show-for-large">See all press</a>
+			</div>
+			<div class="medium-10 cell">
+				<div class="grid-x grid-padding-x">
+					{% for article in blogs[blog_handle].articles limit: 4 %}
+
+          <!-- Press single item -->
+    			<div class="large-3 cell press-item text-center">
+    				<a href="{{ article.url }}" class="zoom" data-hover-id="{{ article.id}}">
+    					<div class="press-double relative">
+    						{% if article.metafields.accentuate.press_landing_main %}
+    						<img src="{{ article.metafields.accentuate.press_landing_main | img_url: '452x632', crop: 'center' }}" class="press-main-landing " />
+    						{% else%}
+    						<img src="{{ article.image.src | img_url: '452x632', crop: 'center' }}" class="press-main-landing " />
+    						{% endif %}
+    					</div>
+    				</a>
+    				<h3 class="h4" style="margin-top: 15px;"><a href="{{ article.url }}" class="link-activate press-offset-title" data-hover-id="{{ article.id}}">{{ article.excerpt }}</a></h3>
+    				<h2><a href="{{ article.url }}" class="link-activate" data-hover-id="{{ article.id}}">{{ article.title }}</a></h2>
+    			</div>
+
+					{% endfor %}
+					<a href="/blogs/press" class="see-all hide-for-large">See all press</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Atelier Stories -->
+<section class="atelier-stories">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x align-center">
+			<div class="medium-9 cell">
+				<h3 class="text-center show-for-large">Latest Creations</h3>
+				<div class="grid-container">
+					<div class="grid-x grid-padding-x">
+						{% for article in blogs.atelier.articles offset:1 %}
+						<div class="medium-6 cell">
+							<div class="story-wrap">
+								<a href="{{ article.url }}" class="zoom" data-hover-id="{{ article.id }}"><img src="{{ article.image.src | img_url: '776x1072', crop: 'center' }}" /></a>
+								<h4><a href="{{ article.url }}" class="link-activate" data-hover-id="{{ article.id }}">{{ article.title }}</a></h4>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

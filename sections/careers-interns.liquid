@@ -1,0 +1,71 @@
+<!-- Internships Careers --> 
+<div class="careers-list-item bottom50">
+  <h3 class="h5">{{ section.settings.paidTitle }}</h3>
+  <p>{{ section.settings.paidContent }}</p>
+  <p class="small-body-title">{{ section.settings.noPositions }}</p>
+  <ul class="accordion" data-accordion>
+
+    {% for block in section.blocks %}
+    {% case block.type %}
+
+    {% when 'jobs' %}
+    <!-- Job Listing item -->
+    <li class="accordion-item" data-accordion-item>
+      <a href="#" class="accordion-title">{{ block.settings.jobTitle }}</a>
+      <div class="accordion-content" data-tab-content>
+        {{ block.settings.jobDesc }}
+      </div>
+    </li>
+
+    {% endcase %}
+    {% endfor %}
+
+  </ul>
+  <p>{{ section.settings.paidInstructions }}</p>
+</div>
+
+{% schema %}
+  {
+    "name": "Internship Openings",
+    "settings": [
+      {
+        "id": "paidTitle",
+        "type": "text",
+        "label": "Openings Title"
+      },
+      {
+        "id": "paidContent",
+        "type": "richtext",
+        "label": "Openinigs intro"
+      },
+      {
+        "id": "noPositions",
+        "type": "text",
+        "label": "No Positions text (optioinal)"
+      },
+      {
+        "id": "paidInstructions",
+        "type": "textarea",
+        "label": "Instructions to apply"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "jobs",
+        "name": "jobs",
+        "settings": [
+          {
+            "id": "jobTitle",
+            "type": "text",
+            "label": "Job Title"
+          },
+          {
+            "id": "jobDesc",
+            "type": "richtext",
+            "label": "Job Description"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

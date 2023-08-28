@@ -1,0 +1,111 @@
+<!-- Latest Hats for Women's, Men's --> 
+<section class="home-latest">
+  <div class="grid-container">
+
+    {% for block in section.blocks %}
+    {% case block.type %}
+
+    {% when 'homewomens' %}
+    <!-- Women's latest -->
+    <div class="grid-x grid-padding-x align-middle align-justify section-space">
+      <div class="medium-2 cell home-latest-text-1 small-order-2 medium-order-1">
+	  	<h2><a href="{{ block.settings.womensButtonURL }}" class="link-activate" data-hover-id="womenLink">{{ block.settings.womensTitle }}</a></h2>
+        <a href="{{ block.settings.womensButtonURL }}" class="cta dark link-activate" data-hover-id="womenLink">{{ block.settings.womensButtonText }}</a>
+      </div>
+      <div class="medium-9 cell small-order-1 medium-order-2">
+        <div class="relative">
+          <a href="{{ block.settings.womensButtonURL }}" class="zoom latest-img women-home-img" data-hover-id="womenLink"><img src="{{ block.settings.womensImage | img_url: 'master' }}" /></a>
+		  <span class="women-texture" style="background:url({{ block.settings.womensTexture | img_url: 'master' }}) no-repeat top left/cover;width: 31%; height: 62%;position: absolute; z-index: 1;left: -33px; top: -33px;"></span>
+        </div>
+      </div>
+    </div>
+
+    {% when 'homemens' %}
+    <!-- Men's latest -->
+    <div class="grid-x grid-padding-x align-middle align-justify section-space80">
+      <div class="medium-9 cell  small-order-1 medium-order-1">
+        <div class="relative">
+          <a href="{{ block.settings.mensButtonURL }}" class="zoom latest-img men-home-img" data-hover-id="menLink"><img src="{{ block.settings.mensImage | img_url: 'master' }}" /></a>
+		  <span class="men-texture" style="background: url({{ block.settings.mensTexture | img_url: 'master' }}) no-repeat top right/cover;width: 77%; height: 96%;position: absolute;z-index: 1; right: -28px;top: -38px;"></span>
+        </div>
+      </div>
+      <div class="medium-2 cell home-latest-text-2 small-order-2 medium-order-2">
+	  	<h2><a href="{{ block.settings.mensButtonURL }}" class="link-activate shop-men-link" data-hover-id="menLink">{{ block.settings.mensTitle }}</a></h2>
+        <a href="{{ block.settings.mensButtonURL }}" class="cta dark shop-men-link link-activate" data-hover-id="menLink">{{ block.settings.mensButtonText }}</a>
+      </div>
+    </div>
+
+{% endcase %}
+{% endfor %}
+
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Shop",
+    "blocks": [
+      {
+        "type": "homewomens",
+        "name": "Women's Hat",
+        "settings": [
+          {
+            "id": "womensImage",
+            "type": "image_picker",
+            "label": "Womens Image - 1718px x 1296px"
+          },
+          {
+            "id": "womensTexture",
+            "type": "image_picker",
+            "label": "Womens Texture - 506px x 766px"
+          },
+          {
+            "id": "womensTitle",
+            "type": "text",
+            "label": "Womens Hat Title"
+          },
+          {
+            "id": "womensButtonText",
+            "type": "text",
+            "label": "Womens Button Text"
+          },
+          {
+            "id": "womensButtonURL",
+            "type": "text",
+            "label": "Womens Button URL"
+          }
+        ]
+      },
+      {
+        "type": "homemens",
+        "name": "Mens Hat",
+        "settings": [
+          {
+            "id": "mensImage",
+            "type": "image_picker",
+            "label": "Mens Image - 1047px x 765px"
+          },
+          {
+            "id": "mensTexture",
+            "type": "image_picker",
+            "label": "Mens Texture - 732px x 766px"
+          },
+          {
+            "id": "mensTitle",
+            "type": "text",
+            "label": "Mens Hat Title"
+          },
+          {
+            "id": "mensButtonText",
+            "type": "text",
+            "label": "Mens Button Text"
+          },
+          {
+            "id": "mensButtonURL",
+            "type": "text",
+            "label": "Mens Button URL"
+          }
+        ]
+      }
+          ]
+  }
+{% endschema %}

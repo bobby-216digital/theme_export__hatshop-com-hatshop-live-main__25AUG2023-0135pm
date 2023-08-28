@@ -1,0 +1,6 @@
+<!-- All Images Worth & Worth -->
+{% layout none %}
+{% for product in collections['all'].products  %}
+    {% for image in product.images %} {{ image.src | product_img_url: 'master' }}<br>
+    {% endfor %}
+{% endfor %}

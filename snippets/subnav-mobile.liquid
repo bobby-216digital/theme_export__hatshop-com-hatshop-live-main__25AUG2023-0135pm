@@ -1,0 +1,220 @@
+<div class="off-canvas position-left" id="showNav" data-off-canvas data-transition="overlap">
+  <div class="cart-drawer-padding">
+	<!-- Main Navigation list -->
+    <ul class="vertical menu drilldown" data-drilldown data-animation-easing="swing" data-animation-duration="1000">
+		 <!-- Search bar -->
+		<form class="search" action="/search">
+		  <input type="text" name="q" placeholder="What are you looking for?" class="search-input mobile-search">
+		  <input type="hidden" name="type" value="product">
+		</form>
+		<!-- Navigation Item -->
+		<li>
+			<a href="#">Shop</a>
+			<ul class="menu vertical nested">
+				<li>
+					<!-- Shop content -->
+					<div class="nav-drop-mobile">
+						<div class="grid-container grid-x grid-padding-x">
+							<div class="medium-12 cell">
+								<img src="{{ 'm-subnav-shop.png' | asset_url }}" />
+								<div class="nav-drop-section">
+									<h4 class="small-body-title">Women's Hats</h4>
+									{% for link in linklists.shop-dropdown-womens.links %}
+									<a href="{{ link.url }}" class="nav-item{% if link.title == 'Ready to Ship' %} rts-nav{% endif %}" id="subnav-link-{{ link.title | handle }}" >{{ link.title }}{% if link.title == 'Ready to Ship' %} <span></span>{% endif %}</a>
+									{% endfor %}
+         
+								</div>
+                                <!--<h4 class="small-body-title" style="
+    font-weight: bold;
+    margin-top: 30px;
+"><a href="https://hatshop.com/collections/fathers-day-gift-guide" style="
+    font-weight: bold;
+    font-size: 13px;
+    color: #2e2e2e;
+    letter-spacing: 2px;
+    line-height: 19px;
+    text-transform: uppercase;
+">Father's Day <br><span style="text-transform:none;font-weight:normal;letter-spacing:0;font-family: miller-display,serif;font-weight: 300;/* font-size: 36px; */color: #2e2e2e;font-size: 16px;font-style: italic;">Gift Guide</span></a></h4>-->
+								<div class="nav-drop-section">
+									<h4 class="small-body-title">Men's Hats</h4>
+									{% for link in linklists.shop-dropdown-mens.links %}
+									<a href="{{ link.url }}" class="nav-item{% if link.title == 'Ready to Ship' %} rts-nav{% endif %}" id="subnav-link-{{ link.title | handle }}" >{{ link.title }}{% if link.title == 'Ready to Ship' %} <span></span>{% endif %}</a>
+									{% endfor %}
+								</div>
+							</div>
+							<div class="medium-12 cell">
+       <div class="nav-drop-section">
+									<h4 class="small-body-title">Shoes</h4>
+									{% for link in linklists.shop-dropdown-shoes.links %}
+									<a href="{{ link.url }}" class="nav-item" id="subnav-link-{{ link.title | handle }}" data-image-id="collect-img-{{ link.title | handle }}">{{ link.title }}</a>
+									{% endfor %}
+								</div>
+								<div class="nav-drop-section">
+									<h4 class="small-body-title">Accessories</h4>
+									{% for link in linklists.shop-dropdown-accessories.links %}
+									<a href="{{ link.url }}" class="nav-item" id="subnav-link-{{ link.title | handle }}" data-image-id="collect-img-{{ link.title | handle }}">{{ link.title }}</a>
+									{% endfor %}
+								</div>
+								<!--<div class="nav-drop-section">
+									<h4 class="small-body-title">W&W Little</h4>
+									{% for link in linklists.shop-dropdown-w-w-little.links %}
+									<a href="{{ link.url }}" class="nav-item" id="subnav-link-{{ link.title | handle }}" data-image-id="collect-img-{{ link.title | handle }}">{{ link.title }}</a>
+									{% endfor %}
+								</div>-->
+								<div class="nav-drop-section">
+									<h4 class="small-body-title">Gift Cards</h4>
+									{% for link in linklists.shop-dropdown-gift-cards.links %}
+									<a href="{{ link.url }}" class="nav-item" id="subnav-link-{{ link.title | handle }}">{{ link.title }}</a>
+									{% endfor %}
+								</div>
+								<!--<div class="nav-drop-section nav-sale">
+									<a href="/collections/on-sale"><h4 class="small-body-title" style="color:#936124;">Sale</h4></a>
+									<a href="/collections/on-sale"  style="color:#936124;" class="nav-item" id="subnav-link-sale">Up to 60% off</a>
+								</div>-->
+                              <div class="nav-drop-section nav-sale">
+									<a href="/pages/virtual-consultation"><h4 class="small-body-title">Book a Consultation</h4></a>
+								</div>
+								
+							</div>
+							<div class="medium-12 cell">
+								{% for link in linklists.shop-dropdown-support.links %}
+								<a href="{{ link.url }}" class="nav-item" id="subnav-link-{{ link.title | handle }}">{{ link.title }}</a>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</li>
+		<!-- Navigation Item -->
+		<li>
+			<a href="https://hatshop.com/pages/virtual-consultation">Book an Experience</a>
+			<!--<ul class="menu vertical nested">
+				<li>
+					 Hat Repair content
+					<div class="nav-drop-mobile" id="subnav-repair-mobile">
+						<div class="grid-container grid-x grid-padding-x align-middle">
+							<div class="medium-12 cell">
+								<img src="{{ 'orlando-services.jpg' | asset_url }}" />
+								<h4 class="small-body-title">HAT SERVICES</h4>
+								{% for link in linklists.hat-repair-dropdown.links %}
+								<a href="{{ link.url }}" class="" id="nav-{{ link.title | handle }}">{{ link.title }}</a>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>-->
+		</li>
+		<!-- Navigation Item -->
+		<li>
+			<a href="#">Custom</a>
+			<ul class="menu vertical nested">
+				<li>
+					<!-- Custom content -->
+					<div class="nav-drop-mobile" id="subnav-custom-mobile">
+						<div class="grid-container grid-x grid-padding-x align-middle">
+							<div class="medium-12 medium-offset-1 cell relative">
+								<img src="{{ 'Custom-dropdown-navigation.jpg' | asset_url }}" />
+							</div>
+							<div class="medium-12 medium-offset-1 cell text-center ">
+								<h4>Craft the Perfect Hat to Call Your Very Own</h4>
+								<p>A hat is one of the most personal pieces of clothing/accessories that one can wear, so why not invest in something that will fit no other head but yours?</p>
+								<a class="button filled" href="/pages/custom">Start here</a>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</li>
+		<!-- Navigation Item -->
+		<li>
+			<a href="#">W&W Culture</a>
+			<ul class="menu vertical nested">
+				<li>
+					<!-- Culture content -->
+					<div class="nav-drop-mobile" id="subnav-culture-mobile">
+						<div class="grid-container grid-x grid-padding-x align-middle">
+							<div class="medium-12 cell">
+								<h4 class="small-body-title">W&W Culture</h4>
+								{% for link in linklists.w-w-culture-dropdown.links %}
+								<a href="{{ link.url }}" class="nav-item" id="subnav-link-{{ link.title | handle }}" data-image-id="collect-img-{{ link.title | handle }}">{{ link.title }}</a>
+								{% endfor %}
+							</div>
+							<div class="medium-9 cell relative culture-mobile-slider">
+								<h3>From the Atelier</h3>
+								<p class="subnav-culture-seeall"><a href="/blogs/atelier">See all</a></p>
+								<!-- Subnav slideshow item -->
+								{% section 'cultureslider' %}
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</li>
+		<!-- Navigation Item -->
+		<li>
+			<a href="#">Underneath my hat</a>
+			<ul class="menu vertical nested">
+				<li>
+					<!-- UMH content -->
+					<div class="nav-drop-mobile" id="subnav-umh-mobile">
+						<div class="grid-container grid-x grid-padding-x align-middle">
+							<div class="medium-12 cell">
+								<img src="{{ 'Worth-and-Worth-umh-about-Orlando-MOBILE.jpg' | asset_url }}" />
+								<h4>Underneath My Hat</h4>
+								{% for link in linklists.umh-dropdown.links %}
+								<a href="{{ link.url }}" class="nav-item" id="nav-{{ link.title | handle }}" data-hover-id="nav-{{ link.title | handle }}">{{ link.title }}</a>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="https://hatshop.com/pages/contact">Contact Us</a>
+			
+		</li>
+		<li class="customer-care-mobile">
+	        <a href="#">My Account</a>
+	        <ul class="menu vertical nested">
+	            <li>
+					<!-- UMH content -->
+		            <div class="nav-drop-mobile" id="subnav-customercare">
+		                <div class="grid-container grid-x grid-padding-x align-middle">
+							<div class="medium-12 cell">
+		                    	<!-- Account and wishlist -->
+		                    	<div class="mobile-nav-section">
+			                        <ul>
+										{% if customer %}
+										<li><a href="/account">Welcome {{ customer.first_name
+										}}!</a></li>
+										<li><a href="/account/logout">Logout</a></li>
+										{% else %}
+
+										<li><a href="/account/login">Login</a></li>
+										<li><a href="/account/register">Register</a></li>
+										{% endif %}
+			                            <li><a href="/a/wishlist">My Wishlist</a></li>
+			                        </ul>
+		                    	</div>
+		                    	<!-- Call or visit office -->
+		                    	<div class="mobile-nav-section">
+		                        	<ul>
+		                    	  		<li><a href="tel:2122652887"><i class="fal fa-phone-alt"></i> 212-265-2887</a></li>
+		                    	  		<li><a href="/pages/contact"><i class="fal fa-map-marker-alt"></i> Visit our NYC Shop</a></li>
+		                        	</ul>
+		                    	</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+  <button class="close-button" aria-label="Close menu" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

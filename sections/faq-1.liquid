@@ -1,0 +1,58 @@
+<!-- FAQ Section with accordian functionality --> 
+<div class="faq-section-wrap bottom50" id="first">
+  <h2 class="small-body-title">{{ section.settings.title }}</h2>
+    <ul class="accordion" data-accordion>
+
+      {% for block in section.blocks %}
+      {% case block.type %}
+
+      {% when 'questionAnswer' %}
+      <!-- FAQ Item -->
+      <li class="accordion-item" data-accordion-item data-acc="{{ block.settings.shortcut }}" id="{{ block.settings.shortcut }}">
+        <a href="#{{ block.settings.shortcut }}" class="accordion-title">{{ block.settings.question }}</a>
+        <div class="accordion-content" data-tab-content>
+          <p>{{ block.settings.answer }}</p>
+        </div>
+      </li>
+
+      {% endcase %}
+      {% endfor %}
+
+  </ul>
+</div>
+
+{% schema %}
+  {
+    "name": "FAQ Section 1",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "FAQ Section Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "questionAnswer",
+        "name": "Question & Answer",
+        "settings": [
+          {
+            "id": "question",
+            "type": "text",
+            "label": "Question"
+          },
+          {
+            "id": "answer",
+            "type": "richtext",
+            "label": "Answer"
+          },
+          {
+            "id": "shortcut",
+            "type": "text",
+            "label": "Short Cut Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

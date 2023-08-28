@@ -1,0 +1,77 @@
+<!-- Contact Information --> 
+<div class="grid-x grid-margin-x align-center">
+  <div class="large-7 cell">
+    <h2 class="contact-info-title">{{ section.settings.title }}</h1>
+	<img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/pins.png" alt="Contact Us"  class="pins hide-for-large" />
+    <p>{{ section.settings.intro }}</p>
+    <div class="grid-x grid-padding-x address-row relative">
+      <div class="medium-4 cell">
+        <h2 class="small-body-title">{{ section.settings.addressTitle }}</h2>
+        <p>{{ section.settings.addressInfo }}</p>
+      </div>
+      <div class="medium-4 cell">
+        <h2 class="small-body-title">{{ section.settings.hoursTitle }}</h2>
+        <p>{{ section.settings.hoursInfo }}</p>
+      </div>
+      <div class="medium-4 cell">
+        <h2 class="small-body-title">{{ section.settings.phoneTitle }}</h2>
+        <p>{{ section.settings.phoneNumber }}</p>
+		<div class="phone-links">{{ section.settings.phoneLinks }}</div>
+      </div>
+	  <img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/pins.png" alt="Contact Us" class="pins show-for-large" />
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Contact Information",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title"
+      },
+      {
+        "id": "intro",
+        "type": "textarea",
+        "label": "Contact Introduction"
+      },
+      {
+        "id": "addressTitle",
+        "type": "text",
+        "label": "Address Title"
+      },
+      {
+        "id": "addressInfo",
+        "type": "textarea",
+        "label": "Address"
+      },
+      {
+        "id": "hoursTitle",
+        "type": "text",
+        "label": "Hours Title"
+      },
+      {
+        "id": "hoursInfo",
+        "type": "textarea",
+        "label": "Hours"
+      },
+      {
+        "id": "phoneTitle",
+        "type": "text",
+        "label": "Address Title"
+      },
+      {
+        "id": "phoneNumber",
+        "type": "text",
+        "label": "Phone Number"
+      },
+      {
+        "id": "phoneLinks",
+        "type": "richtext",
+        "label": "Additional Links"
+      }
+    ]
+  }
+{% endschema %}

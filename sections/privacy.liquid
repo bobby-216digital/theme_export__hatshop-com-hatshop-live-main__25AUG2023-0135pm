@@ -1,0 +1,49 @@
+<h1 class="h2">{{ section.settings.title }}</h1>
+{{ 'sketch-border.png' | asset_url | img_tag: 'Border', 'sketch-border' }}
+<ol>
+
+  {% for block in section.blocks %}
+  {% case block.type %}
+
+  {% when 'privacyItems' %}
+  <!-- Privacy Policy Item -->
+  <li>
+    <span class="small-body-title">{{ block.settings.privacyTitle }}</span>
+    <p>{{ block.settings.privacyExplanation }}</p>
+  </li>
+
+  {% endcase %}
+  {% endfor %}
+
+</ol>
+
+{% schema %}
+  {
+    "name": "Privacy Policy",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Privacy Policy Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "privacyItems",
+        "name": "Privacy Policy Item",
+        "settings": [
+          {
+            "id": "privacyTitle",
+            "type": "text",
+            "label": "Privacy Title"
+          },
+          {
+            "id": "privacyExplanation",
+            "type": "richtext",
+            "label": "Privacy Explanation"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

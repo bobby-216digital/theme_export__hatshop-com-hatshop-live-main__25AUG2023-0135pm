@@ -1,0 +1,53 @@
+<!-- Icon header video and/or image -->
+<div class="grid-container">
+	<div class="grid-x grid-padding-x align-middle section-space80">
+		<div class="medium-5 cell small-order-2 medium-order-1">
+			<div class="support-text">
+				<h5>{{ section.settings.strawBannerSmalltitleR }}</h5>
+				<h3>{{ section.settings.strawBannertitleR }}</h3>
+				<div class="banner-text">{{ section.settings.strawBannerDescriptionR }}</div>
+				{% if section.settings.strawBannerLinkR %}<a href="{{ section.settings.strawBannerLinkR }}" class="cta dark link-activate" data-hover-id="sbR">{{ section.settings.strawBannerLinkTextR }}</a>{%endif %}
+			</div>
+		</div>
+		<div class="large-7 cell small-order-1 medium-order-2">
+			<a href="{{ strawBannerLinkR }}" class="zoom" data-hover-id="sbR"><img src="{{ section.settings.strawBannerImgageR | img_url: 'master' }}"></a>
+		</div>
+	</div>
+</div>
+{% schema %}
+  {
+    "name": "Straw Banner Image Right",
+    "settings": [
+      {
+        "id": "strawBannerImgageR",
+        "type": "image_picker",
+        "label": "Banner Image - Size: 1400px x 1000px"
+      },
+      {
+        "id": "strawBannerSmalltitleR",
+        "type": "text",
+        "label": "Small Text above title"
+      },
+      {
+        "id": "strawBannertitleR",
+        "type": "text",
+        "label": "Title"
+      },
+      {
+        "id": "strawBannerDescriptionR",
+        "type": "richtext",
+        "label": "Description"
+      },
+      {
+        "id": "strawBannerLinkR",
+        "type": "text",
+        "label": "Link"
+      },
+      {
+        "id": "strawBannerLinkTextR",
+        "type": "text",
+        "label": "Link Text"
+      }
+    ]
+  }
+{% endschema %}

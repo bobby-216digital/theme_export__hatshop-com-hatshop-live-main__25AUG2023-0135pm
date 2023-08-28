@@ -1,0 +1,103 @@
+<!-- Image left and image right -->
+<section class="icon-imageleft-imageright section-space60">
+  <!-- Latest Creation -->
+  <div class=" grid-container grid-x grid-padding-x align-middle latest-creations">
+    <div class="medium-6 cell text-center latest-creations-text small-order-2 medium-order-1">
+      <h3 class="h5">Shop the Look</h3>
+
+      {% assign featured = all_products[section.settings.featured] %}
+      <a href="{{ featured.url }}" class="zoom">
+        <img src="{{ featured.featured_image | img_url: '668x442' }}" class="prod-image" />
+      </a>
+      <h2><a href="{{ featured.url }}">{{ featured.title }}</a></h2>
+      <span class="price">{{ featured.price | money_without_trailing_zeros }}</span><br />
+	  <a href="{{ featured.url }}" class="filled button link-activate" data-hover-id="{{ all_products[selected_handle].handle }}">Shop Now</a>
+
+    </div>
+    <div class="medium-6 cell small-order-1 medium-order-2">
+      <img src="{{ section.settings.productLifestyle | img_url: 'master' }}" />
+    </div>
+  </div>
+</section>
+
+<!-- Icon spotify playlist -->
+<section class="icon-playlist" id="playlist">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x align-center bottom50">
+      <div class="medium-10 cell text-center">
+        <h5>PLAYLIST HIGHLIGHTS</h5>
+        <h3>{{ section.settings.playlist }}</h3>
+        <a class="button" href="javascript:void(0)">Launch <i class="fab fa-spotify"></i> Playlist</a>
+		<div class="playlist">
+			{{ section.settings.playlistURL }}
+		</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Icon next -->
+<section class="icon-next">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x align-center bottom50">
+			<div class="medium-6 cell">
+				<a href="/pages/icon-maya"><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/IMG_5137_LANDING_IMAGE.jpg?9290" alt="Alone Together: Maya" />
+					<div class="icon-navigation">
+						<span class="icon-navigation-text">
+							<h5 class="h3">Next Icon:</h5>
+							<h4>Alone Together: Maya</h4>
+						</span>
+						<i class="fal fa-chevron-right"></i>
+					</div>
+				</a>
+			</div>
+    	</div>
+  	</div>
+</section>
+
+
+<script type="text/javascript">
+	$('.icon-playlist .button').click(function(){
+	  $(".playlist").slideToggle();
+	  $(this).slideToggle();
+	  $('.icon-playlist h3').slideToggle();
+	  });
+	$(function(){
+	   var hash = window.location.hash;
+	   if(hash == '#playlist'){
+	      $(".playlist").slideToggle();
+	      $('.icon-playlist .button').slideToggle();
+	      $('.icon-playlist h3').slideToggle();
+
+	   }
+	});
+</script>
+
+
+{% schema %}
+  {
+    "name": "Related",
+    "settings": [
+      {
+       "type": "product",
+       "id": "featured",
+       "label": "Feature product"
+      },
+      {
+        "id": "productLifestyle",
+        "type": "image_picker",
+        "label": "Product Lifestyle Photo (1148px x 1454px)"
+      },
+      {
+        "id": "playlist",
+        "type": "textarea",
+        "label": "Playlist Highlights"
+      },
+      {
+        "id": "playlistURL",
+        "type": "textarea",
+        "label": "Playlist Embed"
+      }
+    ]
+  }
+{% endschema %}

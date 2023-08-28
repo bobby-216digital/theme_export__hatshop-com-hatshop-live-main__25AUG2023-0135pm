@@ -1,0 +1,59 @@
+<!-- Clearing & Blocking Services -->
+<div class="services-list-wrap">
+  <h2 class="h5">{{ section.settings.heading }} <span class="service-price">USD</span></h2>
+  <br clear="all" />
+
+  {% for block in section.blocks %}
+  {% case block.type %}
+
+  {% when 'service' %}
+  <!-- Single service item -->
+  <div class="service-item">
+    <span class="service-title">
+     <span class="service-title-bg">{{ block.settings.serviceTitle }}
+     <em>{{ block.settings.serviceNote }}</em></span>
+    </span>
+    <span class="service-price">{{ block.settings.servicePrice }}</span>
+    <br clear="all" />
+  </div>
+
+  {% endcase %}
+  {% endfor %}
+
+</div>
+
+{% schema %}
+  {
+    "name": "Full Service & Renovation",
+    "settings": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading Text"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "service",
+        "name": "Service",
+        "settings": [
+          {
+            "id": "serviceTitle",
+            "type": "text",
+            "label": "Title"
+          },
+          {
+            "id": "servicePrice",
+            "type": "text",
+            "label": "Price"
+          },
+          {
+            "id": "serviceNote",
+            "type": "text",
+            "label": "Note"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

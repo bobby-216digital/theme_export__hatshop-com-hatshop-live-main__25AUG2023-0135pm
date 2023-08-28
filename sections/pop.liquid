@@ -1,0 +1,970 @@
+<style>
+  
+  #mce-error-response a {
+     display:none !important 
+    }
+  #mc_embed_signup div.response {
+    margin: 1em 0;
+    padding: 0 .5em 0 0 !important;
+    font-weight: normal;
+    float: left;
+    top: 0 !important;
+    z-index: 1;
+    width: 100%  !important;
+}
+  .popupDesktopImg {
+    display: block;
+  }
+  .popupMobileImg {
+    display: none;
+  }
+  .popupNew .grid-container {
+    padding: 0;
+  }
+
+  .imgCrop img {
+    width: 100%;
+  }
+
+  .popupWrap {
+    text-align: center;
+    padding: 30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .popupWrap h1 {
+    font-size: 28px;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 38px;
+  }
+
+  .popupWrap p {
+    font-size: 18px;
+    color: #313131;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
+  }
+
+  .popupIntro {
+    font-size: 15px;
+    color: #AB7A1C !important;
+    letter-spacing: 1.41px;
+    text-align: center;
+    line-height: 23px;
+    text-transform: uppercase;
+    font-size: 15px !important;
+    margin: 10px;
+    font-family: proxima-nova, sans-serif;
+    display: block;
+  }
+
+  .popupWrap form {
+    margin-top: 40px;
+  }
+
+  .popup2 .popupWrap form {
+    margin-top: 10px;
+  }
+
+  .popupWrap button {
+    width: 100%;
+    margin-top: 7px;
+  }
+
+  .popupLine {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .popup2 h2 {
+    font-size: 20px;
+    line-height: 26px;
+    margin-top: 20px;
+  }
+
+ .popup3 h2 {
+     font-size: 20px;
+     line-height: 26px;
+     margin-top: 10px;
+     margin-bottom: 12px;
+ }
+
+  .popup3 h1 {
+    font-size: 44px;
+    margin-bottom: 5px;
+  }
+
+  .popup3 h3 {
+    font-size: 22px;
+  }
+
+ .popup3 p {
+     font-size: 16px;
+     letter-spacing: 0;
+     text-align: center;
+     line-height: 21px;
+     margin-top: 30px;
+     margin-bottom: 27px;
+ }
+	
+  .brownButton {
+    background-color: #AB7A1C;
+    color: #fff;
+    border: 1px solid #AB7A1C;
+    font-size: 15px;
+    text-align: center;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 0;
+
+  }
+
+  .brownButton:hover {
+    background: #ffffff;
+    color: #AB7A1C
+  }
+
+  .js-off-canvas-overlay.is-visible {}
+
+  .off-canvas.is-open {
+    z-index: 9999;
+  }
+
+  .popupFull {
+    position: relative;
+  }
+
+  .popupLeft {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .popupRight {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .popupNew .popupWrap form .emailPop input {
+    text-align: center;
+  }
+
+ .popupNew .popupWrap #mc_embed_signup form button {
+    width: 100%;
+    margin-top: 7px;
+    padding: 3px !important;
+    background: none !important;
+    color: #2e2e2e !important;
+    font-family: proxima-nova, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+  .popupNew #mc_embed_signup form button:hover,
+  .popupNew #mc_embed_signup .filled.button:hover {
+    color: #000000;
+    background: #ffffff;
+    transform: translateX(10px);
+  }
+
+  .popupWrap #mc_embed_signup form {
+    display: block;
+    position: relative;
+    text-align: left;
+    padding: 0;
+  }
+
+  .submit-worked {
+    display: none;
+    text-transform: uppercase;
+    background-color: #000;
+    padding: 20px 0;
+    margin-top: 35px;
+    border-radius: 0;
+    font-family: proxima-nova, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    text-align: center;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    border: 1px solid #000000;
+    cursor: pointer;
+  }
+
+  #mc_embed_signup #mce-success-response {
+    color: #529214;
+    font-size: 19px;
+    color: #000000 !important;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 1.2em;
+    font-family: miller-display, serif;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .popupNew .close-button,
+  .popupNew2 .close-button {
+    right: 21px;
+    top: 16px;
+    width: 30px;
+    height: 29px;
+    display: block;
+    background: url(https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/X_copy.png?2830) no-repeat top left/cover;
+    text-indent: -999999em;
+    cursor: pointer;
+    border: 0;
+    transition: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+  }
+.popupNew .close-button:hover,
+.popupNew2 .close-button:hover {
+	background-position: left bottom;
+	}
+  .popup3 h1 {
+    font-size: 44px;
+  }
+
+  .popupFull h2 {
+    font-size: 55px;
+    margin-top: 22px;
+  }
+
+  .popupFull p {
+    margin-top: 30px;
+  }
+
+  .popupFull h1 {
+    margin-bottom: 17px;
+  }
+
+  .popupFull .brownButton {
+    margin-top: 12px;
+  }
+#mc_embed_signup p {
+ font-family: proxima-nova, sans-serif !important;
+    font-weight: 400 !important; 
+  margin-bottom:12px
+}
+  #mc_embed_signup p span {
+   font-size:13px !important 
+  }
+  
+  #mc_embed_signup p strong {
+       font-family: miller-display, serif !important;
+    font-weight: 300 !important; 
+  }
+  #mc_embed_signup  input:-webkit-autofill,
+#mc_embed_signup  input:-webkit-autofill:hover, 
+#mc_embed_signup  input:-webkit-autofill:focus,
+#mc_embed_signup  textarea:-webkit-autofill,
+#mc_embed_signup  textarea:-webkit-autofill:hover,
+#mc_embed_signup  textarea:-webkit-autofill:focus,
+#mc_embed_signup  select:-webkit-autofill,
+#mc_embed_signup  select:-webkit-autofill:hover,
+#mc_embed_signup  select:-webkit-autofill:focus {
+  background-color: #ffffff;
+} 
+  }
+  @media screen and (min-width: 63.9376em) {
+    .popupNew {
+      padding: 0 !important;
+      border: 0 !important;
+    }
+
+    .reveal.popup1 {
+      width: 57% !important;
+    }
+
+    .reveal.popup2,
+    .reveal.popup3 {
+      width: 46% !important;
+      min-width:660px;
+      position: relative;
+      top: 50% !important;
+      transform: translateY(-50%);
+    }
+
+    .popupNew2 {
+      width: 100% !important;
+      padding: 0 !important;
+      border: 0 !important;
+    }
+
+    .full {
+      overflow: hidden;
+    }
+  }
+
+  @media screen and (max-width: 63.9375em) {
+    .popupNew {
+      padding: 0 !important;
+      border: 0 !important;
+    }
+
+    .popup2 {
+      width: 90%;
+    }
+
+    .imgCrop img {
+      width: 100%;
+    }
+
+    .reveal-overlay {
+      /* padding: 30px; */
+    }
+
+    .popupWrap {
+      padding: 20px 50px !important;
+    }
+
+    .popup2 .popupWrap {
+      padding: 20px 28px !important;
+    }
+
+    .popupLeft {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+
+    .popupRight {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+
+    .popupRight .popupWrap {
+      top: auto !important;
+      transform: none !important;
+    }
+
+    .position-bottom {
+      height: 325px !important;
+    }
+
+    #slideUp form {
+      margin-top: 20px;
+    }
+
+    #slideUp form button {
+      margin-top: 0;
+      padding: 12px 50px;
+    }
+
+    .off-canvas {
+      background-color: #fff;
+    }
+
+    .slideUpContent {
+      padding: 25px;
+    }
+
+    .popBottom {
+      top: calc(100% - 200px) !important;
+      width: 100% !important;
+      position: fixed !important;
+      bottom: 0px !important;
+      height: 200px !important;
+      min-height: auto;
+    }
+
+    .popup1 .popupWrap {
+      padding: 15px !important;
+    }
+
+    .popup1 .popupWrap h1 {
+      text-align: left;
+      margin-bottom: 0;
+    }
+
+    .popup1 .popupWrap p {
+      text-align: left;
+      font-size: 14px;
+      line-height: 20px;
+      max-width: 80%;
+    }
+
+
+    .popupNew .popupWrap #mc_embed_signup form button {
+      width: 100%;
+      margin-top: 0;
+      padding: 12px 0 !important;
+      transition: all 0.3s ease
+    }
+    
+
+
+    .popupNew .popupWrap form {
+      margin-top: 0;
+    }
+
+    .popup1 .popupWrap form .emailPop {
+      padding-right: 0;
+    }
+
+    .popup1 .popupWrap form .buttonPop {
+      padding-left: 0;
+    }
+
+    .popup1 .imgCrop {
+      display: none;
+    }
+
+    .popu1 .popupWrap #mc_embed_signup .mc-field-group {
+      clear: left;
+      position: relative;
+      width: 100%;
+      padding-bottom: 0%;
+      min-height: auto;
+    }
+
+    .popup1 .popupWrap #mc_embed_signup .mc-field-group input {
+      display: block;
+      width: 100%;
+      padding: 0;
+      text-indent: 2%;
+      margin: 0;
+      height: 39px;
+    }
+
+    .popup1 .mobile-signup {
+      padding: 0;
+    }
+
+    .submit-worked {
+      padding: 20px 1px;
+      font-size: 11px;
+      color: #FFFFFF;
+      margin-top: 0;
+    }
+
+    .reveal #mc_embed_signup div#mce-responses {
+      margin: 0;
+      padding: 0;
+    }
+
+    #mc_embed_signup #mce-success-response {
+      font-size: 17px;
+      font-weight: 300;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+    }
+
+    .reveal.popup2,
+    .reveal.popup3 {
+      width: 90%;
+      max-width: 400px;
+      height: 90%;
+      min-height: 90%;
+      margin: 0 auto;
+      position: relative;
+      top: 50% !important;
+      transform: translateY(-50%);
+    }
+
+    /* .reveal.popupFull.full {
+      width: 90% !important;
+      height: 90% !important;
+      min-height: 90% !important;
+      top: 5% !important;
+      left: 5% !important;
+  }*/
+    .popup3 .popupWrap,
+    .popupFull .popupWrap {
+      padding: 20px 0 0 0 !important;
+    }
+    .popup3 .popupWrap h1, .popup3 .popupWrap h2, .popup3 .popupWrap h3,  {
+      padding: 0 20px;
+    }
+    .popup3 {
+      height: auto !important;
+      min-height: auto !important;
+      max-height: auto !important;
+    }
+    .popup3 h2 {
+      font-size: 24px;
+    }
+    .popupFull h2 {
+      font-size: 37px;
+      margin-top: 10px;
+    }
+
+    .popupFull h1 {
+      margin-bottom: 0px;
+      font-size: 19px;
+    }
+    .popupNew .close-button,
+    .popupNew2 .close-button {
+      background-color: #fff;
+      background-size: 23px 23px;
+      width: 50px;
+      height: 50px;
+	  background: #ffffff url(https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/X_copy.png) no-repeat top left/23px;
+      background-position: center center;
+      top: 0;
+      right: 0;
+    }
+    .popupDesktopImg {
+      display: none;
+    }
+    .popupMobileImg {
+      display: block;
+    }
+	.popup3 p {
+	 padding: 0 20px;
+	    
+  }
+    .ql-container p {
+          font-family: proxima-nova, sans-serif !important;
+    font-weight: 400 !important;
+    color: #2e2e2e !important;
+      
+    }
+    .ql-container p strong {
+    font-family: miller-display, serif !important;
+    font-weight: 300 !important;
+    margin-bottom: 7px !important;
+    display: inline-block !important;
+      
+    }
+</style>
+
+
+
+<button class="button open1" style="position: absolute;opacity:0;bottom:0;" data-open="popupTrigger"></button>
+
+
+
+{% for block in section.blocks %}
+{% case block.type %}
+
+{% when 'Popup1' %}
+<!-- Popup Style 1 with bottom mobile popup -->
+<div class="large reveal popupNew popup1 popBottom" id="popupTrigger" data-reveal aria-labelledby="popupTrigger">
+
+  <div class="grid-container grid-x">
+    <div class="medium-6 cell">
+      <div class="imgCrop">
+        <img class="popupDesktopImg"src="{{ block.settings.image1 | img_url: '660x850' }}" alt="" role="presentation" />
+        <img class="popupMobileImg" src="{{ block.settings.imageMob1 | img_url: '660x500' }}" alt="" role="presentation"  />
+
+      </div>
+    </div>
+    <div class="medium-6 cell">
+      <div class="popupWrap">
+        <h1>{{ block.settings.title1 }}</h1>
+        <p>{{ block.settings.content1 }}</p>
+        <div class="grid-x grid-padding-x align-center">
+          <div class="medium-12 cell mobile-signup">
+            <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+            <style type="text/css">
+              #mc_embed_signup {
+                background: #fff;
+                clear: left;
+                font: 14px Helvetica, Arial, sans-serif;
+              }
+
+              /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+ 					   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+            </style>
+            <div id="mc_embed_signup">
+               <div class="klaviyo-form-VRAeG2"></div>
+            </div>
+            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+            <script type='text/javascript'>
+              (function($) {
+                window.fnames = new Array();
+                window.ftypes = new Array();
+                fnames[0] = 'EMAIL';
+                ftypes[0] = 'email';
+                fnames[1] = 'FNAME';
+                ftypes[1] = 'text';
+                fnames[2] = 'LNAME';
+                ftypes[2] = 'text';
+                fnames[3] = 'MMERGE3';
+                ftypes[3] = 'text';
+                fnames[4] = 'MMERGE4';
+                ftypes[4] = 'text';
+                fnames[5] = 'MMERGE5';
+                ftypes[5] = 'text';
+                fnames[6] = 'MMERGE6';
+                ftypes[6] = 'text';
+                fnames[7] = 'MMERGE7';
+                ftypes[7] = 'text';
+                fnames[8] = 'MMERGE8';
+                ftypes[8] = 'text';
+                fnames[9] = 'MMERGE9';
+                ftypes[9] = 'text';
+                fnames[10] = 'MMERGE10';
+                ftypes[10] = 'text';
+                fnames[11] = 'MMERGE11';
+                ftypes[11] = 'text';
+                fnames[12] = 'MMERGE12';
+                ftypes[12] = 'text';
+                fnames[13] = 'MMERGE13';
+                ftypes[13] = 'text';
+                fnames[14] = 'MMERGE14';
+                ftypes[14] = 'text';
+                fnames[15] = 'MMERGE15';
+                ftypes[15] = 'text';
+              }(jQuery));
+              var $mcj = jQuery.noConflict(true);
+            </script>
+            <!--End mc_embed_signup-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+  var observer = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutationRecord) {
+     $('.submit-worked').show(500);
+	 $('#mc-embedded-subscribe').hide(500);
+	 $('#mc_embed_signup .mc-field-group').hide(500);
+     });
+   });
+
+   var target = document.getElementById('mce-success-response');
+    observer.observe(target, { attributes : true, attributeFilter : ['style'] });
+});
+</script>
+
+{% when 'Popup2' %}
+<!-- Popup Style 2 -->
+<div class="small reveal popupNew popup2" id="popupTrigger" data-reveal>
+  <div class="grid-container grid-x">
+    <div class="medium-6 cell">
+      <div class="imgCrop">
+        <img class="popupDesktopImg" src="{{ block.settings.image2 | img_url: '660x850' }}" />
+        <img class="popupMobileImg" src="{{ block.settings.imageMob2 | img_url: '660x500' }}" />
+
+      </div>
+    </div>
+    <div class="medium-6 cell">
+      <div class="popupWrap">
+        <h1>{{ block.settings.title2 }}</h1>
+        <img class="popupLine" src="{{ "popupLine.png" | asset_url }}" />
+        <h2>{{ block.settings.content2 }}</h2>
+        <div class="grid-x grid-padding-x align-center">
+          <div class="medium-12 cell mobile-signup">
+            <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+            <style type="text/css">
+              #mc_embed_signup {
+                background: #fff;
+                clear: left;
+                font: 14px Helvetica, Arial, sans-serif;
+              }
+
+              /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+        			   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+            </style>
+            <div id="mc_embed_signup">
+               <div class="klaviyo-form-VRAeG2"></div>
+            </div>
+            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+            <script type='text/javascript'>
+              (function($) {
+                window.fnames = new Array();
+                window.ftypes = new Array();
+                fnames[0] = 'EMAIL';
+                ftypes[0] = 'email';
+                fnames[1] = 'FNAME';
+                ftypes[1] = 'text';
+                fnames[2] = 'LNAME';
+                ftypes[2] = 'text';
+                fnames[3] = 'MMERGE3';
+                ftypes[3] = 'text';
+                fnames[4] = 'MMERGE4';
+                ftypes[4] = 'text';
+                fnames[5] = 'MMERGE5';
+                ftypes[5] = 'text';
+                fnames[6] = 'MMERGE6';
+                ftypes[6] = 'text';
+                fnames[7] = 'MMERGE7';
+                ftypes[7] = 'text';
+                fnames[8] = 'MMERGE8';
+                ftypes[8] = 'text';
+                fnames[9] = 'MMERGE9';
+                ftypes[9] = 'text';
+                fnames[10] = 'MMERGE10';
+                ftypes[10] = 'text';
+                fnames[11] = 'MMERGE11';
+                ftypes[11] = 'text';
+                fnames[12] = 'MMERGE12';
+                ftypes[12] = 'text';
+                fnames[13] = 'MMERGE13';
+                ftypes[13] = 'text';
+                fnames[14] = 'MMERGE14';
+                ftypes[14] = 'text';
+                fnames[15] = 'MMERGE15';
+                ftypes[15] = 'text';
+              }(jQuery));
+              var $mcj = jQuery.noConflict(true);
+            </script>
+            <!--End mc_embed_signup-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+
+{% when 'Popup3' %}
+<!-- Popup Style 3 -->
+<div class="small reveal popupNew popup3" id="popupTrigger" data-reveal>
+  <div class="grid-container grid-x">
+    <div class="large-6 medium-12 cell">
+      <div class="imgCrop">
+        <img class="popupDesktopImg" src="{{ block.settings.image3 | img_url: '789x1056' }}" />
+        <img class="popupMobileImg" src="{{ block.settings.imageMob3 | img_url: '589x433' }}" />
+      </div>
+    </div>
+    <div class="large-6 medium-12 cell">
+      <div class="popupWrap">
+        <span class="popupIntro">{{ block.settings.pretitle3 }}</span>
+        <h1>{{ block.settings.title3 }}</h1>
+        <h2>{{ block.settings.subtitle3 }}</h2>
+        <img class="popupLine" src="{{ "popupLine.png" | asset_url }}" />
+        <p>{{ block.settings.content3 }}</p>
+        <a class="button brownButton" onClick="ga('send', 'event', 'popup', 'Visit-Sale', 'Yellow-Button', 10);" href="{{ block.settings.url3 }}">{{ block.settings.linktitle3 }}</a>
+      </div>
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+
+{% when 'Popup4' %}
+<!-- Popup Style Full Screen -->
+<div class="full reveal popupNew2 popupFull" id="popupTrigger" data-reveal>
+  <div class="popupLeft">
+    <div class="imgCrop">
+      <img src="{{ block.settings.image4 | img_url: '765x1000' }}" />
+    </div>
+  </div>
+  <div class="popupRight">
+    <div class="popupWrap">
+      <p class="popupIntro">{{ block.settings.pretitle4 }}</p>
+      <h2>{{ block.settings.title4 }}</h2>
+      <h1>{{ block.settings.subtitle4 }}</h1>
+      <img class="popupLine" src="{{ "popupLine.png" | asset_url }}" />
+      <p style="margin-top:10px;">{{ block.settings.content4 }}</p>
+      <a class="button brownButton" href="{{ block.settings.url4 }}">{{ block.settings.linktitle4 }}</a>
+    </div>
+  </div>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+{% endcase %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Popup Delay",
+    "settings": [
+      {
+        "id": "delay",
+        "type": "text",
+        "label": "Number of seconds to wait for popup to appear"
+      }
+    ],
+    "name": "Popup",
+    "blocks": [
+      {
+        "type": "Popup1",
+        "name": "Newsletter",
+        "settings": [
+          {
+            "id": "image1",
+            "type": "image_picker",
+            "label": "Image - 660px x 850px"
+          },
+          {
+            "id": "imageMob1",
+            "type": "image_picker",
+            "label": "Mobile Image 660px x 500px"
+          },
+          {
+            "id": "title1",
+            "type": "text",
+            "label": "Title"
+          },
+          {
+            "id": "content1",
+            "type": "richtext",
+            "label": "Content"
+          },
+          {
+            "id": "email1",
+            "type": "text",
+            "default": "Email Address",
+            "label": "Email Capture Placeholder Text"
+          },
+          {
+            "id": "submit1",
+            "type": "text",
+            "default": "Subscribe",
+            "label": "Submit Button Text"
+          }
+        ]
+      },{
+        "type": "Popup2",
+        "name": "Newsletter10",
+        "settings": [
+          {
+            "id": "image2",
+            "type": "image_picker",
+            "label": "Image - 660px x 850px"
+          },
+          {
+            "id": "imageMob2",
+            "type": "image_picker",
+            "label": "Mobile Image 660px x 500px"
+          },
+          {
+            "id": "title2",
+            "type": "text",
+            "label": "Title"
+          },
+          {
+            "id": "content2",
+            "type": "richtext",
+            "label": "Content"
+          },
+          {
+            "id": "email2",
+            "type": "text",
+            "default": "Email Address",
+            "label": "Email Capture Placeholder Text"
+          },
+          {
+            "id": "submit2",
+            "type": "text",
+            "default": "Subscribe",
+            "label": "Submit Button Text"
+          }
+        ]
+      },
+      {
+        "type": "Popup3",
+        "name": "Promo",
+        "settings": [
+          {
+            "id": "image3",
+            "type": "image_picker",
+            "label": "Desktop Image 789x1056"
+          },
+          {
+            "id": "imageMob3",
+            "type": "image_picker",
+            "label": "Mobile Image 589x433"
+          },
+          {
+            "id": "title3",
+            "type": "text",
+            "label": "Title"
+          },
+          {
+            "id": "subtitle3",
+            "type": "text",
+            "label": "Subtitle"
+          },
+          {
+            "id": "pretitle3",
+            "type": "text",
+            "label": "Pre title"
+          },
+          {
+            "id": "content3",
+            "type": "richtext",
+            "label": "Content"
+          },
+          {
+            "id": "linktitle3",
+            "type": "text",
+            "label": "Button Text"
+          },
+          {
+            "id": "url3",
+            "type": "url",
+            "label": "Button URL"
+          }
+        ]
+      },{
+        "type": "Popup4",
+        "name": "Promo - full screen",
+        "settings": [
+          {
+            "id": "image4",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "title4",
+            "type": "text",
+            "label": "Title"
+          },
+          {
+            "id": "subtitle4",
+            "type": "text",
+            "label": "Subtitle"
+          },
+          {
+            "id": "pretitle4",
+            "type": "text",
+            "label": "Pre title"
+          },
+          {
+            "id": "content4",
+            "type": "richtext",
+            "label": "Content"
+          },
+          {
+            "id": "linktitle4",
+            "type": "text",
+            "label": "Button Text"
+          },
+          {
+            "id": "url4",
+            "type": "url",
+            "label": "Button URL"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

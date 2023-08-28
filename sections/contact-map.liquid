@@ -1,0 +1,23 @@
+<!-- Google map --> 
+<div class="contact-map">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+  			<div class="medium-12 cell">
+  				{{ section.settings.map }}
+  			</div>
+		</div>
+	</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Map",
+    "settings": [
+      {
+        "id": "map",
+        "type": "textarea",
+        "label": "Google Maps Insert"
+      }
+    ]
+  }
+{% endschema %}

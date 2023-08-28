@@ -1,0 +1,26 @@
+<div class="header-spacer"></div>
+
+<!-- Atelier Press -->
+{% assign blog_handle = 'press' %}
+<section class="atelier-press">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="large-2 cell">
+				<a href="/blogs/press" class="see-all">See all press</a>
+			</div>
+			<div class="large-10 cell">
+				<div class="grid-x grid-padding-x">
+					{% for article in blogs[blog_handle].articles limit: 4 %}
+					<div class="large-3 cell">
+						<div class="press-stories">
+							<a href="{{ article.url }}" class="zoom" data-hover-id="{{ article.handle }}"><img src="{{ article.image.src | img_url: '500x' }}" /></a>
+							<h4><a href="{{ article.url }}" data-hover-id="{{ article.id }}" class="link-activate">{{ article.title }}</a></h4>
+							<p><a href="{{ article.url }}" data-hover-id="{{ article.id }}" class="link-activate">Vogue Spain</a></p>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

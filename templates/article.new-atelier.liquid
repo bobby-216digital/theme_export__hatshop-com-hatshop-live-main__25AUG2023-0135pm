@@ -1,0 +1,159 @@
+{% section 'article-header' %}
+
+<section class="atelier-content">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x align-center" id="post">
+			<div class="medium-9 cell atelier-post">
+        	  <p class="small-body-title breadcrumb"><a href="/blogs/atelier"><i class="fal fa-chevron-left"></i> the atelier</a></p>
+			  	{{ article.content }}
+			  	{% for value in article.metafields.rowType.rowType %}
+			  	{% if article.metafields.rowType.rowType[forloop.index0] == 'Text' %}
+			  	{{ article.metafields.atelierText.atelierText[forloop.index0] }}
+			  	{% endif %}
+			  	{% if article.metafields.rowType.rowType[forloop.index0] == 'Small Image' %}
+			  	<img src="{{ article.metafields.atelierImage.atelierImage[forloop.index0] }}" alt=""  class="half-post" />
+			  	{% endif %}
+			  	{% if article.metafields.rowType.rowType[forloop.index0] == 'Medium Image' %}
+			  	<img src="{{ article.metafields.atelierImage.atelierImage[forloop.index0] }}" alt="" class="full-post" />
+			  	{% endif %}
+			  	{% if article.metafields.rowType.rowType[forloop.index0] == 'Large Image' %}
+			</div>
+		</div>
+    </div>
+	<img src="{{ article.metafields.atelierImage.atelierImage[forloop.index0] }}" alt="" class="full-wide-image" />
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x align-center">
+			<div class="medium-9 cell  atelier-post">
+				{% endif %}
+				{% if article.metafields.rowType.rowType[forloop.index0] == 'Quote' %}
+			</div>
+		</div>
+	</div>
+	<blockquote class="atelier-post">{{ article.metafields.atelierQuote.atelierQuote }}</blockquote>
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x align-center">
+		   	<div class="medium-9 cell atelier-post">
+		   		{% endif %}
+		   		{% if article.metafields.rowType.rowType[forloop.index0] == 'Related Products' %}
+		   	</div>
+		</div>
+	</div>
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x align-center">
+		   	<div class="medium-12 cell atelier-post ">
+		   		<h3>{{ article.metafields.accentuate.related_products_title }}</h3>
+		   	</div>
+   			<div class="medium-12 cell atelier-post related-products-wrap">
+		   		<div class="grid-x grid-padding-x align-center">
+		   			{% assign selected_handles = article.metafields.accentuate.related_products[forloop.index0] | split: '|'  %}
+		   			{% for selected_handle in selected_handles %}
+					<div class="medium-3 cell text-center">
+						<div class="related-product">
+							<a href="{{ all_products[selected_handle].url }}" class="zoom" data-hover-id="{{ all_products[selected_handle].handle }}"><img src="{{all_products[selected_handle].metafields.accentuate.productImg}}" /></a>
+							<h4><a href="{{ all_products[selected_handle].url }}" class="link-activate" data-hover-id="{{ all_products[selected_handle].handle }}">{{ all_products[selected_handle].title }}</a></h4>
+							<p class="price"><a href="{{ all_products[selected_handle].url }}" class="link-activate" data-hover-id="{{ all_products[selected_handle].handle }}">{{ all_products[selected_handle].price | money Currency.currentCurrency }}</a></p>
+						</div>
+					</div>
+					{% endfor %}
+		   		</div>
+		   	</div>
+		</div>
+	</div>
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x align-center">
+		   	<div class="medium-9 cell atelier-post">
+		   		{% endif %}
+		   		{% if article.metafields.rowType.rowType[forloop.index0] == 'Related Collection' %}
+		   	</div>
+		</div>
+	</div>
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x align-center">
+	   		<div class="medium-12 cell atelier-post related-collection-wrap">
+	   			<div class="grid-x grid-padding-x align-center">
+	   				{% assign selected_collections = article.metafields.accentuate.related_collection[forloop.index0] | split: '|'  %}
+					{% for selected_collection in selected_collections %}
+					<div class="medium-6 cell">
+						<div class="related-product">
+							<a href="{{ collections[selected_collection].url }}" class="zoom" data-hover-id="{{ collections[selected_collection].handle }}"><img src="{{ collections[selected_collection].metafields.accentuate.collection_header_image}}" /></a>
+							<a href="{{ collections[selected_collection].url }}" class="cta dark link-activate" data-hover-id="{{ collections[selected_collection].handle }}">{{ article.metafields.accentuate.related_collection_title }} {{ collections[selected_collection].title }}</a>
+						</div>
+					</div>
+					{% endfor %}
+	   			</div>
+	   		</div>
+		</div>
+	</div>
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x align-center">
+		   	<div class="medium-9 cell atelier-post">
+			{% endif %}
+			{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .atelier-post p {
+    max-width: 100%;
+    font-size: 18px;
+    color: #424242;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+  .atelier-post { max-width: 100%;
+    font-size: 18px;
+    color: #424242;
+    line-height: 1.6;}
+  .atelier-post h3 {
+    font-family: proxima-nova,sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: #5c5c5c;
+    letter-spacing: 1.5px;
+    line-height: 23px;
+    text-transform: uppercase;
+    width: 100%;
+    margin-top: 51px;
+    margin-bottom: 17px;
+}
+</style>
+<script type="text/javascript">
+	// Find all YouTube videos
+	var $allVideos = $("iframe"),
+
+	    // The element that is fluid width
+	    $fluidEl = $(".atelier-post");
+
+	// Figure out and save aspect ratio for each video
+	$allVideos.each(function() {
+
+	  $(this)
+	    .data('aspectRatio', this.height / this.width)
+
+	    // and remove the hard coded width/height
+	    .removeAttr('height')
+	    .removeAttr('width');
+
+	});
+
+	// When the window is resized
+	$(window).resize(function() {
+
+	  var newWidth = $fluidEl.width();
+
+	  // Resize all videos according to their own aspect ratio
+	  $allVideos.each(function() {
+
+	    var $el = $(this);
+	    $el
+	      .width(newWidth)
+	      .height(newWidth * $el.data('aspectRatio'));
+
+	  });
+
+	// Kick off one resize to fix all videos on page load
+	}).resize();
+
+</script>
+

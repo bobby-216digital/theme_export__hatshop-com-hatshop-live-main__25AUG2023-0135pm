@@ -1,0 +1,55 @@
+<div class="subnav-culture-slideshow" > 
+	{% for block in section.blocks %}
+	{% cycle ' <div><div class="grid-x grid-padding-x">', '' %}
+    <div class="medium-6 cell relative">
+		<a href="{{ block.settings.cultureSlideLink }}" class="zoom relative">
+			<div class="home-ss-overlay"></div>
+			<img src="{{ block.settings.cultureslideImage | img_url: 'master' }}" />
+		</a>
+		<div class="sub-culture-text">
+			<h5><a href="{{ block.settings.cultureSlideCategoryLink }}">{{  block.settings.cultureSlideCategory }}</a></h5>
+			<h4><a href="{{ block.settings.cultureSlideLink }}">{{  block.settings.cultureSlideTitle }}</a></h4>
+		</div>
+    </div>
+	{% cycle '', ' </div></div>' %}
+	{% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Culture Slideshow",
+    "blocks": [
+      {
+        "type": "cultureSlide",
+        "name": "Culture Slide",
+        "settings": [
+          {
+            "id": "cultureslideImage",
+            "type": "image_picker",
+            "label": "Image - 788px x 506px"
+          },
+          {
+            "id": "cultureSlideLink",
+            "type": "text",
+            "label": "Post Link"
+          },
+          {
+            "id": "cultureSlideTitle",
+            "type": "text",
+            "label": "Title"
+          },
+          {
+            "id": "cultureSlideCategory",
+            "type": "text",
+            "label": "Category"
+          },
+          {
+            "id": "cultureSlideCategoryLink",
+            "type": "text",
+            "label": "Category Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

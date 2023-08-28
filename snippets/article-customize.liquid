@@ -1,0 +1,36 @@
+<!-- Customize request form -->
+<div class="off-canvas position-right product-customize" id="showCustom" data-off-canvas data-transition="overlap">
+	{%- assign formId = 'customizeProductForm' -%}
+ 	{% form 'contact', id: formId %}
+ 	{% include 'form-status-canvas', form_id: formId %}
+ 	<div class="customize-form">
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
+        <h2 class="text-center">Customize</h2>
+        <p>Craft the perfect Hat to call your very own. This handcrafted hat can be custom made. We stand firmly behind our product and craftsmanship while looking to meet the expectations of every single one of our clients. And because our product is handmade, your satisfaction is guaranteed. <br/>Handmade with love in NYC. </p>
+      </div>
+	  <div class="large-12 cell">
+	    <input type="hidden" id="{{ formId }}-submission" name="contact[submission]" value="Collaborations Customize Form" />
+	    <input type="text" placeholder="Full Name" id="{{ formId }}-name" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}" />
+	    
+	  </div>
+	  <div class="large-12 cell">
+	    <input type="email" placeholder="Email Address" id="{{ formId }}-email"  name="contact[email]" autocorrect="off"  autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" aria-required="true" {%- if form.errors contains 'email' -%} class="input--error"  aria-invalid="true" aria-describedby="{{ formId }}-email-error" {%- endif -%} />
+	  </div>
+	  <div class="large-12 cell">
+	    <input type="text" placeholder="Phone Number" id="{{ formId }}-phone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}" />
+	  </div>
+	  <div class="large-12 cell custom-message">
+	    <h3>Message</h3>
+	  	<textarea placeholder="Add a note" id="{{ formId }}-message" name="contact[body]">I am interested in the hat from {% if article.metafields.accentuate.short_title %}{{ article.metafields.accentuate.short_title }} - {{ article.metafields.accentuate.collaboration_year }}{% else %}{{ article.title }}{% endif %}.</textarea>
+	  </div>
+	  <div class="large-12 cell text-center">
+	    <button type="submit">Contact to order</button>
+	  </div>
+    </div>
+ 	</div>
+	{% endform %}
+  <button class="close-button" aria-label="Close menu" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

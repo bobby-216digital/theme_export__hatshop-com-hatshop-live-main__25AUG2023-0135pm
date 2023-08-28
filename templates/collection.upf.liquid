@@ -1,0 +1,385 @@
+{{ 'new-filter.css' | asset_url | stylesheet_tag }}
+<style>
+.upf {font-family: proxima-nova,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #424242;
+    letter-spacing: 0;
+    line-height: 30px;}
+  .button-group .button {
+    margin: 0 1px 1px 0;
+    font-size: .9rem;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    border: none;
+    padding: 0;
+    line-height: 1.2;
+    transition: 0.3s all ease
+}
+  .button-group .button span {    display: block;
+    font-family: Miller;
+    text-transform: none;
+    font-style: italic;
+                             }
+  .button-group .button.is-checked {    color: #936124;
+    border-bottom: 1px solid;}
+ .button-group {
+    justify-content: space-evenly;
+    border-top: 1px solid #4e4e4e;
+    padding-top: 15px;
+}
+  .button-group .button:hover, .button:focus {
+    background-color: #ffffff;
+    color: #000000;
+    font-size:102%
+}
+  .button-group:after, .button-group:before {display:none}
+</style>
+{% if collection.metafields.accentuate.background_image %}
+{% section 'pop' %}
+<!-- Product List Banner Title -->
+<section class="collection-header wide-banner" style="background:url({% for image in collection.metafields.accentuate.background_image %}{{ image.src }}{% endfor %}) no-repeat center center/cover;padding-top: 43%;padding-bottom: 33px;">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x align-bottom">
+      <div class="medium-6 cell small-order-2 medium-order-1">
+        {% if collection.handle == "men" or collection.handle == "women" %}
+        {% else %}
+        <h2 class="small-body-title">{{ collection.metafields.accentuate.parentcollection}}</h2>
+        {% endif %}
+        <h1>{{ collection.metafields.accentuate.short_name}}</h1>
+      </div>
+  
+    </div>
+  </div>
+</section>
+{% else %}
+
+<div class="header-spacer"></div>
+{% section 'pop' %}
+<!-- Product List Banner Title -->
+<section class="collection-header">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x align-middle">
+      <div class="medium-4 cell small-order-2 medium-order-1">
+        {% if collection.handle == "men" or collection.handle == "women" %}
+        {% else %}
+        <h2 class="small-body-title">{{ collection.metafields.accentuate.parentcollection}}</h2>
+        {% endif %}
+        <h1>{{ collection.metafields.accentuate.short_name}}</h1>
+        {{ 'lines.png' | asset_url | img_tag: 'A line' }}<br />
+        {{ collection.description }}
+      </div>
+      <div class="medium-7 medium-offset-1 cell small-order-1 medium-order-2">
+	  	<a href="#" class="zoom"><img src="{{ collection.metafields.accentuate.collection_header_image }}" class="collection-header-image" /></a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+<!-- Product list begins right here -->
+
+{% if collection.metafields.accentuate.wide_banner %}
+
+{% if collection.metafields.accentuate.video_url %}
+<script>
+
+// Simple solution to inject HTML controlled by custom fields...
+// into a straight list of products without going crazy with Shopify queries
+// The below injects HTML after the 4th and 12th products displayed
+$(function() {
+  $('.product-list .prod-list-item:nth-child(6)').after('<div class="grid-container collection-banner wide-collection-banner"><div class="grid-x grid-padding-x align-middle video-injection"><div class="medium-12  prod-list-item cell prod-list-callout"><video muted="" autoplay="" playsinline="" loop="" controls="" poster="{{ collection.metafields.collection.image }}"><source src="{{ collection.metafields.accentuate.video_url }}" type="video/mp4"></video></div><div class="medium-12  prod-list-item cell prod-list-callout prod-list-callout-text"><div class="prod-list-callout-inner"><h2>{{ collection.metafields.collection.title1 }} <span>{{ collection.metafields.collection.title2 }}<br />{{ collection.metafields.accentuate.title_2_line_2 }}</span></h2>{% if collection.metafields.collection.content %}<p>{{ collection.metafields.collection.content }}</p>{% endif %}<a href="javascript:void(0)" class="cta fullscreen-watch"><i class="fal fa-play"></i><span class="border-bottom">Watch Video</span></a></div></div></div></div>');
+  $('.product-list .prod-list-item:nth-child(13)').after('<div class="medium-12 cell prod-list-callout text-center"><blockquote>{{ collection.metafields.collection.quote }}</blockquote></div>');
+});
+
+</script>
+{% elsif collection.metafields.collection.image == blank %}
+{% else %}
+<script>
+
+// Simple solution to inject HTML controlled by custom fields...
+// into a straight list of products without going crazy with Shopify queries
+// The below injects HTML after the 4th and 12th products displayed
+$(function() {
+  $('.product-list .prod-list-item:nth-child(6)').after('<div class="grid-container collection-banner wide-collection-banner"><div class="grid-x grid-padding-x align-middle"><div class="medium-12  prod-list-item cell prod-list-callout"><img src="{{ collection.metafields.collection.image }}" /></div><div class="medium-12  prod-list-item cell prod-list-callout prod-list-callout-text"><div class="prod-list-callout-inner"><h2><span>{{ collection.metafields.collection.title2 }}<br />{{ collection.metafields.accentuate.title_2_line_2 }}</span></h2><a href="{{ collection.metafields.collection.buttonurl }}" class="cta border-bottom">{{ collection.metafields.collection.buttontext }}</a></div></div></div></div>');
+  $('.product-list .prod-list-item:nth-child(13)').after('<div class="medium-12 cell prod-list-callout text-center"><blockquote>{{ collection.metafields.collection.quote }}</blockquote></div>');
+});
+
+</script>
+{% endif %}
+
+
+{% else %}
+
+{% if collection.metafields.accentuate.video_url %}
+<script>
+
+// Simple solution to inject HTML controlled by custom fields...
+// into a straight list of products without going crazy with Shopify queries
+// The below injects HTML after the 4th and 12th products displayed
+$(function() {
+  $('.product-list .prod-list-item:nth-child(6)').after('<div class="grid-container collection-banner"><div class="grid-x grid-padding-x align-middle video-injection"><div class="medium-8  prod-list-item cell prod-list-callout"><video muted="" playsinline="" autoplay="" loop="" controls="" poster="{{ collection.metafields.collection.image }}"><source src="{{ collection.metafields.accentuate.video_url }}" type="video/mp4"></video></div><div class="medium-4  prod-list-item cell prod-list-callout"><div class="prod-list-callout-inner"><h2>{{ collection.metafields.collection.title1 }} <span>{{ collection.metafields.collection.title2 }}<br />{{ collection.metafields.accentuate.title_2_line_2 }}</span></h2>{% if collection.metafields.collection.content %}<p>{{ collection.metafields.collection.content }}</p>{% endif %}<a href="javascript:void(0)" class="cta fullscreen-watch"><i class="fal fa-play"></i><span class="border-bottom">Watch Video</span></a></div></div></div></div>');
+  $('.product-list .prod-list-item:nth-child(13)').after('<div class="medium-12 cell prod-list-callout text-center"><blockquote>{{ collection.metafields.collection.quote }}</blockquote></div>');
+});
+
+</script>
+{% elsif collection.metafields.collection.image == blank %}
+{% else %}
+<script>
+
+// Simple solution to inject HTML controlled by custom fields...
+// into a straight list of products without going crazy with Shopify queries
+// The below injects HTML after the 4th and 12th products displayed
+$(function() {
+  $('.product-list .prod-list-item:nth-child(6)').after('<div class="grid-container collection-banner"><div class="grid-x grid-padding-x align-middle"><div class="medium-8  prod-list-item cell prod-list-callout"><img src="{{ collection.metafields.collection.image }}" /></div><div class="medium-4  prod-list-item cell prod-list-callout"><div class="prod-list-callout-inner"><h2>{{ collection.metafields.collection.title1 }} <span>{{ collection.metafields.collection.title2 }}<br />{{ collection.metafields.accentuate.title_2_line_2 }}</span></h2> {% if collection.metafields.collection.content %}<p>{{ collection.metafields.collection.content }}</p>{% endif %}<a href="{{ collection.metafields.collection.buttonurl }}" class="cta">{{ collection.metafields.collection.buttontext }}</a></div></div></div></div>');
+  $('.product-list .prod-list-item:nth-child(13)').after('<div class="medium-12 cell prod-list-callout text-center"><blockquote>{{ collection.metafields.collection.quote }}</blockquote></div>');
+});
+
+</script>
+{% endif %}
+
+{% endif %}
+
+
+<!-- Product List and filters -->
+<section class="product-list" id="product-list-filters">
+  {% if collection.handle == 'weather-refined-secret-sale' %}
+    {% else %}
+<div class="medium-3 cell refine hide-for-large text-center">
+	<a href="javascript:;" data-toggle="showFilter"> Refine <span class="refine-plus">+</span><span class="refine-minus"><i class="fal fa-times"></i></span></a>
+</div>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x product-list-top show-for-large">
+      
+      <div class="medium-12 cell text-right">
+          <div class="button-group filters-button-group">
+  <button class="button is-checked" data-filter="*">show all</button>
+  <button class="button" data-filter=".UPF35-45">UPF 35-45<span> Some Sun Protection</span></button>
+  <button class="button" data-filter=".UPF45-50">UPF 45-50<span> More Sun Protection</span></button>
+  <button class="button" data-filter=".UPFover50">UPF 50+<span> Most Sun Protection</span></button>
+</div>
+       
+      </div>
+    </div>
+    <div class="grid-x grid-padding-x" id="productList">
+      
+
+	  
+      <div class="medium-12 large-12 collection-wrap cell">
+
+        <!-- Product List -->
+        <div data-jplist-group="data-products" class="grid grid-x grid-padding-x AjaxinateLoop" id="product-list">
+
+       
+			{% paginate collection.products by 30 %}
+          {% for product in collection.products %}
+          {% unless product.tags contains 'Hide' %}
+          <!-- Product List Item -->
+          <div data-jplist-item class="grid-item medium-3 small-6 cell text-center prod-list-item red style1 {{ product.metafields.accentuate.upf_range }}">
+            <div class="prod-wrap">
+              <a class="product-card" href="{{ product.url }}">
+                <div class="product-image-wrap"{% if product.metafields.accentuate.lifestyle %} style="background-image:url('{{ product.metafields.accentuate.lifestyle }}')"{% endif %}>
+
+                  {% if product.metafields.accentuate.lifestyle == blank %}
+                    {% for image in product.images %}
+                    {% if forloop.first %}
+                    <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" alt="">
+                    <img src="{{ product.images[1] | product_img_url: 'master' }}" class="prod-hat2" alt="">
+                    {% endif %}
+                    {% endfor %}
+                  {% else %}
+                    <img src="{{product.metafields.accentuate.productImg}}" class="prod-hat base-img" />
+                  {% endif %}
+
+                  {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
+                  {% for selected_handle in selected_handles %}
+                    <img src="{{ all_products[selected_handle].metafields.accentuate.productImg }}" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" class="prod-hat-color {{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+                  {% endfor %}
+
+                </div>
+                <h2>{% if product.metafields.accentuate.product_short_name == blank %}{{ product.title }}{% else %}{{ product.metafields.accentuate.product_short_name }}{% endif %}</h2>
+				        {% if product.available %} {% else %} <p class="small-body-title on-sale">Sold Out</p>{% endif %}
+            			            {% if product.metafields.accentuate.upf %}<div class="upf rating-{{ product.metafields.accentuate.upf }}">UPF {{ product.metafields.accentuate.upf }}</div>{% endif %}
+   
+            <p class="price">{%- if product.price_varies -%}
+                  <span class="visuallyhidden">Starting at</span>
+                  {% if product.compare_at_price_max > product.price %} <del>{{ product.compare_at_price_max | money }}</del> <span class="on-sale">{{ product.price | money }}</span>{%- else -%}<span>{{ product.price | money }}</span>{% endif %}
+                  {%- else -%}
+
+                   {% if product.compare_at_price_max > product.price %} <del>{{ product.compare_at_price_max | money }}</del> <span class="on-sale">{{ product.price | money }}</span>{%- else -%}<span>{{ product.price | money }}</span>{% endif %}
+                  {%- endif -%}
+                </p>
+              </a>
+
+              <div class="product-list-colors">
+
+                <div class="product-list-colors">
+                  {% assign selected_handles = product.metafields.accentuate.productColors | split: '|' %}
+                  {% for selected_handle in selected_handles %}
+                    <a href="{{ all_products[selected_handle].url }}"  class="color-swatch-wrap" data-image-color="color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}">
+                      <img src="{{ all_products[selected_handle].metafields.accentuate.swatchImage }}"  width="16" height="16" class="product-list-swatch color-{{ all_products[selected_handle].title | downcase | remove: ' ' }}" />
+                    </a>
+                  {% endfor %}
+                </div>
+
+              </div>
+
+            </div>
+            <span class="{% for tag in product.tags %}{{ tag | handle }} {% endfor %}">
+            </span>
+          </div>
+          {% endunless %}
+          {% endfor %}
+        </div>
+
+        <div class="grid-x grid-padding-x load-me">
+          <div class="AjaxinatePagination medium-12 cell text-center">
+            {% if paginate.next %}
+            <a href="{{ paginate.next.url }}">Load More</a>
+            {% endif %}
+
+          </div>
+        </div>
+		{% endpaginate %}
+		
+					{% endif %}
+		
+      </div>
+    </div>
+  </div>
+  <div class="sticky-description">
+  	<p class="small-body-title">{{ collection.metafields.accentuate.description_title }}</p>
+  	<div class="text">{{ collection.metafields.accentuate.description_text }}</div>
+  </div>
+</section>
+
+<!-- Collection pages tags and URL creation -->
+<!--  <script>
+  if (jQuery('.all-btn').prop('checked')) {
+      jQuery('.allCheck').prop('checked',false)
+  }
+  else {
+      jQuery('.allCheck').prop('checked',true)
+  };
+  </script>-->
+  <!-- Collection pages tags and URL creation -->
+  <script>
+    Shopify.queryParams = {};
+    if (location.search.length) {
+      for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+        aKeyValue = aCouples[i].split('=');
+        if (aKeyValue.length > 1) {
+          Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+        }
+      }
+    }
+    var collFilters = jQuery('.coll-filter');
+    collFilters.change(function() {
+      var newTags = [];
+      var newURL = '';
+      delete Shopify.queryParams.page;
+      collFilters.each(function() {
+        if (jQuery(this).val() && jQuery(this).is(':checked')) {
+          newTags.push(jQuery(this).val());
+        }
+      });
+      {% if collection.handle %}
+      newURL = '/collections/' + '{{ collection.handle }}';
+      if (newTags.length) {
+        newURL += '/' + newTags.join('+');
+      }
+      var search = jQuery.param(Shopify.queryParams);
+      if (search.length) {
+        newURL += '?' + search;
+      }
+      location.href = newURL;
+      {% else %}
+      if (newTags.length) {
+        Shopify.queryParams.constraint = newTags.join('+');
+      }
+      else {
+        delete Shopify.queryParams.constraint;
+      }
+      location.search = jQuery.param(Shopify.queryParams).replace(/\+/g, '%20');
+      {% endif %}
+    });
+
+    $(document).ready(function($) {
+        $('.fullscreen-watch').click(function() {
+            $('video').trigger('play');
+        });
+    });
+
+$(window).bind('scroll', function() {
+    if($(window).scrollTop() >= $('#productList .collection-wrap').offset().top + $('#productList .collection-wrap').outerHeight() - window.innerHeight) {
+       $('.sticky-description').css('opacity', '1');
+    } else {
+		$('.sticky-description').css('opacity', '0');
+	}
+
+});
+</script>
+
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script>
+
+
+  // init Isotope
+var $grid = $('.grid').isotope({
+  itemSelector: '.grid-item',
+  layoutMode: 'fitRows'
+});
+
+var iso = $grid.data('isotope');
+var $filterCount = $('.filter-count');
+
+// filter functions
+var filterFns = {
+  // show if number is greater than 50
+  numberGreaterThan50: function() {
+    var number = $(this).find('.number').text();
+    return parseInt( number, 10 ) > 50;
+  },
+  // show if name ends with -ium
+  ium: function() {
+    var name = $(this).find('.name').text();
+    return name.match( /ium$/ );
+  }
+};
+// bind filter button click
+$('.filters-button-group').on( 'click', 'button', function() {
+  var filterValue = $( this ).attr('data-filter');
+  // use filterFn if matches value
+  filterValue = filterFns[ filterValue ] || filterValue;
+  $grid.isotope({ filter: filterValue });
+  updateFilterCount();
+});
+
+function updateFilterCount() {
+  $filterCount.text( iso.filteredItems.length + ' items' );
+}
+
+updateFilterCount();
+
+// change is-checked class on buttons
+$('.button-group').each( function( i, buttonGroup ) {
+  var $buttonGroup = $( buttonGroup );
+  $buttonGroup.on( 'click', 'button', function() {
+    $buttonGroup.find('.is-checked').removeClass('is-checked');
+    $( this ).addClass('is-checked');
+  });
+});
+
+
+  
+</script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var endlessClick = new Ajaxinate({
+        method: 'click'
+      });
+    });
+
+  </script>

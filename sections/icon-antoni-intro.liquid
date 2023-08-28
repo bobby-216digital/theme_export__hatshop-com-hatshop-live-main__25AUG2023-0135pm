@@ -1,0 +1,53 @@
+<!-- Icon Poloroid frame images -->
+<section class="icon-polaroids section-space40">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+  	  <div class="medium-12 cell">
+  	  <p class="small-body-title breadcrumb"><a href="/pages/icons"><i class="fal fa-chevron-left"></i> Icons</a></p></div>
+  	  </div>
+    </div>
+  <div class="grid-container polaroid">
+    <div class="grid-x align-center">
+      <div class="large-8 cell relative">
+        <img src="{{ section.settings.poloroid | img_url: 'master' }}" />
+        <h2 class="text-center">{{ section.settings.title }}</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if section.settings.content != '' %}
+<!-- 7 column centered text only -->
+<section class="icon-row-text">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x align-center bottom50">
+      <div class="large-7 cell">
+        <p>{{ section.settings.content }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Intro",
+    "settings": [
+      {
+        "id": "poloroid",
+        "type": "image_picker",
+        "label": "Poloroid collage"
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title"
+      },
+      {
+        "id": "content",
+        "type": "richtext",
+        "label": "Content"
+      }
+    ]
+  }
+{% endschema %}

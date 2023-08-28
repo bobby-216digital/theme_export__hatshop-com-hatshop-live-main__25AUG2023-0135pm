@@ -1,0 +1,77 @@
+<div class="header-spacer"></div>
+
+<!-- Atelier Single Intro -->
+<section class="full-page atelier-intro umh-story" style="background-image:url('{{ article.image.src | img_url: '500x' }}')">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="medium-12 cell text-center align-middle">
+				<div id="story_splash_elements">
+	  				<a href="#story_bottom"></a><div id="story_splash_title"><a href="#story_bottom">
+	  				<h1>{{ article.title }}</h1>
+  					<div id="story_splash_read">
+  						<a href="#story_bottom">
+  							<img src="/UMH/img/stories/read.png">
+  						</a>
+  					</div>
+	  			</div>
+	  		</div>
+		</div>
+    </div>
+  </div>
+</section>
+<!-- Atelier Single Content -->
+<section class="atelier-content">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+	  <div class="medium-12 cell">
+	  <p class="small-body-title breadcrumb"><a href="/blogs/atelier">< the atelier</a></div>
+	  </div>
+      <div class="medium-12 cell">
+        <h1>{{ article.title }}</h1>
+      </div>
+    </div>
+	 <div class="grid-container">
+    <div class="grid-x grid-padding-x" id="post">
+      <div class="medium-3 cell data-sticky-container">
+        <div class="sticky" data-sticky data-anchor="post">
+          <img src="http://gooseworksdev.com/hs/sample/atelier-line.png" />
+          <p class="post-date">{{ article.created_at | date: "%a, %b %d, %y" }}</p>
+          </div>
+      </div>
+      <div class="medium-9 cell atelier-post">
+	  	{{ article.content }}
+		{% for value in article.metafields.rowType.rowType %}
+		{% if article.metafields.rowType.rowType[forloop.index0] == 'Text' %}
+
+		    {{ article.metafields.atelierText.atelierText[forloop.index0] }}
+		{% endif %}
+		{% if article.metafields.rowType.rowType[forloop.index0] == 'Small Image' %}
+			<img src="{{ article.metafields.atelierImage.atelierImage[forloop.index0] }}" alt=""  class="half-post" />
+		{% endif %}
+		{% if article.metafields.rowType.rowType[forloop.index0] == 'Medium Image' %}
+
+		    <img src="{{ article.metafields.atelierImage.atelierImage[forloop.index0] }}" alt="" class="full-post" />
+		{% endif %}
+		{% if article.metafields.rowType.rowType[forloop.index0] == 'Large Image' %}
+	  </div>
+	</div>
+	</div>
+  <img src="{{ article.metafields.atelierImage.atelierImage[forloop.index0] }}" alt="" class="full-wide-image" />
+  <div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="medium-9 cell medium-offset-3 atelier-post">
+		{% endif %}
+		{% if article.metafields.rowType.rowType[forloop.index0] == 'Quote' %}
+			</div>
+		   </div>
+		   	</div>
+		   <blockquote class="atelier-post">{{ article.metafields.atelierQuote.atelierQuote }}</blockquote>
+		   <div class="grid-container">
+		   		<div class="grid-x grid-padding-x">
+		   			<div class="medium-9 cell medium-offset-3  atelier-post">
+		{% endif %}
+		{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

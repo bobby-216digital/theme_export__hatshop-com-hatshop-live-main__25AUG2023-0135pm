@@ -1,0 +1,49 @@
+<h1 class="h2">{{ section.settings.title }}</h1>
+{{ 'sketch-border.png' | asset_url | img_tag: 'Border', 'sketch-border' }}
+<ol>
+
+  {% for block in section.blocks %}
+  {% case block.type %}
+
+  {% when 'shippingItems' %}
+  <!-- Repeatable list of shipping options -->
+  <li>
+    <span class="small-body-title">{{ block.settings.shippingTitle }}</span>
+    {{ block.settings.shippingExplanation }}
+  </li>
+
+  {% endcase %}
+  {% endfor %}
+
+</ol>
+
+{% schema %}
+  {
+    "name": "Shipping",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Shipping Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "shippingItems",
+        "name": "Shipping Explanation Item",
+        "settings": [
+          {
+            "id": "shippingTitle",
+            "type": "text",
+            "label": "Shipping Title"
+          },
+          {
+            "id": "shippingExplanation",
+            "type": "richtext",
+            "label": "Shipping Explanation"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,63 @@
+<!-- UMH Creations background -->
+<section class="umh-creations-single collab-single" style="background-size: 100%;background-image:url('http://gooseworksdev.com/hs/sample/umh-collab-bg.png')">
+	<!-- UMH Creations details-->
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x" id="post">
+			<div class="medium-12 cell data-sticky-container">
+			<p class="small-body-title breadcrumb"><a href="/blogs/collaborations"><i class="fas fa-chevron-left"></i> Collaborations</a></p>
+				<h1 class="umh">{% if article.metafields.accentuate.short_title %}{{ article.metafields.accentuate.short_title }}{% else %}{{ article.title }}{% endif %}</h1>
+			</div>
+			<div class="medium-3 cell">
+				{% if article.metafields.accentuate.related_collaborations %}
+				<ul>
+					{% assign selected_handles = article.metafields.accentuate.related_collaborations
+				 | split: '|' %}
+					{% for selected_handle in selected_handles %}
+					<li><a href="https://worth-and-worth.myshopify.com{{ articles[selected_handle].url }}" {% if articles[selected_handle].active %}class="current"{% endif %}>{{ articles[selected_handle].metafields.accentuate.collaboration_year }}</a></li>
+					{% endfor %}
+				</ul>
+				{% endif %}
+				<!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox_env7"></div>
+			</div>
+			<div class="medium-9 cell creations-post">
+				<div class="grid-x grid-padding-x creations-inner">
+					{% for value in  article.metafields.accentuate.collab_image1 %}
+					<!-- Two images side by side -->
+					<div class="medium-5 cell bottom50 left-img relative">
+						<a href="javascript:void(0)" class="zoom" id="prod-customize" data-toggle="showCustom"><img src="{{ article.metafields.accentuate.collab_image1[forloop.index0] }}" class="{% cycle 'one', 'two' %}" />
+						<div class="over-image-want text-center"><p><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" />I WANT THIS HAT</p></div>
+						</a>
+					</div>
+					<div class="medium-5 cell bottom50 right-img relative">
+						<a href="javascript:void(0)" class="zoom"  id="prod-customize" data-toggle="showCustom"><img src="{{ article.metafields.accentuate.collab_image2[forloop.index0] }}" class="{% cycle 'three', 'four'  %}" />
+						<div class="over-image-want text-center"><p><img src="https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/logo-sticky.png" alt="customize hat" />I WANT THIS HAT</p></div>
+						</a>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<style>
+
+	.js-off-canvas-overlay.is-visible {
+	    opacity: 1;
+	    visibility: visible;
+	    /* background-color: rgba(0,0,0,0.3); */
+	    z-index: 1990 !important;
+	    background: transparent url(https://cdn.shopify.com/s/files/1/0031/1699/0564/t/4/assets/support-bg-transparent2.png?11533) no-repeat top left/cover;
+	}
+</style>
+<script type="text/javascript">
+	var url = window.location.toString();
+	$('.collab-single ul li a').each(function(){
+	   var myHref= $(this).attr('href');
+	   if( url == myHref) {
+	       $('.collab-single ul li a').removeClass('active');
+	       $(this).addClass('active');
+	   }
+	});
+</script>
+
+{% include 'article-customize' %}

@@ -1,0 +1,47 @@
+{% if form.posted_successfully? %} 
+<!-- Customize request form -->
+	<div class="text-center thanks">	
+		<img src="{{ "thanks-hat.png" | asset_url }}" width="118" />
+		<h1>Thank you!</h1>
+		<p>We look forward to working with you, <br />and will be in touch shortly.</p>
+	</div>
+	<button class="close-button" aria-label="Close menu" type="button" data-close>
+		<span aria-hidden="true">&times;</span>
+	</button>
+<script  type="text/javascript">
+	$('.close-button').click(function () {
+		$('.js-off-canvas-overlay').addClass('is-hidden');
+	});
+</script>
+<style>
+	.customize-form {
+		display: none;
+	}
+</style>
+{% endif %}
+
+{%- if form.errors -%}
+  <div class="form-message form-message--error">
+    <h3 tabindex="-1" data-form-status="error">{{ 'contact.form.error_heading' | t }}</h3>
+    <ul>
+      {% for field in form.errors %}
+        <li>
+
+          {% capture field_label %}
+            {% case field %}
+              {% when 'author' %}
+                {{ 'contact.form.name' | t }}
+              {% when 'body' %}
+                {{ 'contact.form.message' | t }}
+              {% else %}
+                {{ form.errors.translated_fields[field] }}
+            {% endcase %}
+          {% endcapture %}
+
+          {% comment %} the href should match the input's id {% endcomment %}
+          <a href="#{{ form_id }}-{{ field }}">{{ field_label | strip | capitalize }} {{ form.errors.messages[field] }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{%- endif -%}

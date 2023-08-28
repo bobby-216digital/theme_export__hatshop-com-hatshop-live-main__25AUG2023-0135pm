@@ -1,0 +1,47 @@
+
+<div id="ReturnRequest{{ order.id }}" class="reveal returnRequestForm" data-reveal> 
+    {%- assign formId = 'ReturnForm' -%}
+	  {% capture order_id %}{{formId}}{{ order.id }}{% endcapture %}
+	
+	{% form 'contact', id: order_id %}
+
+    <h1 class="h2">Request a Return</h1>
+    {{ 'sketch-border.png' | asset_url | img_tag: 'Border', 'sketch-border' }}
+    <div class="grid-x grid-margin-x contact-form">
+    	<div class="large-12 cell">
+    		<h2 class="small-body-title">{{ section.settings.formTitle }}</h2>
+    		<p>{{ section.settings.formDesc }}</p>
+    		<input type="hidden" id="{{ formId }}-submission" name="contact[submission]" value="Return Request Form" />
+    		<input type="text" placeholder="Full Name" id="{{ formId }}-name" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}" />
+    		<input type="email" placeholder="Email Address" id="{{ formId }}-email"  name="contact[email]" autocorrect="off"  autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" aria-required="true" {%- if form.errors contains 'email' -%} class="input--error"  aria-invalid="true" aria-describedby="{{ formId }}-email-error" {%- endif -%} />
+    	</div>
+    	<div class="large-6 cell">
+    		<input type="text" placeholder="Phone Number" id="{{ formId }}-phone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}" />
+    	</div>
+    	<div class="large-6 cell">
+    		<input type="text" placeholder="Order Date" id="timeDate" name="contact[OrderDate]" />
+    	</div>
+    	<div class="large-12 cell">
+    		<textarea placeholder="Add a note" id="{{ formId }}-message" name="contact[body]">I am requesting a return on Order {{ order.name }}. </textarea>
+    	</div>
+    	<div class="large-12 cell text-center">
+	  		<button type="submit" class="button filled">Submit</button><a href="#" id="HideNewAddressForm" class="cta" data-close="" style="padding-top: 18px; margin-top: 0;  vertical-align: middle;  margin-left: 20px; border-bottom: 1px solid #2e2e2e;font-size: 13px;letter-spacing: 1px;">Cancel</a>
+    	</div>
+    </div>
+
+	{% if form.posted_successfully? %}
+	          <script>
+	            $("#returnresponse").prepend("<p class='note form-success' style='margin: 15px 0 0 0;'> We have received your return request. We will notify you of any order status updates. </p>" );
+	      	  </script>
+	        {% endif %}
+	      
+		  {% if form.errors %}
+		    {% for text in form.errors %}
+		      <script>
+		        $("#returnresponse").prepend("<p class='note form-error'>{{ 'form.post_error' | t }}'{{ text }}'</p>");
+		      </script>
+		    {% endfor %}
+		  {% endif %}
+  {% endform %}
+	</div>
+	

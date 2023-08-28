@@ -1,0 +1,53 @@
+<!-- Icon header video and/or image -->
+<div class="grid-container">
+	<div class="grid-x grid-padding-x align-middle section-space80">
+		<div class="large-7 cell">
+			<a href="{{ section.settings.harefeltfeltBannerLink }}" class="zoom" data-hover-id="hfb"><img src="{{ section.settings.harefeltBannerImgage | img_url: 'master' }}"></a>
+		</div>
+		<div class="medium-5 cell">
+			<div class="support-text">
+				<h5>{{ section.settings.harefeltBannerSmalltitle }}</h5>
+				<h3>{{ section.settings.harefeltBannertitle }}</h3>
+				<div class="banner-text">{{ section.settings.harefeltBannerDescription }}</div>
+				{% if section.settings.harefeltfeltBannerLink %}<a href="{{ section.settings.harefeltfeltBannerLink }}" class="cta dark link-activate" data-hover-id="hfb">{{ section.settings.harefeltBannerLinkText }}</a>{%endif %}
+			</div>
+		</div>
+	</div>
+</div>
+{% schema %}
+  {
+    "name": "Hare Felt Banner",
+    "settings": [
+      {
+        "id": "harefeltBannerImgage",
+        "type": "image_picker",
+        "label": "Banner Image - Size: 1400px x 1000px"
+      },
+      {
+        "id": "harefeltBannerSmalltitle",
+        "type": "text",
+        "label": "Small Text above title"
+      },
+      {
+        "id": "harefeltBannertitle",
+        "type": "text",
+        "label": "Title"
+      },
+      {
+        "id": "harefeltBannerDescription",
+        "type": "richtext",
+        "label": "Description"
+      },
+      {
+        "id": "harefeltfeltBannerLink",
+        "type": "text",
+        "label": "Link"
+      },
+      {
+        "id": "harefeltBannerLinkText",
+        "type": "text",
+        "label": "Link Text"
+      }
+    ]
+  }
+{% endschema %}

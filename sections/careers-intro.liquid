@@ -1,0 +1,39 @@
+<!-- Row type single column text --> 
+<div class="grid-x grid-padding-x align-center bottom50">
+  <div class="large-7 cell">
+    <h2>{{ section.settings.careersIntro }}</h2>
+  </div>
+</div>
+
+<!-- Row type two images  -->
+<div class="grid-x grid-padding-x bottom50">
+  <div class="large-6 cell">
+    <img src="{{ section.settings.careersImageLeft | img_url: '900x900' }}" />
+  </div>
+  <div class="large-6 cell">
+    <img src="{{ section.settings.careersImageRight | img_url: '900x900' }}" />
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Introduction",
+    "settings": [
+      {
+        "id": "careersIntro",
+        "type": "text",
+        "label": "Introduction Text"
+      },
+      {
+        "id": "careersImageLeft",
+        "type": "image_picker",
+        "label": "Image Left"
+      },
+      {
+        "id": "careersImageRight",
+        "type": "image_picker",
+        "label": "Image Right"
+      }
+    ]
+  }
+{% endschema %}
